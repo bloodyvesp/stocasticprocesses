@@ -1,0 +1,266 @@
+\begin{problema}
+	\emph{Tomado de Mathematical Tripos, Part III, Paper 33, 2012, \url{http://www.maths.cam.ac.uk/postgrad/mathiii/pastpapers/}}
+
+	Sean $\paren{X_i,i\in\na}$ variables aleatorias 
+	independientes con $\proba{X_i=\pm 1}=1/2$. Sean $S_0=0$ y $S_n=\sum_{i=1}^n X_i$. 
+
+	\begin{enumerate}
+		\item[(i)] Sea $T_1=\min\set{n\geq 0:S_n=1}$. Explique por qu\'e $T_1$ es un 
+		tiempo de paro y calcule su esperanza.
+		
+		\item[(ii)] Mediante el inciso anterior, construya una martingala que converge 
+		casi seguramente pero no lo hace en $L_1$.
+		
+		\item[(iii)] Sea $M_n$ la martingala obtenida al detener a $-S$ en $T_1$. Utilice la solución al
+		Problema de la Ruina para probar que $\mw(max_n M_n \geq M) = 1/(M+1)$ para todo $M \geq 1$. Concluya que
+		$\E(max_m M_n) = \infty$ y que por lo tanto $\E(max_{m\leq n} M_m) \rightarrow \infty$ conforme 
+		$n \rightarrow \infty$. Finalmente, deduzca que no puede haber una desigualdad de tipo Doob cuando $p=1$.
+		
+		\item[(iv)] Sea $T=\min\set{n\geq 2:S_n=S_{n-2} + 2}$ y $U=T-2$. ?`Son $T$ y $U$ 
+		tiempos de paro? Justifique su respuesta.
+		
+		\item[(v)] Para la variable $T$ que hemos definido, calcule $\esp{T}$. 
+	\end{enumerate}
+
+	\defin{Categor\'ias: } Tiempos de paro, problema de la ruina
+\end{problema}
+
+\begin{proof}
+	\begin{enumerate}
+		\item[(i)]
+		Sea $T_1=\min\set{n\geq 0:S_n=1}$. Explique por qu\'e $T_1$ es un 
+		tiempo de paro y calcule su esperanza.\\
+		
+			Consideremos a la filtración $(\F_n)_{n\in\N}$ como la filtracion 
+			generada por $X_1, X_2, \dots$.\\
+
+			Es decir, $F_0 = \{\emptyset, \Omega\}$, $\F_n = \sigma(X_1, X_2, \dots, X_n)$\\
+		
+			Nótese que $S_0$ es medible bajo cualquier sigma álgebra por ser constante, en particular bajo
+			$\F_0$.\\
+		
+			Basta demostrar que $(T_1 = n) \in \F_n$ para ver que $T_1$ es tiempo de paro. $T_1$ 
+			representa el primer tiempo en que la suma es igual a $1$. Es decir, para cualquier 
+			momento anterior, la suma no es $1$.
+		
+			Eso escrito en símbolos significa:
+		
+			$$(T_1 = n) = \bigcap_{i=0}^{n-1}(S_i \not= 1) \cup (S_n = 1).$$ 
+		
+			Para $n=0$, $(S_0 = 1) = \omega \in \F_0$. \\
+		
+			Como $(S_i \not= 1) \in \F_j$ siempre que $i \leq j$. Para $n>0$, $(T_1 = n)$ es el resultado de 
+			unir e intersectar conjuntos $\F_n$-medibles, lo cual resulta $\F_n$-medible.\\
+		
+			Para $m \in \N$. Definamos $T_m = min\{n \geq 0 : S_n = m\}$ 
+			(Nótese que para el caso $m=1$, esta definición	coincide con la definición previa de $T_1$).\\
+			
+			Para $a,b \in \N$, podemos definir el tiempo de paro $T_{a,b} = T_{-a} \wedge T_b$, y 
+			corresponde al 	tiempo de paro del problema de la ruina. Para este tiempo de paro ya conocemos 
+			la esperanza y es
+			$$\E(T_{a,b}) = ab.$$\\
+			
+			Ahora, definamos la sucesion de variables aleatorias $T_{1,1}, T_{2,1}, T_{3,1}, \dots, T_{n,1}, 
+			\dots$. Notemos que si $a>a' \in N$ entonces $T_{-a} > T_{-a'}$, pues $T_{-a}$ es la primera vez
+			que se llega a $-a$, y para poder alcanzar $-a$ era necesario haber pasado por $-a'$.
+			De aqui tenemos que si $a>a'$, entonces $T_{a,1} \geq T_{a',1}$. De donde nuestra suceción es 
+			no decreciente.\\
+			
+			Por otro lado, que si $a>a' \in N$ entonces $T_{-a} > T_{-a'}$ implica que $T_{-n} n \in \N$ es 
+			una suceción extrictamente creciente y por lo tanto 
+			$\lim\limits_{n \rightarrow \infty} T_{-n} = \infty$, con esto tenemos que el límite de nuestra 
+			suceción es 
+			$$		
+			\lim_{n\rightarrow\infty} T_{n,1} = 
+			\lim_{n\rightarrow\infty} T_{-n} \wedge T_1 = 
+			\infty \wedge T_1 = 
+			T_1
+			$$
+
+			Tenemos todos los ingredientes para usar Teorema de convergencia monótona sobre nuestra suceción
+			y la variable $T_1$. Nuestra sucecion es monótona y converge puntualmente a $T_1$. Utilizando
+			dicho teorema obtenemos:
+			
+			$$
+			\E(T_1) = 
+			\E(\lim_{n\rightarrow\infty} T_{n,1}) = 
+			\lim_{n\rightarrow\infty} \E(T_{n,1}) = 
+			\lim_{n\rightarrow\infty} n\cdot 1 =
+			\infty.
+			$$
+			
+			Lo cual era intuitivo. Si $\E(T_1)$ fuese finito, diría que existe un número de volados donde
+			uno puede apostar con mucha certeza que ganará un peso después de jugar "cerca" de esa cantidad
+			de volados. Intuitivamente, esto vuelve injusto un juego de volados donde la moneda es
+			justa.\\
+			
+		\item[(ii)]
+		Mediante el inciso anterior, construya una martingala que converge 
+		casi seguramente pero no lo hace en $L_1$.\\
+
+			
+			En el ejercicio 4 se probará que si $T$ y $S$ son tiempos de paro, entonces $T\wedge S$ también 
+			es tiempo de paro. Con esto tenemos que si $T_1$ es tiempo de paro, entonces $T_1 \wedge n$ con 
+			$n \in \N$ también es tiempo de paro. Definimos entonces 
+			$$M_n = S_{T_1 \wedge n}.$$
+			
+			Veamos que los $M_n$ forman una martingala.
+			
+			\begin{itemize}
+			 	\item[(a)] 
+				 	$M_n$ es adaptada a la filtración.
+			 		$$
+			 		M_n(w) = S_{T_1 \wedge n}(w) = 
+			 		S_{T_1 \wedge n (w)}(w) = 
+			 		\sum_{k=1}^{T_1 \wedge n (w)} X_k = 
+			 		\sum_{k=1}^{n} (X_k \cdot \indic_{T_1 \geq k})(w).
+			 		$$
+			 		
+			 		De donde, podemos escribir:
+					\begin{equation}\label{problema1_3:descomposicion_de_M_n}
+			 			M_n = \sum_{k=1}^{n} (X_k \cdot \indic_{T_1 \geq k}).
+					\end{equation}								 		
+			 		
+			 		Recordemos que $X_k$ es $\F_n$-medible para toda $k \leq n $. Por ser
+			 		$T_1$ tiempo de paro, los conjuntos $A_k = \{T_1 = k\}$ y 
+			 		$B_k = \{T_1 \leq k\}$	son $F_k$ medibles y por lo tanto 
+			 		$A_k \cup B_k^c = \{ T_1 \geq k\}$ también lo es. De aquí que 
+			 		$\indic_{T_1 \geq k}$ es $\F_k$-medible y por lo tanto también $\F_n$-medible
+			 		para toda $n$ tal que $n \geq k$.\\
+			 		  
+			 		Entonces $M_n$ es suma y productos de funciones $\F_n$-medibles y por lo tanto
+			 		$F_n$-medible. Que es lo que queríamos demostrar.\\
+			 		
+			 	\item[(b)]
+			 		$M_n \in \mathbb{L}_1$\\
+			 		
+			 		De (\ref{problema1_3:descomposicion_de_M_n}) podemos ver que $M_n$ es 
+			 		suma finita de variables acotadas. Por lo tanto $M_n \in \mathbb{L}_1$.\\
+			 		
+			 	\item[(c)] Ahora probaremos que	$\E(M_{n+1} | \F_{n}) = M_{n}$\\
+			 		
+			 		Primero:
+			 		\begin{align}
+			 			\E(M_{n+1} | \F_{n}) &= \E( S_{T_1 \wedge (n+1)} | \F_{n}) = 
+			 			\E\bigg( \sum_{k=1}^{n+1} (X_k \cdot \indic_{T_1 \geq k})\bigg| \F_{n}\bigg) \\	 			
+			 			& =\E\bigg( \sum_{k=1}^{n} (X_k \cdot \indic_{T_1 \geq k}) \bigg| \F_{n}\bigg) +
+			 			\E\bigg((X_{n+1} \cdot \indic_{T_1 \geq n+1}) \bigg| \F_{n}\bigg) \\
+			 			&\mbox{(Este paso es gracias a que $X_k$ y $\indic_{T_1 \geq k}$ son $\F_n$-medibles)}\\
+			 			& = \sum_{k=1}^{n} (X_k \cdot \indic_{T_1 \geq k}) + 
+			 			\E((X_{n+1} \cdot \indic_{T_1 \geq n+1}) | \F_{n}) \\
+			 			& = S_{T_1 \wedge n} + \E((X_{n+1} \cdot \indic_{T_1 \geq n+1}) | \F_{n}) \\
+			 			& = M_n + \E((X_{n+1} \cdot \indic_{T_1 \geq n+1}) | \F_{n})
+			 		\end{align}
+			 		
+			 		Entonces, nos basta probar que $\E(X_{n+1} \cdot \indic_{T_1 \geq n+1} |
+			 		 \F_{n}) = 0$ para terminar nuestra demostración.\\
+			 		 
+					Sean $A = \{T_1 = n\}$ y $B = \{ T_1 \leq n\}$. Por ser $T_1$ tiempo de paro,
+					$A$ y $B$ son $\F_n$-medibles. Por lo tanto $B \setminus A$ también es $\F_n$-medible. 
+					Notemos que $\{T_1 \geq n+1\} = (B \setminus A)^c$. Por lo tanto $\{T_1 \geq n+1\}$ es
+					$\F_n$-medible. De donde  $\indic_{T_1 \geq n+1})$ es $\F_n$-medible.\\
+					
+					Con esto, ahora tenemos que:
+					\begin{align}
+						\E((X_{n+1} \cdot \indic_{T_1 \geq n+1}) | \F_{n}) &= \indic_{T_1 \geq n+1} \cdot \E(X_{n+1} | \F_{n}) \\
+						&\mbox{(Este paso es gracias a que los $X_n$ son independientes)} \\
+						&=\indic_{T_1 \geq n+1} \cdot \E(X_{n+1} ) \\
+						&=\indic_{T_1 \geq n+1} \cdot 0 \\
+						&= 0
+					\end{align}	
+					
+					Como queríamos demostrar.
+			\end{itemize}
+			
+			Ahora que tenemos que $(M_n)_{n \in \N}$ es martingala, confirmemos que converge casi seguramente.\\
+			
+			Notemos que $(T_1 \wedge n)_{n \rightarrow \infty} \rightarrow T_1$ c.s.\\
+			
+			De aquí que $(M_n)_{n \rightarrow \infty} = (S_{T_1 \wedge n})_{n \rightarrow \infty} = S_{T_1}$ c.s. \\				
+			
+			Veamos que la convergencia no ocurre en $\mathbb{L}_1$. \\
+						
+			Dado que $T_1 \wedge n$ es un tiempo de paro acotado para toda $n \in \N$,
+			podemos aplicar el Teorema de Muestreo Opcional de 	Doob. 
+			El cual nos dice que $\E(M_n) = \E(S_{T_1 \wedge n}) = \E(S_0) = 0$.\\
+			
+			Por otro lado, por definición de $T_1$, $S_{T_1} = 1$ c.s.	De donde $\E(S_T) = 1$.\\
+			
+			\begin{align}
+				\E(M_n) = 0 \not\rightarrow 1 = \E(S_{T_1}).
+			\end{align}			
+			
+			Y con esto, queda demostrado que la convergencia no se da en $\mathbb{L}_1$.\\
+			
+		\item[(iii)] 
+		
+		Sea $M_n$ la martingala obtenida al detener a $-S$ en $T_1$. Utilice la solución al
+		Problema de la Ruina para probar que $\mw(max_n M_n \geq M) = 1/(M+1)$ para todo $M \geq 1$. Concluya que
+		$\E(max_m M_n) = \infty$ y que por lo tanto $\E(max_{m\leq n} M_m) \rightarrow \infty$ conforme 
+		$n \rightarrow \infty$. Finalmente, deduzca que no puede haber una desigualdad de tipo Doob cuando $p=1$.\\
+		
+			Definimos $M_n = -S_{T_1 \wedge n}$. Notemos que $M_n$ únicamente toma valores en $[-1, \infty]$.
+			Para calcular $\mw(max_n M_n \geq M)$ notemos primero que:
+			\begin{align}
+				\mw(max_n M_n \geq M) = 1 - \mw(max_n M_n < M).
+			\end{align}\\
+			
+			$max_n M_n < M$ significa que $M_n$ nunca alcanza el valor $M$.\\
+			 
+			Intentando hacer analogía con el problema de la ruina, pensemos en dos concursantes,
+			uno con $1$ peso y otro con $M$ pesos. Nunca alcanzar $M$ significa que nunca gana el que tiene $1$ peso.\\
+			
+			Esta probabilidad ya la conocemos y es 
+			
+			\begin{align*}
+				\mw(max_n M_n < M) = \frac{M}{M + 1}
+			\end{align*}
+				
+			Por lo tanto
+			
+			\begin{align}
+				\mw(max_n M_n \geq M) 	&= 1 - \mw(max_n M_n < M) \\
+										&= 1 - \frac{M}{M + 1}\\
+										&= \frac{M+1}{M+1} - \frac{M}{M + 1}\\
+										&= \frac{1}{M+1}
+			\end{align}
+			
+			Utilizando este resultado:
+			\begin{align} \label{problema1_3:esperanza_del_maximo_de_M_n}
+				\E(max_n M_n) 	&= - \mw(max_n M_n = -1) + \sum_{M=1}^{\infty} \mw(max_n M_n \geq M) \\
+								&= - \mw(max_n M_n = -1) + \sum_{M=1}^{\infty} \frac{1}{M+1} \\ 
+								&= - \mw(max_n M_n = -1) + \infty \\
+								&= \infty
+			\end{align}						
+			
+			Intuitivamente, esto nos dice que el valor máximo que podemos esperar en un juego de volados, no está acotado.
+			Ahora, tenemos que:
+			\begin{align}
+				\|\overline{M_{n}^{+}}\|_1  &=    \E{\overline{M_{n}^{+}}} \\
+											&=    \E{\max_{m \leq n}M_m^+} \\
+											&\geq \E{\max_{m \leq n}M_m}										
+			\end{align}
+				
+			Donde, el último término, tiende a infinito en base al resultado 
+			(\ref{problema1_3:esperanza_del_maximo_de_M_n}).
+
+			Por otro lado:
+			\begin{align}
+				\|M_n^+\|_1=\|-S_{T_{1\wedge n}}^{+}\|_1  \longrightarrow  \|-S_{T_1}^+\|_1 = 0 < \infty
+			\end{align}
+			
+			Por lo tanto, no existe número $K$, tal que
+			\begin{align}
+				 \|\overline{M_n^+}\|_1 \leq  K \|M_n^+\|_1
+			\end{align}
+			
+			En otras palabras, no tenemos una desigualdad de tipo Doob para $p=1$.\\
+			
+		\item[(iv)]  
+		Sea $T=\min\set{n\geq 2:S_n=S_{n-2} + 2}$ y $U=T-2$. ?`Son $T$ y $U$ 
+		tiempos de paro? Justifique su respuesta.\\
+					
+		\item[(v)] Para la variable $T$ que hemos definido, calcule $\esp{T}$.\\
+		
+	\end{enumerate}
+\end{proof}
