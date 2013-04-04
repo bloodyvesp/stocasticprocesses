@@ -233,7 +233,6 @@
 								&= \infty
 			\end{align}						
 			
-			Intuitivamente, esto nos dice que el valor máximo que podemos esperar en un juego de volados, no está acotado.
 			Ahora, tenemos que:
 			\begin{align}
 				\|\overline{M_{n}^{+}}\|_1  &=    \E{\overline{M_{n}^{+}}} \\
@@ -286,6 +285,18 @@
 				$\bigcup_{i=0}^{n} {T = i} \in \F_n \subset \F_{n + 1}$. Por lo tanto
 				$\{T = n + 1 \} \in \F_{n+1}$ para toda $n \geq 2$ y con esto termina la demostración.\\
 				
+			Ahora, intuitivamente $U$ significa el momento justo antes de ganar dos volados consecutivos.
+			Esto, quedría decir que tenemos información sobre eventos que aún no ocurren. Así que intuitivamente
+			esto no debería ser un tiempo de paro.\\
+			
+			Efectivamente, si tomamos como ejemplo el conjunto: 
+				\begin{align}
+					\{ U = 1 \} = \{ T - 2 = 1\} = \{ T = 3\} = \{X_1 = -1, X_2 = 1, X_3 = 1\}
+				\end{align}		\\
+					
+			Es fácil notar que es un conjunto que pertenece a $\F_3$, pero no a $\F_1$. Pues $\F_1$
+			no contiene información alguna sobre $X_2$ y $X_3$. Así que el conjunto más pequeño de $\F_1$ 
+			que contiene a $\{ U = 1 \}$ es $\{ X_1 = -1 \}$.\\
 			
 		\item[(v)] 
 		Para la variable $T$ que hemos definido, calcule $\esp{T}$.\\
