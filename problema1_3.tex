@@ -301,5 +301,60 @@
 		\item[(v)] 
 		Para la variable $T$ que hemos definido, calcule $\esp{T}$.\\
 		
+		   	Primero, platicaré de manera intuitiva cómo vamos a proceder para solucionar este problema.\\
+		
+		   	Imaginemos un juego de casino a base de un juego de volados con las siguientes reglas:\\
+		   	\begin{itemize}
+		   			\item En cada turno, cada jugador tiene que apostar todo el dinero que tiene.
+		   			\item Si un jugador se queda sin dinero, tiene que abandonar el juego.
+		   			\item Si cae ``sol" cada jugador recibe el doble de lo que había apostado en ese turno.  
+		   	\end{itemize}
+		   
+		   	\;El casino tiene dinero infinito y cada habitante cuenta con exactamente $1$ peso antes de
+		   	iniciar el juego.\\
+		   
+		   	Además, en cada nuevo turno entra exactamente un nuevo jugador al juego.\\
+		   
+		   	Para nuestro problema, supongamos que $X_n = 1$ significa que en el $n$-ésimo turno, salió sol.
+		   	Entonces, $T$ nos indica cuando es la primera vez que caen dos soles consecutivos.\\
+		   
+		   	Sea $D_n$ la variable que indica cuánto dinero ha ganado el casino para el tiempo $n$.\\
+		   
+		   	Observemos que en el momento que cae ``águila", todo jugador pierde todo su dinero y abandona el juego.
+		   	Y que por cada jugador que pierde, el casino gana exáctamente $1$ peso (pues cada jugador en cada
+		   	turno apuesta todo el dinero que posee, es decir el peso con el que empezó y todo lo que le habia
+		   	ganado al casino).\\
+		   
+		   	Entonces, al tiempo $T-2$, todo mundo había perdido. Es decir que al tiempo $T-2$ el casino ha ganado
+		   	$T-2$ pesos.\\
+		   
+		   	Luego, al tiempo $T-1$, ha caido un sol y hay exactamente un jugador al que el casino tuvo 
+		   	que pagar $1$ peso.\\
+		   
+		   	Al tiempo $T$, al jugador del turno pasado el casino tuvo que darle $2$ pesos y al jugador del nuevo
+		   	turno tuvo que darle $1$ peso.\\
+		   
+		   	Entonces, ya podemos decir cuanto dinero ha ganado el casino al tiempo $T$.
+			\begin{align}\label{problema1_3:Dinero_al_tiempo_T}
+				D_T = T-2 - 1 - 3 = T - 6. 
+			\end{align}					   
+		   
+		   	Notemos que además el juego es justo, en cada turno cada jugador tiene $1/2$ de probabilidad de
+		   	ganar el $2^t$ y $1/2$ de probabilidad de perder $2^t$. Es decir, la esperanza es $0$.\\
+		   	
+		   	$D_n$ es suma de este tipo de variables y por lo tanto su esperanza también será $0$.\\
+		   
+		   	Esto, nos da la intuición de que $D_n$ es martingala, Pero eso es la parte que demostraremos más adelante.\\
+		   
+			Suponiendo que ya demostramos que es martingala, entonces por teorema del muestrueo opcional de Doob
+			tenemos $\E(D_T) = \E(D_1) = 0$. De (\ref{problema1_3:Dinero_al_tiempo_T}) concluimos
+			\begin{align}
+				0 = \E(T - 6) = \E(T) - 6
+			\end{align}
+			
+			De donde $\E(T) = 6$.\\
+			
+			Ahora, para terminar con las formalidades, definamos bien a $D$ y comprobemos que es martingala y 
+			que podemos utilizar el Teoremoa del muestreo opcional de Doob como lo hemos hecho.    
 	\end{enumerate}
 \end{proof}
