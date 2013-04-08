@@ -340,14 +340,13 @@
 			\end{align}					   
 		   
 		   	Notemos que además el juego es justo, en cada turno cada jugador tiene $1/2$ de probabilidad de
-		   	ganar el $2^t$ y $1/2$ de probabilidad de perder $2^t$. Es decir, la esperanza es $0$.\\
+		   	ganar $2^t$ y $1/2$ de probabilidad de perder $2^t$. Es decir, la esperanza es $0$.\\
 		   	
 		   	$D_n$ es suma de este tipo de variables y por lo tanto su esperanza también será $0$.\\
 		   
-		   	Esto, nos da la intuición de que $D_n$ es martingala, Pero eso es la parte que demostraremos más adelante.\\
+		   	Esto, nos da la intuición de que $D_n$ es martingala, pero esa es la parte que demostraremos más adelante.\\
 		   
-			Suponiendo que ya demostramos que es martingala, entonces por teorema del muestrueo opcional de Doob
-			tenemos $\E(D_T) = \E(D_1) = 0$. De (\ref{problema1_3:Dinero_al_tiempo_T}) concluimos
+			Si logramos demostrar que $\E(D_T) = 0$. De (\ref{problema1_3:Dinero_al_tiempo_T}) concluimos
 			\begin{align}
 				0 = \E(T - 6) = \E(T) - 6
 			\end{align}
@@ -355,6 +354,114 @@
 			De donde $\E(T) = 6$.\\
 			
 			Ahora, para terminar con las formalidades, definamos bien a $D$ y comprobemos que es martingala y 
-			que podemos utilizar el Teoremoa del muestreo opcional de Doob como lo hemos hecho.    
+			que podemos utilizar el Teoremoa del muestreo opcional de Doob como lo hemos hecho.\\
+			
+			Sean entonces $(Y_n)_{n \in \N}$ variables aleatorias Bernulli de parámetro $1/2$ independientes.
+			Y sea $Z_n^m$ la cantidad de dinero que el jugador $m$ ha dado al casino definidas como:
+			
+			\begin{itemize}
+				\item 
+					Si $n < m$ entonces $Z_n^m = 0$ . (El jugador $m$ no participa en el juego sino hasta el turno $m$).
+				\item
+					$Z_{n+1}^{m} = (Z_n^{m} - 1) \cdot 2(Y_{n+1}) + 1$. (Si $Y_{n + 1} = 1$ [El jugador gana el volado], entonces el casino
+					pierde la cantidad apostada, que para el turno $n+1$ es $Z_n^n + 1$). Nótese que en cuanto un $Y_{n_0}$ se hace cero,
+					$Z_{n_0}^{n}$ y todos los que le sigan son todos iguales a $1$ (Como el jugador deja el juego después de haber perdido
+					un volado, deja su peso en el casino y entonces de ahí en adelante la cantidad que ha dado al casino es exactamente 1).
+			\end{itemize}
+			
+			Veamos que para cada $m \in \N$, $(Z_n^m)_{n \in \N}$ forma una martingala con respecto a la filtración $(\G_n)_{n \in \N}$ 
+			definida por los $Y_n$.\\
+			
+			Cada $Z_n^m$ es $\G_m$-medible por definición.\\
+			
+			Cada $Z_n^m$ es suma finita de variables acotadas. Por lo tanto cada una pertenece a $L_1$.\\
+			
+			Sólo nos falta verificar la propiedad de martingala.
+			
+			\begin{align}\label{problema1_3:Propiedad_de_martingala_para_el_dinero_perdido_por_un_apostador}
+				\E(Z_{n+1}^{m} | \G_n) &= \E((Z_n^{m} - 1) \cdot 2(Y_{n+1}) + 1 | \G_n)\\
+				                       &= \E((Z_n^{m} -1) \cdot 2(Y_{n+1}) | \G_n) + \E( 1 | \G_n)\\
+				                       &\;\;\;\;\mbox{[Por ser $(Z_n^{m} - 1)$ una variable $\G_n$-medible.]}\\
+				                       &= (Z_n^{m} -1) \cdot \E(  2(Y_{n+1}) | \G_n) + \E( 1 | \G_n)\\
+				                       &= (Z_n^{m} -1) \cdot 2\E( Y_{n+1} | \G_n) + \E( 1 | \G_n)\\
+				                       &\;\;\;\;\mbox{[Por ser $Y_{n + 1}$ independiente $\G_n$.]}\\
+				                       &= (Z_n^{m} -1) \cdot 2\E( Y_{n+1}) + \E( 1 | \G_n)\\
+				                       &= (Z_n^{m} -1) \cdot 2 \frac{1}{2} + \E( 1 | \G_n)\\
+				                       &= (Z_n^{m} -1) \cdot + 1 \\
+				                       &= Z_n^m.
+			\end{align}
+			
+			Ahora definamos a $D_n = \sum_{i=1}^n (Z_n^i)$. Que significa, La cantidad de dinero que el casino ha ganado al tiempo $n$. 
+			Justo como lo habíamos dicho en la ``demostración intuitiva".\\
+			
+			Ver que $D$ es martingala es fácil. Cada $D_n$ es suma finita de variables finitas y por lo tanto pertenece a $L_1$.
+			$D_n$ es suma de variables $\G_n$-medibles y por lo tanto también lo es. Y la propiedad de martingala se sigue directamente de
+			(\ref{problema1_3:Propiedad_de_martingala_para_el_dinero_perdido_por_un_apostador}).\\
+			
+		    Es cierto que podemos aplicar Doob sobre el tiempo $T \wedge n$ por ser acotado y de aquí que:
+		    $\E(D_{T \wedge n}) = \E(D_1) = 0$.\\
+		    
+		    Notemos que $D_{T \wedge n} \longrightarrow D_T \; c.s.$\\
+		    
+		    Nos gustaría poder decir lo mismo de sus esperanzas y para eso utilizaremos teroema de convergencia dominada.\\
+		    
+		    Es claro que al tiempo $T \wedge n$ el casino a lo más pudo haber ganado $T \wedge n$ pesos.
+		    De aquí que $D_{T \wedge n} \geq T \wedge n \geq T$.\\
+		    
+		    Además, por definición de $T$, para el tiempo $T$ el casino a lo más ha perdido $4$ pesos y es la primera vez que 
+		    pierde tanto. Así que $-4 \leq D_{T \wedge n}$.\\ 
+		    
+			Entonces, nuestra martingala $D$ esta dominada por $\max(T, 4) < T + 4$. Bastaría demostrar que $\E(T+4) < \infty$ para poder
+			utilizar el teorema de convergencia dominada.\\
+			
+			Notemos que 
+			\begin{align}\label{problema1_3:Acotando_T}
+				\mw(T > n) &= \frac{1}{2} \mw(T > n-1) + \frac{1}{4} \mw(T > n-2). 
+			\end{align}
+			
+			Pues queremos garantizar que en los primeros $n$ turnos, no pierde dos veces consecutivas el casino.\\
+			
+			Si en el turno 1, gana el casino (de aquí el $\frac{1}{2}$), en el resto de los $n-1$ turnos tenemos que garantizar que 
+			el casino no pierde dos veces consecutivas, como las variables están idénticamente distribuidas, esto es equivalente a que
+			$T>n-1$. (De aqui el $\mw(T > n-1)$.\\
+			
+			Si el casino pierde en el turno 1, necesariamente tiene que ganar en el turno 2 (de aquí el $\frac{1}{4})$. Y la probabilidad
+			de que no pierda dos veces consecutivas en los siguientes $n-2$ turnos es $\mw(T > n-2)$.\\					    
+		    
+		    De (\ref{problema1_3:Acotando_T}) podemos notar fácilmente que $\mw(T > 2) \leq \frac{3}{4}$\\
+		    
+		    También notemos que $\mw(T > n ) \geq \mw(T > n + 1)$ (El primer evento contiene al segundo).
+		    
+		    Ahora
+		    \begin{align}
+		       	\mw(T > 2 (2)) &=     \frac{1}{2} \mw(T > 2+1) + \frac{1}{4} \mw(T > 2) \\
+		       				   &\leq  \frac{1}{2} \mw(T > 2) + \frac{1}{4} \mw(T > 2) \\
+		       				   &\leq  \frac{1}{2} \cdot \frac{3}{4} + \frac{1}{4} \cdot \frac{3}{4} = \bigg(\frac{3}{4}\bigg)^2.
+		    \end{align}
+		    
+		    De manera recursiva tenemos que
+		    \begin{align}
+		       	\mw(T > 2(n+1)) &=     \frac{1}{2} \mw(T > 2(n+1) - 1) + \frac{1}{4} \mw(T > 2(n+1) - 2) \\
+						       	&=     \frac{1}{2} \mw(T > 2(n) + 1) + \frac{1}{4} \mw(T > 2(n)) \\
+		       				   &\leq  \frac{1}{2} \mw(T > 2n) + \frac{1}{4} \mw(T > 2n) \\
+		       				   &\leq  \frac{1}{2} \cdot \bigg(\frac{3}{4}\bigg)^{n} + \frac{1}{4} \cdot \bigg(\frac{3}{4}\bigg)^{n} = 		
+		       				   \bigg(\frac{3}{4}\bigg)^{n+1}.
+		    \end{align}
+		    
+		    Entonces,
+		    \begin{align}
+		    	\E(T) 	&= 		\sum_{n=0}^\infty \mw(T > n) \\
+		    			&\leq 	\sum_{n=0}^\infty 2\mw(T > 2n) \\
+		    			&= 		2 \sum_{n=0}^\infty \mw(T > 2n) \\
+		    			&\leq 	2 \sum_{n=0}^\infty \bigg(\frac{3}{4}\bigg)^{n} < \infty\\
+		    \end{align}
+		    
+		    Por lo tanto $\E(T + 4) \leq \infty$. Y entonces nuestra martingala $D$ está dominada por una variable integrable y finalmente
+		    podemos aplicar teorema de convergencia dominada para concluir que:
+		    \begin{align}
+		    	0 = \lim_{n \longrightarrow \infty} \E(D_{T \wedge n}) = \E(D_T).
+		    \end{align}
+		    
+		    Y con esto terminamos de demostrar todas las formalidades que nos hacían falta.
 	\end{enumerate}
 \end{proof}

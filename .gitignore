@@ -2,6 +2,7 @@ octave-core
 Thumbs.db
 *.log
 *log
+
 #ignore thumbnails created by windows
 Thumbs.db
 #Ignore files build by Visual Studio
@@ -18,6 +19,7 @@ Thumbs.db
 *.suo
 *.tlb
 *.tlh
+*.bak
 *.cache
 *.ilk
 *.log

@@ -1,0 +1,13 @@
+\renewcommand{\nqed}
+{		
+		\begin{tikzpicture}
+			\node (A) at (0,0) {};
+			\node (B) at (3,0) {};
+			\node (C) at (6,0) {};
+			\path (A.center) to [ornament=86,at=0] (B.center);
+			\path (A.center) to [ornament=85,at=0.50] (B.center);
+			\path (A.center) to [ornament=88,at=0.75] (C.center);
+    		\path (B.center) to [ornament=85,at=1.50] (C.center);
+			\path (B.center) to [ornament=86,at=2] (C.center);
+		\end{tikzpicture}\\
+}
