@@ -24,10 +24,9 @@
 
 	\defin{Categor\'ias: } Tiempos de paro, problema de la ruina
 \end{problema}
-
 \begin{proof}
-	\begin{enumerate}
-		\item[(i)]
+
+		\subsubsection{i}
 		Sea $T_1=\min\set{n\geq 0:S_n=1}$. Explique por qu\'e $T_1$ es un 
 		tiempo de paro y calcule su esperanza.\\
 		
@@ -94,7 +93,7 @@
 			de volados. Intuitivamente, esto vuelve injusto un juego de volados donde la moneda es
 			justa.\\
 			
-		\item[(ii)]
+		\subsubsection{ii}
 		Mediante el inciso anterior, construya una martingala que converge 
 		casi seguramente pero no lo hace en $L_1$.\\
 
@@ -192,8 +191,7 @@
 			
 			Y con esto, queda demostrado que la convergencia no se da en $\mathbb{L}_1$.\\
 			
-		\item[(iii)] 
-		
+		\subsubsection{iii}		
 		Sea $M_n$ la martingala obtenida al detener a $-S$ en $T_1$. Utilice la solución al
 		Problema de la Ruina para probar que $\mw(max_n M_n \geq M) = 1/(M+1)$ para todo $M \geq 1$. Concluya que
 		$\E(max_m M_n) = \infty$ y que por lo tanto $\E(max_{m\leq n} M_m) \rightarrow \infty$ conforme 
@@ -255,7 +253,7 @@
 			
 			En otras palabras, no tenemos una desigualdad de tipo Doob para $p=1$.\\
 			
-		\item[(iv)]  
+		\subsubsection{iv}
 		Sea $T=\min\set{n\geq 2:S_n=S_{n-2} + 2}$ y $U=T-2$. ?`Son $T$ y $U$ 
 		tiempos de paro? Justifique su respuesta.\\
 					
@@ -297,8 +295,8 @@
 			Es fácil notar que es un conjunto que pertenece a $\F_3$, pero no a $\F_1$. Pues $\F_1$
 			no contiene información alguna sobre $X_2$ y $X_3$. Así que el conjunto más pequeño de $\F_1$ 
 			que contiene a $\{ U = 1 \}$ es $\{ X_1 = -1 \}$.\\
-			
-		\item[(v)] 
+		
+		\subsubsection{v}	
 		Para la variable $T$ que hemos definido, calcule $\esp{T}$.\\
 		
 		   	Primero, platicaré de manera intuitiva cómo vamos a proceder para solucionar este problema.\\
@@ -463,5 +461,4 @@
 		    \end{align}
 		    
 		    Y con esto terminamos de demostrar todas las formalidades que nos hacían falta.
-	\end{enumerate}
 \end{proof}
