@@ -2,7 +2,7 @@ octave-core
 Thumbs.db
 *.log
 *log
-*.pdf
+tareas.pdf
 
 #ignore thumbnails created by windows
 Thumbs.db
