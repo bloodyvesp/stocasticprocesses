@@ -59,15 +59,17 @@
 		\mw\left(T>k_0N+N|\F_{k_0N}\right) = \E\left(\indic_{T>(k_0+1)N}|\F_{k_0N}\right) < 1-\epsilon
 	\end{align}
 	Sustituyendo esto último en (\ref{problema1_2:resultado_preliminar}) obtenemos:
-	\begin{align}
-			 E\left(\indic_{T>k_0N} \E\left(\indic_{T>(k_0+1)N}|\F_{k_0N}\right)\right) 	&< 		E\left(\indic_{T>k_0N} (1-\epsilon)\right) \\
-																							&=	 	(1-\epsilon) E\left(\indic_{T>k_0N} \right) \\
-																							&=		(1-\epsilon) \mw(T>k_0N) \\
-																							&\leq   (1-\epsilon)(1-\epsilon)^{k_0} \\
-																							&= (1-\epsilon)^{k_0 + 1}.
-	\end{align}
+		\begin{align}
+				 E\left(\indic_{T>k_0N} \E\left(\indic_{T>(k_0+1)N}|\F_{k_0N}\right)\right) 	&< 		E\left(\indic_{T>k_0N} (1-\epsilon)\right) \\
+																								&=	 	(1-\epsilon) E\left(\indic_{T>k_0N} \right) \\
+																								&=		(1-\epsilon) \mw(T>k_0N) \\
+																								&\leq   (1-\epsilon)(1-\epsilon)^{k_0} \\
+																								&= (1-\epsilon)^{k_0 + 1}.
+		\end{align}
 	Con lo que concluimos
-		$$\mw(T>(k_0+1)N) \leq (1-\epsilon)^{k_0 + 1}.$$
+		\begin{align}
+			\mw(T>(k_0+1)N) &\leq (1-\epsilon)^{k_0 + 1}.		
+		\end{align}
 	Terminando así la demostración por inducción.\\
 	
 	
@@ -96,7 +98,9 @@
 	\end{align}
 		
 	Sustituyendo nuetstro resultado de que $\mw(T>kN)<(1-\epsilon)^{k}$ resulta que:
-	$$\E(T)\leq N \sum_{k=0}^{\infty} \mw(T > kN) \leq N \sum_{k=0}^{\infty} (1-\epsilon)^k.$$
+	\begin{align}
+		\E(T)\leq N \sum_{k=0}^{\infty} \mw(T > kN) \leq N \sum_{k=0}^{\infty} (1-\epsilon)^k.
+	\end{align}
 	
 	De lado derecho de esta última desigualdad tenemos una serie geométrica. Dado que $\epsilon$ es mayor 
 	que $0$ y entonces que $1-\epsilon$ es menor que $1$, tenemos que es una serie geométrica que converge 

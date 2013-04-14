@@ -29,24 +29,26 @@
 	Para $n=1$, veamos que:
  
 	\begin{align}
-			\{T_1 = 1\} = \{ X_1 \in A \} 
-			\in \mathscr{F}_1 
-		\\	\\
-			\{T_1 = 2\} = \{ X_1 \not\in A, X_2 \in A \} = \\ 
-			\{ X_1 \not\in A \} \cap \{X_2 \in A \}  
-			\in \mathscr{F}_2	
-		\\ \\
-			\{T_1 = 3\} = 
-			\{ X_1 \not\in A, X_2 \not\in A,  X_3 \in A \} = \\
-			\{ X_1 \not\in A \} \cap \{ X_2 \not\in A \} \cap \{X_3 \in A \} 
-			\in \mathscr{F}_3
-		\\
-			\vdots
-		\\
-			\{T_1 = n\} = 
-			\{ X_1 \not\in A, X_2 \not\in A, \dots, X_{n-1} \not\in A, X_n \in A \} = \\
-			\bigcap_{i=1}^{i=n-1} \{ X_i \not\in A \} \cap \{X_n \in A \} 
-			\in \mathscr{F}_n
+			\{T_1 = 1\}     &= \{ X_1 \in A \}	\in \mathscr{F}_1 
+	\end{align}
+	
+	\begin{align}
+			\{T_1 = 2\} 	&= 	\{ X_1 \not\in A, X_2 \in A \} \\
+							&= 	\{ X_1 \not\in A \} \cap \{X_2 \in A \} \in \mathscr{F}_2	
+	\end{align}
+	
+	\begin{align}
+			\{T_1 = 3\} 	&=	\{ X_1 \not\in A, X_2 \not\in A,  X_3 \in A \} \\ 
+							&= 	\{ X_1 \not\in A \} \cap \{ X_2 \not\in A \} \cap \{X_3 \in A \} \in \mathscr{F}_3
+	\end{align}
+	
+	\begin{align*}
+		\vdots
+	\end{align*}
+	
+	\begin{align}
+			\{T_1 = n\} 	&=	\{ X_1 \not\in A, X_2 \not\in A, \dots, X_{n-1} \not\in A, X_n \in A \} \\
+							&= 	\bigcap_{i=1}^{i=n-1} \{ X_i \not\in A \} \cap \{X_n \in A \} \in \mathscr{F}_n
 	\end{align} 
  
 	Por hipótesis de inducción supongamos que $\{T_k = n\} \in \mathscr{F}_n$ para cierta $k>1$ 
