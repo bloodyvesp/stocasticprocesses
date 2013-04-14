@@ -139,7 +139,7 @@
 							&=  A^c \cup \{ T > n \} \in \F_n
 				\end{align}
 				
-				Dado que ${B^c}$ y ${\{ T \leq n \}}$ se encuentran en ${F_n}$, también ${B^c \cap \{ T \leq n \} \cap \{ T \leq n \}}$.
+				Dado que ${B^c}$ y ${\{ T \leq n \}}$ se encuentran en ${\F_n}$, también ${B^c \cap \{ T \leq n \} \cap \{ T \leq n \}}$.
 				
 				Escribiendo esto último de otra manera:
 				\begin{align}
@@ -149,11 +149,20 @@
 																				\bigcup 
 																			\bigg(\{ T > n \} \cap \{ T \leq n \}\bigg) \\
 																	&=		\bigg(A^c \cap \{ T \leq n \}\bigg)	\bigcup \emptyset \\
-																	&=		A^c \cap \{ T \leq n \} \in \F_T
+																	&=		A^c \cap \{ T \leq n \} \in \F_n
 				\end{align}
 				
+				Y por lo tanto ${A^c \in \F_T}$.\\
 				
 			\item ${\F_T}$ es cerrado bajo uniones numerables.
+			
+				Sean ${A_m \in \F_T}$ para ${m \in \N}$.
+				\begin{align}
+					\bigg( \bigcup_{k=1}^\infty A_k \bigg) \cap \{ T \leq n \} 	&=	\bigcup_{k=1}^\infty \bigg( A_k \cap \{ T \leq n \} \bigg)
+				\end{align}								
+				
+				La última parte, por definición de ${\F_T}$ es una unión numerable de elementos de ${\F_n}$ y por lo tanto, dicha unión
+				tambien pertenece a ${\F_n}$. Y por último ${\cup A_k \in \F_T}$.
 		\end{itemize}
 		
 	\subsubsection{Inciso (iii)}
