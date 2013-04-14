@@ -118,7 +118,33 @@
 		Pruebe que $T$ es $\F_T$-medible.\\		
 	}			
 			
-		Primero hay que demostrar que $\F_T$ es $\sigma$-algebra.
+		Primero hay que demostrar que $\F_T$ es $\sigma$-algebra.\\
+		
+		\begin{itemize}
+			\item $\Omega \in \F_T$. \\
+			
+				Notemos que 
+				\begin{align}
+					\Omega \cap \{T \leq n\} = \{T \leq n\} \in \F_n.
+				\end{align}
+				Donde la pertenencia a $\F_n$ es gracias a que $T$ es tiempo de paro. (Esta parte podria fallar si $T$ no fuera tiempo de paro).\\
+			
+			\item $\F_T$ es cerrado bajo complementación.\\
+			
+				Sea $A \in \F_T$. Eso significa que para todo $n \in  \N$ ocurre que $B = A \cap \{ T \leq n \} \in \F_n$. Por ser $\F_n$
+								una $\sigma$-algebra tenemos que el complemento de $B$ también debe estar en $\F_n$. Escrito en símbolos:
+				
+				\begin{align}
+					B^c 	&= (A   \cap \{ T \leq n \})^c
+							&=  A^c \cup \{ T > n \} \in \F_n
+				\end{align}
+				
+				Dado que $B^c$ se encuentra en $F_n$, también $B^c \cap \{ T \leq n \} \cap \{ T \leq n \}$.
+				
+				
+			\item $\F_T$ es cerrado bajo uniones numerables.
+		\end{itemize}
+		
 	\subsubsection{Inciso (iii)}
 	\emph{
 		Pruebe que si $T$ es finito, entonces $M_T$ es $\F_T$-medible.
