@@ -32,99 +32,99 @@
 \end{problema}
 
 \begin{proof}
-                \subsubsection{(i)} 
-                	Pruebe que $ S \wedge T $, $ S + T $ y $ S \vee T$ son tiempos de paro.\\
-                
-                	\begin{enumerate}
-                		\item 
-                			Comprobemos que:
-                			\begin{align}
-                				\{ S \wedge T \leq n \} = \{ T \leq n \} \cup \{ S \leq n\}.
-                			\end{align}
-                			
-							Sea $\omega \in \{ S \wedge T \leq n \}$. Entonces $T(\omega) \leq n$ ó $S(\omega) \leq n$.
-							Por lo tanto:
-							\begin{align}
-		                			\{ S \wedge T \leq n \} \subset \{ T \leq n \} \cup \{ S \leq n\}.							
-							\end{align}
-							
-							Por otro lado, si $\omega \in \{ T \leq n \} \cup \{ S \leq n\}$ entonces $T(\omega) \leq n$ ó $S(\omega) \leq n$.
-							En particular, el mínimo tendrá que ser menor que $n$ y por lo tanto:
-							\begin{align}
-		                			\{ T \leq n \} \cup \{ S \leq n\} \subset \{ S \wedge T \leq n \}.						
-							\end{align}
-							
-							Por último, $\{ T \leq n \} \in \F_n$ y $\{ S \leq n \} \in \F_n$. Por lo tanto	\\	
-							$\{ T \leq n \} \cup \{ S \leq n\} = \{ S \wedge T \leq n \} \in \F_n$ y con esto demostramos que 
-							$ S \wedge T$ es tiempo de paro.\\
-							
-						\item
-							Comprobemos que:
-                			\begin{align}
-                				\{ S \vee T \leq n \} = \{ T \leq n \} \cap \{ S \leq n\}.
-                			\end{align}
-                			
-							Sea $\omega \in \{ S \vee T \leq n \}$. Entonces $T(\omega) \leq n$ y $S(\omega) \leq n$.
-							Por lo tanto:
-							\begin{align}
-		                			\{ S \vee T \leq n \} \subset \{ T \leq n \} \cap \{ S \leq n\}.							
-							\end{align}
-							
-							Por otro lado, si $\omega \in \{ T \leq n \} \cap \{ S \leq n\}$ entonces $T(\omega) \leq n$ y $S(\omega) \leq n$.
-							En particular, el máximo tendrá que ser menor que $n$ y por lo tanto:
-							\begin{align}
-		                			\{ T \leq n \} \cap \{ S \leq n\} \subset \{ S \vee T \leq n \}.						
-							\end{align}
-							
-							Por último, $\{ T \leq n \} \in \F_n$ y $\{ S \leq n \} \in \F_n$. Por lo tanto	\\	
-							$\{ T \leq n \} \cap \{ S \leq n\} = \{ S \vee T \leq n \} \in \F_n$ y con esto demostramos que 
-							$ S \vee T$ es tiempo de paro.\\
-							
-						\item
-							Comprobemos que:
-							\begin{align}
-								\{ S + T = n \} = \bigcup_{i = 1}^{n-1} \bigg( \{S = n - i\} \cap \{T = i\} \bigg).
-							\end{align}
-							
-							Si $\omega \in \{ S + T = n \}$, entonces $S(\omega) + T(\omega) = n$, como $S$ y $T$ son positivas,
-							entonces $1 \leq S(\omega) \leq n-1$. Entonces basta elegir $i = S(\omega)$ para afirmar que 
-							$\omega \in \{S = n - i\} \cap \{T = i\}$ y por lo tanto
-							\begin{align}
-							\{ S + T = n \} \subset \bigcup_{i = 1}^{n-1} \bigg( \{S = n - i\} \cap \{T = i\} \bigg).
-							\end{align}
-							
-							Por otro lado, si $\omega \in \bigcup_{i = 1}^{n-1} \bigg( \{S = n - i\} \cap \{T = i\} \bigg)$
-							significa que existe un $i$ tal que $1\leq i \leq n-1$ y $\omega \in \{S = n - i\} \cap \{T = i\}$.
-							Y por lo tanto: $S(\omega) = n-i$ y $T(\omega) = i$. De donde $(T + S)(\omega) = n$.
-							
-							De aquí que
-							\begin{align}
-								\bigcup_{i = 1}^{n-1} \bigg( \{S = n - i\} \cap \{T = i\} \bigg) \subset \{ S + T = n \}. 
-							\end{align}
-							
-							Ahra, para cada $i$ tal que $1 \leq i \leq n-1$, $\{S = n - i\} \cap \{T = i\} \in \F_n$.
-							Por lo tanto $\{ S + T = n\} \in \F_n$ y con esto queda demostrado que $ S + T $ es tiempo de paro.
-                	\end{enumerate}
-                	
-                \subsubsection{(ii)}
-                	\begin{align}
-                		\F_T=\set{A\in\F:A\cap\set{T\leq n}\in\F_n\text{ para toda } n}
-                	\end{align}
-                	es una $\sigma$-\'algebra, 
-                	a la que nos referimos como la $\sigma$-\'algebra detenida en $\tau$. Comente qu\'e puede fallar si $T$ no es tiempo de paro. 
-                	Pruebe que $T$ es $F_T$-medible. 
-                
-                \subsubsection{(iii)}
-                	Pruebe que si $T$ es finito, entonces $M_T$ es $\F_T$-medible.
-                
-                \subsubsection{(iv)} 
-                	Pruebe que si $S\leq T\leq n$ entonces $\F_S\subset\F_T$. Si adem\'as $T$ es acotado entonces $X_S,X_T\in L_1$ y 
-                	\begin{esn}
-	                	\espc{M_T}{\F_S}\leq M_S.
-                	\end{esn}
+	\subsubsection{(i)} 
+		Pruebe que $ S \wedge T $, $ S + T $ y $ S \vee T$ son tiempos de paro.\\
+	
+		\begin{enumerate}
+			\item 
+				Comprobemos que:
+				\begin{align}
+					\{ S \wedge T \leq n \} = \{ T \leq n \} \cup \{ S \leq n\}.
+				\end{align}
+				
+				Sea $\omega \in \{ S \wedge T \leq n \}$. Entonces $T(\omega) \leq n$ ó $S(\omega) \leq n$.
+				Por lo tanto:
+				\begin{align}
+						\{ S \wedge T \leq n \} \subset \{ T \leq n \} \cup \{ S \leq n\}.							
+				\end{align}
+				
+				Por otro lado, si $\omega \in \{ T \leq n \} \cup \{ S \leq n\}$ entonces $T(\omega) \leq n$ ó $S(\omega) \leq n$.
+				En particular, el mínimo tendrá que ser menor que $n$ y por lo tanto:
+				\begin{align}
+						\{ T \leq n \} \cup \{ S \leq n\} \subset \{ S \wedge T \leq n \}.						
+				\end{align}
+				
+				Por último, $\{ T \leq n \} \in \F_n$ y $\{ S \leq n \} \in \F_n$. Por lo tanto	\\	
+				$\{ T \leq n \} \cup \{ S \leq n\} = \{ S \wedge T \leq n \} \in \F_n$ y con esto demostramos que 
+				$ S \wedge T$ es tiempo de paro.\\
+				
+			\item
+				Comprobemos que:
+				\begin{align}
+					\{ S \vee T \leq n \} = \{ T \leq n \} \cap \{ S \leq n\}.
+				\end{align}
+				
+				Sea $\omega \in \{ S \vee T \leq n \}$. Entonces $T(\omega) \leq n$ y $S(\omega) \leq n$.
+				Por lo tanto:
+				\begin{align}
+						\{ S \vee T \leq n \} \subset \{ T \leq n \} \cap \{ S \leq n\}.							
+				\end{align}
+				
+				Por otro lado, si $\omega \in \{ T \leq n \} \cap \{ S \leq n\}$ entonces $T(\omega) \leq n$ y $S(\omega) \leq n$.
+				En particular, el máximo tendrá que ser menor que $n$ y por lo tanto:
+				\begin{align}
+						\{ T \leq n \} \cap \{ S \leq n\} \subset \{ S \vee T \leq n \}.						
+				\end{align}
+				
+				Por último, $\{ T \leq n \} \in \F_n$ y $\{ S \leq n \} \in \F_n$. Por lo tanto	\\	
+				$\{ T \leq n \} \cap \{ S \leq n\} = \{ S \vee T \leq n \} \in \F_n$ y con esto demostramos que 
+				$ S \vee T$ es tiempo de paro.\\
+				
+			\item
+				Comprobemos que:
+				\begin{align}
+					\{ S + T = n \} = \bigcup_{i = 1}^{n-1} \bigg( \{S = n - i\} \cap \{T = i\} \bigg).
+				\end{align}
+				
+				Si $\omega \in \{ S + T = n \}$, entonces $S(\omega) + T(\omega) = n$, como $S$ y $T$ son positivas,
+				entonces $1 \leq S(\omega) \leq n-1$. Entonces basta elegir $i = S(\omega)$ para afirmar que 
+				$\omega \in \{S = n - i\} \cap \{T = i\}$ y por lo tanto
+				\begin{align}
+				\{ S + T = n \} \subset \bigcup_{i = 1}^{n-1} \bigg( \{S = n - i\} \cap \{T = i\} \bigg).
+				\end{align}
+				
+				Por otro lado, si $\omega \in \bigcup_{i = 1}^{n-1} \bigg( \{S = n - i\} \cap \{T = i\} \bigg)$
+				significa que existe un $i$ tal que $1\leq i \leq n-1$ y $\omega \in \{S = n - i\} \cap \{T = i\}$.
+				Y por lo tanto: $S(\omega) = n-i$ y $T(\omega) = i$. De donde $(T + S)(\omega) = n$.
+				
+				De aquí que
+				\begin{align}
+					\bigcup_{i = 1}^{n-1} \bigg( \{S = n - i\} \cap \{T = i\} \bigg) \subset \{ S + T = n \}. 
+				\end{align}
+				
+				Ahra, para cada $i$ tal que $1 \leq i \leq n-1$, $\{S = n - i\} \cap \{T = i\} \in \F_n$.
+				Por lo tanto $\{ S + T = n\} \in \F_n$ y con esto queda demostrado que $ S + T $ es tiempo de paro.
+		\end{enumerate}
+		
+	\subsubsection{(ii)}
+		\begin{align}
+			\F_T=\set{A\in\F:A\cap\set{T\leq n}\in\F_n\text{ para toda } n}
+		\end{align}
+		es una $\sigma$-\'algebra, 
+		a la que nos referimos como la $\sigma$-\'algebra detenida en $\tau$. Comente qu\'e puede fallar si $T$ no es tiempo de paro. 
+		Pruebe que $T$ es $F_T$-medible. 
+	
+	\subsubsection{(iii)}
+		Pruebe que si $T$ es finito, entonces $M_T$ es $\F_T$-medible.
+	
+	\subsubsection{(iv)} 
+		Pruebe que si $S\leq T\leq n$ entonces $\F_S\subset\F_T$. Si adem\'as $T$ es acotado entonces $X_S,X_T\in L_1$ y 
+		\begin{esn}
+			\espc{M_T}{\F_S}\leq M_S.
+		\end{esn}
 
-                \subsubsection{(v)}
-                	Si $X=\paren{X_n,n\in\na}$ es un proceso estoc\'astico $\paren{\F_n}$-adaptado y tal que $X_n\in L_1$ y tal que 
-                	para cualesquiera tiempos de paro acotados $S$ y $T$ se tiene que $\esp{X_S}=\esp{X_T}$ entonces $X$ es una 
-                	martingala. Sugerencia: considere tiempos de paro de la forma $n\indi{A}+(n+1)\indi{A^c}$ con $A\in\F_n$.
+	\subsubsection{(v)}
+		Si $X=\paren{X_n,n\in\na}$ es un proceso estoc\'astico $\paren{\F_n}$-adaptado y tal que $X_n\in L_1$ y tal que 
+		para cualesquiera tiempos de paro acotados $S$ y $T$ se tiene que $\esp{X_S}=\esp{X_T}$ entonces $X$ es una 
+		martingala. Sugerencia: considere tiempos de paro de la forma $n\indi{A}+(n+1)\indi{A^c}$ con $A\in\F_n$.
 \end{proof}
