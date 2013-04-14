@@ -5,459 +5,471 @@
 	independientes con $\proba{X_i=\pm 1}=1/2$. Sean $S_0=0$ y $S_n=\sum_{i=1}^n X_i$. 
 
 	\begin{enumerate}
-		\item[(i)] Sea $T_1=\min\set{n\geq 0:S_n=1}$. Explique por qu\'e $T_1$ es un 
+		\item[inciso (i)] Sea $T_1=\min\set{n\geq 0:S_n=1}$. Explique por qu\'e $T_1$ es un 
 		tiempo de paro y calcule su esperanza.
 		
-		\item[(ii)] Mediante el inciso anterior, construya una martingala que converge 
+		\item[inciso (ii)] Mediante el inciso anterior, construya una martingala que converge 
 		casi seguramente pero no lo hace en $L_1$.
 		
-		\item[(iii)] Sea $M_n$ la martingala obtenida al detener a $-S$ en $T_1$. Utilice la solución al
+		\item[inciso (iii)] Sea $M_n$ la martingala obtenida al detener a $-S$ en $T_1$. Utilice la solución al
 		Problema de la Ruina para probar que $\mw(max_n M_n \geq M) = 1/(M+1)$ para todo $M \geq 1$. Concluya que
 		$\E(max_m M_n) = \infty$ y que por lo tanto $\E(max_{m\leq n} M_m) \rightarrow \infty$ conforme 
 		$n \rightarrow \infty$. Finalmente, deduzca que no puede haber una desigualdad de tipo Doob cuando $p=1$.
 		
-		\item[(iv)] Sea $T=\min\set{n\geq 2:S_n=S_{n-2} + 2}$ y $U=T-2$. ?`Son $T$ y $U$ 
+		\item[inciso (iv)] Sea $T=\min\set{n\geq 2:S_n=S_{n-2} + 2}$ y $U=T-2$. ?`Son $T$ y $U$ 
 		tiempos de paro? Justifique su respuesta.
 		
-		\item[(v)] Para la variable $T$ que hemos definido, calcule $\esp{T}$. 
+		\item[inciso (v)] Para la variable $T$ que hemos definido, calcule $\esp{T}$. 
 	\end{enumerate}
 
 	\defin{Categor\'ias: } Tiempos de paro, problema de la ruina
 \end{problema}
 \begin{proof}
-		\subsubsection{(i)}
+	\subsubsection{inciso (i)}
+	\emph
+	{
 		Sea $T_1=\min\set{n\geq 0:S_n=1}$. Explique por qu\'e $T_1$ es un 
 		tiempo de paro y calcule su esperanza.\\
-		
-			Consideremos a la filtración $(\F_n)_{n\in\N}$ como la filtracion 
-			generada por $X_1, X_2, \dots$.\\
+	}
+	
+		Consideremos a la filtración $(\F_n)_{n\in\N}$ como la filtracion 
+		generada por $X_1, X_2, \dots$.\\
 
-			Es decir, $F_0 = \{\emptyset, \Omega\}$, $\F_n = \sigma(X_1, X_2, \dots, X_n)$\\
+		Es decir, $F_0 = \{\emptyset, \Omega\}$, $\F_n = \sigma(X_1, X_2, \dots, X_n)$\\
+	
+		Nótese que $S_0$ es medible bajo cualquier sigma álgebra por ser constante, en particular bajo
+		$\F_0$.\\
+	
+		Basta demostrar que $(T_1 = n) \in \F_n$ para ver que $T_1$ es tiempo de paro. $T_1$ 
+		representa el primer tiempo en que la suma es igual a $1$. Es decir, para cualquier 
+		momento anterior, la suma no es $1$.
+	
+		Eso escrito en símbolos significa:
+	
+		$$(T_1 = n) = \bigcap_{i=0}^{n-1}(S_i \not= 1) \cup (S_n = 1).$$ 
+	
+		Para $n=0$, $(S_0 = 1) = \omega \in \F_0$. \\
+	
+		Como $(S_i \not= 1) \in \F_j$ siempre que $i \leq j$. Para $n>0$, $(T_1 = n)$ es el resultado de 
+		unir e intersectar conjuntos $\F_n$-medibles, lo cual resulta $\F_n$-medible.\\
+	
+		Para $m \in \N$. Definamos $T_m = min\{n \geq 0 : S_n = m\}$ 
+		(Nótese que para el caso $m=1$, esta definición	coincide con la definición previa de $T_1$).\\
 		
-			Nótese que $S_0$ es medible bajo cualquier sigma álgebra por ser constante, en particular bajo
-			$\F_0$.\\
+		Para $a,b \in \N$, podemos definir el tiempo de paro $T_{a,b} = T_{-a} \wedge T_b$, y 
+		corresponde al 	tiempo de paro del problema de la ruina. Para este tiempo de paro ya conocemos 
+		la esperanza y es
+		$$\E(T_{a,b}) = ab.$$\\
 		
-			Basta demostrar que $(T_1 = n) \in \F_n$ para ver que $T_1$ es tiempo de paro. $T_1$ 
-			representa el primer tiempo en que la suma es igual a $1$. Es decir, para cualquier 
-			momento anterior, la suma no es $1$.
+		Ahora, definamos la sucesion de variables aleatorias $T_{1,1}, T_{2,1}, T_{3,1}, \dots, T_{n,1}, 
+		\dots$. Notemos que si $a>a' \in N$ entonces $T_{-a} > T_{-a'}$, pues $T_{-a}$ es la primera vez
+		que se llega a $-a$, y para poder alcanzar $-a$ era necesario haber pasado por $-a'$.
+		De aqui tenemos que si $a>a'$, entonces $T_{a,1} \geq T_{a',1}$. De donde nuestra suceción es 
+		no decreciente.\\
 		
-			Eso escrito en símbolos significa:
-		
-			$$(T_1 = n) = \bigcap_{i=0}^{n-1}(S_i \not= 1) \cup (S_n = 1).$$ 
-		
-			Para $n=0$, $(S_0 = 1) = \omega \in \F_0$. \\
-		
-			Como $(S_i \not= 1) \in \F_j$ siempre que $i \leq j$. Para $n>0$, $(T_1 = n)$ es el resultado de 
-			unir e intersectar conjuntos $\F_n$-medibles, lo cual resulta $\F_n$-medible.\\
-		
-			Para $m \in \N$. Definamos $T_m = min\{n \geq 0 : S_n = m\}$ 
-			(Nótese que para el caso $m=1$, esta definición	coincide con la definición previa de $T_1$).\\
-			
-			Para $a,b \in \N$, podemos definir el tiempo de paro $T_{a,b} = T_{-a} \wedge T_b$, y 
-			corresponde al 	tiempo de paro del problema de la ruina. Para este tiempo de paro ya conocemos 
-			la esperanza y es
-			$$\E(T_{a,b}) = ab.$$\\
-			
-			Ahora, definamos la sucesion de variables aleatorias $T_{1,1}, T_{2,1}, T_{3,1}, \dots, T_{n,1}, 
-			\dots$. Notemos que si $a>a' \in N$ entonces $T_{-a} > T_{-a'}$, pues $T_{-a}$ es la primera vez
-			que se llega a $-a$, y para poder alcanzar $-a$ era necesario haber pasado por $-a'$.
-			De aqui tenemos que si $a>a'$, entonces $T_{a,1} \geq T_{a',1}$. De donde nuestra suceción es 
-			no decreciente.\\
-			
-			Por otro lado, que si $a>a' \in N$ entonces $T_{-a} > T_{-a'}$ implica que $T_{-n} n \in \N$ es 
-			una suceción extrictamente creciente y por lo tanto 
-			$\lim\limits_{n \rightarrow \infty} T_{-n} = \infty$, con esto tenemos que el límite de nuestra 
-			suceción es 
-			$$		
-			\lim_{n\rightarrow\infty} T_{n,1} = 
-			\lim_{n\rightarrow\infty} T_{-n} \wedge T_1 = 
-			\infty \wedge T_1 = 
-			T_1
-			$$
+		Por otro lado, que si $a>a' \in N$ entonces $T_{-a} > T_{-a'}$ implica que $T_{-n} n \in \N$ es 
+		una suceción extrictamente creciente y por lo tanto 
+		$\lim\limits_{n \rightarrow \infty} T_{-n} = \infty$, con esto tenemos que el límite de nuestra 
+		suceción es 
+		$$		
+		\lim_{n\rightarrow\infty} T_{n,1} = 
+		\lim_{n\rightarrow\infty} T_{-n} \wedge T_1 = 
+		\infty \wedge T_1 = 
+		T_1
+		$$
 
-			Tenemos todos los ingredientes para usar Teorema de convergencia monótona sobre nuestra suceción
-			y la variable $T_1$. Nuestra sucecion es monótona y converge puntualmente a $T_1$. Utilizando
-			dicho teorema obtenemos:
-			
-			$$
-			\E(T_1) = 
-			\E(\lim_{n\rightarrow\infty} T_{n,1}) = 
-			\lim_{n\rightarrow\infty} \E(T_{n,1}) = 
-			\lim_{n\rightarrow\infty} n\cdot 1 =
-			\infty.
-			$$
-			
-			Lo cual era intuitivo. Si $\E(T_1)$ fuese finito, diría que existe un número de volados donde
-			uno puede apostar con mucha certeza que ganará un peso después de jugar "cerca" de esa cantidad
-			de volados. Intuitivamente, esto vuelve injusto un juego de volados donde la moneda es
-			justa.\\
-			
-		\subsubsection{(ii)}
+		Tenemos todos los ingredientes para usar Teorema de convergencia monótona sobre nuestra suceción
+		y la variable $T_1$. Nuestra sucecion es monótona y converge puntualmente a $T_1$. Utilizando
+		dicho teorema obtenemos:
+		
+		$$
+		\E(T_1) = 
+		\E(\lim_{n\rightarrow\infty} T_{n,1}) = 
+		\lim_{n\rightarrow\infty} \E(T_{n,1}) = 
+		\lim_{n\rightarrow\infty} n\cdot 1 =
+		\infty.
+		$$
+		
+		Lo cual era intuitivo. Si $\E(T_1)$ fuese finito, diría que existe un número de volados donde
+		uno puede apostar con mucha certeza que ganará un peso después de jugar "cerca" de esa cantidad
+		de volados. Intuitivamente, esto vuelve injusto un juego de volados donde la moneda es
+		justa.\\
+		
+	\subsubsection{inciso (ii)}
+	\emph
+	{	
 		Mediante el inciso anterior, construya una martingala que converge 
 		casi seguramente pero no lo hace en $L_1$.\\
-
-			
-			En el ejercicio 4 se probará que si $T$ y $S$ son tiempos de paro, entonces $T\wedge S$ también 
-			es tiempo de paro. Con esto tenemos que si $T_1$ es tiempo de paro, entonces $T_1 \wedge n$ con 
-			$n \in \N$ también es tiempo de paro. Definimos entonces 
-			$$M_n = S_{T_1 \wedge n}.$$
-			
-			Veamos que los $M_n$ forman una martingala.
-			
-			\begin{itemize}
-			 	\item[(a)] 
-				 	$M_n$ es adaptada a la filtración.
-			 		$$
-			 		M_n(w) = S_{T_1 \wedge n}(w) = 
-			 		S_{T_1 \wedge n (w)}(w) = 
-			 		\sum_{k=1}^{T_1 \wedge n (w)} X_k = 
-			 		\sum_{k=1}^{n} (X_k \cdot \indic_{T_1 \geq k})(w).
-			 		$$
-			 		
-			 		De donde, podemos escribir:
-					\begin{equation}\label{problema1_3:descomposicion_de_M_n}
-			 			M_n = \sum_{k=1}^{n} (X_k \cdot \indic_{T_1 \geq k}).
-					\end{equation}								 		
-			 		
-			 		Recordemos que $X_k$ es $\F_n$-medible para toda $k \leq n $. Por ser
-			 		$T_1$ tiempo de paro, los conjuntos $A_k = \{T_1 = k\}$ y 
-			 		$B_k = \{T_1 \leq k\}$	son $F_k$ medibles y por lo tanto 
-			 		$A_k \cup B_k^c = \{ T_1 \geq k\}$ también lo es. De aquí que 
-			 		$\indic_{T_1 \geq k}$ es $\F_k$-medible y por lo tanto también $\F_n$-medible
-			 		para toda $n$ tal que $n \geq k$.\\
-			 		  
-			 		Entonces $M_n$ es suma y productos de funciones $\F_n$-medibles y por lo tanto
-			 		$F_n$-medible. Que es lo que queríamos demostrar.\\
-			 		
-			 	\item[(b)]
-			 		$M_n \in \mathbb{L}_1$\\
-			 		
-			 		De (\ref{problema1_3:descomposicion_de_M_n}) podemos ver que $M_n$ es 
-			 		suma finita de variables acotadas. Por lo tanto $M_n \in \mathbb{L}_1$.\\
-			 		
-			 	\item[(c)] Ahora probaremos que	$\E(M_{n+1} | \F_{n}) = M_{n}$\\
-			 		
-			 		Primero:
-			 		\begin{align}
-			 			\E(M_{n+1} | \F_{n}) &= \E( S_{T_1 \wedge (n+1)} | \F_{n}) = 
-			 			\E\bigg( \sum_{k=1}^{n+1} (X_k \cdot \indic_{T_1 \geq k})\bigg| \F_{n}\bigg) \\	 			
-			 			& =\E\bigg( \sum_{k=1}^{n} (X_k \cdot \indic_{T_1 \geq k}) \bigg| \F_{n}\bigg) +
-			 			\E\bigg((X_{n+1} \cdot \indic_{T_1 \geq n+1}) \bigg| \F_{n}\bigg) \\
-			 			&\mbox{(Este paso es gracias a que $X_k$ y $\indic_{T_1 \geq k}$ son $\F_n$-medibles)}\\
-			 			& = \sum_{k=1}^{n} (X_k \cdot \indic_{T_1 \geq k}) + 
-			 			\E((X_{n+1} \cdot \indic_{T_1 \geq n+1}) | \F_{n}) \\
-			 			& = S_{T_1 \wedge n} + \E((X_{n+1} \cdot \indic_{T_1 \geq n+1}) | \F_{n}) \\
-			 			& = M_n + \E((X_{n+1} \cdot \indic_{T_1 \geq n+1}) | \F_{n})
-			 		\end{align}
-			 		
-			 		Entonces, nos basta probar que $\E(X_{n+1} \cdot \indic_{T_1 \geq n+1} |
-			 		 \F_{n}) = 0$ para terminar nuestra demostración.\\
-			 		 
-					Sean $A = \{T_1 = n\}$ y $B = \{ T_1 \leq n\}$. Por ser $T_1$ tiempo de paro,
-					$A$ y $B$ son $\F_n$-medibles. Por lo tanto $B \setminus A$ también es $\F_n$-medible. 
-					Notemos que $\{T_1 \geq n+1\} = (B \setminus A)^c$. Por lo tanto $\{T_1 \geq n+1\}$ es
-					$\F_n$-medible. De donde  $\indic_{T_1 \geq n+1})$ es $\F_n$-medible.\\
+	}
+		
+		En el ejercicio 4 se probará que si $T$ y $S$ son tiempos de paro, entonces $T\wedge S$ también 
+		es tiempo de paro. Con esto tenemos que si $T_1$ es tiempo de paro, entonces $T_1 \wedge n$ con 
+		$n \in \N$ también es tiempo de paro. Definimos entonces 
+		$$M_n = S_{T_1 \wedge n}.$$
+		
+		Veamos que los $M_n$ forman una martingala.
+		
+		\begin{itemize}
+			\item[(a)] 
+				$M_n$ es adaptada a la filtración.
+				\begin{align}
+					M_n(w) = S_{T_1 \wedge n}(w) = 
+					S_{T_1 \wedge n (w)}(w) = 
+					\sum_{k=1}^{T_1 \wedge n (w)} X_k = 
+					\sum_{k=1}^{n} (X_k \cdot \indic_{T_1 \geq k})(w).
+				\end{align}
+				
+				De donde, podemos escribir:
+				\begin{align}\label{problema1_3:descomposicion_de_M_n}
+					M_n = \sum_{k=1}^{n} (X_k \cdot \indic_{T_1 \geq k}).
+				\end{align}								 		
+				
+				Recordemos que $X_k$ es $\F_n$-medible para toda $k \leq n $. Por ser
+				$T_1$ tiempo de paro, los conjuntos $A_k = \{T_1 = k\}$ y 
+				$B_k = \{T_1 \leq k\}$	son $F_k$ medibles y por lo tanto 
+				$A_k \cup B_k^c = \{ T_1 \geq k\}$ también lo es. De aquí que 
+				$\indic_{T_1 \geq k}$ es $\F_k$-medible y por lo tanto también $\F_n$-medible
+				para toda $n$ tal que $n \geq k$.\\
+				  
+				Entonces $M_n$ es suma y productos de funciones $\F_n$-medibles y por lo tanto
+				$F_n$-medible. Que es lo que queríamos demostrar.\\
+				
+			\item[(b)]
+				$M_n \in \mathbb{L}_1$\\
+				
+				De (\ref{problema1_3:descomposicion_de_M_n}) podemos ver que $M_n$ es 
+				suma finita de variables acotadas. Por lo tanto $M_n \in \mathbb{L}_1$.\\
+				
+			\item[(c)] Ahora probaremos que	$\E(M_{n+1} | \F_{n}) = M_{n}$\\
+				
+				Primero:
+				\begin{align}
+					\E(M_{n+1} | \F_{n}) &= \E( S_{T_1 \wedge (n+1)} | \F_{n}) = 
+					\E\bigg( \sum_{k=1}^{n+1} (X_k \cdot \indic_{T_1 \geq k})\bigg| \F_{n}\bigg) \\	 			
+					& =\E\bigg( \sum_{k=1}^{n} (X_k \cdot \indic_{T_1 \geq k}) \bigg| \F_{n}\bigg) +
+					\E\bigg((X_{n+1} \cdot \indic_{T_1 \geq n+1}) \bigg| \F_{n}\bigg) \\
+					&\mbox{(Este paso es gracias a que $X_k$ y $\indic_{T_1 \geq k}$ son $\F_n$-medibles)}\\
+					& = \sum_{k=1}^{n} (X_k \cdot \indic_{T_1 \geq k}) + 
+					\E((X_{n+1} \cdot \indic_{T_1 \geq n+1}) | \F_{n}) \\
+					& = S_{T_1 \wedge n} + \E((X_{n+1} \cdot \indic_{T_1 \geq n+1}) | \F_{n}) \\
+					& = M_n + \E((X_{n+1} \cdot \indic_{T_1 \geq n+1}) | \F_{n})
+				\end{align}
+				
+				Entonces, nos basta probar que $\E(X_{n+1} \cdot \indic_{T_1 \geq n+1} |
+				 \F_{n}) = 0$ para terminar nuestra demostración.\\
+				 
+				Sean $A = \{T_1 = n\}$ y $B = \{ T_1 \leq n\}$. Por ser $T_1$ tiempo de paro,
+				$A$ y $B$ son $\F_n$-medibles. Por lo tanto $B \setminus A$ también es $\F_n$-medible. 
+				Notemos que $\{T_1 \geq n+1\} = (B \setminus A)^c$. Por lo tanto $\{T_1 \geq n+1\}$ es
+				$\F_n$-medible. De donde  $\indic_{T_1 \geq n+1})$ es $\F_n$-medible.\\
+				
+				Con esto, ahora tenemos que:
+				\begin{align}
+					\E((X_{n+1} \cdot \indic_{T_1 \geq n+1}) | \F_{n}) &= \indic_{T_1 \geq n+1} \cdot \E(X_{n+1} | \F_{n}) \\
+					&\mbox{(Este paso es gracias a que los $X_n$ son independientes)} \\
+					&=\indic_{T_1 \geq n+1} \cdot \E(X_{n+1} ) \\
+					&=\indic_{T_1 \geq n+1} \cdot 0 \\
+					&= 0
+				\end{align}	
+				
+				Como queríamos demostrar.
+		\end{itemize}
+		
+		Ahora que tenemos que $(M_n)_{n \in \N}$ es martingala, confirmemos que converge casi seguramente.\\
+		
+		Notemos que $(T_1 \wedge n)_{n \rightarrow \infty} \rightarrow T_1$ c.s.\\
+		
+		De aquí que $(M_n)_{n \rightarrow \infty} = (S_{T_1 \wedge n})_{n \rightarrow \infty} = S_{T_1}$ c.s. \\				
+		
+		Veamos que la convergencia no ocurre en $\mathbb{L}_1$. \\
 					
-					Con esto, ahora tenemos que:
-					\begin{align}
-						\E((X_{n+1} \cdot \indic_{T_1 \geq n+1}) | \F_{n}) &= \indic_{T_1 \geq n+1} \cdot \E(X_{n+1} | \F_{n}) \\
-						&\mbox{(Este paso es gracias a que los $X_n$ son independientes)} \\
-						&=\indic_{T_1 \geq n+1} \cdot \E(X_{n+1} ) \\
-						&=\indic_{T_1 \geq n+1} \cdot 0 \\
-						&= 0
-					\end{align}	
-					
-					Como queríamos demostrar.
-			\end{itemize}
-			
-			Ahora que tenemos que $(M_n)_{n \in \N}$ es martingala, confirmemos que converge casi seguramente.\\
-			
-			Notemos que $(T_1 \wedge n)_{n \rightarrow \infty} \rightarrow T_1$ c.s.\\
-			
-			De aquí que $(M_n)_{n \rightarrow \infty} = (S_{T_1 \wedge n})_{n \rightarrow \infty} = S_{T_1}$ c.s. \\				
-			
-			Veamos que la convergencia no ocurre en $\mathbb{L}_1$. \\
-						
-			Dado que $T_1 \wedge n$ es un tiempo de paro acotado para toda $n \in \N$,
-			podemos aplicar el Teorema de Muestreo Opcional de 	Doob. 
-			El cual nos dice que $\E(M_n) = \E(S_{T_1 \wedge n}) = \E(S_0) = 0$.\\
-			
-			Por otro lado, por definición de $T_1$, $S_{T_1} = 1$ c.s.	De donde $\E(S_T) = 1$.\\
-			
-			\begin{align}
-				\E(M_n) = 0 \not\rightarrow 1 = \E(S_{T_1}).
-			\end{align}			
-			
-			Y con esto, queda demostrado que la convergencia no se da en $\mathbb{L}_1$.\\
-			
-		\subsubsection{(iii)}		
+		Dado que $T_1 \wedge n$ es un tiempo de paro acotado para toda $n \in \N$,
+		podemos aplicar el Teorema de Muestreo Opcional de 	Doob. 
+		El cual nos dice que $\E(M_n) = \E(S_{T_1 \wedge n}) = \E(S_0) = 0$.\\
+		
+		Por otro lado, por definición de $T_1$, $S_{T_1} = 1$ c.s.	De donde $\E(S_T) = 1$.\\
+		
+		\begin{align}
+			\E(M_n) = 0 \not\rightarrow 1 = \E(S_{T_1}).
+		\end{align}			
+		
+		Y con esto, queda demostrado que la convergencia no se da en $\mathbb{L}_1$.\\
+		
+	\subsubsection{inciso (iii)}		
+	\emph{
 		Sea $M_n$ la martingala obtenida al detener a $-S$ en $T_1$. Utilice la solución al
 		Problema de la Ruina para probar que $\mw(max_n M_n \geq M) = 1/(M+1)$ para todo $M \geq 1$. Concluya que
 		$\E(max_m M_n) = \infty$ y que por lo tanto $\E(max_{m\leq n} M_m) \rightarrow \infty$ conforme 
 		$n \rightarrow \infty$. Finalmente, deduzca que no puede haber una desigualdad de tipo Doob cuando $p=1$.\\
-		
-			Definimos $M_n = -S_{T_1 \wedge n}$. Notemos que $M_n$ únicamente toma valores en $[-1, \infty]$.
-			Para calcular $\mw(max_n M_n \geq M)$ notemos primero que:
-			\begin{align}
-				\mw(max_n M_n \geq M) = 1 - \mw(max_n M_n < M).
-			\end{align}\\
-			
-			$max_n M_n < M$ significa que $M_n$ nunca alcanza el valor $M$.\\
-			 
-			Intentando hacer analogía con el problema de la ruina, pensemos en dos concursantes,
-			uno con $1$ peso y otro con $M$ pesos. Nunca alcanzar $M$ significa que nunca gana el que tiene $1$ peso.\\
-			
-			Esta probabilidad ya la conocemos y es 
-			
-			\begin{align*}
-				\mw(max_n M_n < M) = \frac{M}{M + 1}
-			\end{align*}
-				
-			Por lo tanto
-			
-			\begin{align}
-				\mw(max_n M_n \geq M) 	&= 1 - \mw(max_n M_n < M) \\
-										&= 1 - \frac{M}{M + 1}\\
-										&= \frac{M+1}{M+1} - \frac{M}{M + 1}\\
-										&= \frac{1}{M+1}
-			\end{align}
-			
-			Utilizando este resultado:
-			\begin{align} \label{problema1_3:esperanza_del_maximo_de_M_n}
-				\E(max_n M_n) 	&= - \mw(max_n M_n = -1) + \sum_{M=1}^{\infty} \mw(max_n M_n \geq M) \\
-								&= - \mw(max_n M_n = -1) + \sum_{M=1}^{\infty} \frac{1}{M+1} \\ 
-								&= - \mw(max_n M_n = -1) + \infty \\
-								&= \infty
-			\end{align}						
-			
-			Ahora, tenemos que:
-			\begin{align}
-				\|\overline{M_{n}^{+}}\|_1  &=    \E{\overline{M_{n}^{+}}} \\
-											&=    \E{\max_{m \leq n}M_m^+} \\
-											&\geq \E{\max_{m \leq n}M_m}										
-			\end{align}
-				
-			Donde, el último término, tiende a infinito en base al resultado 
-			(\ref{problema1_3:esperanza_del_maximo_de_M_n}).
+	}	
 
-			Por otro lado:
-			\begin{align}
-				\|M_n^+\|_1=\|-S_{T_{1\wedge n}}^{+}\|_1  \longrightarrow  \|-S_{T_1}^+\|_1 = 0 < \infty
-			\end{align}
+		Definimos $M_n = -S_{T_1 \wedge n}$. Notemos que $M_n$ únicamente toma valores en $[-1, \infty]$.
+		Para calcular $\mw(max_n M_n \geq M)$ notemos primero que:
+		\begin{align}
+			\mw(max_n M_n \geq M) = 1 - \mw(max_n M_n < M).
+		\end{align}\\
+		
+		$max_n M_n < M$ significa que $M_n$ nunca alcanza el valor $M$.\\
+		 
+		Intentando hacer analogía con el problema de la ruina, pensemos en dos concursantes,
+		uno con $1$ peso y otro con $M$ pesos. Nunca alcanzar $M$ significa que nunca gana el que tiene $1$ peso.\\
+		
+		Esta probabilidad ya la conocemos y es 
+		
+		\begin{align*}
+			\mw(max_n M_n < M) = \frac{M}{M + 1}
+		\end{align*}
 			
-			Por lo tanto, no existe número $K$, tal que
-			\begin{align}
-				 \|\overline{M_n^+}\|_1 \leq  K \|M_n^+\|_1
-			\end{align}
+		Por lo tanto
+		
+		\begin{align}
+			\mw(max_n M_n \geq M) 	&= 1 - \mw(max_n M_n < M) \\
+									&= 1 - \frac{M}{M + 1}\\
+									&= \frac{M+1}{M+1} - \frac{M}{M + 1}\\
+									&= \frac{1}{M+1}
+		\end{align}
+		
+		Utilizando este resultado:
+		\begin{align} \label{problema1_3:esperanza_del_maximo_de_M_n}
+			\E(max_n M_n) 	&= - \mw(max_n M_n = -1) + \sum_{M=1}^{\infty} \mw(max_n M_n \geq M) \\
+							&= - \mw(max_n M_n = -1) + \sum_{M=1}^{\infty} \frac{1}{M+1} \\ 
+							&= - \mw(max_n M_n = -1) + \infty \\
+							&= \infty
+		\end{align}						
+		
+		Ahora, tenemos que:
+		\begin{align}
+			\|\overline{M_{n}^{+}}\|_1  &=    \E{\overline{M_{n}^{+}}} \\
+										&=    \E{\max_{m \leq n}M_m^+} \\
+										&\geq \E{\max_{m \leq n}M_m}										
+		\end{align}
 			
-			En otras palabras, no tenemos una desigualdad de tipo Doob para $p=1$.\\
-			
-		\subsubsection{(iv)}
+		Donde, el último término, tiende a infinito en base al resultado 
+		(\ref{problema1_3:esperanza_del_maximo_de_M_n}).
+
+		Por otro lado:
+		\begin{align}
+			\|M_n^+\|_1=\|-S_{T_{1\wedge n}}^{+}\|_1  \longrightarrow  \|-S_{T_1}^+\|_1 = 0 < \infty
+		\end{align}
+		
+		Por lo tanto, no existe número $K$, tal que
+		\begin{align}
+			 \|\overline{M_n^+}\|_1 \leq  K \|M_n^+\|_1
+		\end{align}
+		
+		En otras palabras, no tenemos una desigualdad de tipo Doob para $p=1$.\\
+		
+	\subsubsection{inciso (iv)}
+	\emph
+	{
 		Sea $T=\min\set{n\geq 2:S_n=S_{n-2} + 2}$ y $U=T-2$. ?`Son $T$ y $U$ 
 		tiempos de paro? Justifique su respuesta.\\
-					
-			Intuitivamente, $T$ significa, el primer tiempo tal que ganamos en dos volados consecutivos.
-			También intuitivamente, esto debería ser un tiempo de paro.
-			
-			Veamos que efectivamente así ocurre. Utilizando la siguiente prueba por inducción:\\
-			
-			\textbf{Base de inducción:}		
-				\begin{align}
-					\{T = 0\} 		&= \emptyset  				& 	\in \F_0 \\
-					\{T = 1\} 		&= \emptyset  				& 	\in \F_1 \\
-			   		\{T = 2\} 		&= \{ X_1 = 1, X_2 = 1\} 	&	\in \F_2
-				\end{align}	\\					
-			
-			\textbf{Hipótesis de inducción:}\\
-			
-				Supongamos que $\{T = n\} \in \F_n$ para cierto $n \geq 2$.\\
-				
-			\textbf{Paso inductivo:}
-				
-				\begin{align}
-					\{T = n + 1 \} = \{ X_n = 1, X_{n+1} = 1\} \setminus \bigcup_{i=0}^{n} \{T = i\}.
-				\end{align}				
-			
-				Es claro que $\{ X_n = 1, X_{n+1} = 1\} \in \F_{n + 1}$ y que por hipótesis de inducción
-				$\bigcup_{i=0}^{n} {T = i} \in \F_n \subset \F_{n + 1}$. Por lo tanto
-				$\{T = n + 1 \} \in \F_{n+1}$ para toda $n \geq 2$ y con esto termina la demostración.\\
-				
-			Ahora, intuitivamente $U$ significa el momento justo antes de ganar dos volados consecutivos.
-			Esto, quedría decir que tenemos información sobre eventos que aún no ocurren. Así que intuitivamente
-			esto no debería ser un tiempo de paro.\\
-			
-			Efectivamente, si tomamos como ejemplo el conjunto: 
-				\begin{align}
-					\{ U = 1 \} = \{ T - 2 = 1\} = \{ T = 3\} = \{X_1 = -1, X_2 = 1, X_3 = 1\}
-				\end{align}		\\
-					
-			Es fácil notar que es un conjunto que pertenece a $\F_3$, pero no a $\F_1$. Pues $\F_1$
-			no contiene información alguna sobre $X_2$ y $X_3$. Así que el conjunto más pequeño de $\F_1$ 
-			que contiene a $\{ U = 1 \}$ es $\{ X_1 = -1 \}$.\\
+	}
+	
+		Intuitivamente, $T$ significa, el primer tiempo tal que ganamos en dos volados consecutivos.
+		También intuitivamente, esto debería ser un tiempo de paro.
 		
-		\subsubsection{(v)}	
-		Para la variable $T$ que hemos definido, calcule $\esp{T}$.\\
+		Veamos que efectivamente así ocurre. Utilizando la siguiente prueba por inducción:\\
 		
-		   	Primero, platicaré de manera intuitiva cómo vamos a proceder para solucionar este problema.\\
-		
-		   	Imaginemos un juego de casino a base de un juego de volados con las siguientes reglas:\\
-		   	\begin{itemize}
-		   			\item En cada turno, cada jugador tiene que apostar todo el dinero que tiene.
-		   			\item Si un jugador se queda sin dinero, tiene que abandonar el juego.
-		   			\item Si cae ``sol" cada jugador recibe el doble de lo que había apostado en ese turno.  
-		   	\end{itemize}
-		   
-		   	\;El casino tiene dinero infinito y cada habitante cuenta con exactamente $1$ peso antes de
-		   	iniciar el juego.\\
-		   
-		   	Además, en cada nuevo turno entra exactamente un nuevo jugador al juego.\\
-		   
-		   	Para nuestro problema, supongamos que $X_n = 1$ significa que en el $n$-ésimo turno, salió sol.
-		   	Entonces, $T$ nos indica cuando es la primera vez que caen dos soles consecutivos.\\
-		   
-		   	Sea $D_n$ la variable que indica cuánto dinero ha ganado el casino para el tiempo $n$.\\
-		   
-		   	Observemos que en el momento que cae ``águila", todo jugador pierde todo su dinero y abandona el juego.
-		   	Y que por cada jugador que pierde, el casino gana exáctamente $1$ peso (pues cada jugador en cada
-		   	turno apuesta todo el dinero que posee, es decir el peso con el que empezó y todo lo que le habia
-		   	ganado al casino).\\
-		   
-		   	Entonces, al tiempo $T-2$, todo mundo había perdido. Es decir que al tiempo $T-2$ el casino ha ganado
-		   	$T-2$ pesos.\\
-		   
-		   	Luego, al tiempo $T-1$, ha caido un sol y hay exactamente un jugador al que el casino tuvo 
-		   	que pagar $1$ peso.\\
-		   
-		   	Al tiempo $T$, al jugador del turno pasado el casino tuvo que darle $2$ pesos y al jugador del nuevo
-		   	turno tuvo que darle $1$ peso.\\
-		   
-		   	Entonces, ya podemos decir cuanto dinero ha ganado el casino al tiempo $T$.
-			\begin{align}\label{problema1_3:Dinero_al_tiempo_T}
-				D_T = T-2 - 1 - 3 = T - 6. 
-			\end{align}					   
-		   
-		   	Notemos que además el juego es justo, en cada turno cada jugador tiene $1/2$ de probabilidad de
-		   	ganar $2^t$ y $1/2$ de probabilidad de perder $2^t$. Es decir, la esperanza es $0$.\\
-		   	
-		   	$D_n$ es suma de este tipo de variables y por lo tanto su esperanza también será $0$.\\
-		   
-		   	Esto, nos da la intuición de que $D_n$ es martingala, pero esa es la parte que demostraremos más adelante.\\
-		   
-			Si logramos demostrar que $\E(D_T) = 0$. De (\ref{problema1_3:Dinero_al_tiempo_T}) concluimos
+		\textbf{Base de inducción:}		
 			\begin{align}
-				0 = \E(T - 6) = \E(T) - 6
-			\end{align}
+				\{T = 0\} 		&= \emptyset  				& 	\in \F_0 \\
+				\{T = 1\} 		&= \emptyset  				& 	\in \F_1 \\
+				\{T = 2\} 		&= \{ X_1 = 1, X_2 = 1\} 	&	\in \F_2
+			\end{align}	\\					
+		
+		\textbf{Hipótesis de inducción:}\\
+		
+			Supongamos que $\{T = n\} \in \F_n$ para cierto $n \geq 2$.\\
 			
-			De donde $\E(T) = 6$.\\
+		\textbf{Paso inductivo:}
 			
-			Ahora, para terminar con las formalidades, definamos bien a $D$ y comprobemos que es martingala y 
-			que podemos utilizar el Teoremoa del muestreo opcional de Doob como lo hemos hecho.\\
+			\begin{align}
+				\{T = n + 1 \} = \{ X_n = 1, X_{n+1} = 1\} \setminus \bigcup_{i=0}^{n} \{T = i\}.
+			\end{align}				
+		
+			Es claro que $\{ X_n = 1, X_{n+1} = 1\} \in \F_{n + 1}$ y que por hipótesis de inducción
+			$\bigcup_{i=0}^{n} {T = i} \in \F_n \subset \F_{n + 1}$. Por lo tanto
+			$\{T = n + 1 \} \in \F_{n+1}$ para toda $n \geq 2$ y con esto termina la demostración.\\
 			
-			Sean entonces $(Y_n)_{n \in \N}$ variables aleatorias Bernulli de parámetro $1/2$ independientes.
-			Y sea $Z_n^m$ la cantidad de dinero que el jugador $m$ ha dado al casino definidas como:
-			
-			\begin{itemize}
-				\item 
-					Si $n < m$ entonces $Z_n^m = 0$ . (El jugador $m$ no participa en el juego sino hasta el turno $m$).
-				\item
-					$Z_{n+1}^{m} = (Z_n^{m} - 1) \cdot 2(Y_{n+1}) + 1$. (Si $Y_{n + 1} = 1$ [El jugador gana el volado], entonces el casino
-					pierde la cantidad apostada, que para el turno $n+1$ es $Z_n^n + 1$). Nótese que en cuanto un $Y_{n_0}$ se hace cero,
-					$Z_{n_0}^{n}$ y todos los que le sigan son todos iguales a $1$ (Como el jugador deja el juego después de haber perdido
-					un volado, deja su peso en el casino y entonces de ahí en adelante la cantidad que ha dado al casino es exactamente 1).
-			\end{itemize}
-			
-			Veamos que para cada $m \in \N$, $(Z_n^m)_{n \in \N}$ forma una martingala con respecto a la filtración $(\G_n)_{n \in \N}$ 
-			definida por los $Y_n$.\\
-			
-			Cada $Z_n^m$ es $\G_m$-medible por definición.\\
-			
-			Cada $Z_n^m$ es suma finita de variables acotadas. Por lo tanto cada una pertenece a $L_1$.\\
-			
-			Sólo nos falta verificar la propiedad de martingala.
-			
-			\begin{align}\label{problema1_3:Propiedad_de_martingala_para_el_dinero_perdido_por_un_apostador}
-				\E(Z_{n+1}^{m} | \G_n) &= \E((Z_n^{m} - 1) \cdot 2(Y_{n+1}) + 1 | \G_n)\\
-				                       &= \E((Z_n^{m} -1) \cdot 2(Y_{n+1}) | \G_n) + \E( 1 | \G_n)\\
-				                       &\;\;\;\;\mbox{[Por ser $(Z_n^{m} - 1)$ una variable $\G_n$-medible.]}\\
-				                       &= (Z_n^{m} -1) \cdot \E(  2(Y_{n+1}) | \G_n) + \E( 1 | \G_n)\\
-				                       &= (Z_n^{m} -1) \cdot 2\E( Y_{n+1} | \G_n) + \E( 1 | \G_n)\\
-				                       &\;\;\;\;\mbox{[Por ser $Y_{n + 1}$ independiente $\G_n$.]}\\
-				                       &= (Z_n^{m} -1) \cdot 2\E( Y_{n+1}) + \E( 1 | \G_n)\\
-				                       &= (Z_n^{m} -1) \cdot 2 \frac{1}{2} + \E( 1 | \G_n)\\
-				                       &= (Z_n^{m} -1) \cdot + 1 \\
-				                       &= Z_n^m.
-			\end{align}
-			
-			Ahora definamos a $D_n = \sum_{i=1}^n (Z_n^i)$. Que significa, La cantidad de dinero que el casino ha ganado al tiempo $n$. 
-			Justo como lo habíamos dicho en la ``demostración intuitiva".\\
-			
-			Ver que $D$ es martingala es fácil. Cada $D_n$ es suma finita de variables finitas y por lo tanto pertenece a $L_1$.
-			$D_n$ es suma de variables $\G_n$-medibles y por lo tanto también lo es. Y la propiedad de martingala se sigue directamente de
-			(\ref{problema1_3:Propiedad_de_martingala_para_el_dinero_perdido_por_un_apostador}).\\
-			
-		    Es cierto que podemos aplicar Doob sobre el tiempo $T \wedge n$ por ser acotado y de aquí que:
-		    $\E(D_{T \wedge n}) = \E(D_1) = 0$.\\
-		    
-		    Notemos que $D_{T \wedge n} \longrightarrow D_T \; c.s.$\\
-		    
-		    Nos gustaría poder decir lo mismo de sus esperanzas y para eso utilizaremos teroema de convergencia dominada.\\
-		    
-		    Es claro que al tiempo $T \wedge n$ el casino a lo más pudo haber ganado $T \wedge n$ pesos.
-		    De aquí que $D_{T \wedge n} \geq T \wedge n \geq T$.\\
-		    
-		    Además, por definición de $T$, para el tiempo $T$ el casino a lo más ha perdido $4$ pesos y es la primera vez que 
-		    pierde tanto. Así que $-4 \leq D_{T \wedge n}$.\\ 
-		    
-			Entonces, nuestra martingala $D$ esta dominada por $\max(T, 4) < T + 4$. Bastaría demostrar que $\E(T+4) < \infty$ para poder
-			utilizar el teorema de convergencia dominada.\\
-			
-			Notemos que 
-			\begin{align}\label{problema1_3:Acotando_T}
-				\mw(T > n) &= \frac{1}{2} \mw(T > n-1) + \frac{1}{4} \mw(T > n-2). 
-			\end{align}
-			
-			Pues queremos garantizar que en los primeros $n$ turnos, no pierde dos veces consecutivas el casino.\\
-			
-			Si en el turno 1, gana el casino (de aquí el $\frac{1}{2}$), en el resto de los $n-1$ turnos tenemos que garantizar que 
-			el casino no pierde dos veces consecutivas, como las variables están idénticamente distribuidas, esto es equivalente a que
-			$T>n-1$. (De aqui el $\mw(T > n-1)$.\\
-			
-			Si el casino pierde en el turno 1, necesariamente tiene que ganar en el turno 2 (de aquí el $\frac{1}{4})$. Y la probabilidad
-			de que no pierda dos veces consecutivas en los siguientes $n-2$ turnos es $\mw(T > n-2)$.\\					    
-		    
-		    De (\ref{problema1_3:Acotando_T}) podemos notar fácilmente que $\mw(T > 2) \leq \frac{3}{4}$\\
-		    
-		    También notemos que $\mw(T > n ) \geq \mw(T > n + 1)$ (El primer evento contiene al segundo).
-		    
-		    Ahora
-		    \begin{align}
-		       	\mw(T > 2 (2)) &=     \frac{1}{2} \mw(T > 2+1) + \frac{1}{4} \mw(T > 2) \\
-		       				   &\leq  \frac{1}{2} \mw(T > 2) + \frac{1}{4} \mw(T > 2) \\
-		       				   &\leq  \frac{1}{2} \cdot \frac{3}{4} + \frac{1}{4} \cdot \frac{3}{4} = \bigg(\frac{3}{4}\bigg)^2.
-		    \end{align}
-		    
-		    De manera recursiva tenemos que
-		    \begin{align}
-		       	\mw(T > 2(n+1)) &=     \frac{1}{2} \mw(T > 2(n+1) - 1) + \frac{1}{4} \mw(T > 2(n+1) - 2) \\
-						       	&=     \frac{1}{2} \mw(T > 2(n) + 1) + \frac{1}{4} \mw(T > 2(n)) \\
-		       				   &\leq  \frac{1}{2} \mw(T > 2n) + \frac{1}{4} \mw(T > 2n) \\
-		       				   &\leq  \frac{1}{2} \cdot \bigg(\frac{3}{4}\bigg)^{n} + \frac{1}{4} \cdot \bigg(\frac{3}{4}\bigg)^{n} = 		
-		       				   \bigg(\frac{3}{4}\bigg)^{n+1}.
-		    \end{align}
-		    
-		    Entonces,
-		    \begin{align}
-		    	\E(T) 	&= 		\sum_{n=0}^\infty \mw(T > n) \\
-		    			&\leq 	\sum_{n=0}^\infty 2\mw(T > 2n) \\
-		    			&= 		2 \sum_{n=0}^\infty \mw(T > 2n) \\
-		    			&\leq 	2 \sum_{n=0}^\infty \bigg(\frac{3}{4}\bigg)^{n} < \infty\\
-		    \end{align}
-		    
-		    Por lo tanto $\E(T + 4) \leq \infty$. Y entonces nuestra martingala $D$ está dominada por una variable integrable y finalmente
-		    podemos aplicar teorema de convergencia dominada para concluir que:
-		    \begin{align}
-		    	0 = \lim_{n \longrightarrow \infty} \E(D_{T \wedge n}) = \E(D_T).
-		    \end{align}
-		    
-		    Y con esto terminamos de demostrar todas las formalidades que nos hacían falta.
+		Ahora, intuitivamente $U$ significa el momento justo antes de ganar dos volados consecutivos.
+		Esto, quedría decir que tenemos información sobre eventos que aún no ocurren. Así que intuitivamente
+		esto no debería ser un tiempo de paro.\\
+		
+		Efectivamente, si tomamos como ejemplo el conjunto: 
+			\begin{align}
+				\{ U = 1 \} = \{ T - 2 = 1\} = \{ T = 3\} = \{X_1 = -1, X_2 = 1, X_3 = 1\}
+			\end{align}		\\
+				
+		Es fácil notar que es un conjunto que pertenece a $\F_3$, pero no a $\F_1$. Pues $\F_1$
+		no contiene información alguna sobre $X_2$ y $X_3$. Así que el conjunto más pequeño de $\F_1$ 
+		que contiene a $\{ U = 1 \}$ es $\{ X_1 = -1 \}$.\\
+	
+	\subsubsection{inciso (v)}	
+	\emph
+	{
+		Para la variable $T$ que hemos definido, calcule $\esp{T}$.\\
+	}
+		Primero, platicaré de manera intuitiva cómo vamos a proceder para solucionar este problema.\\
+	
+		Imaginemos un juego de casino a base de un juego de volados con las siguientes reglas:\\
+		\begin{itemize}
+				\item En cada turno, cada jugador tiene que apostar todo el dinero que tiene.
+				\item Si un jugador se queda sin dinero, tiene que abandonar el juego.
+				\item Si cae ``sol" cada jugador recibe el doble de lo que había apostado en ese turno.  
+		\end{itemize}
+	   
+		\;El casino tiene dinero infinito y cada habitante cuenta con exactamente $1$ peso antes de
+		iniciar el juego.\\
+	   
+		Además, en cada nuevo turno entra exactamente un nuevo jugador al juego.\\
+	   
+		Para nuestro problema, supongamos que $X_n = 1$ significa que en el $n$-ésimo turno, salió sol.
+		Entonces, $T$ nos indica cuando es la primera vez que caen dos soles consecutivos.\\
+	   
+		Sea $D_n$ la variable que indica cuánto dinero ha ganado el casino para el tiempo $n$.\\
+	   
+		Observemos que en el momento que cae ``águila", todo jugador pierde todo su dinero y abandona el juego.
+		Y que por cada jugador que pierde, el casino gana exáctamente $1$ peso (pues cada jugador en cada
+		turno apuesta todo el dinero que posee, es decir el peso con el que empezó y todo lo que le habia
+		ganado al casino).\\
+	   
+		Entonces, al tiempo $T-2$, todo mundo había perdido. Es decir que al tiempo $T-2$ el casino ha ganado
+		$T-2$ pesos.\\
+	   
+		Luego, al tiempo $T-1$, ha caido un sol y hay exactamente un jugador al que el casino tuvo 
+		que pagar $1$ peso.\\
+	   
+		Al tiempo $T$, al jugador del turno pasado el casino tuvo que darle $2$ pesos y al jugador del nuevo
+		turno tuvo que darle $1$ peso.\\
+	   
+		Entonces, ya podemos decir cuanto dinero ha ganado el casino al tiempo $T$.
+		\begin{align}\label{problema1_3:Dinero_al_tiempo_T}
+			D_T = T-2 - 1 - 3 = T - 6. 
+		\end{align}					   
+	   
+		Notemos que además el juego es justo, en cada turno cada jugador tiene $1/2$ de probabilidad de
+		ganar $2^t$ y $1/2$ de probabilidad de perder $2^t$. Es decir, la esperanza es $0$.\\
+		
+		$D_n$ es suma de este tipo de variables y por lo tanto su esperanza también será $0$.\\
+	   
+		Esto, nos da la intuición de que $D_n$ es martingala, pero esa es la parte que demostraremos más adelante.\\
+	   
+		Si logramos demostrar que $\E(D_T) = 0$. De (\ref{problema1_3:Dinero_al_tiempo_T}) concluimos
+		\begin{align}
+			0 = \E(T - 6) = \E(T) - 6
+		\end{align}
+		
+		De donde $\E(T) = 6$.\\
+		
+		Ahora, para terminar con las formalidades, definamos bien a $D$ y comprobemos que es martingala y 
+		que podemos utilizar el Teoremoa del muestreo opcional de Doob como lo hemos hecho.\\
+		
+		Sean entonces $(Y_n)_{n \in \N}$ variables aleatorias Bernulli de parámetro $1/2$ independientes.
+		Y sea $Z_n^m$ la cantidad de dinero que el jugador $m$ ha dado al casino definidas como:
+		
+		\begin{itemize}
+			\item 
+				Si $n < m$ entonces $Z_n^m = 0$ . (El jugador $m$ no participa en el juego sino hasta el turno $m$).
+			\item
+				$Z_{n+1}^{m} = (Z_n^{m} - 1) \cdot 2(Y_{n+1}) + 1$. (Si $Y_{n + 1} = 1$ [El jugador gana el volado], entonces el casino
+				pierde la cantidad apostada, que para el turno $n+1$ es $Z_n^n + 1$). Nótese que en cuanto un $Y_{n_0}$ se hace cero,
+				$Z_{n_0}^{n}$ y todos los que le sigan son todos iguales a $1$ (Como el jugador deja el juego después de haber perdido
+				un volado, deja su peso en el casino y entonces de ahí en adelante la cantidad que ha dado al casino es exactamente 1).
+		\end{itemize}
+		
+		Veamos que para cada $m \in \N$, $(Z_n^m)_{n \in \N}$ forma una martingala con respecto a la filtración $(\G_n)_{n \in \N}$ 
+		definida por los $Y_n$.\\
+		
+		Cada $Z_n^m$ es $\G_m$-medible por definición.\\
+		
+		Cada $Z_n^m$ es suma finita de variables acotadas. Por lo tanto cada una pertenece a $L_1$.\\
+		
+		Sólo nos falta verificar la propiedad de martingala.
+		
+		\begin{align}\label{problema1_3:Propiedad_de_martingala_para_el_dinero_perdido_por_un_apostador}
+			\E(Z_{n+1}^{m} | \G_n) &= \E((Z_n^{m} - 1) \cdot 2(Y_{n+1}) + 1 | \G_n)\\
+								   &= \E((Z_n^{m} -1) \cdot 2(Y_{n+1}) | \G_n) + \E( 1 | \G_n)\\
+								   &\;\;\;\;\mbox{[Por ser $(Z_n^{m} - 1)$ una variable $\G_n$-medible.]}\\
+								   &= (Z_n^{m} -1) \cdot \E(  2(Y_{n+1}) | \G_n) + \E( 1 | \G_n)\\
+								   &= (Z_n^{m} -1) \cdot 2\E( Y_{n+1} | \G_n) + \E( 1 | \G_n)\\
+								   &\;\;\;\;\mbox{[Por ser $Y_{n + 1}$ independiente $\G_n$.]}\\
+								   &= (Z_n^{m} -1) \cdot 2\E( Y_{n+1}) + \E( 1 | \G_n)\\
+								   &= (Z_n^{m} -1) \cdot 2 \frac{1}{2} + \E( 1 | \G_n)\\
+								   &= (Z_n^{m} -1) \cdot + 1 \\
+								   &= Z_n^m.
+		\end{align}
+		
+		Ahora definamos a $D_n = \sum_{i=1}^n (Z_n^i)$. Que significa, La cantidad de dinero que el casino ha ganado al tiempo $n$. 
+		Justo como lo habíamos dicho en la ``demostración intuitiva".\\
+		
+		Ver que $D$ es martingala es fácil. Cada $D_n$ es suma finita de variables finitas y por lo tanto pertenece a $L_1$.
+		$D_n$ es suma de variables $\G_n$-medibles y por lo tanto también lo es. Y la propiedad de martingala se sigue directamente de
+		(\ref{problema1_3:Propiedad_de_martingala_para_el_dinero_perdido_por_un_apostador}).\\
+		
+		Es cierto que podemos aplicar Doob sobre el tiempo $T \wedge n$ por ser acotado y de aquí que:
+		$\E(D_{T \wedge n}) = \E(D_1) = 0$.\\
+		
+		Notemos que $D_{T \wedge n} \longrightarrow D_T \; c.s.$\\
+		
+		Nos gustaría poder decir lo mismo de sus esperanzas y para eso utilizaremos teroema de convergencia dominada.\\
+		
+		Es claro que al tiempo $T \wedge n$ el casino a lo más pudo haber ganado $T \wedge n$ pesos.
+		De aquí que $D_{T \wedge n} \geq T \wedge n \geq T$.\\
+		
+		Además, por definición de $T$, para el tiempo $T$ el casino a lo más ha perdido $4$ pesos y es la primera vez que 
+		pierde tanto. Así que $-4 \leq D_{T \wedge n}$.\\ 
+		
+		Entonces, nuestra martingala $D$ esta dominada por $\max(T, 4) < T + 4$. Bastaría demostrar que $\E(T+4) < \infty$ para poder
+		utilizar el teorema de convergencia dominada.\\
+		
+		Notemos que 
+		\begin{align}\label{problema1_3:Acotando_T}
+			\mw(T > n) &= \frac{1}{2} \mw(T > n-1) + \frac{1}{4} \mw(T > n-2). 
+		\end{align}
+		
+		Pues queremos garantizar que en los primeros $n$ turnos, no pierde dos veces consecutivas el casino.\\
+		
+		Si en el turno 1, gana el casino (de aquí el $\frac{1}{2}$), en el resto de los $n-1$ turnos tenemos que garantizar que 
+		el casino no pierde dos veces consecutivas, como las variables están idénticamente distribuidas, esto es equivalente a que
+		$T>n-1$. (De aqui el $\mw(T > n-1)$.\\
+		
+		Si el casino pierde en el turno 1, necesariamente tiene que ganar en el turno 2 (de aquí el $\frac{1}{4})$. Y la probabilidad
+		de que no pierda dos veces consecutivas en los siguientes $n-2$ turnos es $\mw(T > n-2)$.\\					    
+		
+		De (\ref{problema1_3:Acotando_T}) podemos notar fácilmente que $\mw(T > 2) \leq \frac{3}{4}$\\
+		
+		También notemos que $\mw(T > n ) \geq \mw(T > n + 1)$ (El primer evento contiene al segundo).
+		
+		Ahora
+		\begin{align}
+			\mw(T > 2 (2)) &=     \frac{1}{2} \mw(T > 2+1) + \frac{1}{4} \mw(T > 2) \\
+						   &\leq  \frac{1}{2} \mw(T > 2) + \frac{1}{4} \mw(T > 2) \\
+						   &\leq  \frac{1}{2} \cdot \frac{3}{4} + \frac{1}{4} \cdot \frac{3}{4} = \bigg(\frac{3}{4}\bigg)^2.
+		\end{align}
+		
+		De manera recursiva tenemos que
+		\begin{align}
+			\mw(T > 2(n+1)) &=     \frac{1}{2} \mw(T > 2(n+1) - 1) + \frac{1}{4} \mw(T > 2(n+1) - 2) \\
+							&=     \frac{1}{2} \mw(T > 2(n) + 1) + \frac{1}{4} \mw(T > 2(n)) \\
+						   &\leq  \frac{1}{2} \mw(T > 2n) + \frac{1}{4} \mw(T > 2n) \\
+						   &\leq  \frac{1}{2} \cdot \bigg(\frac{3}{4}\bigg)^{n} + \frac{1}{4} \cdot \bigg(\frac{3}{4}\bigg)^{n} = 		
+						   \bigg(\frac{3}{4}\bigg)^{n+1}.
+		\end{align}
+		
+		Entonces,
+		\begin{align}
+			\E(T) 	&= 		\sum_{n=0}^\infty \mw(T > n) \\
+					&\leq 	\sum_{n=0}^\infty 2\mw(T > 2n) \\
+					&= 		2 \sum_{n=0}^\infty \mw(T > 2n) \\
+					&\leq 	2 \sum_{n=0}^\infty \bigg(\frac{3}{4}\bigg)^{n} < \infty.
+		\end{align}
+		
+		Por lo tanto $\E(T + 4) \leq \infty$. Y entonces nuestra martingala $D$ está dominada por una variable integrable y finalmente
+		podemos aplicar teorema de convergencia dominada para concluir que:
+		\begin{align}
+			0 = \lim_{n \longrightarrow \infty} \E(D_{T \wedge n}) = \E(D_T).
+		\end{align}
+		
+		Y con esto terminamos de demostrar todas las formalidades que nos hacían falta.
 \end{proof}
