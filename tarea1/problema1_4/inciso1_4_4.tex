@@ -43,7 +43,7 @@
 	 
 	 Notemos que	 
 	 \begin{align}
-	 	M_T - M_S &= \sum_{ i \in \N} ( M_{i+1} - M_i) \indic_{S \leq i < T }. 
+	 	M_T - M_S &= \sum_{ i \in \N} ( M_{i+1} - M_i) \cdot \indic_{S \leq i < T }. 
 	 \end{align}
 
 	 También notemos que 
@@ -53,12 +53,86 @@
 	 								&=		(\{S \leq i \} \cap A) \cap \{ i < T \}.  		\\
 	 								&=		(\{S \leq i \} \cap A) \cap \{ T \leq i \}^c.
 	 \end{align}	 
+	 \null
+	 \null
+	 \;De esta última parte hay que puntualizar que $(\{S \leq i \} \cap A) \in \F_i$ por que $A \in \F_S$ y también
+	 hay que puntualizar que $\{ T \leq i + 1 \}^c \in F_{i}$\\
 	 
-	 De esta última parte hay que puntualizar que $(\{S \leq i \} \cap A) \in \F_i$ por que $A \in \F_S$ y también
-	 hay que puntualizar que $\{ T \leq i + 1 \}^c \in F_{i}$
+	 Con estos detalles listos procedemos a la parte que nos interesa:
 	 
-	 De esto último, tenemos
+	 \begin{align}
+	 	\E((M_T - M_S) \cdot \indic_A)	
+	 									&=		
+	 	\E\bigg( \sum_{ i \in \N} ( M_{i+1} - M_i) \cdot \indic_{S \leq i < T } \cdot \indic_A \bigg)									\\
+	 									&=		
+	 	\E	\bigg( 
+	 			\sum_{ i \in \N} 
+	 				( M_{i+1} - M_i) \cdot \indic_{(\{S \leq i \} \cap A)} \cdot \indic_{\{ T \leq i \}^c} 
+	 		\bigg)																														\\
+	 									&=		
+	 	\sum_{ i \in \N} 
+	 		\E	\bigg(
+	 				( M_{i+1} - M_i) \cdot \indic_{(\{S \leq i \} \cap A)} \cdot \indic_{\{ T \leq i \}^c} 
+	 			\bigg)																													
+	\end{align}
+	\begin{align}
+	 									&=		
+	 	\sum_{ i \in \N} 
+	 		\E	\bigg(
+		 			\E	\bigg(
+		 					( M_{i+1} - M_i) \cdot \indic_{(\{S \leq i \} \cap A)} \cdot \indic_{\{ T \leq i \}^c}  \bigg| F_i	
+						\bigg)
+	 			\bigg)																													\\
+										&=
+	 	\sum_{ i \in \N} 
+	 		\E	\bigg(
+					\indic_{(\{S \leq i \} \cap A)} \cdot \indic_{\{ T \leq i \}^c} \cdot
+		 			\E	\bigg(
+		 					 ( M_{i+1} - M_i)  \bigg| F_i	 												
+						\bigg)
+	 			\bigg)																													\\
+										&=
+	 	\sum_{ i \in \N} 
+	 		\E	\bigg(
+					\indic_{(\{S \leq i \} \cap A)} \cdot \indic_{\{ T \leq i \}^c} \cdot
+		 			\E	(
+		 					 M_{i+1} | F_i	 												
+						)
+					-
+					\E	(
+		 					 M_i  | F_i	 												
+						)
+	 			\bigg)																													\\
+										&=
+	 	\sum_{ i \in \N} 
+	 		\E	\bigg(
+					\indic_{(\{S \leq i \} \cap A)} \cdot \indic_{\{ T \leq i \}^c} \cdot
+		 					 M_i
+					-
+					\E	(
+		 					 M_i  | F_i	 												
+						)
+	 			\bigg)																													\\
+										&\;\;\;\;\; \mbox{[Esto último por ser M una martingala.]}									    \\
+										&=
+	 	\sum_{ i \in \N} 
+	 		\E	\bigg(
+					\indic_{(\{S \leq i \} \cap A)} \cdot \indic_{\{ T \leq i \}^c} \cdot
+		 			 M_i
+						-
+					 M_i
+	 			\bigg)																													\\
+										&\;\;\;\;\; \mbox{[Esto último por que $M_i$ es $F_i$-medible.]}								\\
+										&=
+		\sum_{ i \in \N} 
+	 		\E	\bigg(
+					\indic_{(\{S \leq i \} \cap A)} \cdot \indic_{\{ T \leq i \}^c} \cdot
+		 			 0
+	 			\bigg)																													\\
+										&=
+		0
+	 \end{align}
 	
-	
+	Que es justo lo que queríamos demostrar.
 	
 	
