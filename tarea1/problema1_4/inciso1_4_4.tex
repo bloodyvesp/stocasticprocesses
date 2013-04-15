@@ -112,7 +112,7 @@
 					\E	(
 		 					 M_i  | F_i	 												
 						)
-	 			\bigg)																													\\
+	 			\bigg)\label{problema1_4:aplicacion_de_que_M_es_martingala}																\\
 										&\;\;\;\;\; \mbox{[Esto último por ser M una martingala.]}									    \\
 										&=
 	 	\sum_{ i \in \N} 
@@ -133,6 +133,14 @@
 		0
 	 \end{align}
 	
-	Que es justo lo que queríamos demostrar.
+	Que es justo lo que queríamos demostrar.\\
+	
+	Para demostrar (\ref{problema1_4:caso_supermartingala}). Hay que notar que $ \espc{M_T}{\F_S}\leq M_S $ es cierto sí y sólo sí para todo $A \in \F_S$
+	se tiene que $ \E((M_T - M_S) \indic_{A}) \leq 0 $.\\
+	
+	Demostrar esto último lo podemos hacer de manera análoga a como demostramos el caso en el que $M$ es martingala. En las cuentas previamente hechas,
+	utilizando el hecho de que $M$ es supermartingala en vez de martingala, la iguladad de (\ref{problema1_4:aplicacion_de_que_M_es_martingala}) 
+	se transforma en una desigualdad de tipo ``$\leq$". El resto se queda exactamente igual y entonces tenemos la demostración que necesitabamos.
+	
 	
 	
