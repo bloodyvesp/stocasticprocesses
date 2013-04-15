@@ -1,0 +1,99 @@
+\emph
+{	
+	Mediante el inciso anterior, construya una martingala que converge 
+	casi seguramente pero no lo hace en $L_1$.\\
+}
+	
+	En el ejercicio 4 se probará que si $T$ y $S$ son tiempos de paro, entonces $T\wedge S$ también 
+	es tiempo de paro. Con esto tenemos que si $T_1$ es tiempo de paro, entonces $T_1 \wedge n$ con 
+	$n \in \N$ también es tiempo de paro. Definimos entonces 
+	$$M_n = S_{T_1 \wedge n}.$$
+	
+	Veamos que los $M_n$ forman una martingala.
+	
+	\begin{itemize}
+		\item 
+			$M_n$ es adaptada a la filtración.
+			\begin{align}
+				M_n(w) = S_{T_1 \wedge n}(w) = 
+				S_{T_1 \wedge n (w)}(w) = 
+				\sum_{k=1}^{T_1 \wedge n (w)} X_k = 
+				\sum_{k=1}^{n} (X_k \cdot \indic_{T_1 \geq k})(w).
+			\end{align}
+			
+			De donde, podemos escribir:
+			\begin{align}\label{problema1_3:descomposicion_de_M_n}
+				M_n = \sum_{k=1}^{n} (X_k \cdot \indic_{T_1 \geq k}).
+			\end{align}								 		
+			
+			Recordemos que $X_k$ es $\F_n$-medible para toda $k \leq n $. Por ser
+			$T_1$ tiempo de paro, los conjuntos $A_k = \{T_1 = k\}$ y 
+			$B_k = \{T_1 \leq k\}$	son $F_k$ medibles y por lo tanto 
+			$A_k \cup B_k^c = \{ T_1 \geq k\}$ también lo es. De aquí que 
+			$\indic_{T_1 \geq k}$ es $\F_k$-medible y por lo tanto también $\F_n$-medible
+			para toda $n$ tal que $n \geq k$.\\
+			  
+			Entonces $M_n$ es suma y productos de funciones $\F_n$-medibles y por lo tanto
+			$F_n$-medible. Que es lo que queríamos demostrar.\\
+			
+		\item
+			$M_n \in L_1$\\
+			
+			De (\ref{problema1_3:descomposicion_de_M_n}) podemos ver que $M_n$ es 
+			suma finita de variables acotadas. Por lo tanto $M_n \in L_1$.\\
+			
+		\item Ahora probaremos que	$\E(M_{n+1} | \F_{n}) = M_{n}$\\
+			
+			Primero:
+			\begin{align}
+				\E(M_{n+1} | \F_{n}) &= \E( S_{T_1 \wedge (n+1)} | \F_{n}) = 
+				\E\bigg( \sum_{k=1}^{n+1} (X_k \cdot \indic_{T_1 \geq k})\bigg| \F_{n}\bigg) \\	 			
+				& =\E\bigg( \sum_{k=1}^{n} (X_k \cdot \indic_{T_1 \geq k}) \bigg| \F_{n}\bigg) +
+				\E\bigg((X_{n+1} \cdot \indic_{T_1 \geq n+1}) \bigg| \F_{n}\bigg) \\
+				&\mbox{(Este paso es gracias a que $X_k$ y $\indic_{T_1 \geq k}$ son $\F_n$-medibles)}\\
+				& = \sum_{k=1}^{n} (X_k \cdot \indic_{T_1 \geq k}) + 
+				\E((X_{n+1} \cdot \indic_{T_1 \geq n+1}) | \F_{n}) \\
+				& = S_{T_1 \wedge n} + \E((X_{n+1} \cdot \indic_{T_1 \geq n+1}) | \F_{n}) \\
+				& = M_n + \E((X_{n+1} \cdot \indic_{T_1 \geq n+1}) | \F_{n})
+			\end{align}
+			
+			Entonces, nos basta probar que $\E(X_{n+1} \cdot \indic_{T_1 \geq n+1} |
+			 \F_{n}) = 0$ para terminar nuestra demostración.\\
+			 
+			Sean $A = \{T_1 = n\}$ y $B = \{ T_1 \leq n\}$. Por ser $T_1$ tiempo de paro,
+			$A$ y $B$ son $\F_n$-medibles. Por lo tanto $B \setminus A$ también es $\F_n$-medible. 
+			Notemos que $\{T_1 \geq n+1\} = (B \setminus A)^c$. Por lo tanto $\{T_1 \geq n+1\}$ es
+			$\F_n$-medible. De donde  $\indic_{T_1 \geq n+1})$ es $\F_n$-medible.\\
+			
+			Con esto, ahora tenemos que:
+			\begin{align}
+				\E((X_{n+1} \cdot \indic_{T_1 \geq n+1}) | \F_{n}) &= \indic_{T_1 \geq n+1} \cdot \E(X_{n+1} | \F_{n}) \\
+				&\mbox{(Este paso es gracias a que los $X_n$ son independientes)} \\
+				&=\indic_{T_1 \geq n+1} \cdot \E(X_{n+1} ) \\
+				&=\indic_{T_1 \geq n+1} \cdot 0 \\
+				&= 0
+			\end{align}	
+			
+			Como queríamos demostrar.
+	\end{itemize}
+	
+	Ahora que tenemos que $(M_n)_{n \in \N}$ es martingala, confirmemos que converge casi seguramente.\\
+	
+	Notemos que $(T_1 \wedge n)_{n \rightarrow \infty} \rightarrow T_1$ c.s.\\
+	
+	De aquí que $(M_n)_{n \rightarrow \infty} = (S_{T_1 \wedge n})_{n \rightarrow \infty} = S_{T_1}$ c.s. \\				
+	
+	Veamos que la convergencia no ocurre en $L_1$. \\
+				
+	Dado que $T_1 \wedge n$ es un tiempo de paro acotado para toda $n \in \N$,
+	podemos aplicar el Teorema de Muestreo Opcional de 	Doob. 
+	El cual nos dice que $\E(M_n) = \E(S_{T_1 \wedge n}) = \E(S_0) = 0$.\\
+	
+	Por otro lado, por definición de $T_1$, $S_{T_1} = 1$ c.s.	De donde $\E(S_T) = 1$.\\
+	
+	\begin{align}
+		\E(M_n) = 0 \not\rightarrow 1 = \E(S_{T_1}).
+	\end{align}			
+	
+	Y con esto, queda demostrado que la convergencia no se da en $L_1$.\\
+	
