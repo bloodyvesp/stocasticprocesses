@@ -1,22 +1,16 @@
 \RequirePackage{pgfornament,tkzexample,tikzrput}  
 
-
 \documentclass[a5paper,oneside]{amsart}
 \usepackage[scale={.8,.85}]{geometry}
-
 \usepackage{mathrsfs}
 \usepackage[utf8]{inputenc}
-
 \usepackage{dsfont}
 \usepackage{listings}
-
-
+\usepackage[colorlinks,citecolor=blue,urlcolor=blue]{hyperref}
 
 \newtheoremstyle{dotless}{}{}{\itshape}{}{\bfseries}{}{ }{}
 \theoremstyle{dotless}
 \renewenvironment{proof}{{\bfseries Demostración:}}
-
-
 
 \newtheorem{teorema}{\;\;Teorema}[section]
 \newtheorem{problema}[teorema]{\;\;Problema}
@@ -26,17 +20,24 @@
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 
-
-
 \input{definiciones/definitions.tex}
 \input{definiciones/definicionesdehtellez.tex}
+
+
+
+
+
+
+
+
 %\input{definiciones/ornamentos.tex}
 
 
 
-\title[Problemas de Procesos I]{Problemas de Procesos Estocásticos I\\ Semestre 2013-II\\ Posgrado en Ciencias Matemáticas\\ Universidad Nacional Autónoma de México}
+\title[Problemas de Procesos I]{
+	Problemas de Procesos Estocásticos I\\ Semestre 2013-II\\ Posgrado en Ciencias Matemáticas\\ Universidad Nacional Autónoma de México
+}
 
-\usepackage[colorlinks,citecolor=blue,urlcolor=blue]{hyperref}
 
 \begin{document}
 	\maketitle

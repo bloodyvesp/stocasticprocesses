@@ -21,3 +21,9 @@ En tareas.tex hay que cambiar la linea que dice:
 por la linea:
 	%\input{definiciones/ornamentos.tex}
 (Esta linea debería ser la número 33).
+
+Si esto último no funciona, entonces también cambie la linea que dice
+    \RequirePackage{pgfornament,tkzexample,tikzrput}  
+por la linea:
+    %\RequirePackage{pgfornament,tkzexample,tikzrput}
+(Esta linea debería ser la número 1).
