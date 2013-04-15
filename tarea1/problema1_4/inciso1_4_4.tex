@@ -32,7 +32,33 @@
 	
 	Nos queda por demostrar (\ref{problema1_4:caso_martingala}) y (\ref{problema1_4:caso_supermartingala}).\\
 	
-	Demostraremos primero (\ref{problema1_4:caso_martingala}). Dado que $S$ es finito (en particular, es acotado), por lo visto en
-	(\ref{problema1_4:M_T_es_F_T-medible}), tenemos	que $S$ es $\F_S$-medible.
+	Demostraremos primero (\ref{problema1_4:caso_martingala}).\\
+	
+	 Dado que $S$ es finito (en particular, es acotado), por lo visto en (\ref{problema1_4:M_T_es_F_T-medible}), 
+	 tenemos que $S$ es $\F_S$-medible. Así que únicamente falta demostrar que para todo $A \in \F_S$ se tiene que 
+	 $\E(M_T \cdot \indic_A) = \E(M_S \cdot \indic_A)$ lo cual es equivalente a que $\E((M_T - M_S) \cdot \indic_A) = 0$.
+	 Intentaremos demostrar esto último.\\
+	 
+	 Sea $A \in \F_S$.\\
+	 
+	 Notemos que	 
+	 \begin{align}
+	 	M_T - M_S &= \sum_{ i \in \N} ( M_{i+1} - M_i) \indic_{S \leq i < T }. 
+	 \end{align}
+
+	 También notemos que 
+	 \begin{align}
+	 	\{S \leq i < T \} \cap A 	&=		\{S \leq i < T \} \cap A 						\\
+	 								&=		\{S \leq i \} \cap \{ i < T \} \cap A 			\\
+	 								&=		(\{S \leq i \} \cap A) \cap \{ i < T \}.  		\\
+	 								&=		(\{S \leq i \} \cap A) \cap \{ T \leq i \}^c.
+	 \end{align}	 
+	 
+	 De esta última parte hay que puntualizar que $(\{S \leq i \} \cap A) \in \F_i$ por que $A \in \F_S$ y también
+	 hay que puntualizar que $\{ T \leq i + 1 \}^c \in F_{i}$
+	 
+	 De esto último, tenemos
+	
+	
 	
 	
