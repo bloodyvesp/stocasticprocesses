@@ -1,9 +1,9 @@
 \begin{problema}
 	Sea $S_n=\sum_{i=1}^n X_i$ donde $X_1,X_2,\ldots$ son iid. Sea
 	
-	\begin{esn}
+	\begin{align}
 		\imf{\phi}{\lambda}=\esp{e^{\lambda S_n}}\in (0,\infty].
-	\end{esn}
+	\end{align}
 
 	\begin{enumerate}
 		\item[(i)]
@@ -13,17 +13,17 @@
 		\item[(iii)] 
 			Sea $M^\lambda_t=e^{\lambda S_t}/\imf{\phi}{\lambda}$. Argumente que si $M^n$ es el proceso dado por
 			
-			\begin{esn}
+			\begin{align}
 				M^n_t=\left.\frac{\partial^n}{\partial \lambda^n}\right|_{\lambda=0}M^\lambda_t,
-			\end{esn}
+			\end{align}
 			
 			entonces $M^n$ es una martingala para toda $n$. 
 		\item[(iv)] 
 			Calcule las primeras $4$ martingalas resultantes si $\proba{X_i=\pm 1}=1/2$. Util\'icelas para calcular el valor de $\esp{T^2}$ donde
 
-			\begin{esn}
+			\begin{align}
 				T=\min\set{n\geq 0: S_n\in\set{-a,b}}
-			\end{esn}y $a,b>0$. 
+			\end{align}y $a,b>0$. 
 	\end{enumerate}
 
 	\defin{Categor\'ias:} Caminatas aleatorias, muestreo opcional, ejemplos de martingalas. 

@@ -1,10 +1,10 @@
 \begin{problema}
 		Sea $S_n=X_1+\cdots+X_n$ una caminata aleatoria con saltos $X_i\in \{-1,0,1,\ldots\}$. 
-		Sea \(C_p\) una variable aleatoria geom\'etrica de par\'ametro $p$ independiente de \(S\) y definimos 
+		Sea $C_p$ una variable aleatoria geom\'etrica de par\'ametro $p$ independiente de $S$ y definimos 
 		
-		\begin{esn}
+		\begin{align}
 			M_p=-\min_{n\leq C_p} S_n. 
-		\end{esn}
+		\end{align}
 		
 		El objetivo del ejercicio es determinar la distribuci\'on de $M_p$.
 
@@ -16,40 +16,40 @@
 		
 		\item[(i)] 	
 					Sea
-					\begin{esn}
+					\begin{align}
 						g(\lambda)=E(e^{- \lambda X_1}).
-					\end{esn} 
+					\end{align} 
 					Pruebe que $g(\lambda)\in (0,\infty)$ y que
-					\begin{esn}
+					\begin{align}
 						M_n=e^{-\lambda S_n}g(\lambda)^{-n},n\geq 0
-					\end{esn}
+					\end{align}
 					es una martingala.
 		\item[(ii)] 
 					Pruebe que $g$ es log-convexa al aplicar la desigualdad de H\"older. Pruebe que si $P(X_1=-1)>0$ (hip\'otesis que se utilizar\'a desde ahora) 
 					entonces $g(\lambda)\to\infty$ conforme $\lambda\to\infty$. Utilice esta informaci\'on para esbozar la gr\'afica de $g$. 
 					Defina $ f(s)=\inf \{ \lambda>0:g(\lambda)^{-1} < s\} $. Note que $1/g\circ f=Id$ en $(0,1)$. Pruebe que si $g(\lambda)>1$, 
 					la martingala $M$ es acotada hasta el tiempo de arribo de $S$ a $-k$ dado por 
-					\begin{esn}
+					\begin{align}
 						T_k =\min \{n\in\na:S_n=-k\} 
-					\end{esn}
+					\end{align}
 					(donde se utiliza la convenci\'on $\inf\emptyset=\infty$ ). Aplique el teorema de muestreo opcional de Doob para mostrar que 
-					\begin{esn}
+					\begin{align}
 						E(s^{T_k})=e^{-k f(s)}.
-					\end{esn}
+					\end{align}
 					Justifique MUY bien por qu\'e la f\'ormula es válida aún cuando $T_k$ puede tomar el valor $\infty$ y deduzca que de hecho $\p (T_k=\infty)=0$.
 						
 		\item[(iii)] 
 					Argumente que
-					\begin{esn}
+					\begin{align}
 						P(M_p\geq n)=P(T_n\leq C_p)=E((1-p)^{T_n})
-					\end{esn}
+					\end{align}
 					para demostrar que $M_p$ tiene distribuci\'on geom\'etrica de par\'ametro $1-e^{-f(1-p)}$.
 					
 		\item[(iv)] 
-					Tome el límite conforme \(p\to 0\) para mostrar que la variable aleatoria 
-					\begin{esn}
+					Tome el límite conforme $p\to 0$ para mostrar que la variable aleatoria 
+					\begin{align}
 						M=-\min_{n\geq 0}S_n
-					\end{esn}
+					\end{align}
 					tiene una distribuci\'on geom\'etrica de par\'ametro $1-e^{-f(1)}$. Interprete esto cuando $f(1)=0$.
 	\end{enumerate}
 
