@@ -1,0 +1,49 @@
+\begin{problema}[Extensiones del teorema de paro opcional]
+	Sea ${M=\paren{M_n,n\in\na}}$ una (super)martingala respecto de una filtraci\'on ${\paren{\F_n,n\in\na}}$ y sean ${S}$ y ${T}$ tiempos de paro.
+	
+\begin{enumerate}
+                \item[(i)] 
+                	Pruebe que ${S\wedge T}$, ${S+T}$ y ${S\vee T}$ son tiempos de paro.
+                
+                \item[(ii)] 
+                	\begin{esn}
+                		\F_T=\set{A\in\F:A\cap\set{T\leq n}\in\F_n\text{ para toda } n}
+                	\end{esn}
+                	es una ${\sigma}$-\'algebra, a la que nos referimos como la ${\sigma}$-\'algebra 
+                	detenida en ${\tau}$. Comente qu\'e puede fallar si ${T}$ no es tiempo de paro. 
+                	Pruebe que ${T}$ es ${F_T}$-medible. 
+                
+                \item[(iii)] 
+                	Pruebe que si ${T}$ es finito, entonces ${M_T}$ es ${\F_T}$-medible.
+                
+                \item[(iv)] 
+                	Pruebe que si ${S\leq T\leq n}$ entonces ${\F_S\subset\F_T}$. Si adem\'as ${T}$ es acotado entonces ${X_S,X_T\in L_1}$ y 
+                	\begin{esn}
+	                	\espc{M_T}{\F_S}\leq M_S.
+                	\end{esn}
+
+                \item[(v)] 
+                	Si ${X=\paren{X_n,n\in\na}}$ es un proceso estoc\'astico ${\paren{\F_n}}$-adaptado y tal que ${X_n\in L_1}$ y tal que 
+                	para cualesquiera tiempos de paro acotados ${S}$ y ${T}$ se tiene que ${\esp{X_S}=\esp{X_T}}$ entonces ${X}$ es una 
+                	martingala. Sugerencia: considere tiempos de paro de la forma ${n\indi{A}+(n+1)\indi{A^c}}$ con ${A\in\F_n}$.
+\end{enumerate}
+
+\defin{Categor\'ias: }Tiempos de paro, Muestreo opcional
+\end{problema}
+
+\begin{proof}
+	\subsubsection{Inciso (i)} 
+	\input{tarea1/problema1_4/inciso1.tex}
+	
+	\subsubsection{Inciso (ii)}
+	\input{tarea1/problema1_4/inciso2.tex}
+		
+	\subsubsection{Inciso (iii)}
+	\input{tarea1/problema1_4/inciso3.tex}
+	
+	\subsubsection{Inciso (iv)} 
+	\input{tarea1/problema1_4/inciso4.tex}
+	
+	\subsubsection{Inciso (v)}
+	\input{tarea1/problema1_4/inciso5.tex}
+\end{proof}
