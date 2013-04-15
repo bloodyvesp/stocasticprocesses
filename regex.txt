@@ -1,0 +1,4 @@
+Este documento enlista algunas expresiones regulares útiles para utilizar con Notepad++
+
+\\\((.*)\\\)   ------ Para ser remplazado por -----> $\1$ [Aplicar hasta que se encuentren 0 cambios]
+\\\)(.*)\\\(   ------ Para ser remplazado por -----> $\1$ [Aplicar hasta que se encuentren 0 cambios]
