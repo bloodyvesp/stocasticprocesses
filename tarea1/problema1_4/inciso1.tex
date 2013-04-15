@@ -1,5 +1,5 @@
 \emph{
-	Pruebe que ${ S \wedge T }$, ${ S + T }$ y ${ S \vee T}$ son tiempos de paro.\\
+	Pruebe que $ S \wedge T $, $ S + T $ y $ S \vee T$ son tiempos de paro.\\
 }
 
 	\begin{itemize}
@@ -9,21 +9,21 @@
 				\{ S \wedge T \leq n \} = \{ T \leq n \} \cup \{ S \leq n\}.
 			\end{align}
 			
-			Sea ${\omega \in \{ S \wedge T \leq n \}}$. Entonces ${T(\omega) \leq n}$ ó ${S(\omega) \leq n}$.
+			Sea $\omega \in \{ S \wedge T \leq n \}$. Entonces $T(\omega) \leq n$ ó $S(\omega) \leq n$.
 			Por lo tanto:
 			\begin{align}
 					\{ S \wedge T \leq n \} \subset \{ T \leq n \} \cup \{ S \leq n\}.							
 			\end{align}
 			
-			Por otro lado, si ${\omega \in \{ T \leq n \} \cup \{ S \leq n\}}$ entonces ${T(\omega) \leq n}$ ó ${S(\omega) \leq n}$.
-			En particular, el mínimo tendrá que ser menor que ${n}$ y por lo tanto:
+			Por otro lado, si $\omega \in \{ T \leq n \} \cup \{ S \leq n\}$ entonces $T(\omega) \leq n$ ó $S(\omega) \leq n$.
+			En particular, el mínimo tendrá que ser menor que $n$ y por lo tanto:
 			\begin{align}
 					\{ T \leq n \} \cup \{ S \leq n\} \subset \{ S \wedge T \leq n \}.						
 			\end{align}
 			
-			Por último, ${\{ T \leq n \} \in \F_n}$ y ${\{ S \leq n \} \in \F_n}$. Por lo tanto	\\	
-			${\{ T \leq n \} \cup \{ S \leq n\} = \{ S \wedge T \leq n \} \in \F_n}$ y con esto demostramos que 
-			${ S \wedge T}$ es tiempo de paro.\\
+			Por último, $\{ T \leq n \} \in \F_n$ y $\{ S \leq n \} \in \F_n$. Por lo tanto	\\	
+			$\{ T \leq n \} \cup \{ S \leq n\} = \{ S \wedge T \leq n \} \in \F_n$ y con esto demostramos que 
+			$ S \wedge T$ es tiempo de paro.\\
 			
 		\item
 			Comprobemos que:
@@ -31,21 +31,21 @@
 				\{ S \vee T \leq n \} = \{ T \leq n \} \cap \{ S \leq n\}.
 			\end{align}
 			
-			Sea ${\omega \in \{ S \vee T \leq n \}}$. Entonces ${T(\omega) \leq n}$ y ${S(\omega) \leq n}$.
+			Sea $\omega \in \{ S \vee T \leq n \}$. Entonces $T(\omega) \leq n$ y $S(\omega) \leq n$.
 			Por lo tanto:
 			\begin{align}
 					\{ S \vee T \leq n \} \subset \{ T \leq n \} \cap \{ S \leq n\}.							
 			\end{align}
 			
-			Por otro lado, si ${\omega \in \{ T \leq n \} \cap \{ S \leq n\}}$ entonces ${T(\omega) \leq n}$ y ${S(\omega) \leq n}$.
-			En particular, el máximo tendrá que ser menor que ${n}$ y por lo tanto:
+			Por otro lado, si $\omega \in \{ T \leq n \} \cap \{ S \leq n\}$ entonces $T(\omega) \leq n$ y $S(\omega) \leq n$.
+			En particular, el máximo tendrá que ser menor que $n$ y por lo tanto:
 			\begin{align}
 					\{ T \leq n \} \cap \{ S \leq n\} \subset \{ S \vee T \leq n \}.						
 			\end{align}
 			
-			Por último, ${\{ T \leq n \} \in \F_n}$ y ${\{ S \leq n \} \in \F_n}$. Por lo tanto	\\	
-			${\{ T \leq n \} \cap \{ S \leq n\} = \{ S \vee T \leq n \} \in \F_n}$ y con esto demostramos que 
-			${ S \vee T}$ es tiempo de paro.\\
+			Por último, $\{ T \leq n \} \in \F_n$ y $\{ S \leq n \} \in \F_n$. Por lo tanto	\\	
+			$\{ T \leq n \} \cap \{ S \leq n\} = \{ S \vee T \leq n \} \in \F_n$ y con esto demostramos que 
+			$ S \vee T$ es tiempo de paro.\\
 			
 		\item
 			Comprobemos que:
@@ -53,23 +53,23 @@
 				\{ S + T = n \} = \bigcup_{i = 1}^{n-1} \bigg( \{S = n - i\} \cap \{T = i\} \bigg).
 			\end{align}
 			
-			Si ${\omega \in \{ S + T = n \}}$, entonces ${S(\omega) + T(\omega) = n}$, como ${S}$ y ${T}$ son positivas,
-			entonces ${1 \leq S(\omega) \leq n-1}$. Entonces basta elegir ${i = S(\omega)}$ para afirmar que 
-			${\omega \in \{S = n - i\} \cap \{T = i\}}$ y por lo tanto
+			Si $\omega \in \{ S + T = n \}$, entonces $S(\omega) + T(\omega) = n$, como $S$ y $T$ son positivas,
+			entonces $1 \leq S(\omega) \leq n-1$. Entonces basta elegir $i = S(\omega)$ para afirmar que 
+			$\omega \in \{S = n - i\} \cap \{T = i\}$ y por lo tanto
 			\begin{align}
 			\{ S + T = n \} \subset \bigcup_{i = 1}^{n-1} \bigg( \{S = n - i\} \cap \{T = i\} \bigg).
 			\end{align}
 			
-			Por otro lado, si ${\omega \in \bigcup_{i = 1}^{n-1} \bigg( \{S = n - i\} \cap \{T = i\} \bigg)}$
-			significa que existe un ${i}$ tal que ${1\leq i \leq n-1}$ y ${\omega \in \{S = n - i\} \cap \{T = i\}}$.
-			Y por lo tanto: ${S(\omega) = n-i}$ y ${T(\omega) = i}$. De donde ${(T + S)(\omega) = n}$.
+			Por otro lado, si $\omega \in \bigcup_{i = 1}^{n-1} \bigg( \{S = n - i\} \cap \{T = i\} \bigg)$
+			significa que existe un $i$ tal que $1\leq i \leq n-1$ y $\omega \in \{S = n - i\} \cap \{T = i\}$.
+			Y por lo tanto: $S(\omega) = n-i$ y $T(\omega) = i$. De donde $(T + S)(\omega) = n$.
 			
 			De aquí que
 			\begin{align}
 				\bigcup_{i = 1}^{n-1} \bigg( \{S = n - i\} \cap \{T = i\} \bigg) \subset \{ S + T = n \}. 
 			\end{align}
 			
-			Ahra, para cada ${i}$ tal que ${1 \leq i \leq n-1}$, ${\{S = n - i\} \cap \{T = i\} \in \F_n}$.
-			Por lo tanto ${\{ S + T = n\} \in \F_n}$ y con esto queda demostrado que ${ S + T }$ es tiempo de paro.
+			Aohra, para cada $i$ tal que $1 \leq i \leq n-1$, $\{S = n - i\} \cap \{T = i\} \in \F_n$.
+			Por lo tanto $\{ S + T = n\} \in \F_n$ y con esto queda demostrado que $ S + T $ es tiempo de paro.
 	\end{itemize}
 	
