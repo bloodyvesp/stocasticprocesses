@@ -2,9 +2,9 @@
 		Sea $S_n=X_1+\cdots+X_n$ una caminata aleatoria con saltos $X_i\in \{-1,0,1,\ldots\}$. 
 		Sea \(C_p\) una variable aleatoria geom\'etrica de par\'ametro $p$ independiente de \(S\) y definimos 
 		
-		\begin{align}
+		\begin{esn}
 			M_p=-\min_{n\leq C_p} S_n. 
-		\end{align}
+		\end{esn}
 		
 		El objetivo del ejercicio es determinar la distribuci\'on de $M_p$.
 
@@ -15,30 +15,61 @@
 	\begin{enumerate}
 		
 		\item[(i)] 	
-					Sea$$g(\lambda)=E(e^{- \lambda X_1}).$$Pruebe que \(g(\lambda)\in (0,\infty)\) y que$$M_n=e^{-\lambda S_n}g(\lambda)^{-n},n\geq 0$$es una martingala.
-		
+					Sea
+					\begin{esn}
+						g(\lambda)=E(e^{- \lambda X_1}).
+					\end{esn} 
+					Pruebe que $g(\lambda)\in (0,\infty)$ y que
+					\begin{esn}
+						M_n=e^{-\lambda S_n}g(\lambda)^{-n},n\geq 0
+					\end{esn}
+					es una martingala.
 		\item[(ii)] 
-					Pruebe que \(g\) es log-convexa al aplicar la desigualdad de H\"older. Pruebe que si \(P(X_1=-1)>0\) (hip\'otesis que se utilizar\'a desde ahora) 
-					entonces \(g(\lambda)\to\infty\) conforme \(\lambda\to\infty\). Utilice esta informaci\'on para esbozar la gr\'afica de \(g\). 
-					Defina \( f(s)=\inf \{ \lambda>0:g(\lambda)^{-1} < s\} \). Note que \(1/g\circ f=Id\) en \((0,1)\). Pruebe que si \(g(\lambda)>1\), 
-					la martingala \(M\) es acotada hasta el tiempo de arribo de \(S\) a \(-k\) dado por $$ T_k =\min \{n\in\na:S_n=-k\} $$
-					(donde se utiliza la convenci\'on \(\inf\emptyset=\infty\) ). Aplique el teorema de muestreo opcional de Doob para mostrar que 
-					\begin{align}
+					Pruebe que $g$ es log-convexa al aplicar la desigualdad de H\"older. Pruebe que si $P(X_1=-1)>0$ (hip\'otesis que se utilizar\'a desde ahora) 
+					entonces $g(\lambda)\to\infty$ conforme $\lambda\to\infty$. Utilice esta informaci\'on para esbozar la gr\'afica de $g$. 
+					Defina $ f(s)=\inf \{ \lambda>0:g(\lambda)^{-1} < s\} $. Note que $1/g\circ f=Id$ en $(0,1)$. Pruebe que si $g(\lambda)>1$, 
+					la martingala $M$ es acotada hasta el tiempo de arribo de $S$ a $-k$ dado por 
+					\begin{esn}
+						T_k =\min \{n\in\na:S_n=-k\} 
+					\end{esn}
+					(donde se utiliza la convenci\'on $\inf\emptyset=\infty$ ). Aplique el teorema de muestreo opcional de Doob para mostrar que 
+					\begin{esn}
 						E(s^{T_k})=e^{-k f(s)}.
-					\end{align}
-					
-					Justifique MUY bien por qu\'e la f\'ormula es válida aún cuando \(T_k\) puede tomar el valor \(\infty\) y deduzca que de hecho \(\p (T_k=\infty)=0\).
-		
+					\end{esn}
+					Justifique MUY bien por qu\'e la f\'ormula es válida aún cuando $T_k$ puede tomar el valor $\infty$ y deduzca que de hecho $\p (T_k=\infty)=0$.
+						
 		\item[(iii)] 
-					Argumente que$$ P(M_p\geq n)=P(T_n\leq C_p)=E((1-p)^{T_n})$$ para demostrar que \(M_p\) tiene distribuci\'on geom\'etrica de par\'ametro \(1-e^{-f(1-p)}\)
-		
+					Argumente que
+					\begin{esn}
+						P(M_p\geq n)=P(T_n\leq C_p)=E((1-p)^{T_n})
+					\end{esn}
+					para demostrar que $M_p$ tiene distribuci\'on geom\'etrica de par\'ametro $1-e^{-f(1-p)}$.
+					
 		\item[(iv)] 
 					Tome el límite conforme \(p\to 0\) para mostrar que la variable aleatoria 
-					\begin{align}
+					\begin{esn}
 						M=-\min_{n\geq 0}S_n
-					\end{align}
+					\end{esn}
 					tiene una distribuci\'on geom\'etrica de par\'ametro $1-e^{-f(1)}$. Interprete esto cuando $f(1)=0$.
 	\end{enumerate}
 
 		\defin{Categor\'ias:} Caminatas aleatorias, muestreo opcional, fluctuaciones.
 \end{problema}
+
+
+\begin{proof}
+	\subsubsection{Inciso (i)} 
+	\input{tarea2/problema2_1/inciso2_1_1.tex}
+	\newpage
+	
+	\subsubsection{Inciso (ii)} 
+	\input{tarea2/problema2_1/inciso2_1_2.tex}
+	\newpage
+		
+	\subsubsection{Inciso (iii)}
+	\input{tarea2/problema2_1/inciso2_1_3.tex}
+	\newpage
+	
+	\subsubsection{Inciso (iv)} 
+	\input{tarea2/problema2_1/inciso2_1_4.tex}
+\end{proof}
