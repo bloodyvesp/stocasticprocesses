@@ -27,6 +27,11 @@
                 	Si $X=\paren{X_n,n\in\na}$ es un proceso estoc\'astico $\paren{\F_n}$-adaptado y tal que $X_n\in L_1$ y tal que 
                 	para cualesquiera tiempos de paro acotados $S$ y $T$ se tiene que $\esp{X_S}=\esp{X_T}$ entonces $X$ es una 
                 	martingala. Sugerencia: considere tiempos de paro de la forma $n\indi{A}+(n+1)\indi{A^c}$ con $A\in\F_n$.
+                	
+                \item[(vi)]
+					Pruebe que el proceso $M^T$ obtenido al detener a $M$ al instante $T$ y dado por $M^T_n=M_{T\wedge n}$ es una 
+					martingala respecto de $\paren{\F_{T\wedge n},n\geq 0}$ pero tambi\'en respecto de $\paren{\F_{n},n\geq 0}$. 
+					Sugerencia: basta probar el resultado respecto de $\paren{\F_n}$ y para esto es \'util el inciso anterior.
 \end{enumerate}
 
 \defin{Categor\'ias: }Tiempos de paro, Muestreo opcional
@@ -37,11 +42,11 @@
 	\input{tarea1/problema1_4/inciso1_4_1.tex}
 	\newpage
 	
-	\subsubsection{Inciso (ii)}
+	\subsubsection{Inciso (ii)} 
 	\input{tarea1/problema1_4/inciso1_4_2.tex}
 	\newpage
 		
-	\subsubsection{Inciso (iii)}
+	\subsubsection{Inciso (iii)} \label{problema1_4:M_T_es_F_T-medible}
 	\input{tarea1/problema1_4/inciso1_4_3.tex}
 	\newpage
 	
@@ -51,4 +56,8 @@
 	
 	\subsubsection{Inciso (v)}
 	\input{tarea1/problema1_4/inciso1_4_5.tex}
+	\newpage
+	
+	\subsubsection{Inciso (vi)}
+	\input{tarea1/problema1_4/inciso1_4_6.tex}
 \end{proof}

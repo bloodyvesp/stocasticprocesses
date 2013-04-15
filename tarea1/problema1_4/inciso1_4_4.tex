@@ -22,12 +22,17 @@
 	
 	\begin{align}
 		\E(|M_T|) 	&=		\E\bigg(	\bigg| \sum_{i \in \N} M_i \cdot \indic_{T = i} \bigg|	\bigg) \\ 
-					&\leq	\E\bigg(	\sum_{i \in \N} |M_i \cdot \indic_{T = i} |\bigg) \\
-					&\leq	\E\bigg(	\sum_{i \in \N} |M_i|\bigg) \\
-					&=		\E\bigg(	\sum_{i \leq N} |M_i|\bigg) \\
+					&\leq	\E\bigg(	\sum_{i \in \N} |M_i \cdot \indic_{T = i} |				\bigg) \\
+					&\leq	\E\bigg(	\sum_{i \in \N} |M_i|									\bigg) \\
+					&=		\E\bigg(	\sum_{i \leq N} |M_i|									\bigg) \\
 					&< 		\infty
 	\end{align}
 	
 	Y con esto queda demostrado que $M_T \in L_1$. La demostración de que $M_S \in L_1$ es completamente análoga.\\
 	
-	Nos queda por demostrar (\ref{problema1_4:caso_martingala}) y (\ref{problema1_4:caso_supermartingala}).
+	Nos queda por demostrar (\ref{problema1_4:caso_martingala}) y (\ref{problema1_4:caso_supermartingala}).\\
+	
+	Demostraremos primero (\ref{problema1_4:caso_martingala}). Dado que $S$ es finito (en particular, es acotado), por lo visto en
+	(\ref{problema1_4:M_T_es_F_T-medible}), tenemos	que $S$ es $\F_S$-medible.
+	
+	
