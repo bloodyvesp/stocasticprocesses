@@ -5,43 +5,49 @@
 	independientes con $\proba{X_i=\pm 1}=1/2$. Sean $S_0=0$ y $S_n=\sum_{i=1}^n X_i$. 
 
 	\begin{enumerate}
-		\item[(i)] Sea $T_1=\min\set{n\geq 0:S_n=1}$. Explique por qu\'e $T_1$ es un 
+		\item[(i)]		[\ref{problema1_3:inciso1}]
+		 Sea $T_1=\min\set{n\geq 0:S_n=1}$. Explique por qu\'e $T_1$ es un 
 		tiempo de paro y calcule su esperanza.
 		
-		\item[(ii)] Mediante el inciso anterior, construya una martingala que converge 
+		\item[(ii)]		[\ref{problema1_3:inciso2}] 
+		Mediante el inciso anterior, construya una martingala que converge 
 		casi seguramente pero no lo hace en $L_1$.
 		
-		\item[(iii)] Sea $M_n$ la martingala obtenida al detener a $-S$ en $T_1$. Utilice la solución al
-		Problema de la Ruina para probar que $\mw(max_n M_n \geq M) = 1/(M+1)$ para todo $M \geq 1$. Concluya que
+		\item[(iii)]	[\ref{problema1_3:inciso3}] 
+		Sea $M_n$ la martingala obtenida al detener a $-S$ en $T_1$. Utilice la solución al
+		Problema de la Ruina para probar que \\
+		$\mw(max_n M_n \geq M) = 1/(M+1)$ para todo $M \geq 1$. Concluya que
 		$\E(max_m M_n) = \infty$ y que por lo tanto $\E(max_{m\leq n} M_m) \rightarrow \infty$ conforme 
 		$n \rightarrow \infty$. Finalmente, deduzca que no puede haber una desigualdad de tipo Doob cuando $p=1$.
 		
-		\item[(iv)] Sea $T=\min\set{n\geq 2:S_n=S_{n-2} + 2}$ y $U=T-2$. ?`Son $T$ y $U$ 
+		\item[(iv)] 	[\ref{problema1_3:inciso4}]
+		Sea $T=\min\set{n\geq 2:S_n=S_{n-2} + 2}$ y $U=T-2$. ?`Son $T$ y $U$ 
 		tiempos de paro? Justifique su respuesta.
 		
-		\item[inciso (v)] Para la variable $T$ que hemos definido, calcule $\esp{T}$. 
+		\item[(v)]		[\ref{problema1_3:inciso1}]
+		Para la variable $T$ que hemos definido, calcule $\esp{T}$. 
 	\end{enumerate}
 
 	\defin{Categor\'ias: } Tiempos de paro, problema de la ruina
 \end{problema}
 \begin{proof}
-	\subsection{Inciso (i)}
+	\subsection{Inciso (i)}		\label{problema1_3:inciso1}
 	\input{tarea1/problema1_3/inciso1_3_1.tex}
 	\newpage
 	
-	\subsection{Inciso (ii)}
+	\subsection{Inciso (ii)}	\label{problema1_3:inciso2}
 	\input{tarea1/problema1_3/inciso1_3_2.tex}
 	\newpage
 	
-	\subsection{Inciso (iii)}
+	\subsection{Inciso (iii)}	\label{problema1_3:inciso3}
 	\input{tarea1/problema1_3/inciso1_3_3.tex}		
 	\newpage
 	
-	\subsection{Inciso (iv)}
+	\subsection{Inciso (iv)}	\label{problema1_3:inciso4}
 	\input{tarea1/problema1_3/inciso1_3_4.tex}
 	\newpage
 	
-	\subsection{Inciso (v)}
+	\subsection{Inciso (v)}		\label{problema1_3:inciso5}
 	\input{tarea1/problema1_3/inciso1_3_5.tex}	
 
 \end{proof}
