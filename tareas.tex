@@ -1,4 +1,4 @@
-\RequirePackage{pgfornament,tkzexample,tikzrput}  
+%\RequirePackage{pgfornament,tkzexample,tikzrput}  
 
 \documentclass[a5paper,oneside]{amsart}
 \usepackage[scale={.8,.85}]{geometry}
@@ -26,8 +26,8 @@
 \input{definiciones/definitions.tex}
 \input{definiciones/definicionesdehtellez.tex}
 
-
-
+\numberwithin{section}{part}
+\numberwithin{equation}{subsection}
 
 
 %\input{definiciones/ornamentos.tex}
@@ -56,6 +56,7 @@
 		
 		\nqed
 		
+	\part*{Referencias}
 	\bibliography{GenBib}
 	\bibliographystyle{amsalpha}
 \end{document}
