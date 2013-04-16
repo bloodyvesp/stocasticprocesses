@@ -1,0 +1,109 @@
+\begin{problema}
+		Suponga que \(T\) es un tiempo de paro tal que para algún 
+		\(N\in\mathbb{N}\) y \(\varepsilon>0\) se tiene que para toda \(n\in\mathbb{N}\):
+		\begin{equation}\label{problema1_2:hipotesis_del_problema}
+		\mathbb{P} (T \leq N + n | F_n) > \varepsilon \text{ casi seguramente}
+		\end{equation}
+		Al verificar la desomposici\'on
+		\begin{equation}\label{problema1_2:sugerencia_del_problema}
+			\mathbb{P} (T>kN)= \mathbb{P} (T>kN,T>(k-1)N)
+		\end{equation}
+		pruebe por inducci\'on que para cada \(k=1,2,\ldots\):
+		\begin{align}
+			\mw(T>kN)\leq (1-\varepsilon)^k.
+		\end{align}
+		Pruebe que \( \mathbb{E}(T)<\infty \). 
+	\begin{categoria} Tiempos de paro.\end{categoria}
+\end{problema}
+
+\begin{proof}
+	Tenemos que: 
+	
+	\begin{align}
+		(T>kN \Rightarrow T>(k-1)N 	&\Rightarrow (T>kN) \subset (T>(k-1)N) \\ 
+									&\Rightarrow (T>kN) \cap (T>(k-1)N) = (T>kN) \\ 
+									&\Rightarrow \mw(T>kN, T>(k-1)N) = \mw(T>kN)	
+	\end{align}
+		
+	\textbf{Base de inducción.} $k=1$. Usando \eqref{problema1_2:hipotesis_del_problema}, con $n=0$ 
+	\begin{align}
+		\mw(T\leq 1N | \F_0) > \epsilon\Rightarrow
+		\mw(T>N| \F_0) < 1 - \epsilon
+	\end{align}
+	Sustituyendo por la definición de probabilidad condicional tenemos:
+		\begin{align}
+			\E(\indic_{T>N} | \F_0)	&= \mw(T>N| \F_0) 
+									&< 1 - \epsilon
+		\end{align}
+	Aplicando esperanza en ambos lados tenemos:
+		\begin{align} 
+			\mw(T>N) 	&= 	\E(\E(\indic_{T>N} | \F_0)) 
+						&< 	\E(1 - \epsilon) 
+						&= 1 - \epsilon.
+		\end{align}
+	
+	\textbf{Hipótesis de induccion.} Supongamos que $\mw(T>k_0N)\leq(1 - \epsilon)^{k_0}$ para algún $k_0 \geq 1$.
+	
+	\textbf{Paso inductivo.} 
+	Utilizando \eqref{problema1_2:sugerencia_del_problema} tenemos que
+		\begin{align}
+			\mw(T>(k_0+1)N) = \mw(T>(k_0+1)N, T>k_0N) = \E(\indic_{T>(k_0+1)N} \cdot \indic_{T>k_0N}).
+		\end{align}
+	Ahora, dado que $T>k_0N$ es un conjunto $\F_{k_0N}$-medible tenemos:
+	\begin{align} 
+		\E(\indic_{T>(k_0+1)N} \cdot \indic_{T>k_0N}) 	&=		\E\left(\E\left(\indic_{T>(k_0+1)N} \cdot \indic_{T>k_0N} | \F_{k_0N}\right)\right) \\ 
+														&=		\E\left(\indic_{T>k_0N} \E\left(\indic_{T>(k_0+1)N}|\F_{k_0N}\right)\right) \label{problema1_2:resultado_preliminar}
+	\end{align}
+	Utilizando  $n=k_0N$ en \eqref{problema1_2:hipotesis_del_problema} tenemos
+	\begin{align}
+		\mw\left(T>k_0N+N|\F_{k_0N}\right) = \E\left(\indic_{T>(k_0+1)N}|\F_{k_0N}\right) < 1-\epsilon
+	\end{align}
+	Sustituyendo esto último en \eqref{problema1_2:resultado_preliminar} obtenemos:
+		\begin{align}
+				 E\left(\indic_{T>k_0N} \E\left(\indic_{T>(k_0+1)N}|\F_{k_0N}\right)\right) 	&< 		E\left(\indic_{T>k_0N} (1-\epsilon)\right) \\
+																								&=	 	(1-\epsilon) E\left(\indic_{T>k_0N} \right) \\
+																								&=		(1-\epsilon) \mw(T>k_0N) \\
+																								&\leq   (1-\epsilon)(1-\epsilon)^{k_0} \\
+																								&= (1-\epsilon)^{k_0 + 1}.
+		\end{align}
+	Con lo que concluimos
+		\begin{align}
+			\mw(T>(k_0+1)N) &\leq (1-\epsilon)^{k_0 + 1}.
+		\end{align}
+	Terminando así la demostración por inducción.\\
+	
+	
+	Para la siguiente prueba notemos que si $X$ es una variable aleatoria y $r > s \in \mathbb{R}$ entonces
+	$(X > s) \subset (X > r)$ y por lo tanto $\mw(X > s) \leq \mw(X > r)$.\\
+	
+	En particular para nuestro tiempo de paro $T$, si dado $n \in \mathbb{N}$, $k \in \mathbb{N}$ es tal que 
+	$kN \geq n < (k+1)N$, entonces $\mw(T > n) \leq \mw(T > kN)$.\\	
+
+	Trabajando por bloques de tamaño $N$ tenemos que 
+	\begin{align}
+		\sum_{n = kN}^{(k+1)N -1} \mw(T > n) \leq N \mw(T > kN).
+	\end{align}		
+	
+	También recordemos que si $T$ es una variable aleatoria positiva con valores en los enteros entonces 
+	\begin{align}
+		\E(T) = \sum_{n=0}^{\infty} \mw(T > n).
+	\end{align}
+	
+	Sustituyendo nuestro penúltimo razonamiento en esta ultima fórmula tenemos:
+	
+	\begin{align}
+		\E(T) 	&= 		\sum_{n=0}^{\infty} \mw(T > n) \\
+				&= 		\sum_{k=0}^{\infty} \sum_{n = kN}^{(k+1)N -1} \mw(T > n) \\
+				&\leq 	N \sum_{k=0}^{\infty} \mw(T > kN)
+	\end{align}
+		
+	Sustituyendo nuetstro resultado de que $\mw(T>kN)<(1-\epsilon)^{k}$ resulta que:
+	\begin{align}
+		\E(T)\leq N \sum_{k=0}^{\infty} \mw(T > kN) \leq N \sum_{k=0}^{\infty} (1-\epsilon)^k.
+	\end{align}
+	
+	De lado derecho de esta última desigualdad tenemos una serie geométrica. Dado que $\epsilon$ es mayor 
+	que $0$ y entonces que $1-\epsilon$ es menor que $1$, tenemos que es una serie geométrica que converge 
+	en los reales y por lo tanto $\E(T)$ está acotada por un número real.
+	
+\end{proof}	

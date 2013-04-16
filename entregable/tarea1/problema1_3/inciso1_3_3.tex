@@ -1,0 +1,64 @@
+\emph{
+	Sea $M_n$ la martingala obtenida al detener a $-S$ en $T_1$. Utilice la solución al
+	Problema de la Ruina para probar que \\
+	$\mw(max_n M_n \geq M) = 1/(M+1)$ para todo $M \geq 1$. Concluya que\\
+	$\E(max_m M_n) = \infty$ y que por lo tanto $\E(max_{m\leq n} M_m) \rightarrow \infty$ conforme 
+	$n \rightarrow \infty$. Finalmente, deduzca que no puede haber una desigualdad de tipo Doob cuando $p=1$.\\
+}	
+
+	Definimos $M_n = -S_{T_1 \wedge n}$. Notemos que $M_n$ únicamente toma valores en $[-1, \infty]$.
+	Para calcular $\mw(max_n M_n \geq M)$ notemos primero que:
+	\begin{align}
+		\mw(max_n M_n \geq M) = 1 - \mw(max_n M_n < M).
+	\end{align}\\
+	
+	$max_n M_n < M$ significa que $M_n$ nunca alcanza el valor $M$.\\
+	 
+	Intentando hacer analogía con el problema de la ruina, pensemos en dos concursantes,
+	uno con $1$ peso y otro con $M$ pesos. Nunca alcanzar $M$ significa que nunca gana el que tiene $1$ peso.\\
+	
+	Esta probabilidad ya la conocemos y es 
+	
+	\begin{align}
+		\mw(max_n M_n < M) = \frac{M}{M + 1}
+	\end{align}
+		
+	Por lo tanto
+	
+	\begin{align}
+		\mw(max_n M_n \geq M) 	&= 1 - \mw(max_n M_n < M) \\
+								&= 1 - \frac{M}{M + 1}\\
+								&= \frac{M+1}{M+1} - \frac{M}{M + 1}\\
+								&= \frac{1}{M+1}
+	\end{align}
+	
+	Utilizando este resultado:
+	\begin{align} \label{problema1_3:esperanza_del_maximo_de_M_n}
+		\E(max_n M_n) 	&= - \mw(max_n M_n = -1) + \sum_{M=1}^{\infty} \mw(max_n M_n \geq M) \\
+						&= - \mw(max_n M_n = -1) + \sum_{M=1}^{\infty} \frac{1}{M+1} \\ 
+						&= - \mw(max_n M_n = -1) + \infty \\
+						&= \infty
+	\end{align}						
+	
+	Ahora, tenemos que:
+	\begin{align}
+		\|\overline{M_{n}^{+}}\|_1  &=    \E{\overline{M_{n}^{+}}} \\
+									&=    \E{\max_{m \leq n}M_m^+} \\
+									&\geq \E{\max_{m \leq n}M_m}										
+	\end{align}
+		
+	Donde, el último término, tiende a infinito en base al resultado 
+	\eqref{problema1_3:esperanza_del_maximo_de_M_n}.
+
+	Por otro lado:
+	\begin{align}
+		\|M_n^+\|_1=\|-S_{T_{1\wedge n}}^{+}\|_1  \longrightarrow  \|-S_{T_1}^+\|_1 = 0 < \infty
+	\end{align}
+	
+	Por lo tanto, no existe número $K$, tal que
+	\begin{align}
+		 \|\overline{M_n^+}\|_1 \leq  K \|M_n^+\|_1
+	\end{align}
+	
+	En otras palabras, no tenemos una desigualdad de tipo Doob para $p=1$.\\
+	

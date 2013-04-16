@@ -1,0 +1,30 @@
+\begin{problema}
+	Sea $S_n=\sum_{i=1}^n X_i$ donde $X_1,X_2,\ldots$ son iid. Sea
+	
+	\begin{align}
+		\imf{\phi}{\lambda}=\esp{e^{\lambda S_n}}\in (0,\infty].
+	\end{align}
+
+	\begin{enumerate}
+		\item[(i)]
+			Pruebe que si existen $\lambda_1<0<\lambda_2$ tales que $\imf{\phi}{\lambda_i}<\infty$ entonces $\imf{\phi}{\lambda}<\infty$ para toda $\lambda\in [\lambda_1,\lambda_2]$. Sugerencia: escriba $\lambda=a\lambda_1+(1-a)\lambda_2$ para alg\'un $a\in [0,1]$ y aplique la desigualdad de H\"older. A partir de ahora se asume la premisa de este inciso.
+		\item[(ii)] 
+			Pruebe que $\esp{\abs{S_n}^k}<\infty$ para toda $k\geq 0$. 
+		\item[(iii)] 
+			Sea $M^\lambda_t=e^{\lambda S_t}/\imf{\phi}{\lambda}$. Argumente que si $M^n$ es el proceso dado por
+			
+			\begin{align}
+				M^n_t=\left.\frac{\partial^n}{\partial \lambda^n}\right|_{\lambda=0}M^\lambda_t,
+			\end{align}
+			
+			entonces $M^n$ es una martingala para toda $n$. 
+		\item[(iv)] 
+			Calcule las primeras $4$ martingalas resultantes si $\proba{X_i=\pm 1}=1/2$. Util\'icelas para calcular el valor de $\esp{T^2}$ donde
+
+			\begin{align}
+				T=\min\set{n\geq 0: S_n\in\set{-a,b}}
+			\end{align}y $a,b>0$. 
+	\end{enumerate}
+
+	\defin{Categor\'ias:} Caminatas aleatorias, muestreo opcional, ejemplos de martingalas. 
+\end{problema}

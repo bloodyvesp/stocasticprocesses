@@ -1,0 +1,90 @@
+\emph{
+	Si $X=\paren{X_n,n\in\N}$ es un proceso estoc\'astico $\paren{\F_n}$-adaptado y tal que $X_n\in L_1$ y tal que 
+	para cualesquiera tiempos de paro acotados $S$ y $T$ se tiene que $\esp{X_S}=\esp{X_T}$ entonces $X$ es una 
+	martingala. Sugerencia: considere tiempos de paro de la forma $n\indi{A}+(n+1)\indi{A^c}$ con $A\in\F_n$.\\
+}
+
+	Ya tenemos dos de las hipótesis necesarias para demostrar que algo es martingala.
+\begin{enumerate}
+	\item 
+		$(X_n)_{n\in\N}$ es $(\F_n)_{n \in \N}$-adaptado.
+
+	\item 
+		$X_n \in L_1$ para toda $n \in \N$. 
+\end{enumerate}
+\null
+
+	Sólo falta demostrar que $\espc{X_{n+1}}{\F_n} = X_n$ para toda $n \in \N$.\\
+
+	Es decir, dada una $n \in \N$, queremos demostar que para todo $A \in \F_n$,
+ocurre que $\E(X_{n+1} \cdot \indic_{A}) = \E(X_{n} \cdot \indic_{A})$.\\
+
+	Sean entonces $n \in \N$ y $A \in \F_n$. Definimos $T_{A,n} = n\cdot\indic_{A} + (n+1) \cdot \indic_{A^c}$. 
+Veamos que $T_{A, n}$ es tiempo de paro.\\
+
+	Sea $k \in \N$.
+
+\begin{itemize}
+	\item 
+		Si $k = n$, entonces 
+		\begin{align}
+			\{T_{A, n} = k\} 	&= \{T_{A, n} = n\} \\
+								&= A \in F_n = F_k.
+		\end{align}
+		
+	\item
+		Si $k = n + 1$, entonces 
+		\begin{align}
+			\{T_{A, n} = k\} 	&= \{T_{A, n} = n + 1\} \\
+								&= A^c \in F_n \subset \F_{n+1} = F_k.
+		\end{align}
+
+	\item 
+		Si $k \not= n$ y $k \not= n+1$, entonces
+		\begin{align}
+			\{T_{A, n} = k\} 	&= \emptyset \in \F_k.
+		\end{align}
+\end{itemize}
+
+	Entonces, $\{ T_{A,n} = k\} \in \F_k$ para toda $k \in \N$ y por lo tanto $T_{A,n}$ es tiempo de paro.\\
+
+    Ahora notemos lo siguiente
+    \begin{align}
+    	X_{T_{A,n}} 	&=		\sum_{i \in \N} X_i \cdot  \indic_{\{T=i\}}						\\
+    					&=		X_n \cdot  \indic_{\{T=n\}} + X_{n+1} \cdot  \indic_{\{T=n+1\}}	\\
+    					&=		X_n \cdot  \indic_{A} + X_{n+1} \cdot  \indic_{A^c}.
+    \end{align}
+    
+    Eso quiere decir que
+    \begin{align}
+    	\E(X_{T_{A,n}}) 	&=	\E(X_n \cdot  \indic_{A} + X_{n+1} \cdot  \indic_{A^c})		\\
+							&=	\E(X_n \cdot  \indic_{A}) + \E(X_{n+1} \cdot  \indic_{A^c}).
+    \end{align}
+    
+    Ahora tomemos la función constante $S_n = n+1$. Por ser constante \\
+    $\{S_n = k\} \in \{ \Omega, \emptyset\} \subset \F_k$ para toda $k \in \N$
+    y por lo tanto $S_n$ es tiempo de paro.\\
+    
+    Notemos entonces que
+    \begin{align}
+    	\E(X_{S_n}) 	&= 		\E(X_{n+1}) 													\\
+    					&=		\E(X_{n+1} \cdot \indic_A + X_{n+1} \cdot \indic_{A^c}) 		\\
+    					&=		\E(X_{n+1} \cdot \indic_A) +\E( X_{n+1} \cdot \indic_{A^c}). 
+    \end{align}
+    
+    Dado que tanto $T_{a,n}$ como $S_n$ son variables que toman una cantidad finita de valores y por lo tanto son acotadas, 
+    nuestra hipótesis dice que \\
+    $\E(X_{S_n}) = \E(X_{T_{A,n}})$. \\
+    
+    Entonces
+    \begin{align}
+		\E(X_{n+1} \cdot \indic_A) +\E( X_{n+1} \cdot \indic_{A^c}) &=  \E(X_n \cdot  \indic_{A}) + \E(X_{n+1} \cdot  \indic_{A^c}).
+    \end{align}
+    
+    De donde
+    \begin{align}
+			\E(X_{n+1} \cdot \indic_A) &=	\E(X_n \cdot  \indic_{A}).
+    \end{align}
+    
+    Como esto lo hicimos para $n \in \N$ y $A \in \F_n$ arbitrarios, con esto terminamos la demostración de que $(X_n)_{n \in \N}$ es
+    martingala.

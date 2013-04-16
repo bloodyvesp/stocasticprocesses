@@ -1,0 +1,62 @@
+%\RequirePackage{pgfornament,tkzexample,tikzrput}  
+
+\documentclass[a5paper,oneside]{amsart}
+\usepackage[scale={.8,.85}]{geometry}
+\usepackage{mathrsfs}
+\usepackage[utf8]{inputenc}
+\usepackage{dsfont}
+\usepackage{listings}
+\usepackage{color}\usepackage{mathtools}
+\definecolor{azul}{RGB}{20,40,140}
+\usepackage[colorlinks,linkcolor=azul, citecolor=azul,urlcolor=azul]{hyperref}
+
+\mathtoolsset{showonlyrefs}
+\newtheoremstyle{dotless}{}{}{\itshape}{}{\bfseries}{}{ }{}
+\theoremstyle{dotless}
+\renewenvironment{proof}{{\bfseries Demostración:}}
+
+\newtheorem{teorema}{\;\;Teorema}[section]
+\newtheorem{problema}[teorema]{\;\;Problema}
+\newtheorem{definicion}[teorema]{\;\;Definición}
+\newtheorem*{categoria}{Categorías:}
+\newtheorem*{remark}{Remark}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\input{definiciones/definitions.tex}
+\input{definiciones/definicionesdehtellez.tex}
+
+\numberwithin{section}{part}
+\numberwithin{equation}{subsection}
+
+
+%\input{definiciones/ornamentos.tex}
+
+
+
+\title[Problemas de Procesos I]{
+	Problemas de Procesos Estocásticos I\\ Semestre 2013-II\\ Posgrado en Ciencias Matemáticas\\ Universidad Nacional Autónoma de México
+}
+
+
+\begin{document}
+	\maketitle
+	\part{Tarea 1}
+		\input{tarea1/tarea1.tex}
+		
+		\nqed
+		
+	\part{Tarea 2}
+		\input{tarea2/tarea2.tex}
+		
+		\nqed
+		
+	\part{Tarea 3}
+		\input{tarea3/tarea3.tex}
+		
+		\nqed
+		
+	\part*{Referencias}
+	\bibliography{GenBib}
+	\bibliographystyle{amsalpha}
+\end{document}

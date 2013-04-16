@@ -1,0 +1,150 @@
+\emph{
+	Pruebe que si $S\leq T\leq n$ entonces $\F_S\subset\F_T$. Si además $T$ es acotado entonces $M_S,M_T \in L_1$ y 
+	\begin{align}
+		&\espc{M_T}{\F_S} = M_S \label{problema1_4:caso_martingala} 			\\
+		&\mbox{(En el caso de que M sea martingala)} 
+		\\
+		\\
+		&\espc{M_T}{\F_S}\leq M_S \label{problema1_4:caso_supermartingala}	\\
+		&\mbox{(En el caso de que M sea supermartingala)} 
+	\end{align}	
+}
+
+	Primero probaremos que $\F_S \subset \F_T$. Sea $n \in \N$. Notemos que $\{ T \leq n \} \subset \{ S \leq n \}$ pues
+	si $\omega \in \{ T \leq n \}$, entonces $S(\omega) \leq T(\omega) \leq n $ y por lo tanto $\omega \in \{ S \leq n \}$.\\
+
+	Ahora sea $A \in \F_S$. Entonces
+
+	\begin{align}
+		A \cap \{ T \leq n \} 	&=		A  \cap \{ T \leq n \} \cap \{ S \leq n \} \\
+								&=		(A  \cap \{ S \leq n \}) \cap \{ T \leq n \} \in \F_n
+	\end{align}
+
+	Como escogimos $n$ arbitrariamente, esto es cierto para toda $n \in \N$. Y por lo tanto $A \in \F_T$ y $\F_S \subset \F_T$.\\
+
+	Ahora supongamos que $T$ es acotado y sea $N$ una cota para $T$. Demostraremos que $M_S,M_T \in L_1$.
+	
+	\begin{align}
+		\E(|M_T|) 	&=		\E\bigg(	\bigg| \sum_{i \in \N} M_i \cdot \indic_{T = i} \bigg|	\bigg) \\ 
+					&\leq	\E\bigg(	\sum_{i \in \N} |M_i \cdot \indic_{T = i} |				\bigg) \\
+					&\leq	\E\bigg(	\sum_{i \in \N} |M_i|									\bigg) \\
+					&=		\E\bigg(	\sum_{i \leq N} |M_i|									\bigg) \\
+					&< 		\infty
+	\end{align}
+	
+	Y con esto queda demostrado que $M_T \in L_1$. La demostración de que $M_S \in L_1$ es completamente análoga.\\
+	
+	Nos queda por demostrar \eqref{problema1_4:caso_martingala} y \eqref{problema1_4:caso_supermartingala}.\\
+	
+	Demostraremos primero \eqref{problema1_4:caso_martingala}.\\
+	
+	 Dado que $S$ es finito (en particular, es acotado), por lo visto en [\ref{problema1_4:inciso3}], 
+	 tenemos que $S$ es $\F_S$-medible. Así que únicamente falta demostrar que para todo $A \in \F_S$ se tiene que 
+	 $\E(M_T \cdot \indic_A) = \E(M_S \cdot \indic_A)$ lo cual es equivalente a que $\E((M_T - M_S) \cdot \indic_A) = 0$.
+	 Intentaremos demostrar esto último.\\
+	 
+	 Sea $A \in \F_S$.\\
+	 
+	 Notemos que	 
+	 \begin{align}
+	 	M_T - M_S &= \sum_{ i \in \N} ( M_{i+1} - M_i) \cdot \indic_{S \leq i < T }. 
+	 \end{align}
+
+	 También notemos que 
+	 \begin{align}
+	 	\{S \leq i < T \} \cap A 	&=		\{S \leq i < T \} \cap A 						\\
+	 								&=		\{S \leq i \} \cap \{ i < T \} \cap A 			\\
+	 								&=		(\{S \leq i \} \cap A) \cap \{ i < T \}.  		\\
+	 								&=		(\{S \leq i \} \cap A) \cap \{ T \leq i \}^c.
+	 \end{align}	 
+	 \null
+	 \null
+	 \;De esta última parte hay que puntualizar que $(\{S \leq i \} \cap A) \in \F_i$ por que $A \in \F_S$ y también
+	 hay que puntualizar que $\{ T \leq i + 1 \}^c \in F_{i}$\\
+	 
+	 Con estos detalles listos procedemos a la parte que nos interesa:
+	 
+	 \begin{align}
+	 	\E((M_T - M_S) \cdot \indic_A)	
+	 									&=		
+	 	\E\bigg( \sum_{ i \in \N} ( M_{i+1} - M_i) \cdot \indic_{S \leq i < T } \cdot \indic_A \bigg)									\\
+	 									&=		
+	 	\E	\bigg( 
+	 			\sum_{ i \in \N} 
+	 				( M_{i+1} - M_i) \cdot \indic_{(\{S \leq i \} \cap A)} \cdot \indic_{\{ T \leq i \}^c} 
+	 		\bigg)																														\\
+	 									&=		
+	 	\sum_{ i \in \N} 
+	 		\E	\bigg(
+	 				( M_{i+1} - M_i) \cdot \indic_{(\{S \leq i \} \cap A)} \cdot \indic_{\{ T \leq i \}^c} 
+	 			\bigg)																													
+	\end{align}
+	\begin{align}
+	 									&=		
+	 	\sum_{ i \in \N} 
+	 		\E	\bigg(
+		 			\E	\bigg(
+		 					( M_{i+1} - M_i) \cdot \indic_{(\{S \leq i \} \cap A)} \cdot \indic_{\{ T \leq i \}^c}  \bigg| F_i	
+						\bigg)
+	 			\bigg)																													\\
+										&=
+	 	\sum_{ i \in \N} 
+	 		\E	\bigg(
+					\indic_{(\{S \leq i \} \cap A)} \cdot \indic_{\{ T \leq i \}^c} \cdot
+		 			\E	\bigg(
+		 					 ( M_{i+1} - M_i)  \bigg| F_i	 												
+						\bigg)
+	 			\bigg)																													\\
+										&=
+	 	\sum_{ i \in \N} 
+	 		\E	\bigg(
+					\indic_{(\{S \leq i \} \cap A)} \cdot \indic_{\{ T \leq i \}^c} \cdot
+		 			\E	(
+		 					 M_{i+1} | F_i	 												
+						)
+					-
+					\E	(
+		 					 M_i  | F_i	 												
+						)
+	 			\bigg)																													\\
+										&=
+	 	\sum_{ i \in \N} 
+	 		\E	\bigg(
+					\indic_{(\{S \leq i \} \cap A)} \cdot \indic_{\{ T \leq i \}^c} \cdot
+		 					 M_i
+					-
+					\E	(
+		 					 M_i  | F_i	 												
+						)
+	 			\bigg)\label{problema1_4:aplicacion_de_que_M_es_martingala}																\\
+										&\;\;\;\;\; \mbox{[Esto último por ser M una martingala.]}									    \\
+										&=
+	 	\sum_{ i \in \N} 
+	 		\E	\bigg(
+					\indic_{(\{S \leq i \} \cap A)} \cdot \indic_{\{ T \leq i \}^c} \cdot
+		 			 M_i
+						-
+					 M_i
+	 			\bigg)																													\\
+										&\;\;\;\;\; \mbox{[Esto último por que $M_i$ es $F_i$-medible.]}								\\
+										&=
+		\sum_{ i \in \N} 
+	 		\E	\bigg(
+					\indic_{(\{S \leq i \} \cap A)} \cdot \indic_{\{ T \leq i \}^c} \cdot
+		 			 0
+	 			\bigg)																													\\
+										&=
+		0
+	 \end{align}
+	
+	Que es justo lo que queríamos demostrar.\\
+	
+	Para demostrar \eqref{problema1_4:caso_supermartingala}. Hay que notar que $ \espc{M_T}{\F_S}\leq M_S $ es cierto sí y sólo sí para todo $A \in \F_S$
+	se tiene que $ \E((M_T - M_S) \indic_{A}) \leq 0 $.\\
+	
+	Demostrar esto último lo podemos hacer de manera análoga a como demostramos el caso en el que $M$ es martingala. En las cuentas previamente hechas,
+	utilizando el hecho de que $M$ es supermartingala en vez de martingala, la iguladad de \eqref{problema1_4:aplicacion_de_que_M_es_martingala} 
+	se transforma en una desigualdad de tipo ``$\leq$". El resto se queda exactamente igual y entonces tenemos la demostración que necesitabamos.
+	
+	
+	
