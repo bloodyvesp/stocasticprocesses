@@ -3,9 +3,41 @@
 	\begin{align}
 		g(\lambda)=E(e^{- \lambda X_1}).
 	\end{align} 
-	Pruebe que $g(\lambda)\in (0,\infty)$ y que
+	Pruebe que 
+	\begin{align}
+		g(\lambda)	&\in (0,\infty)\label{problema2_1:parte1}
+	\end{align}		
+	y que
 	\begin{align}
 		M_n=e^{-\lambda S_n}g(\lambda)^{-n},n\geq 0
 	\end{align}
-	es una martingala.
+	es una martingala.\\
 }
+	
+	Para probar \eqref{problema2_1:parte1} notemos que
+	\begin{align}
+		e^x > 0 \;\; \forall x \in \R.
+	\end{align}
+	por lo tanto
+	\begin{align}
+		e^{-\lambda X_1} > 0
+	\end{align}
+	y entonces
+	\begin{align}
+		\E(e^{-\lambda X_1}) >\E(0) = 0
+	\end{align}
+
+	Falta ver que $\E(e^{-\lambda X_1})$ está acotada. Recordemos que $e^x$ es creciente y por lo tanto
+	\begin{align}
+			X_1 			&\geq 	-1 						& \Rightarrow\\
+			1 				&\geq 	- X_1					& \Rightarrow\\
+			\lambda			&\geq 	- \lambda X_1			& \Rightarrow\\
+			e^{\lambda}		&\geq 	e^{- \lambda X_1}		& \Rightarrow\\
+			\E(e^{\lambda})	&\geq 	\E(e^{- \lambda X_1})
+	\end{align}
+	
+	Pero $\E(e^{\lambda}) = e^{\lambda}$. Y por lo tanto
+	\begin{align}
+		e^{\lambda} \geq 	\E(e^{- \lambda X_1})
+	\end{align}	
+	Entonces $0 < \E(e^{-\lambda X_1}) < \infty$, como queríamos demostrar.

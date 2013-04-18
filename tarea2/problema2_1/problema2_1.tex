@@ -14,7 +14,7 @@
 
 	\begin{enumerate}
 		
-		\item[(i)] 	
+		\item[(i)] 	[\ref{problema2_1:inciso1}]
 					Sea
 					\begin{align}
 						g(\lambda)=E(e^{- \lambda X_1}).
@@ -24,8 +24,9 @@
 						M_n=e^{-\lambda S_n}g(\lambda)^{-n},n\geq 0
 					\end{align}
 					es una martingala.
-		\item[(ii)] 
-					Pruebe que $g$ es log-convexa al aplicar la desigualdad de H\"older. Pruebe que si $P(X_1=-1)>0$ (hip\'otesis que se utilizar\'a desde ahora) 
+		\item[(ii)] [\ref{problema2_1:inciso2}]
+					Pruebe que $g$ es log-convexa al aplicar la desigualdad de H\"older. Pruebe que si $P(X_1=-1)>0$ 
+					(hip\'otesis que se utilizar\'a desde ahora) 
 					entonces $g(\lambda)\to\infty$ conforme $\lambda\to\infty$. Utilice esta informaci\'on para esbozar la gr\'afica de $g$. 
 					Defina $ f(s)=\inf \{ \lambda>0:g(\lambda)^{-1} < s\} $. Note que $1/g\circ f=Id$ en $(0,1)$. Pruebe que si $g(\lambda)>1$, 
 					la martingala $M$ es acotada hasta el tiempo de arribo de $S$ a $-k$ dado por 
@@ -36,16 +37,17 @@
 					\begin{align}
 						E(s^{T_k})=e^{-k f(s)}.
 					\end{align}
-					Justifique MUY bien por qu\'e la f\'ormula es válida aún cuando $T_k$ puede tomar el valor $\infty$ y deduzca que de hecho $\p (T_k=\infty)=0$.
+					Justifique MUY bien por qu\'e la f\'ormula es válida aún cuando $T_k$ puede tomar el valor $\infty$ 
+					y deduzca que de hecho $\p (T_k=\infty)=0$.
 						
-		\item[(iii)] 
+		\item[(iii)] [\ref{problema2_1:inciso3}]
 					Argumente que
 					\begin{align}
 						P(M_p\geq n)=P(T_n\leq C_p)=E((1-p)^{T_n})
 					\end{align}
 					para demostrar que $M_p$ tiene distribuci\'on geom\'etrica de par\'ametro $1-e^{-f(1-p)}$.
 					
-		\item[(iv)] 
+		\item[(iv)] [\ref{problema2_1:inciso4}]
 					Tome el límite conforme $p\to 0$ para mostrar que la variable aleatoria 
 					\begin{align}
 						M=-\min_{n\geq 0}S_n
@@ -58,18 +60,18 @@
 
 
 \begin{proof}
-	\subsection{Inciso (i)} 
+	\subsection{Inciso (i)} 	\label{problema2_1:inciso1}
 	\input{tarea2/problema2_1/inciso2_1_1.tex}
 	\newpage
 	
-	\subsection{Inciso (ii)} 
+	\subsection{Inciso (ii)}	\label{problema2_1:inciso2} 
 	\input{tarea2/problema2_1/inciso2_1_2.tex}
 	\newpage
 		
-	\subsection{Inciso (iii)}
+	\subsection{Inciso (iii)}	\label{problema2_1:inciso3}
 	\input{tarea2/problema2_1/inciso2_1_3.tex}
 	\newpage
 	
-	\subsection{Inciso (iv)} 
+	\subsection{Inciso (iv)}	\label{problema2_1:inciso4}
 	\input{tarea2/problema2_1/inciso2_1_4.tex}
 \end{proof}
