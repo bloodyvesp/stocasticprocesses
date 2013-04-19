@@ -42,6 +42,31 @@
         e^{\lambda} \geq  \E(e^{- \lambda X_1})
     \end{align}    
     
-    Entonces $0 < \E(e^{-\lambda X_1}) < \infty$, y con esto queda \eqref{problema2_1:parte1}.
+    Entonces $0 < \E(e^{-\lambda X_1}) < \infty$, y con esto queda demostrado \eqref{problema2_1:parte1}.
     
-    Probemos ahora que $(M_n)_{n \in \N}$ es martingala. 
+    Probemos ahora que $(M_n)_{n \in \N}$ es martingala.
+    
+    \begin{itemize}
+        \item 
+            Veamos que $M_n$ es $\F_n$-medible.\\
+            
+            Para esto, recordemos que si $\G$ es una $\sigma$-algebra, $f$ es $\G$-medible y $g$ es continua
+            con la topología usual de $\R$ entonces $g \circ f$ es $\G$-medible.\\
+            
+            $S_n$ es $\F_n$-medible. Multiplicar por constantes es función continua. Dividir entre constantes 
+            es función continua. La función exponencial es continua. Y por lo tanto $M_n=e^{-\lambda S_n}g(\lambda)^{-n}$ 
+            es composición de funciones continuas con $S_n$. De donde $M_n$ es $F_n$-medible.\\
+         
+        \item 
+            Ahora veamos que $M_n \in L_1$.\\
+            
+            De la misma demostración que dimos para probar la primera parte, se sigue 
+            que $0 < e^{-\lambda X_n} < \infty$ y que $e^{-\lambda X_n} \in \N$ para toda $n \in \N$. Por lo tanto
+            
+            \begin{align}
+                M_n         &=      e^{-\lambda S_n}g(\lambda)^{-n} \\
+                            &=      \prod_{1 \leq i \leq n} e^{-\lambda X_i} g(\lambda)^{-n}. 
+            \end{align}
+            
+            Entonces, $M_n$ es producto finito de funciones en $L_1$, de donde tenemos que $M_n \in L_1$.
+    \end{itemize}
