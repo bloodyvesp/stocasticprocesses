@@ -68,5 +68,16 @@
                             &=      \prod_{1 \leq i \leq n} e^{-\lambda X_i} g(\lambda)^{-n}. 
             \end{align}
             
-            Entonces, $M_n$ es producto finito de funciones en $L_1$, de donde tenemos que $M_n \in L_1$.
+            Entonces, $M_n$ es producto finito de funciones en $L_1$, de donde tenemos que $M_n \in L_1$.\\
+            
+         \item
+            Únicamente falta demostrar que $\E(M_{n+1} | \F_n) = M_n$.\\
+            
+            \begin{align}
+                \E(M_{n+1} | \F_n)     &=   \E(e^{-\lambda S_n}g(\lambda)^{-(n+1)}|\F_n)      \\
+                                       &=   g(\lambda)^{-(n+1)}\E(e^{-\lambda S_n}|\F_n)      \\
+                                       &\;\;\;\;\mbox{(Esto último es gracias a que $g(\lambda)^{-(n+1)}$ es constante.)}
+            \end{align}
+            
+            
     \end{itemize}
