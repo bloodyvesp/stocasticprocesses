@@ -4,30 +4,40 @@
                 g(\lambda)=E(e^{- \lambda X_1}).
         \end{align} 
     Pruebe que 
+    \null
         \begin{align}
                 g(\lambda)    &\in (0,\infty)\label{problema2_1:parte1}
-        \end{align}        
+        \end{align}
+    \null
     y que
+    \null
         \begin{align}
                 M_n=e^{-\lambda S_n}g(\lambda)^{-n},n\geq 0
         \end{align}
+    \null
     es una martingala.\\
 }
-    
+\afterstatement
     Para probar \eqref{problema2_1:parte1} notemos que
+
     \begin{align}
         e^x > 0 \;\; \forall x \in \R.
     \end{align}
+
     por lo tanto
+
     \begin{align}
         e^{-\lambda X_1} > 0
     \end{align}
+
     y entonces
+
     \begin{align}
         \E(e^{-\lambda X_1}) >\E(0) = 0
     \end{align}
 
     Falta ver que $\E(e^{-\lambda X_1})$ está acotada. Recordemos que $e^x$ es creciente y por lo tanto
+
     \begin{align}
         X_1                &\geq     -1                       & \Rightarrow\\
         1                  &\geq     - X_1                    & \Rightarrow\\
@@ -74,10 +84,23 @@
             Únicamente falta demostrar que $\E(M_{n+1} | \F_n) = M_n$.\\
             
             \begin{align}
-                \E(M_{n+1} | \F_n)     &=   \E(e^{-\lambda S_n}g(\lambda)^{-(n+1)}|\F_n)      \\
-                                       &=   g(\lambda)^{-(n+1)}\E(e^{-\lambda S_n}|\F_n)      \\
-                                       &\;\;\;\;\mbox{(Esto último es gracias a que $g(\lambda)^{-(n+1)}$ es constante.)}
+                \E(M_{n+1} | \F_n)      &=      \E(e^{-\lambda S_{n+1}}g(\lambda)^{-(n+1)}|\F_n)                                        \\
+                                        &=      g(\lambda)^{-(n+1)}\E(e^{-\lambda S_{n+1}}|\F_n)                                        \\
+                                        &\;\;\;\;\mbox{(Esto último es gracias a que $g(\lambda)^{-(n+1)}$ es constante)}               \\
+                                        &=      g(\lambda)^{-(n+1)}\E(e^{-\lambda S_{n+1}}|\F_n)                                        \\
+                                        &=      g(\lambda)^{-(n+1)}\E(e^{-\lambda S_{n} \cdot X_{n+1}}|\F_n)                            \\
+                                        &=      g(\lambda)^{-(n+1)}\E(e^{-\lambda S_{n}} \cdot e^{-\lambda X_{n+1}}|\F_n)               \\
+                                        &=      g(\lambda)^{-(n+1)} e^{-\lambda S_{n}} \E(e^{-\lambda X_{n+1}}|\F_n)                    \\                                       
+                                        &\;\;\;\;\mbox{(Esto último es gracias a que $S_n$ es $F_n$-medible)}                           \\
+                                        &=      g(\lambda)^{-(n+1)} e^{-\lambda S_{n}} \E(e^{-\lambda X_{n+1}})                         \\
+                                        &\;\;\;\;\mbox{(Esto último es gracias a que $X_{n+1}$ es independiente de $F_n$)}              \\
+                                        &=      g(\lambda)^{-(n+1)} e^{-\lambda S_{n}} \E(e^{-\lambda X_{1}})                           \\
+                                        &\;\;\;\;\mbox{(Esto último es gracias a que $X_{n+1}$ y $X_1$ tienen la}                       \\ 
+                                        &\;\;\;\;\;\mbox{misma distribución)}   \\
+                                        &=      g(\lambda)^{-(n+1)} e^{-\lambda S_{n}} g(\lambda)                                       \\
+                                        &=      g(\lambda)^{-(n)} e^{-\lambda S_{n}}                                                    \\
+                                        &=      M_n.
             \end{align}
-            
-            
     \end{itemize}
+    
+    Y con esto terminamos de demostrar que $(M_n)_{n \in \N}$ es martingala.

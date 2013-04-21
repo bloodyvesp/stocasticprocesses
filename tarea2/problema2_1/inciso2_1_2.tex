@@ -3,12 +3,147 @@
     entonces $g(\lambda)\to\infty$ conforme $\lambda\to\infty$. Utilice esta informaci\'on para esbozar la gr\'afica de $g$. 
     Defina $ f(s)=\inf \{ \lambda>0:g(\lambda)^{-1} < s\} $. Note que $1/g\circ f=Id$ en $(0,1)$. Pruebe que si $g(\lambda)>1$, 
     la martingala $M$ es acotada hasta el tiempo de arribo de $S$ a $-k$ dado por 
+    \null
     \begin{align}
         T_k =\min \{n\in\na:S_n=-k\} 
     \end{align}
+    \null
     (donde se utiliza la convenci\'on $\inf\emptyset=\infty$ ). Aplique el teorema de muestreo opcional de Doob para mostrar que 
+    \null
     \begin{align}
         E(s^{T_k})=e^{-k f(s)}.
     \end{align}
-    Justifique MUY bien por qu\'e la f\'ormula es válida aún cuando $T_k$ puede tomar el valor $\infty$ y deduzca que de hecho $\p (T_k=\infty)=0$.
+    \null
+    Justifique MUY bien por qu\'e la f\'ormula es válida aún cuando $T_k$ puede tomar el valor $\infty$ y deduzca que de hecho 
+    $\p (T_k=\infty)=0$.
 }
+\afterstatement
+    Primero probemos que $g$ es log-convexa, es decir, que $log \circ g$ es convexa.Sean $a < b$ en el dominio de $g$ 
+    y sea $t \in [0, 1]$.\\
+    
+    Queremos demostrar que:
+    
+    \begin{align}
+            log\circ g ((1-t)a + (t)b) \leq (1-t)(log\circ g (a)) + (t)(log\circ g (b)).
+    \end{align}
+    
+    Si $t=0$ tenemos:
+    
+    \begin{align}
+        log\circ g ((1-0)a + (0)b)  &= log\circ g (a) \\
+                                    &= (1-0)(log\circ g (a)) + (0)(log\circ g (b))
+    \end{align}
+    
+    y por lo tanto no hay nada que demostrar. Análogamente ocurre con $t=1$.\\
+    
+    Entonces concentrémonos en el caso donde $t\in (0, 1)$.\\
+    
+    Recordemos que la desigualdad de Hölder dice que si $f \in L_p$ y $g \in L_q$ con 
+    $p,q \in (1,\infty)$ y $\frac{1}{p} + \frac{1}{q} = 1$. Entonces
+                
+    \begin{align}
+                \E(| fg |) \leq (\E(\abs{f}^p))^{\frac{1}{p}} (\E(\abs{g}^q))^\frac{1}{q}.
+    \end{align}
+    
+    Sean entonces $p = \frac{1}{1-t}$ y $q = \frac{1}{t}$. Tenemos que\\
+    
+    \begin{align}
+        \frac{1}{p} + \frac{1}{q}   &= \frac{1}{\frac{1}{1-t}} + \frac{1}{\frac{1}{t}}  \\
+                                    &= t + 1 - t                                        \\ 
+                                    &= 1.
+    \end{align}
+    
+    Veamos que $e^{-a(1-t) X_1}$ pertenece a $L_p$. \\
+    
+    Como $e^x > 0$ para todo $x \in \R$. $\abs{e^x} = e^x$. Entonces
+    
+    \begin{align}
+         \bigg(\E\bigg(\abs{e^{-a(1-t) X_1}}^p\bigg)\bigg)^{\frac{1}{p}} 
+                &=  \bigg(\E\bigg(\abs{e^{-a(1-t) X_1}}^{\frac{1}{1-t}}\bigg)\bigg)^{{1-t}} \\
+                &=  \bigg(\E\bigg(\abs{e^{-aX_1}}\bigg)\bigg)^{{1-t}}                       \\
+                &=  \bigg(\E\bigg(e^{-aX_1}\bigg)\bigg)^{{1-t}}                             \\
+                &=  ( g(a))^{{1-t}}                                                         \\
+                &<   \infty
+    \end{align}
+    
+    Donde la última desigualdad es gracias a que $a$ fue tomado en el dominio de $g$ y a lo demostrado en 
+    [\ref{problema2_1:inciso1}]. Con esto hemos demostrado que $e^{-a(1-t) X_1}$ pertenece a $L_p$.\\
+    
+    De manera análoga se puede demostrar que $e^{-b(t) X_1}$ pertenece a $L_q$.\\
+    
+    Ahora que tenemos todas las hipótesis para la desigualdad de Hölder, basta aplicarla.\\
+        
+    \begin{align}
+        log\circ g ((1-t)a + (t)b)      &=       log\bigg( \E\bigg(e^{-a(1-t) + b(t) X_1}\bigg) \bigg)                              \\
+                                        &=       log\bigg( \E\bigg(e^{-a(1-t) X_1} \cdot e^{-b(t) X_1}\bigg) \bigg)                 \\
+                                        &=       log\bigg( \E\bigg(\abs{e^{-a(1-t) X_1} \cdot e^{-b(t) X_1}}\bigg) \bigg)           \\
+                                        &\leq    log\bigg(
+                                                            \E
+                                                                \bigg(
+                                                                    \abs{e^{-a(1-t) X_1}}^p
+                                                                \bigg)^{\frac{1}{p}} 
+                                                        \cdot 
+                                                            \E
+                                                                \bigg(
+                                                                    \abs{e^{-b(t) X_1}}^q
+                                                                \bigg)^\frac{1}{q}
+                                                    \bigg)                                                                          \\
+                                        &\;\;\;\;\mbox{(Esta desigualdad es gracias a la desigualdad de Hölder)}                    \\
+                                        &=      log\bigg( 
+                                                            \E
+                                                                \bigg(
+                                                                    e^{-a(1-t) X_1 p}
+                                                                \bigg)^{\frac{1}{p}} 
+                                                        \cdot     
+                                                            \E
+                                                                \bigg(
+                                                                    e^{-b(t) X_1 q}
+                                                                \bigg)^\frac{1}{q}
+                                                     \bigg)                                                                         \\
+                                        &=      log\bigg( 
+                                                            \E
+                                                                \bigg(
+                                                                    e^{-a(1-t) X_1 \frac{1}{1-t}}
+                                                                \bigg)^{\frac{1}{\frac{1}{1-t}}} 
+                                                        \cdot    
+                                                            \E
+                                                                \bigg(
+                                                                    e^{-b(t) X_1 \frac{1}{t}}
+                                                                \bigg)^\frac{1}{\frac{1}{t}}
+                                                     \bigg)                                                                         \\
+                                        &=      log\bigg( 
+                                                        \E
+                                                            \bigg(
+                                                                e^{-a X_1}
+                                                            \bigg)^{1-t} 
+                                                        \cdot                                                             
+                                                        \E
+                                                            \bigg(
+                                                                e^{-b X_1}
+                                                            \bigg)^{t}
+                                                     \bigg)                                                                         \\
+                                        &=      log\bigg( 
+                                                        \E
+                                                            \bigg(
+                                                                e^{-a X_1}
+                                                            \bigg)^{1-t} 
+                                                \bigg)
+                                                        + 
+                                                log\bigg(
+                                                        \E
+                                                            \bigg(
+                                                                e^{-b X_1}
+                                                            \bigg)^{t}
+                                                \bigg)                                                                              \\
+                                         &=      log\bigg( 
+                                                        g(a)^{1-t} 
+                                                \bigg)
+                                                        + 
+                                                log\bigg(
+                                                        g(b)^{t}
+                                                \bigg)                                                                              \\
+                                         &=      (1-t)log(g(a))+(t)log(g(b))                                                        \\
+                                         &=      (1-t)(log \circ g (a))+(t)(log \circ g (b))                                        
+    \end{align}
+    
+    Que es lo que necesitabamos mostrar para probar que $g$ es log-convexa.
