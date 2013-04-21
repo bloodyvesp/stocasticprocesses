@@ -1,13 +1,14 @@
 \emph
 {
 	Sea $T_1=\min\set{n\geq 0:S_n=1}$. Explique por qu\'e $T_1$ es un 
-	tiempo de paro y calcule su esperanza.\\
+	tiempo de paro y calcule su esperanza.
 }
 \afterstatement
-	Consideremos a la filtración $(\F_n)_{n\in\N}$ como la filtracion 
+
+	Consideremos a la filtración $(\F_n)_{n\in\N}$ como la filtración 
 	generada por $X_1, X_2, \dots$.\par\null
 
-	Es decir, $F_0 = \{\emptyset, \Omega\}$, $\F_n = \sigma(X_1, X_2, \dots, X_n)$\\
+	Es decir, $F_0 = \{\emptyset, \Omega\}$, $\F_n = \sigma(X_1, X_2, \dots, X_n)$\par\null
 
 	Nótese que $S_0$ es medible bajo cualquier sigma álgebra por ser constante, en particular bajo
 	$\F_0$.\par\null
@@ -53,7 +54,7 @@
         \lim_{n\rightarrow\infty} T_{n,1}   &=  \lim_{n\rightarrow\infty} T_{-n} \wedge T_1 \\
                                             &=  \infty \wedge T_1                           \\
                                             &=  T_1
-	\end{align}
+	\end{align}\par\null
 
 	Tenemos todos los ingredientes para usar Teorema de convergencia monótona sobre nuestra suceción
 	y la variable $T_1$. Nuestra sucecion es monótona y converge puntualmente a $T_1$. Utilizando
@@ -64,7 +65,7 @@
                     &=  \lim_{n\rightarrow\infty} \E(T_{n,1})       \\
                     &=  \lim_{n\rightarrow\infty} n\cdot 1          \\
                     &=  \infty.
-	\end{align}
+	\end{align}\par\null
 	
 	Lo cual era intuitivo. Si $\E(T_1)$ fuese finito, diría que existe un número de volados donde
 	uno puede apostar con mucha certeza que ganará un peso después de jugar "cerca" de esa cantidad
