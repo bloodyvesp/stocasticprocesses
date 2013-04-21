@@ -1,5 +1,5 @@
 \emph{
-    Pruebe que $g$ es log-convexa al aplicar la desigualdad de H\"older. Pruebe que si $P(X_1=-1)>0$ (hip\'otesis que se utilizar\'a desde ahora) 
+    Pruebe que $g$ es $\log$-convexa al aplicar la desigualdad de H\"older. Pruebe que si $P(X_1=-1)>0$ (hip\'otesis que se utilizar\'a desde ahora) 
     entonces $g(\lambda)\to\infty$ conforme $\lambda\to\infty$. Utilice esta informaci\'on para esbozar la gr\'afica de $g$. 
     Defina $ f(s)=\inf \{ \lambda>0:g(\lambda)^{-1} < s\} $. Note que $1/g\circ f=Id$ en $(0,1)$. Pruebe que si $g(\lambda)>1$, 
     la martingala $M$ es acotada hasta el tiempo de arribo de $S$ a $-k$ dado por 
@@ -18,20 +18,20 @@
     $\p (T_k=\infty)=0$.
 }
 \afterstatement
-    Primero probemos que $g$ es log-convexa, es decir, que $log \circ g$ es convexa.Sean $a < b$ en el dominio de $g$ 
+    Primero probemos que $g$ es $\log$-convexa, es decir, que $\log \circ g$ es convexa.Sean $a < b$ en el dominio de $g$ 
     y sea $t \in [0, 1]$.\\
     
     Queremos demostrar que:
     
     \begin{align}
-            log\circ g ((1-t)a + (t)b) \leq (1-t)(log\circ g (a)) + (t)(log\circ g (b)).
+            \log\circ g ((1-t)a + (t)b) \leq (1-t)(\log\circ g (a)) + (t)(\log\circ g (b)).
     \end{align}
     
     Si $t=0$ tenemos:
     
     \begin{align}
-        log\circ g ((1-0)a + (0)b)  &= log\circ g (a) \\
-                                    &= (1-0)(log\circ g (a)) + (0)(log\circ g (b))
+        \log\circ g ((1-0)a + (0)b)     &= \log\circ g (a) \\
+                                        &= (1-0)(\log\circ g (a)) + (0)(\log\circ g (b))
     \end{align}
     
     y por lo tanto no hay nada que demostrar. Análogamente ocurre con $t=1$.\\
@@ -74,10 +74,10 @@
     Ahora que tenemos todas las hipótesis para la desigualdad de Hölder, basta aplicarla.\\
         
     \begin{align}
-        log\circ g ((1-t)a + (t)b)      &=       log\bigg( \E\bigg(e^{-a(1-t) + b(t) X_1}\bigg) \bigg)                              \\
-                                        &=       log\bigg( \E\bigg(e^{-a(1-t) X_1} \cdot e^{-b(t) X_1}\bigg) \bigg)                 \\
-                                        &=       log\bigg( \E\bigg(\abs{e^{-a(1-t) X_1} \cdot e^{-b(t) X_1}}\bigg) \bigg)           \\
-                                        &\leq    log\bigg(
+        \log\circ g ((1-t)a + (t)b)     &=       \log\bigg( \E\bigg(e^{-a(1-t) + b(t) X_1}\bigg) \bigg)                              \\
+                                        &=       \log\bigg( \E\bigg(e^{-a(1-t) X_1} \cdot e^{-b(t) X_1}\bigg) \bigg)                 \\
+                                        &=       \log\bigg( \E\bigg(\abs{e^{-a(1-t) X_1} \cdot e^{-b(t) X_1}}\bigg) \bigg)           \\
+                                        &\leq    \log\bigg(
                                                             \E
                                                                 \bigg(
                                                                     \abs{e^{-a(1-t) X_1}}^p
@@ -88,8 +88,9 @@
                                                                     \abs{e^{-b(t) X_1}}^q
                                                                 \bigg)^\frac{1}{q}
                                                     \bigg)                                                                          \\
-                                        &\;\;\;\;\mbox{(Esta desigualdad es gracias a la desigualdad de Hölder)}                    \\
-                                        &=      log\bigg( 
+                                        &\;\;\;\;\mbox{(Esta desigualdad es gracias a la desigualdad de }                           \\
+                                        &\;\;\;\;\mbox{ Hölder y a que $\log$ es una función creciente)}                            \\
+                                        &=      \log\bigg( 
                                                             \E
                                                                 \bigg(
                                                                     e^{-a(1-t) X_1 p}
@@ -100,7 +101,7 @@
                                                                     e^{-b(t) X_1 q}
                                                                 \bigg)^\frac{1}{q}
                                                      \bigg)                                                                         \\
-                                        &=      log\bigg( 
+                                        &=      \log\bigg( 
                                                             \E
                                                                 \bigg(
                                                                     e^{-a(1-t) X_1 \frac{1}{1-t}}
@@ -111,7 +112,7 @@
                                                                     e^{-b(t) X_1 \frac{1}{t}}
                                                                 \bigg)^\frac{1}{\frac{1}{t}}
                                                      \bigg)                                                                         \\
-                                        &=      log\bigg( 
+                                        &=      \log\bigg( 
                                                         \E
                                                             \bigg(
                                                                 e^{-a X_1}
@@ -122,28 +123,65 @@
                                                                 e^{-b X_1}
                                                             \bigg)^{t}
                                                      \bigg)                                                                         \\
-                                        &=      log\bigg( 
+                                        &=      \log\bigg( 
                                                         \E
                                                             \bigg(
                                                                 e^{-a X_1}
                                                             \bigg)^{1-t} 
                                                 \bigg)
                                                         + 
-                                                log\bigg(
+                                                \log\bigg(
                                                         \E
                                                             \bigg(
                                                                 e^{-b X_1}
                                                             \bigg)^{t}
                                                 \bigg)                                                                              \\
-                                         &=      log\bigg( 
+                                         &=      \log\bigg( 
                                                         g(a)^{1-t} 
                                                 \bigg)
                                                         + 
-                                                log\bigg(
+                                                \log\bigg(
                                                         g(b)^{t}
                                                 \bigg)                                                                              \\
-                                         &=      (1-t)log(g(a))+(t)log(g(b))                                                        \\
-                                         &=      (1-t)(log \circ g (a))+(t)(log \circ g (b))                                        
+                                         &=      (1-t)\log(g(a))+(t)\log(g(b))                                                      \\
+                                         &=      (1-t)(\log \circ g (a))+(t)(\log \circ g (b))                                        
     \end{align}
     
-    Que es lo que necesitabamos mostrar para probar que $g$ es log-convexa.
+    Que es lo que necesitabamos mostrar para probar que $g$ es $\log$-convexa.\\
+    
+    Ahora supongamos que $\mw(X_1 = -1) > 0$.\\
+    
+    Para ver que $g$ tiende a infinito conforme $\lambda$ crece, descompongamos a $g(\lambda)$ de la siguiente manera.
+    
+    \begin{align}
+        g(\lambda)      &=      \E(e^{-\lambda X_1})                \\
+                        &=      \sum_{-1 \leq i} e^{-\lambda i} \mw( X_1 = i)
+    \end{align}
+    
+    De donde obtenemos que $g(\lambda) \geq e^{\lambda} \mw( X_1 = -1)$. Dado que $e^{\lambda}$ tiende a infinito comforme
+    $\lambda$ crece, tenemos que $g(\lambda)$ también lo hace.\\
+    
+    Ahora notemos que $g$ es convexa también. $\log \circ g$ es convexa por la primera parte de este inciso y 
+    $e^x$ es convexa y creciente porque su primera y segunda derivada siempre son mayor que cero. 
+    Dado esto, notemos que $g = e^{\log(g)}$ y entonces por ser $g$ una composición de una función convexa con una
+    convexa creciente tenemos que $g$ es convexa.\\
+    
+    Uno de los resultados de los cursos de cálculo de la licencuatura es que una función convexa con dominio abierto, es continua.
+    $g$ está definida sobre todo $\R$, que es abierto, y por lo tanto $g$ es continua.\\
+    
+    Ahora sea $s \in (0,1)$. Y sea $\lambda_0 = f(s)$. Por definición, $\lambda_0 = \inf\{ \lambda > 0 : g(\lambda)^{-1} < s\}$. Por definición de ínfimo,
+    para cualquier $n \in \N$, existe $\lambda_n > 0$ tal que 
+    
+    \begin{align}
+        \lambda_0 \leq \lambda_n \leq \lambda_0 + \frac{1}{n}. \label{problema2_1:sucesion_convergente_a_lambda_0}
+    \end{align}
+     
+    y que
+    
+    \begin{align}
+        g(\lambda_n)^{-1} < s. \label{problema2_1:sucesion_dominada_por_s}
+    \end{align}
+    
+    Por \eqref{problema2_1:sucesion_convergente_a_lambda_0} sabemos que $\lambda_n \rightarrow \lambda_0$.
+    De \eqref{problema2_1:sucesion_dominada_por_s} obtenemos $\frac{1}{s} < g(\lambda_n)$. Por continuidad de $g$
+    tenemos entonces que $\frac{1}{s} \leq g(\lambda_0)$.
