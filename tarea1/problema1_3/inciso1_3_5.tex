@@ -1,62 +1,67 @@
 \emph
 {
-	Para la variable $T$ que hemos definido, calcule $\esp{T}$.\\
-}
-\afterstatement
-	Primero, platicaré de manera intuitiva cómo vamos a proceder para solucionar este problema.\\
+	Para la variable $T$ que hemos definido, calcule $\esp{T}$.
+}\par\null
 
-	Imaginemos un juego de casino a base de un juego de volados con las siguientes reglas:\\
+\afterstatement
+
+	Primero, platicaré de manera intuitiva cómo vamos a proceder para solucionar este problema.\par\null
+
+	Imaginemos un juego de casino a base de un juego de volados con las siguientes reglas:\par\null
+    
 	\begin{itemize}
 			\item En cada turno, cada jugador tiene que apostar todo el dinero que tiene.
 			\item Si un jugador se queda sin dinero, tiene que abandonar el juego.
 			\item Si cae ``sol" cada jugador recibe el doble de lo que había apostado en ese turno.  
-	\end{itemize}
+	\end{itemize}\par\null
    
-	\;El casino tiene dinero infinito y cada habitante cuenta con exactamente $1$ peso antes de
-	iniciar el juego.\\
+	El casino tiene dinero infinito y cada habitante cuenta con exactamente $1$ peso antes de
+	iniciar el juego.\par\null
    
-	Además, en cada nuevo turno entra exactamente un nuevo jugador al juego.\\
+	Además, en cada nuevo turno entra exactamente un nuevo jugador al juego.\par\null
    
 	Para nuestro problema, supongamos que $X_n = 1$ significa que en el $n$-ésimo turno, salió sol.
-	Entonces, $T$ nos indica cuando es la primera vez que caen dos soles consecutivos.\\
+	Entonces, $T$ nos indica cuando es la primera vez que caen dos soles consecutivos.\par\null
    
-	Sea $D_n$ la variable que indica cuánto dinero ha ganado el casino para el tiempo $n$.\\
+	Sea $D_n$ la variable que indica cuánto dinero ha ganado el casino para el tiempo $n$.\par\null
    
 	Observemos que en el momento que cae ``águila", todo jugador pierde todo su dinero y abandona el juego.
 	Y que por cada jugador que pierde, el casino gana exáctamente $1$ peso (pues cada jugador en cada
 	turno apuesta todo el dinero que posee, es decir el peso con el que empezó y todo lo que le habia
-	ganado al casino).\\
+	ganado al casino).\par\null
    
 	Entonces, al tiempo $T-2$, todo mundo había perdido. Es decir que al tiempo $T-2$ el casino ha ganado
-	$T-2$ pesos.\\
+	$T-2$ pesos.\par\null
    
 	Luego, al tiempo $T-1$, ha caido un sol y hay exactamente un jugador al que el casino tuvo 
-	que pagar $1$ peso.\\
+	que pagar $1$ peso.\par\null
    
 	Al tiempo $T$, al jugador del turno pasado el casino tuvo que darle $2$ pesos y al jugador del nuevo
-	turno tuvo que darle $1$ peso.\\
+	turno tuvo que darle $1$ peso.\par\null
    
 	Entonces, ya podemos decir cuanto dinero ha ganado el casino al tiempo $T$.
-	\begin{align}\label{problema1_3:Dinero_al_tiempo_T}
+	
+    \begin{align}\label{problema1_3:Dinero_al_tiempo_T}
 		D_T = T-2 - 1 - 3 = T - 6. 
-	\end{align}					   
+	\end{align}\par\null					   
    
 	Notemos que además el juego es justo, en cada turno cada jugador tiene $1/2$ de probabilidad de
-	ganar $2^t$ y $1/2$ de probabilidad de perder $2^t$. Es decir, la esperanza es $0$.\\
+	ganar $2^t$ y $1/2$ de probabilidad de perder $2^t$. Es decir, la esperanza es $0$.\par\null
 	
-	$D_n$ es suma de este tipo de variables y por lo tanto su esperanza también será $0$.\\
+	$D_n$ es suma de este tipo de variables y por lo tanto su esperanza también será $0$.\par\null
    
-	Esto, nos da la intuición de que $D_n$ es martingala, pero esa es la parte que demostraremos más adelante.\\
+	Esto, nos da la intuición de que $D_n$ es martingala, pero esa es la parte que demostraremos más adelante.\par\null
    
 	Si logramos demostrar que $\E(D_T) = 0$. De \eqref{problema1_3:Dinero_al_tiempo_T} concluimos
-	\begin{align}
+	
+    \begin{align}
 		0 = \E(T - 6) = \E(T) - 6
 	\end{align}
 	
-	De donde $\E(T) = 6$.\\
+	De donde $\E(T) = 6$.\par\null
 	
 	Ahora, para terminar con las formalidades, definamos bien a $D$ y comprobemos que es martingala y 
-	que podemos utilizar el Teoremoa del muestreo opcional de Doob como lo hemos hecho.\\
+	que podemos utilizar el Teoremoa del muestreo opcional de Doob como lo hemos hecho.\par\null
 	
 	Sean entonces $(Y_n)_{n \in \N}$ variables aleatorias Bernulli de parámetro $1/2$ independientes.
 	Y sea $Z_n^m$ la cantidad de dinero que el jugador $m$ ha dado al casino definidas como:
@@ -69,16 +74,16 @@
 			pierde la cantidad apostada, que para el turno $n+1$ es $Z_n^n + 1$). Nótese que en cuanto un $Y_{n_0}$ se hace cero,
 			$Z_{n_0}^{n}$ y todos los que le sigan son todos iguales a $1$ (Como el jugador deja el juego después de haber perdido
 			un volado, deja su peso en el casino y entonces de ahí en adelante la cantidad que ha dado al casino es exactamente 1).
-	\end{itemize}
+	\end{itemize}\par\null
 	
 	Veamos que para cada $m \in \N$, $(Z_n^m)_{n \in \N}$ forma una martingala con respecto a la filtración $(\G_n)_{n \in \N}$ 
-	definida por los $Y_n$.\\
+	definida por los $Y_n$.\par\null
 	
-	Cada $Z_n^m$ es $\G_m$-medible por definición.\\
+	Cada $Z_n^m$ es $\G_m$-medible por definición.\par\null
 	
-	Cada $Z_n^m$ es suma finita de variables acotadas. Por lo tanto cada una pertenece a $L_1$.\\
+	Cada $Z_n^m$ es suma finita de variables acotadas. Por lo tanto cada una pertenece a $L_1$.\par\null
 	
-	Sólo nos falta verificar la propiedad de martingala.
+	Sólo nos falta verificar la propiedad de martingala.\par\null
 	
 	\begin{align}\label{problema1_3:Propiedad_de_martingala_para_el_dinero_perdido_por_un_apostador}
 		\E(Z_{n+1}^{m} | \G_n) &= \E((Z_n^{m} - 1) \cdot 2(Y_{n+1}) + 1 | \G_n)\\
@@ -91,77 +96,82 @@
 							   &= (Z_n^{m} -1) \cdot 2 \frac{1}{2} + \E( 1 | \G_n)\\
 							   &= (Z_n^{m} -1) \cdot + 1 \\
 							   &= Z_n^m.
-	\end{align}
+	\end{align}\par\null
 	
 	Ahora definamos a $D_n = \sum_{i=1}^n (Z_n^i)$. Que significa, La cantidad de dinero que el casino ha ganado al tiempo $n$. 
-	Justo como lo habíamos dicho en la ``demostración intuitiva".\\
+	Justo como lo habíamos dicho en la ``demostración intuitiva".\par\null
 	
 	Ver que $D$ es martingala es fácil. Cada $D_n$ es suma finita de variables finitas y por lo tanto pertenece a $L_1$.
 	$D_n$ es suma de variables $\G_n$-medibles y por lo tanto también lo es. Y la propiedad de martingala se sigue directamente de
-	\eqref{problema1_3:Propiedad_de_martingala_para_el_dinero_perdido_por_un_apostador}.\\
+	\eqref{problema1_3:Propiedad_de_martingala_para_el_dinero_perdido_por_un_apostador}.\par\null
 	
 	Es cierto que podemos aplicar Doob sobre el tiempo $T \wedge n$ por ser acotado y de aquí que:
-	$\E(D_{T \wedge n}) = \E(D_1) = 0$.\\
+	$\E(D_{T \wedge n}) = \E(D_1) = 0$.\par\null
 	
-	Notemos que $D_{T \wedge n} \longrightarrow D_T \; c.s.$\\
+	Notemos que $D_{T \wedge n} \longrightarrow D_T \; c.s.$\par\null
 	
-	Nos gustaría poder decir lo mismo de sus esperanzas y para eso utilizaremos teroema de convergencia dominada.\\
+	Nos gustaría poder decir lo mismo de sus esperanzas y para eso utilizaremos teroema de convergencia dominada.\par\null
 	
 	Es claro que al tiempo $T \wedge n$ el casino a lo más pudo haber ganado $T \wedge n$ pesos.
-	De aquí que $D_{T \wedge n} \geq T \wedge n \geq T$.\\
+	De aquí que $D_{T \wedge n} \geq T \wedge n \geq T$.\par\null
 	
 	Además, por definición de $T$, para el tiempo $T$ el casino a lo más ha perdido $4$ pesos y es la primera vez que 
-	pierde tanto. Así que $-4 \leq D_{T \wedge n}$.\\ 
+	pierde tanto. Así que $-4 \leq D_{T \wedge n}$.\par\null 
 	
 	Entonces, nuestra martingala $D$ esta dominada por $\max(T, 4) < T + 4$. Bastaría demostrar que $\E(T+4) < \infty$ para poder
-	utilizar el teorema de convergencia dominada.\\
+	utilizar el teorema de convergencia dominada.\par\null
 	
 	Notemos que 
+    
 	\begin{align}\label{problema1_3:Acotando_T}
 		\mw(T > n) &= \frac{1}{2} \mw(T > n-1) + \frac{1}{4} \mw(T > n-2). 
-	\end{align}
+	\end{align}\par\null
 	
-	Pues queremos garantizar que en los primeros $n$ turnos, no pierde dos veces consecutivas el casino.\\
+	Pues queremos garantizar que en los primeros $n$ turnos, no pierde dos veces consecutivas el casino.\par\null
 	
 	Si en el turno 1, gana el casino (de aquí el $\frac{1}{2}$), en el resto de los $n-1$ turnos tenemos que garantizar que 
 	el casino no pierde dos veces consecutivas, como las variables están idénticamente distribuidas, esto es equivalente a que
-	$T>n-1$. (De aqui el $\mw(T > n-1)$.\\
+	$T>n-1$. (De aqui el $\mw(T > n-1)$.\par\null
 	
 	Si el casino pierde en el turno 1, necesariamente tiene que ganar en el turno 2 (de aquí el $\frac{1}{4})$. Y la probabilidad
-	de que no pierda dos veces consecutivas en los siguientes $n-2$ turnos es $\mw(T > n-2)$.\\					    
+	de que no pierda dos veces consecutivas en los siguientes $n-2$ turnos es $\mw(T > n-2)$.\par\null		    
 	
-	De \eqref{problema1_3:Acotando_T} podemos notar fácilmente que $\mw(T > 2) \leq \frac{3}{4}$\\
+	De \eqref{problema1_3:Acotando_T} podemos notar fácilmente que $\mw(T > 2) \leq \frac{3}{4}$\par\null
 	
-	También notemos que $\mw(T > n ) \geq \mw(T > n + 1)$ (El primer evento contiene al segundo).
+	También notemos que $\mw(T > n ) \geq \mw(T > n + 1)$ (El primer evento contiene al segundo).\par\null
 	
-	Ahora
+	Ahora,
+    
 	\begin{align}
 		\mw(T > 2 (2)) &=     \frac{1}{2} \mw(T > 2+1) + \frac{1}{4} \mw(T > 2) \\
 					   &\leq  \frac{1}{2} \mw(T > 2) + \frac{1}{4} \mw(T > 2) \\
 					   &\leq  \frac{1}{2} \cdot \frac{3}{4} + \frac{1}{4} \cdot \frac{3}{4} = \bigg(\frac{3}{4}\bigg)^2.
-	\end{align}
+	\end{align}\par\null
 	
 	De manera recursiva tenemos que
-	\begin{align}
+	
+    \begin{align}
 		\mw(T > 2(n+1)) &=     \frac{1}{2} \mw(T > 2(n+1) - 1) + \frac{1}{4} \mw(T > 2(n+1) - 2) \\
 						&=     \frac{1}{2} \mw(T > 2(n) + 1) + \frac{1}{4} \mw(T > 2(n)) \\
 					   &\leq  \frac{1}{2} \mw(T > 2n) + \frac{1}{4} \mw(T > 2n) \\
 					   &\leq  \frac{1}{2} \cdot \bigg(\frac{3}{4}\bigg)^{n} + \frac{1}{4} \cdot \bigg(\frac{3}{4}\bigg)^{n} = 		
 					   \bigg(\frac{3}{4}\bigg)^{n+1}.
-	\end{align}
+	\end{align}\par\null
 	
 	Entonces,
-	\begin{align}
+	
+    \begin{align}
 		\E(T) 	&= 		\sum_{n=0}^\infty \mw(T > n) \\
 				&\leq 	\sum_{n=0}^\infty 2\mw(T > 2n) \\
 				&= 		2 \sum_{n=0}^\infty \mw(T > 2n) \\
 				&\leq 	2 \sum_{n=0}^\infty \bigg(\frac{3}{4}\bigg)^{n} < \infty.
-	\end{align}
+	\end{align}\par\null
 	
 	Por lo tanto $\E(T + 4) \leq \infty$. Y entonces nuestra martingala $D$ está dominada por una variable integrable y finalmente
 	podemos aplicar teorema de convergencia dominada para concluir que:
-	\begin{align}
+	
+    \begin{align}
 		0 = \lim_{n \longrightarrow \infty} \E(D_{T \wedge n}) = \E(D_T).
-	\end{align}
+	\end{align}\par\null
 	
 	Y con esto terminamos de demostrar todas las formalidades que nos hacían falta.

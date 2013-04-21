@@ -1,44 +1,48 @@
 \emph
 {
 	Sea $T=\min\set{n\geq 2:S_n=S_{n-2} + 2}$ y $U=T-2$. ?`Son $T$ y $U$ 
-	tiempos de paro? Justifique su respuesta.\\
-}
+	tiempos de paro? Justifique su respuesta.
+}\par\null
+
 \afterstatement
+
 	Intuitivamente, $T$ significa, el primer tiempo tal que ganamos en dos volados consecutivos.
-	También intuitivamente, esto debería ser un tiempo de paro.
+	También intuitivamente, esto debería ser un tiempo de paro.\par\null
 	
-	Veamos que efectivamente así ocurre. Utilizando la siguiente prueba por inducción:\\
+	Veamos que efectivamente así ocurre. Utilizando la siguiente prueba por inducción:\par\null
 	
-	\textbf{Base de inducción:}		
+	\textbf{Base de inducción:}\par\null		
+    
 		\begin{align}
 			\{T = 0\} 		&= \emptyset  				& 	\in \F_0 \\
 			\{T = 1\} 		&= \emptyset  				& 	\in \F_1 \\
 			\{T = 2\} 		&= \{ X_1 = 1, X_2 = 1\} 	&	\in \F_2
-		\end{align}	\\					
+		\end{align}\par\null					
 	
-	\textbf{Hipótesis de inducción:}\\
+	\textbf{Hipótesis de inducción:}\par\null
 	
-		Supongamos que $\{T = n\} \in \F_n$ para cierto $n \geq 2$.\\
+		Supongamos que $\{T = n\} \in \F_n$ para cierto $n \geq 2$.\par\null
 		
-	\textbf{Paso inductivo:}
+	\textbf{Paso inductivo:}\par\null
 		
 		\begin{align}
 			\{T = n + 1 \} = \{ X_n = 1, X_{n+1} = 1\} \setminus \bigcup_{i=0}^{n} \{T = i\}.
-		\end{align}				
+		\end{align}\par\null				
 	
 		Es claro que $\{ X_n = 1, X_{n+1} = 1\} \in \F_{n + 1}$ y que por hipótesis de inducción
 		$\bigcup_{i=0}^{n} {T = i} \in \F_n \subset \F_{n + 1}$. Por lo tanto
-		$\{T = n + 1 \} \in \F_{n+1}$ para toda $n \geq 2$ y con esto termina la demostración.\\
+		$\{T = n + 1 \} \in \F_{n+1}$ para toda $n \geq 2$ y con esto termina la demostración.\par\null
 		
 	Ahora, intuitivamente $U$ significa el momento justo antes de ganar dos volados consecutivos.
 	Esto, quedría decir que tenemos información sobre eventos que aún no ocurren. Así que intuitivamente
-	esto no debería ser un tiempo de paro.\\
+	esto no debería ser un tiempo de paro.\par\null
 	
 	Efectivamente, si tomamos como ejemplo el conjunto: 
-		\begin{align}
-			\{ U = 1 \} = \{ T - 2 = 1\} = \{ T = 3\} = \{X_1 = -1, X_2 = 1, X_3 = 1\}
-		\end{align}		\\
+
+    \begin{align}
+        \{ U = 1 \} = \{ T - 2 = 1\} = \{ T = 3\} = \{X_1 = -1, X_2 = 1, X_3 = 1\}
+    \end{align}\par\null
 			
 	Es fácil notar que es un conjunto que pertenece a $\F_3$, pero no a $\F_1$. Pues $\F_1$
 	no contiene información alguna sobre $X_2$ y $X_3$. Así que el conjunto más pequeño de $\F_1$ 
-	que contiene a $\{ U = 1 \}$ es $\{ X_1 = -1 \}$.\\
+	que contiene a $\{ U = 1 \}$ es $\{ X_1 = -1 \}$.
