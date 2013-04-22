@@ -19,7 +19,7 @@
 }
 \afterstatement
     Primero probemos que $g$ es $\log$-convexa, es decir, que $\log \circ g$ es convexa.Sean $a < b$ en el dominio de $g$ 
-    y sea $t \in [0, 1]$.\\
+    y sea $t \in [0, 1]$.\par\null
     
     Queremos demostrar que:
     
@@ -34,9 +34,9 @@
                                         &= (1-0)(\log\circ g (a)) + (0)(\log\circ g (b))
     \end{align}
     
-    y por lo tanto no hay nada que demostrar. Análogamente ocurre con $t=1$.\\
+    y por lo tanto no hay nada que demostrar. Análogamente ocurre con $t=1$.\par\null
     
-    Entonces concentrémonos en el caso donde $t\in (0, 1)$.\\
+    Entonces concentrémonos en el caso donde $t\in (0, 1)$.\par\null
     
     Recordemos que la desigualdad de Hölder dice que si $f \in L_p$ y $g \in L_q$ con 
     $p,q \in (1,\infty)$ y $\frac{1}{p} + \frac{1}{q} = 1$. Entonces
@@ -45,7 +45,7 @@
                 \E(| fg |) \leq (\E(\abs{f}^p))^{\frac{1}{p}} (\E(\abs{g}^q))^\frac{1}{q}.
     \end{align}
     
-    Sean entonces $p = \frac{1}{1-t}$ y $q = \frac{1}{t}$. Tenemos que\\
+    Sean entonces $p = \frac{1}{1-t}$ y $q = \frac{1}{t}$. Tenemos que\par\null
     
     \begin{align}
         \frac{1}{p} + \frac{1}{q}   &= \frac{1}{\frac{1}{1-t}} + \frac{1}{\frac{1}{t}}  \\
@@ -53,7 +53,7 @@
                                     &= 1.
     \end{align}
     
-    Veamos que $e^{-a(1-t) X_1}$ pertenece a $L_p$. \\
+    Veamos que $e^{-a(1-t) X_1}$ pertenece a $L_p$.\par\null
     
     Como $e^x > 0$ para todo $x \in \R$. $\abs{e^x} = e^x$. Entonces
     
@@ -67,11 +67,11 @@
     \end{align}
     
     Donde la última desigualdad es gracias a que $a$ fue tomado en el dominio de $g$ y a lo demostrado en 
-    [\ref{problema2_1:inciso1}]. Con esto hemos demostrado que $e^{-a(1-t) X_1}$ pertenece a $L_p$.\\
+    [\ref{problema2_1:inciso1}]. Con esto hemos demostrado que $e^{-a(1-t) X_1}$ pertenece a $L_p$.\par\null
     
-    De manera análoga se puede demostrar que $e^{-b(t) X_1}$ pertenece a $L_q$.\\
+    De manera análoga se puede demostrar que $e^{-b(t) X_1}$ pertenece a $L_q$.\par\null
     
-    Ahora que tenemos todas las hipótesis para la desigualdad de Hölder, basta aplicarla.\\
+    Ahora que tenemos todas las hipótesis para la desigualdad de Hölder, basta aplicarla.\par\null
         
     \begin{align}
         \log\circ g ((1-t)a + (t)b)     &=       \log\bigg( \E\bigg(e^{-a(1-t) + b(t) X_1}\bigg) \bigg)                              \\
@@ -147,58 +147,58 @@
                                          &=      (1-t)(\log \circ g (a))+(t)(\log \circ g (b))                                        
     \end{align}
     
-    Que es lo que necesitabamos mostrar para probar que $g$ es $\log$-convexa.\\
+    Que es lo que necesitabamos mostrar para probar que $g$ es $\log$-convexa.\par\null
     
-    Ahora supongamos que $\mw(X_1 = -1) > 0$.\\
+    Ahora supongamos que $\mw(X_1 = -1) > 0$.\par\null
     
     Para ver que $g$ tiende a infinito conforme $\lambda$ crece, descompongamos a $g(\lambda)$ de la siguiente manera.
     
     \begin{align}
         g(\lambda)      &=      \E(e^{-\lambda X_1})                \\
                         &=      \sum_{-1 \leq i} e^{-\lambda i} \mw( X_1 = i)
-    \end{align}
+    \end{align}\par\null
     
     De donde obtenemos que $g(\lambda) \geq e^{\lambda} \mw( X_1 = -1)$. Dado que $e^{\lambda}$ tiende a infinito comforme
-    $\lambda$ crece, tenemos que $g(\lambda)$ también lo hace.\\
+    $\lambda$ crece, tenemos que $g(\lambda)$ también lo hace.\par\null
     
-    Probemos ahora que $(\frac{1}{g}) \circ f (s) = s$ para toda $s \in (0,1)$.
+    Probemos ahora que $(\frac{1}{g}) \circ f (s) = s$ para toda $s \in (0,1)$.\par\null
     
     Ahora notemos que $g$ es convexa también. $\log \circ g$ es convexa por la primera parte de este inciso y 
     $e^x$ es convexa y creciente porque su primera y segunda derivada siempre son mayor que cero. 
     Dado esto, notemos que $g = e^{\log(g)}$ y entonces por ser $g$ una composición de una función convexa con una
-    convexa creciente tenemos que $g$ es convexa.\\
+    convexa creciente tenemos que $g$ es convexa.\par\null
     
     Uno de los resultados de los cursos de cálculo de la licencuatura es que una función convexa con dominio abierto, es continua.
-    $g$ está definida sobre todo $\R$, que es abierto, y por lo tanto $g$ es continua.\\
+    $g$ está definida sobre todo $\R$, que es abierto, y por lo tanto $g$ es continua.\par\null
     
     Ahora sea $s \in (0,1)$. Y sea $\lambda_0 = f(s)$. Por definición, $\lambda_0 = \inf\{ \lambda > 0 : g(\lambda)^{-1} < s\}$. Por definición de ínfimo,
     para cualquier $n \in \N$, existe $\lambda_n > 0$ tal que 
     
     \begin{align}
         \lambda_0 \leq \lambda_n \leq \lambda_0 + \frac{1}{n}. \label{problema2_1:sucesion_convergente_a_lambda_0}
-    \end{align}
+    \end{align}\par\null
      
     y que
     
     \begin{align}
         g(\lambda_n)^{-1} < s. \label{problema2_1:sucesion_dominada_por_s}
-    \end{align}
+    \end{align}\par\null
     
     Por \eqref{problema2_1:sucesion_convergente_a_lambda_0} sabemos que $\lambda_n \rightarrow \lambda_0$.
     De \eqref{problema2_1:sucesion_dominada_por_s} obtenemos $\frac{1}{s} < g(\lambda_n)$. Por continuidad de $g$
-    tenemos entonces que $\frac{1}{s} \leq g(\lambda_0)$.\\
+    tenemos entonces que $\frac{1}{s} \leq g(\lambda_0)$.\par\null
     
     Supongamos que $\frac{1}{s} < g(\lambda_0)$. Entonces, por continuidad de $g$, existe $\epsilon > 0$ tal que
     $\epsilon < \frac{\lambda_0}{2}$ y tal que para toda $x \in \R$ es cumple que $\abs{\lambda_0 - x} < \epsilon$ 
-    entonces $\frac{1}{s} < g(x)$.\\
+    entonces $\frac{1}{s} < g(x)$.\par\null
     
     Sea $x_0 = \lambda_0 - \frac{\epsilon}{2}$. Entonces $\abs{\lambda_0 - x_0} = \frac{\epsilon}{2}$ y por lo tanto
     $\frac{1}{s}<g(x_0)$. Entonces $\frac{1}{s} < g(x_0)$ y por lo tanto $x_0 \in \{ \lambda > 0 : g(\lambda)^{-1} < s \}$.
     Pero como $x_0 < \lambda_0$, esto contradice que $\lambda_0$ sea el ínfimo de dicho conjunto. Por lo tanto
-    $g(\lambda_0) = \frac{1}{s}$.\\
+    $g(\lambda_0) = \frac{1}{s}$.\par\null
     
     De esto último, tenemos que $g(\lambda_0) = g(f(s)) = \frac{1}{s}$ y por lo tanto \\
-    $\frac{1}{g(f(s))} = (\frac{1}{g}) \circ f (s) = s$ y con esto terminamos la demostración que buscábamos. \par\null
+    $\frac{1}{g(f(s))} = (\frac{1}{g}) \circ f (s) = s$ y con esto terminamos la demostración que buscábamos.\par\null
     
     Ahora supongamos que $g(\lambda) > 1$.\par\null
     
@@ -272,14 +272,14 @@
                                 &\;\;\;\;\mbox{(Por ser las $X_i$ independientes entre sí)}     \\
                                 &<  \E(e^{\lambda k})                                           \\
                                 &=   e^{\lambda k}.
-    \end{align}
+    \end{align}\par\null
     
     De donde $g(\lambda) < e^{\frac{\lambda k}{n}}$ para toda $n$. pero $e^{\frac{\lambda k}{n}}$ tiende
     a $1$ conforme $n$ tiende a infinito. Por lo tanto $g(\lambda) \leq 1$. Entonces, si $s \in (0,1)$, 
     $\frac{1}{s} \in (1, \infty)$. Por lo tanto, no existe $\lambda$ tal que $\frac{1}{s} < g(s)$.
     Es decir $f(s) = \inf \{ \lambda > 0 : \frac{1}{s} < g(s)\} = \inf \emptyset = \infty$.\par\null
     
-    Entonces, si $T_k = \infty$.
+    Entonces, si $T_k = \infty$, ocurre que
     
     \begin{align}
         \E(s^{T_k})     &= \E(0) \\
