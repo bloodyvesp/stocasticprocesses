@@ -198,4 +198,93 @@
     $g(\lambda_0) = \frac{1}{s}$.\\
     
     De esto último, tenemos que $g(\lambda_0) = g(f(s)) = \frac{1}{s}$ y por lo tanto \\
-    $\frac{1}{g(f(s))} = (\frac{1}{g}) \circ f (s) = s$ y con esto terminamos la demostración que buscábamos;
+    $\frac{1}{g(f(s))} = (\frac{1}{g}) \circ f (s) = s$ y con esto terminamos la demostración que buscábamos. \par\null
+    
+    Ahora supongamos que $g(\lambda) > 1$.\par\null
+    
+    Sea $n \in\N$ y $A_n = \{ n \leq T_k \}$. Entonces $S_n(A_n) \geq -k$  (abusando de la notación) y por lo tanto
+    $-\lambda S_n(A_n) \leq \lambda k$. Por ser $e^x$ una función estrictamente creciente, 
+    $e^{-\lambda S_n(A_n)} \leq e^{\lambda k}$.\par\null
+    
+    Entonces
+    \begin{align}
+        M_n(A_n)    &=      e^{-\lambda S_n} g(\lambda)^{-1} (A_n) \\
+                    &\leq   e^{-\lambda k} g(\lambda)^{-1}         \\
+                    &\leq   e^{-\lambda k}                         
+    \end{align}
+    
+    Donde en el último paso se usa la hipótesis de que $g(\lambda) > 1$.\par\null
+
+    Esto nos dice que la martingala $M_n$ es acotada hasta el tiempo de paro $T_k$ 
+    (Antes de $T_k$, $M_n$ es acotada por $e^{-\lambda k}$). Que es lo que buscábamos demostrar.
+    Nótese que para esta demostración nunca asumimos que $T_k  < \infty$ y por lo tanto
+    es perfectamente válida cuando $T_k = \infty$.\par\null
+    
+    Para la siguiente parte, sea $n \in \N$ y sea $T_k^n = T_k \wedge n$. 
+    Sabemos que $T_k^n$ es tiempo de paro y por definición es acotado. Entonces el teorema de 
+    muestreo opcional de Doob nos dice que:
+    
+    \begin{align}
+        \E(M_{T_k^n})   &=  \E(M_1)                                 \\
+                        &=  \E(e^{-\lambda S_1} g(\lambda)^{-1})    \\
+                        &=  g(\lambda)^{-1}\E(e^{-\lambda S_1})     \\
+                        &=  g(\lambda)^{-1} g(\lambda)              \\
+                        &=  1
+    \end{align}\par\null
+    
+    Como $T_k^n$ no rebasa a $T_k$, entonces, por la parte anterior de este ejercicio $M_{T_k^n}$ es acotada.\par\null
+    
+    Eso quiere decir que podemos aplicar el teorema de convergencia dominada y entonces.
+    
+    \begin{align}
+        1 = \lim_{n \rightarrow \infty} \E(M_{T_k^n}) = \E(M_{T_k}).
+    \end{align}\par\null
+        
+    Ahora, recordando la definición de $M_n$
+    
+    \begin{align}
+       1    &=  \E(M_{T_k})                                 \\
+            &=  \E(e^{-\lambda S_{T_k}} g(\lambda)^{-T_k})  \\
+            &=  \E(e^{\lambda k} g(\lambda)^{-T_k})         \\
+            &=  e^{\lambda k} \E(g(\lambda)^{-T_k}).        
+    \end{align}\par\null
+    
+    Sea ahora $\lambda = f(s)$. Entonces
+    
+    \begin{align}
+        1   &=  e^{\lambda k} \E(g(\lambda)^{-T_k})        \\
+            &=  e^{f(s) k} \E(g(f(s))^{-T_k})              \\
+            &=  e^{f(s) k} \E((g(f(s))^{-1})^{T_k})        \\            
+            &=  e^{f(s) k} \E(s^{T_k}).                 
+    \end{align}\par\null
+    
+    De donde $e^{-f(s) k} = \E(s^{T_k})$. Como queríamos demostrar.\par\null
+    
+    Ahora, si $T_k = \infty$, ya que $s \in (0,1)$, entonces $s^(T_k) = 0$.\par\null
+    
+    Por otro lado si $T_k = \infty$, entonces $S_n > -k$ para toda $n$. Entonces
+    $-\lambda S_n < \lambda k$ y por ser $e^x$ una función estrictamente creciente entonces
+    $e^{-\lambda S_n} < e^{\lambda k}$. Tomando esperanza tenemos
+    
+    \begin{align}
+            (g(\lambda))^n      &=  \E(e^{-\lambda X_1})^{n}                                    \\ 
+                                &=  \E(e^{-\lambda S_n})                                        \\
+                                &\;\;\;\;\mbox{(Por ser las $X_i$ independientes entre sí)}     \\
+                                &<  \E(e^{\lambda k})                                           \\
+                                &=   e^{\lambda k}.
+    \end{align}
+    
+    De donde $g(\lambda) < e^{\frac{\lambda k}{n}}$ para toda $n$. pero $e^{\frac{\lambda k}{n}}$ tiende
+    a $1$ conforme $n$ tiende a infinito. Por lo tanto $g(\lambda) \leq 1$. Entonces, si $s \in (0,1)$, 
+    $\frac{1}{s} \in (1, \infty)$. Por lo tanto, no existe $\lambda$ tal que $\frac{1}{s} < g(s)$.
+    Es decir $f(s) = \inf \{ \lambda > 0 : \frac{1}{s} < g(s)\} = \inf \emptyset = \infty$.\par\null
+    
+    Entonces, si $T_k = \infty$.
+    
+    \begin{align}
+        \E(s^{T_k})     &= \E(0) \\
+                        &= 0     \\
+                        &= e^{-f(s) k}.
+    \end{align}
+    
+    Y con esto queda cubierto el caso en que $T_k = \infty$.
