@@ -16,14 +16,14 @@
         M_p     &=  -\min_{n\leq C_p} S_n. 
     \end{align}\par\null
     
-    Donde $C_p$ es una variable aleatoria con distribución geométrica de parámetro $p$.
+    Donde $C_p$ es una variable aleatoria con distribución geométrica de parámetro $p$.\par\null
     
     Entonces 
     
     \begin{align}
-        \{ M_p \geq n\}     &=  \{ -\min_{n\leq C_p} S_k \geq n \}          \\
-                            &=  \{ \min_{n \leq C_p} S_k \leq -n \}         \\
-                            &=  \{ \min\{ k \in \N : S_k = -n \leq C_p \}   \\
+        \{ M_p \geq n\}     &=  \{ -\min_{k\leq C_p} S_k \geq n \}          \\
+                            &=  \{ \min_{k \leq C_p} S_k \leq -n \}         \\
+                            &=  \{ \min\{ k \in \N : S_k = -n \}\leq C_p \}   \\
                             &=  \{ T_n \leq C_p \}.
     \end{align}\par\null
     
