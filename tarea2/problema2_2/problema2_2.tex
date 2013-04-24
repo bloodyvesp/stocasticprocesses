@@ -27,26 +27,30 @@
 
 En el código de arriba, se implementó una ejecución del proceso de las urnas de Poyla.\par\null
 
-El vector \textsl{x} representa la proporción de las bolas ``verdes'' en el contenedor conforme el tiempo avanza. Que
-al tiempo inicial se tenga \textsl{x=[1/2]} quiere decir que al inicio había tantas bolas verdes como rojas.\par\null
+El vector \textsl{x} representa la proporción de las bolas ``verdes'' en la urna conforme el tiempo avanza. Que
+al tiempo inicial se tenga \textsl{x=[1/2]} quiere decir que al inicio había tantas bolas ``verdes'' como ``rojas''.\par\null
 
-Para octave el booleano \textsl{u(i)$<$x(i)} puede operarse numéricamente, \textsl{true} es equivalente a \textsl{1} y
+Para octave los booleanos pueden operarse numéricamente. \textsl{true} es equivalente a \textsl{1} y
 \textsl{false} es equivalente a \textsl{0}. Entonces, la parte que dice \\
 \textsl{+(u(i)$<$x(i))} significa que se está sumando
-uno o cero. Que quiere decir que la constante de bolas que se agregan a la urna es $1$.\par\null
+uno o cero dependiendo de si la condición se satisface. 
+Lo cual quiere decir que la constante de bolas que se agregan a la urna es $1$.\par\null
 
 El vector \textsl{u} representa el resultado de sacar una bola. Si \textsl{u(i)$<$x(i)} significa que en el turno \textsl{i}, 
-se obtuvo una bola verde.\par\null
+se obtuvo una bola ``verde''.\par\null
 
 El \textsl{2} misterioso que se encuentra en varias partes significa que en el turno inicial existían \textsl{2} bolas en total.
-Como al inicio la proporción era \textsl{1/2}, esto significa que al inicio existían una bola verde y una roja exactamente.\par\null
+Como al inicio la proporción era \textsl{1/2}, esto significa que al inicio existían una bola ``verde'' y una ``roja'' exactamente.\par\null
 
 A continuación una gráfica obtenida de ejcutar el código.
 
 \begin{center}
-    \includegraphics[width=10cm]{tarea2/problema2_2/poyla.PNG}
+    \includegraphics[width=8cm]{tarea2/problema2_2/poyla.PNG}
 \end{center}
 \begin{center}
     Gráfica de una ejecución de urnas de Poyla \par\null
     1 bola verde inicial, 1 bola roja inicial y constante 1.
 \end{center}\par\null
+
+Se puede apreciar que conforme avanza el tiempo, la proporción de bolas ``verdes'' se estabiliza. Justo como se demostró en clase para
+martingalas positivas (como la de este caso).
