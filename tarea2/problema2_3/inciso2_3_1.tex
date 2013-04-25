@@ -8,7 +8,7 @@
 
 \afterstatement\par\null
 
-Nombremos $M_n = \sum_{k=1}^n X_k-\espc{X_k}{\F_{k-1}}, n \in \N$.
+Nombremos $M_n = \sum_{k=1}^n X_k-\espc{X_k}{\F_{k-1}}, n \in \N$.\par\null
 
 \begin{itemize}
 	\item 
@@ -23,7 +23,23 @@ Nombremos $M_n = \sum_{k=1}^n X_k-\espc{X_k}{\F_{k-1}}, n \in \N$.
         \begin{align}
             \sum_{k = 1}^n X_k - \sum_{k = 1}^n \E(X_k | \F_{k-1}) &=  \sum_{k = 1}^n X_k - \E(X_k | \F_{k-1})    \\
                                                                     &=  M_n   
-        \end{align}
+        \end{align}\par\null
     
-        Es $\F_n$-medible. Como queríamos ver.
+        Es $\F_n$-medible. Como queríamos ver.\par\null
+        
+    \item
+        Veamos que $M_n \in L_1$.\par\null
+        
+        Como no fue mencionado. Supondremos que $X_n \in L_1$. Si logramos demostrar que $\E(X_k | F_{k-1}) \in L_1$ habremos terminado.
+        Puesto que $M_n$ sería suma finita de variables aleatorias en $L_1$ y por lo tanto pertenecería a $L_1$.\par\null
+        
+        \begin{align}
+            \E(\abs{\E(X_k | F_{k-1})})     &\leq   \E(\E(\abs{X_k} | F_{k-1})) \\
+                                            &=      \E(\abs{X_k}). 
+        \end{align}
+        
+        Donde $\E(\abs{X_k})$ por supocisión es finita.\par\null
+        
+        Por lo tanto $\E(\abs{\E(X_k | F_{k-1})})$ también lo es, como queríamos demostrar.\par\null
+
 \end{itemize}
