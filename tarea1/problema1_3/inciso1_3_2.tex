@@ -50,7 +50,7 @@
                                         &=  \E\bigg( \sum_{k=1}^{n+1} (X_k \cdot \indic_{T_1 \geq k})\bigg| \F_{n}\bigg)                \\	 			
                                         &=  \E\bigg( \sum_{k=1}^{n} (X_k \cdot \indic_{T_1 \geq k}) \bigg| \F_{n}\bigg) +
                                             \E\bigg((X_{n+1} \cdot \indic_{T_1 \geq n+1}) \bigg| \F_{n}\bigg)                           \\
-                                        &\;\;\;\;\mbox{(Este paso es gracias a que $X_k$ y $\indic_{T_1 \geq k}$ son $\F_n$-medibles)}  \\
+                                        &\comment{Este paso es gracias a que $X_k$ y $\indic_{T_1 \geq k}$ son $\F_n$-medibles}  		\\
                                         &=  \sum_{k=1}^{n} (X_k \cdot \indic_{T_1 \geq k}) + 
                                             \E((X_{n+1} \cdot \indic_{T_1 \geq n+1}) | \F_{n})                                          \\
                                         &=  S_{T_1 \wedge n} + \E((X_{n+1} \cdot \indic_{T_1 \geq n+1}) | \F_{n})                       \\

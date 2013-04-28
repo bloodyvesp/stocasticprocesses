@@ -86,15 +86,15 @@
 	Sólo nos falta verificar la propiedad de martingala.\par\null
 	
 	\begin{align}\label{problema1_3:Propiedad_de_martingala_para_el_dinero_perdido_por_un_apostador}
-		\E(Z_{n+1}^{m} | \G_n) &= \E((Z_n^{m} - 1) \cdot 2(Y_{n+1}) + 1 | \G_n)\\
-							   &= \E((Z_n^{m} -1) \cdot 2(Y_{n+1}) | \G_n) + \E( 1 | \G_n)\\
-							   &\;\;\;\;\mbox{(Por ser $(Z_n^{m} - 1)$ una variable $\G_n$-medible.)}\\
-							   &= (Z_n^{m} -1) \cdot \E(  2(Y_{n+1}) | \G_n) + \E( 1 | \G_n)\\
-							   &= (Z_n^{m} -1) \cdot 2\E( Y_{n+1} | \G_n) + \E( 1 | \G_n)\\
-							   &\;\;\;\;\mbox{(Por ser $Y_{n + 1}$ independiente $\G_n$.)}\\
-							   &= (Z_n^{m} -1) \cdot 2\E( Y_{n+1}) + \E( 1 | \G_n)\\
-							   &= (Z_n^{m} -1) \cdot 2 \frac{1}{2} + \E( 1 | \G_n)\\
-							   &= (Z_n^{m} -1) \cdot + 1 \\
+		\E(Z_{n+1}^{m} | \G_n) &= \E((Z_n^{m} - 1) \cdot 2(Y_{n+1}) + 1 | \G_n)					\\
+							   &= \E((Z_n^{m} -1) \cdot 2(Y_{n+1}) | \G_n) + \E( 1 | \G_n)		\\
+							   &\comment{Por ser $(Z_n^{m} - 1)$ una variable $\G_n$-medible.}	\\
+							   &= (Z_n^{m} -1) \cdot \E(  2(Y_{n+1}) | \G_n) + \E( 1 | \G_n)	\\
+							   &= (Z_n^{m} -1) \cdot 2\E( Y_{n+1} | \G_n) + \E( 1 | \G_n)		\\
+							   &\comment{Por ser $Y_{n + 1}$ independiente $\G_n$.}				\\
+							   &= (Z_n^{m} -1) \cdot 2\E( Y_{n+1}) + \E( 1 | \G_n)				\\
+							   &= (Z_n^{m} -1) \cdot 2 \frac{1}{2} + \E( 1 | \G_n)				\\
+							   &= (Z_n^{m} -1) \cdot + 1 										\\
 							   &= Z_n^m.
 	\end{align}\par\null
 	

@@ -86,17 +86,17 @@
             \begin{align}
                 \E(M_{n+1} | \F_n)      &=      \E(e^{-\lambda S_{n+1}}g(\lambda)^{-(n+1)}|\F_n)                                        \\
                                         &=      g(\lambda)^{-(n+1)}\E(e^{-\lambda S_{n+1}}|\F_n)                                        \\
-                                        &\;\;\;\;\mbox{(Esto último es gracias a que $g(\lambda)^{-(n+1)}$ es constante)}               \\
+                                        &\comment{Esto último es gracias a que $g(\lambda)^{-(n+1)}$ es constante}               		\\
                                         &=      g(\lambda)^{-(n+1)}\E(e^{-\lambda S_{n+1}}|\F_n)                                        \\
                                         &=      g(\lambda)^{-(n+1)}\E(e^{-\lambda S_{n} \cdot X_{n+1}}|\F_n)                            \\
                                         &=      g(\lambda)^{-(n+1)}\E(e^{-\lambda S_{n}} \cdot e^{-\lambda X_{n+1}}|\F_n)               \\
                                         &=      g(\lambda)^{-(n+1)} e^{-\lambda S_{n}} \E(e^{-\lambda X_{n+1}}|\F_n)                    \\                                       
-                                        &\;\;\;\;\mbox{(Esto último es gracias a que $S_n$ es $F_n$-medible)}                           \\
+                                        &\comment{Esto último es gracias a que $S_n$ es $F_n$-medible}                           		\\
                                         &=      g(\lambda)^{-(n+1)} e^{-\lambda S_{n}} \E(e^{-\lambda X_{n+1}})                         \\
-                                        &\;\;\;\;\mbox{(Esto último es gracias a que $X_{n+1}$ es independiente de $F_n$)}              \\
+                                        &\comment{Esto último es gracias a que $X_{n+1}$ es independiente de $F_n$}              		\\
                                         &=      g(\lambda)^{-(n+1)} e^{-\lambda S_{n}} \E(e^{-\lambda X_{1}})                           \\
-                                        &\;\;\;\;\mbox{(Esto último es gracias a que $X_{n+1}$ y $X_1$ tienen la}                       \\ 
-                                        &\;\;\;\;\;\mbox{misma distribución)}   \\
+                                        &\rcomment{Esto último es gracias a que $X_{n+1}$ y $X_1$ tienen la}                       	    \\ 
+                                        &\lcomment{misma distribución}   															\\
                                         &=      g(\lambda)^{-(n+1)} e^{-\lambda S_{n}} g(\lambda)                                       \\
                                         &=      g(\lambda)^{-(n)} e^{-\lambda S_{n}}                                                    \\
                                         &=      M_n.
