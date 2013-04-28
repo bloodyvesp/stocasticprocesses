@@ -9,3 +9,32 @@
 }
 
 \afterstatement\par\null
+
+Sea $\F_n = \sigma( \xi_0, \xi_1, \dots, \xi_n)$.\par\null
+
+
+Probemos ahora que $(S_n)_{n \in \N}$ es martingala con respecto de la filtración $(\F_n)_{n \in \N}$.\par\null
+
+Por como se definió $\F_n$, $S_n$ es $\F_n$-medible. Por otra parte, $S_n$ es suma finita de variables en $L_1$ 
+(pues las $\xi_i$'s tienen esperanza finita).
+
+Ahora
+\begin{align}
+    \E(S_{n+1} | \F_n)  &=  \E(\xi_{n+1} | \F_n) + \E(S_n | \F_n)                       \\
+                        &=  \E(\xi_{n+1} | \F_n) + S_n                                  \\
+                        &\;\;\;\;\mbox{Porque $S_n$ es $F_n$-medible}                   \\
+                        &=  \E(\xi_{n+1}) + S_n                                         \\
+                        &\comment{(Porque $\xi_{n+1}$ es independiente de$F_n$)}        \\
+                        &=  0 + S_n.                                                    \\
+\end{align}\par\null
+
+Y con esto hemos demostrado que $S_n$ es martingala.\par\null
+
+Ahora, como $\E(\xi_n) = 0$ para todo $n \in \N$, $\E(S_n) = 0$ para todo $n \in \N$.
+
+\begin{align}
+        Var(S_n)    &=  \E(S_n^2) - \E(S_n)^2                                               \\
+                    &=  \E(S_n^2) - 0                                                       \\
+                    &=  \sum_{i \leq n} \sigma_i^2                                          \\
+                    &\comment{Esto último gracias a que los $\xi_i$'s son independientes.}
+\end{align}
