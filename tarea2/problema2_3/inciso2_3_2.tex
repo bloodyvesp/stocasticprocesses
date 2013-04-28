@@ -4,3 +4,17 @@
     es un proceso previsible con $A_0=0$. Sugerencia: Asuma que ya tiene la descomposici\'on y calcule 
     esperanza condicional de $X_{n+1}$ dada $X_n$. 
 }
+
+\afterstatement\par\null
+
+$\paren{X_n}_{n\in\na}$ es $(\F_n)_{n \in \N}$-adaptada por definición de submartingala. Utilizando el inciso anterior tenemos
+que $N_n = \sum_{k=1}^n X_k-\espc{X_k}{\F_{k-1}}, n \in \N$ es martingala.\par\null
+
+Ahora sea $M_n = N_n + X_0$. Veamos que $(M_n)_{n \in \N}$ sigue siendo martingala.
+
+\begin{itemize}
+	\item $(M_n)_{n \in \N}$ es $(\F_n)_{n \in \N}$-adaptada.\par\null
+    
+    $N_n$ es $\F_n$-medible y $X_0$ es $\F_0 \subset \F_n$-medible. Entonces $M_n$ es suma
+    finita de variables $\F_n$-medibles y por lo tanto $\F_n$-medible.
+\end{itemize}
