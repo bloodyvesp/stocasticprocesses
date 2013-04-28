@@ -8,13 +8,91 @@
 \afterstatement\par\null
 
 $\paren{X_n}_{n\in\na}$ es $(\F_n)_{n \in \N}$-adaptada por definición de submartingala. Utilizando el inciso anterior tenemos
-que $N_n = \sum_{k=1}^n X_k-\espc{X_k}{\F_{k-1}}, n \in \N$ es martingala.\par\null
+que $M_n = \sum_{k=1}^n X_k-\espc{X_k}{\F_{k-1}}, n \in \N$ es martingala.\par\null
 
-Ahora sea $M_n = N_n + X_0$. Veamos que $(M_n)_{n \in \N}$ sigue siendo martingala.
+%Ahora sea $M_n = N_n + X_0$. Veamos que $(M_n)_{n \in \N}$ sigue siendo martingala.
+%
+%\begin{itemize}
+	%\item 
+        %Veamos que $(M_n)_{n \in \N}$ es $(\F_n)_{n \in \N}$-adaptada.\par\null
+        %
+        %Por ser $(N_n)_{n \in \N}$ una martingala, $N_n$ es $\F_n$-medible y $X_0$ es 
+        %$\F_0 \subset \F_n$-medible. Entonces $M_n$ es suma finita de variables $\F_n$-medibles y por lo tanto $\F_n$-medible.\par\null
+    %
+    %\item 
+        %Veamos que $M_n \in L_1$ para toda $n \in \N$.\par\null
+        %
+        %Por ser $(N_n)_{n \in \N}$ una martingala, $N_n \in L_1$ para todo $n \in \N$. 
+        %Por ser $(X_n)_{n \in \N}$ una subpartingala, $X_0 \in  L_1$.\par\null
+        %
+        %Por lo tanto $M_n$ es suma finita de variables en $L_1$ y por lo tanto pertenece a $L_1$.\par\null
+    %
+    %\item
+        %Veamos que $\E(M_n | F_{n-1}) = M_{n-1}$.\par\null
+        %
+        %\begin{align}
+            %\E(M_n | F_{n-1})   &=  \E(N_n + X_0 | F_{n-1})                     \\
+                                %&=  \E(N_n | F_{n-1}) + \E( X_0 | F_{n-1})      \\
+                                %&=  N_{n-1} + X_0                               \\
+                                %&=  M_{n-1}.
+        %\end{align}
+        %
+        %Y con esto terminamos de demostrar que $(M_n)_{n \in \N}$ es martingala.
+%\end{itemize}
 
-\begin{itemize}
-	\item $(M_n)_{n \in \N}$ es $(\F_n)_{n \in \N}$-adaptada.\par\null
-    
-    $N_n$ es $\F_n$-medible y $X_0$ es $\F_0 \subset \F_n$-medible. Entonces $M_n$ es suma
-    finita de variables $\F_n$-medibles y por lo tanto $\F_n$-medible.
-\end{itemize}
+Si definimos a $A_n = X_n - M_n$ tendremos que $M_n + A_n = M_n + X_n - M_n = X_n$. Probemos ahora que
+$(A_n)_{n \in \N}$ es previsible.\par\null
+
+\begin{align}
+    A_n     &=      X_n - M_n                                                                   \\
+            &=      X_n - \sum_{k=1}^n X_k-\espc{X_k}{\F_{k-1}}                                 \\
+            &=      X_n - X_n + \E(X_n | \F_{n-1}) + \sum_{k=1}^{n-1} X_k-\E(X_k|\F_{k-1})      \\     
+            &=      \E(X_n | \F_{n-1}) + \sum_{k=1}^{n-1} X_k-\E(X_k|\F_{k-1}).     
+\end{align}\par\null
+
+Donde por ser $(X_n){n \in \N}$ submartingala tenemos que $\E(X_k|\F_{k-1})$ es $F_{n-1}$ siempre que $0 \leq k \leq n-1$.
+Y por lo tanto $A_n$ es suma finita de variables $F_{n-1}$-medibles y por lo tanto $F_{n-1}$-medible.\par\null
+
+Hemos demostrado hasta ahora que una submartingala se puede descomponer como la suma de una martingala y un proceso previsible.
+Demostremos ahora la unicidad.\par\null
+
+Sean entonces $M'_n$ y $A'_n$ una martingala y un proceso previsible respectivamente tal que $X_n = M'_n + A'_n$.\par\null
+
+Entonces para toda $n \in \N$ tenemos que $M'_n + A'_n = M_n + A_n$. Por lo tanto 
+
+\begin{align}
+    (M'_n + A'_n) - (M'_{n+1} + A'_{n+1}) = (M_n + A_n) - (M_{n+1} + A_{n+1})
+\end{align}\par\null
+
+Tomemos esperanzas condicionales sobre el lado derecho.
+
+\begin{align}
+                                                    & \E((M_n + A_n) -( M_{n+1} + A_{n+1}) | \F_n)                                              \\ 
+                                                    &=  \E((M_n + A_n) -( M_{n+1} + A_{n+1}) | \F_n)                                            \\
+                                                    &=  \E(M_n - M_{n+1}| \F_n) + \E(A_n - A_{n+1} | \F_n)                                      \\
+                                                    &=  M_n - M_{n} + \E(A_n - A_{n+1} | \F_n) \label{problema2_3:hipotesis_de_martingala}      \\
+                                                    &=  \E(A_n - A_{n+1} | \F_n)                                                                \\
+                                                    &=  \E(A_n| \F_n) - \E(A_{n+1} | \F_n)                                                      \\
+                                                    &=  A_n - A_{n+1} \label{problema2_3:hipotesis_de_proceso_previsible}                                                                               
+\end{align}\par\null
+
+Donde \eqref{problema2_3:hipotesis_de_martingala} es gracias a que $(M_n)_{n\in\N}$ es martingala y \eqref{problema2_3:hipotesis_de_proceso_previsible}
+es gracias a que $(A_n)_{n\in\N}$ es un proceso previsible.\par\null
+
+De manera análoga obtenemos que $\E((M'_n + A'_n) - (M'_{n+1} + A'_{n+1}) | \F_n) = A'_n - A'_{n+1}$ y por lo tanto $A_n - A_{n+1} = A'_n - A'_{n+1}$.\par\null
+
+Lo que esto último dice, es que $(A_n)_{n\in\N}$ y $(A'_n)_{n\in\N}$ crecen igual. Recordemos que por hipótesis $A'_0, A_0 = 0$.\par\null
+
+Entonces
+\begin{align}
+    A_0 - A_1 &= A'_0 - A'_1 &\Rightarrow A_1 &= A'_1
+\end{align}\par\null
+
+Inductivamente, si $A_n = A'_n$, entonces
+           
+\begin{align}
+    A_n - A_{n+1} &= A'_n - A'_{n+1} &\Rightarrow A_{n+1} &= A'_{n+1}
+\end{align}                                                                                                         
+
+Y con esto queda demostrada la unicidad de $(A_n)_{n\in\N}$. Para la demostración de la unicidad de $M_n$, sólo recordemos que 
+$M_n = X_n - A_n$ y que $M'_n = X_n - A'_n$, por ser $A_n$ y $A'_n$ iguales, entonces $M_n$ y $M'_n$ también lo son.
