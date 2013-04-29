@@ -17,7 +17,7 @@ Probemos ahora que $(S_n)_{n \in \N}$ es martingala con respecto de la \newline
 filtración $(\F_n)_{n \in \N}$.\par\null
 
 Por como se definió $\F_n$, $S_n$ es $\F_n$-medible. Por otra parte, $S_n$ es suma finita de variables en $L_1$ 
-(pues las $\xi_i$'s tienen esperanza finita).
+(pues las $\xi_i$'s tienen esperanza finita).\par\null
 
 Ahora
 \begin{align}
@@ -34,8 +34,20 @@ Y con esto hemos demostrado que $S_n$ es martingala.\par\null
 Ahora, como $\E(\xi_n) = 0$ para todo $n \in \N$, $\E(S_n) = 0$ para todo $n \in \N$.
 
 \begin{align}
-        Var(S_n)    &=  \E(S_n^2) - \E(S_n)^2                                               \\
-                    &=  \E(S_n^2) - 0                                                       \\
-                    &=  \sum_{i \leq n} \sigma_i^2                                          \\
-                    &\comment{Esto último gracias a que los $\xi_i$'s son independientes.}
+        \var{S_n}       &=  \E(S_n^2) - \E(S_n)^2                                               \\
+                        &=  \E(S_n^2) - 0                                                       \\
+                        &=  \sum_{i \leq n} \sigma_i^2                                          \\
+                        &\comment{Esto último gracias a que los $\xi_i$'s son independientes}.
 \end{align}
+
+Ahora $\| S_n \|_2 = \sqrt{\var{S_n}} = \sqrt{\sum_{i \leq n} \sigma_i^2}$. Recordemos que por ser  $\sqrt{\cdot}$
+función continua, manda sucesiones convergentes en suceciones convergentes. Como 
+$\lim\limits_{n \rightarrow \infty} \sum\limits_{i < n} \sigma_i^2 < \infty$, 
+entonces $\lim\limits_{n \rightarrow \infty}\| S_n \|_2 < \infty$.\par\null
+
+En particular, $\sup\limits_n \| S_n \|_2 < \infty$.\par\null
+
+El teorema de convergencia en $L_p$ de Doob nos garantiza que $S_n$ converge casi seguramente y en $L_2$. Como queríamos
+hacer ver.\par\null.
+
+Definamos ahora $\xi_i$ con $\mw(\xi_i = \pm \frac{1}{i+1}) = \frac{1}{2}$.
