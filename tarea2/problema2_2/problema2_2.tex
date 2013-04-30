@@ -39,7 +39,21 @@ Lo cual quiere decir que la constante de bolas que se agregan a la urna es $1$.\
 El vector \textsl{u} representa el resultado de sacar una bola. Si \textsl{u(i)$<$x(i)} significa que en el turno \textsl{i}, 
 se obtuvo una bola ``verde''.\par\null
 
-El \textsl{2} misterioso que se encuentra en varias partes significa que en el turno inicial existían \textsl{2} bolas en total.
+Notemos que en la implementación de arriba, \textsl{x(2) = 3/8} ó \textsl{x(2) = 5/8}. Lo que quiere decir que para 
+el turno \textsl{2} existen al menos \textsl{8} bolas. Aún más, podemos asegurar que para el turno \textsl{2} existe 
+un número par de bolas. Es decir que en el turno 1 el número de bolas era impar, pero la proporción de bolas ``verdes'' 
+con respecto al total era \textsl{1/2}. Esto revela que existe un error de desfase en la implementación.\par\null 
+
+Imagino, que lo que se intentó hacer fue una urna con una bola ``verde'' y una bola ``roja'' inicialmente. En este caso, lo que 
+debería decir en el ciclo \textsl{for} es lo siguiente:\par\null
+
+\begin{verbatim}
+for i = 1:600
+    x(i+1) = (2+i-1)/(2+i) x(i) + (u(i)<x(i))/(2+i);
+endfor
+\end{verbatim}\par\null
+
+Con una chequeo rápido uno puede comprobar que en esta versión modificada de la implementación, \textsl{x(2) = 1/3} ó \textsl{x(2) = 2/3}. 
 Como al inicio la proporción era \textsl{1/2}, esto significa que al inicio existían una bola ``verde'' y una ``roja'' exactamente.\par\null
 
 A continuación una gráfica obtenida de ejcutar el código.
@@ -48,8 +62,8 @@ A continuación una gráfica obtenida de ejcutar el código.
     \includegraphics[width=8cm]{tarea2/problema2_2/poyla.PNG}
 \end{center}
 \begin{center}
-    Gráfica de una ejecución de urnas de Poyla \par\null
-    1 bola verde inicial, 1 bola roja inicial y constante 1.
+    Gráfica de una ejecución de urnas de Poyla \par
+    $1$ bola verde inicial, $1$ bola roja inicial y constante $1$. $1500$ iteraciones.
 \end{center}\par\null
 
 Se puede apreciar que conforme avanza el tiempo, la proporción de bolas ``verdes'' se estabiliza. Justo como se demostró en clase para
