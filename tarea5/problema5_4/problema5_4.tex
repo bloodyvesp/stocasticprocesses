@@ -1,0 +1,16 @@
+\begin{problema}
+Sea $P_t$ la probabilidad de transici\'on en $t$ unidades de tiempo para el proceso de Poisson de par\'ametro $\lambda$. 
+
+Al utilizar el teorema del biniomio, pruebe directamente que las probabilidades de transici\'on del proceso de Poisson satisfacen las ecuaciones de Chapman-Kolmogorov $P_{t+s}=P_tP_s$. D\'e adem\'as un argumento probabil\'istico, basado en condicionar con lo que sucede al tiempo $s$, para probar dicha ecuaci\'on. 
+
+Sea\begin{esn}
+\imf{Q}{i,j}=\begin{cases}
+-\lambda&j=i\\
+\lambda&j=i+1\\
+0&j\neq i,i+1
+\end{cases}.
+\end{esn}Pruebe directamente que se satisfacen las ecuaciones de Kolmogorov\begin{equation*}
+%\label{CKEquationsForPoisson}
+\frac{d}{dt}\imf{P_t}{i,j}=\imf{QP_t}{i,j}=\imf{P_tQ}{i,j},
+\end{equation*}donde $QP_t$ es el producto de las matrices $Q$ y $P_t$.
+\end{problema}

@@ -10,12 +10,12 @@
 \definecolor{azul}{RGB}{20,40,140}
 \usepackage[colorlinks,linkcolor=azul, citecolor=azul,urlcolor=azul]{hyperref}
 \usepackage{attachfile}
-
+\usepackage{enumitem}
 \setlength\parindent{0pt}
 
 \mathtoolsset{showonlyrefs}
 \newtheoremstyle{dotless}{}{}{\itshape}{}{\bfseries}{}{ }{}
-\theoremstyle{dotless}
+\theoremstyle{definition}
 \renewenvironment{proof}{{\bfseries Demostración:}}
 
 \newtheorem{teorema}{\;\;Teorema}[section]
@@ -57,6 +57,14 @@
         
     \part{Tarea 3}
         \input{tarea3/tarea3.tex}        
+        \nqed
+            
+    \part{Tarea 4}
+        \input{tarea4/tarea4.tex}        
+        \nqed    
+    
+    \part{Tarea 5}
+        \input{tarea5/tarea5.tex}        
         \nqed
         
     \part*{Referencias}
