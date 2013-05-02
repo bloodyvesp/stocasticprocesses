@@ -18,3 +18,24 @@ Entonces
 \end{align}\par\null
 
 Este hecho lo necesitaremos más adelante.\par\null
+
+Ahora utilizaremos la expansión en serie de Taylor de $e^x$ \eqref{Expansion_de_taylor_de_e} para escribir
+
+\begin{align}
+    e^{|\lambda S_n|}   &=  \sum_{k \in \N} \frac{|\lambda S_n|^k}{k!}      \\
+                        &=  \sum_{k \in \N} \frac{\lambda^k |S_n|^k}{k!}    
+\end{align}\par\null
+
+Tomando esperanzas obtenemos
+
+\begin{align}
+    \E(e^{|\lambda S_n|})   &=      \E\left(\sum_{k \in \N} \frac{\lambda^k |S_n|^k}{k!}\right)                                         \\
+                            &=      \sum_{k \in \N} \frac{\lambda^k \E(|S_n|)^k}{k!}                                                    \\
+                            &\lcomment{Aquí se utilizó el teorema de convergencia}                                                      \\
+                            &\rcomment{monótona para poder meter el operador esperanza}                                                 \\
+                            &\leq   \E(\phi(\lambda) + \phi(-\lambda))                                                                  \\
+                            &<      \infty.
+\end{align}\par\null
+
+Esto último implica que cada uno de los sumandos de $\sum_{i \in \N} \frac{\lambda^i \E(|S_n|)^i}{i!}$ es necesariamente finito y por lo tanto
+$\E(|S_n|^k) < \infty$ para todo $n \in \N$. Como se quería demostrar.

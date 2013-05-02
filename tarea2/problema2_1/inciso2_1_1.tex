@@ -15,26 +15,28 @@
                 M_n=e^{-\lambda S_n}g(\lambda)^{-n},n\geq 0
         \end{align}
     \null
-    es una martingala.\\
+    es una martingala.
 }
+
 \afterstatement
+
     Para probar \eqref{problema2_1:parte1} notemos que
 
     \begin{align}
         e^x > 0 \;\; \forall x \in \R.
-    \end{align}
+    \end{align}\par\null
 
     por lo tanto
 
     \begin{align}
         e^{-\lambda X_1} > 0
-    \end{align}
+    \end{align}\par\null
 
     y entonces
 
     \begin{align}
         \E(e^{-\lambda X_1}) >\E(0) = 0
-    \end{align}
+    \end{align}\par\null
 
     Falta ver que $\E(e^{-\lambda X_1})$ está acotada. Recordemos que $e^x$ es creciente y por lo tanto
 
@@ -44,15 +46,15 @@
         \lambda            &\geq     - \lambda X_1            & \Rightarrow\\
         e^{\lambda}        &\geq     e^{- \lambda X_1}        & \Rightarrow\\
         \E(e^{\lambda})    &\geq     \E(e^{- \lambda X_1})
-    \end{align}
+    \end{align}\par\null
     
-    Pero $\E(e^{\lambda}) = e^{\lambda}$. Y por lo tanto
+    Pero $\E(e^{\lambda}) = e^{\lambda}$. De donde
     
     \begin{align}
         e^{\lambda} \geq  \E(e^{- \lambda X_1})
-    \end{align}    
+    \end{align}\par\null    
     
-    Entonces $0 < \E(e^{-\lambda X_1}) < \infty$, y con esto queda demostrado \eqref{problema2_1:parte1}.
+    Entonces $0 < \E(e^{-\lambda X_1}) < \infty$, y con esto queda demostrado \eqref{problema2_1:parte1}.\par\null
     
     Probemos ahora que $(M_n)_{n \in \N}$ es martingala.
     
@@ -96,7 +98,7 @@
                                         &\comment{Esto último es gracias a que $X_{n+1}$ es independiente de $F_n$}              		\\
                                         &=      g(\lambda)^{-(n+1)} e^{-\lambda S_{n}} \E(e^{-\lambda X_{1}})                           \\
                                         &\rcomment{Esto último es gracias a que $X_{n+1}$ y $X_1$ tienen la}                       	    \\ 
-                                        &\lcomment{misma distribución}   															\\
+                                        &\lcomment{misma distribución}   															    \\
                                         &=      g(\lambda)^{-(n+1)} e^{-\lambda S_{n}} g(\lambda)                                       \\
                                         &=      g(\lambda)^{-(n)} e^{-\lambda S_{n}}                                                    \\
                                         &=      M_n.
