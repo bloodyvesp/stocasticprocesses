@@ -1,3 +1,26 @@
 \emph{
     $M$ es acotada.
 }
+
+\afterstatement\par\null
+
+Que $M$ sea acotada significa que existen $a \in  \R$ tal que $\abs{M_n} < r$ para todo $n \in \N$. En particular 
+tenemos que $\abs{M_{T \wedge n}} < r$.\par\null
+
+Por otro lado, que $T$ sea finito implica que $T \wedge n  \underset{c.s.}\longrightarrow T$ conforme $n \rightarrow \infty$.
+(Para todo $\omega \in \Omega$, $T(\omega) = n_0 < \infty$ y por lo tanto $T \wedge n (\omega) = T(\omega) = n_0$ para todo
+$n \geq n_0$). De donde afirmamos que $M_{T \wedge n} \underset{c.s.}\longrightarrow M_T$. \par\null
+
+Ahora, $T \wedge n$ es tiepo de paro acotado, y por teorema de paro opcional de Doob tenemos que 
+$\E(M_{T \wedge n}) = \E(M_0)$.\par\null
+
+Tenemos todas las hipótesis para aplicar el Teorema de Convergencia Acotada y por lo tanto:
+
+\begin{align}
+    \E(M_0)     &=  \lim_{n \rightarrow \infty} \E(M_{T \wedge n})     \\
+                &=  \E(\lim_{n \rightarrow \infty} M_{T \wedge n})     \\
+                &=  \E(M_T).
+\end{align}\par\null
+
+Con lo que termina la demostración.
+ 
