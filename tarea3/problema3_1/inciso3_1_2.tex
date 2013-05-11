@@ -5,11 +5,10 @@
 Que la sucesión $\paren{M_n-M_{n-1}}$ sea acotada, significa que existe $r \in R$ tal que
 $\abs{M_n - M_{n-1}} < r$ para todo $n \geq 1$.\par\null
 
-Que $T$ sea integrable significa que $\E(T) < \infty$ y por lo tanto que $\{ T = \infty \}$ tiene
-probabilidad 0. De esto, podemos afirmar que $T \wedge n \underset{c.s.}\longrightarrow T$, pues los
-valores de $T$ que $T \wedge n$ nunca va a alcanzar, son un conjunto de probabilidad cero.\par\null
+Que $T$ sea integrable significa que $\E(T) < \infty$. Recordemos que el que $T$ sea finito implica que 
+$T \wedge n \underset{c.s.}\longrightarrow T$ (la justificación está en \ref{problema3_1:inciso1}). \par\null
 
-Otra vez, $T \wedge n$ es tiepo de paro acotado, y por teorema de paro opcional de Doob tenemos que 
+Otra vez, $T \wedge n$ es tiepo de paro acotado, y por Teorema del Muestreo Opcional de Doob tenemos que 
 $\E(M_{T \wedge n}) = \E(M_0)$. En este caso nos interesa escribirlo de la siguiente manera, 
 $\E(M_{T \wedge n} - M_0) = 0$.\par\null
 
@@ -38,6 +37,6 @@ Y por lo tanto
                         &=  \lim_{n \rightarrow \infty} \E(M_{T \wedge n} - M_0)        \\
                         &=  \lim_{n \rightarrow \infty} 0                               \\
                         &=  0.                        
-\end{align}
+\end{align}\par\null
 
 Lo cual implica $\E(M_T) = \E(M_0)$, como queríamos demostrar.
