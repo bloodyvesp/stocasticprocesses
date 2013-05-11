@@ -11,14 +11,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
-NormalPos.right=1890
+NormalPos.right=1568
 NormalPos.bottom=500
 Class=LaTeXView
-Document=tarea5\problema5_2\problema5_2.tex
+Document=tarea3\problema3_1\problema3_1.tex
 
 [Frame0_View0,0]
-TopLine=3
-Cursor=1192
+TopLine=8
+Cursor=551
 
 [Frame1]
 Flags=0
@@ -29,14 +29,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
-NormalPos.right=1890
+NormalPos.right=1568
 NormalPos.bottom=500
 Class=LaTeXView
-Document=tarea5\tarea5.tex
+Document=tarea2\problema2_4\problema2_4.tex
 
 [Frame1_View0,0]
-TopLine=2
-Cursor=102
+TopLine=32
+Cursor=1783
 
 [Frame2]
 Flags=0
@@ -47,14 +47,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
-NormalPos.right=1890
+NormalPos.right=1568
 NormalPos.bottom=500
 Class=LaTeXView
-Document=tarea3\tarea3.tex
+Document=tarea2\problema2_4\inciso2_4_3.tex
 
 [Frame2_View0,0]
 TopLine=0
-Cursor=0
+Cursor=320
 
 [Frame3]
 Flags=0
@@ -65,14 +65,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
-NormalPos.right=1890
+NormalPos.right=1568
 NormalPos.bottom=500
 Class=LaTeXView
-Document=tarea2\tarea2.tex
+Document=tarea2\problema2_4\inciso2_4_2.tex
 
 [Frame3_View0,0]
-TopLine=0
-Cursor=102
+TopLine=22
+Cursor=2439
 
 [Frame4]
 Flags=0
@@ -83,14 +83,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
-NormalPos.right=1890
+NormalPos.right=1568
 NormalPos.bottom=500
 Class=LaTeXView
-Document=tarea3\problema3_1\problema3_1.tex
+Document=tarea2\problema2_4\inciso2_4_4.tex
 
 [Frame4_View0,0]
 TopLine=0
-Cursor=435
+Cursor=260
 
 [Frame5]
 Flags=0
@@ -101,14 +101,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
-NormalPos.right=1890
+NormalPos.right=1568
 NormalPos.bottom=500
 Class=LaTeXView
-Document=tarea2\problema2_4\inciso2_4_1.tex
+Document=tarea2\tarea2.tex
 
 [Frame5_View0,0]
 TopLine=0
-Cursor=364
+Cursor=102
 
 [Frame6]
 Flags=0
@@ -119,7 +119,7 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
-NormalPos.right=1890
+NormalPos.right=1568
 NormalPos.bottom=500
 Class=LaTeXView
 Document=tareas.tex
@@ -128,61 +128,7 @@ Document=tareas.tex
 TopLine=54
 Cursor=1787
 
-[Frame7]
-Flags=0
-ShowCmd=1
-MinPos.x=-1
-MinPos.y=-1
-MaxPos.x=-1
-MaxPos.y=-1
-NormalPos.left=4
-NormalPos.top=32
-NormalPos.right=1890
-NormalPos.bottom=500
-Class=LaTeXView
-Document=tarea3\problema3_4\problema3_4.tex
-
-[Frame7_View0,0]
-TopLine=0
-Cursor=666
-
-[Frame8]
-Flags=0
-ShowCmd=1
-MinPos.x=-1
-MinPos.y=-1
-MaxPos.x=-1
-MaxPos.y=-1
-NormalPos.left=4
-NormalPos.top=32
-NormalPos.right=1890
-NormalPos.bottom=500
-Class=LaTeXView
-Document=tarea3\problema3_3\problema3_3.tex
-
-[Frame8_View0,0]
-TopLine=1
-Cursor=1296
-
-[Frame9]
-Flags=0
-ShowCmd=1
-MinPos.x=-1
-MinPos.y=-1
-MaxPos.x=-1
-MaxPos.y=-1
-NormalPos.left=4
-NormalPos.top=32
-NormalPos.right=1890
-NormalPos.bottom=500
-Class=LaTeXView
-Document=tarea3\problema3_2\problema3_2.tex
-
-[Frame9_View0,0]
-TopLine=0
-Cursor=984
-
 [SessionInfo]
-FrameCount=10
+FrameCount=7
 ActiveFrame=0
 
