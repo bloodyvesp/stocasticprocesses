@@ -1,27 +1,62 @@
 \begin{problema}
-Sea $M$ una $\paren{\F_n}$-martingala con saltos acotados. Sean
+    Sea $M$ una $\paren{\F_n}$-martingala con saltos acotados. Sean
+
+    \begin{align}
+    C   &=  \set{\limsup M_n=\liminf M_n\in\re}                 \\
+        &y                                                      \\
+    D   &=  \set{\limsup M_n=-\infty\text{ y }\limsup M_n=\infty}.
+    \end{align}\par\null
+
+    Pruebe que $\proba{C\cup D}=1$. Deduzca que las caminatas aleatorias centradas 
+    con saltos acotados oscilan. Sugerencia: Para cada $K>0$ defina
+
+    \begin{align}
+    T=\min\set{n\geq 0: \abs{M_n}\geq K}
+    \end{align}
+
+    y aplique el teorema de convergencia de martingalas a $M^T$.\par\null
+
+    Sea $M$ una caminata aleatoria no trivial con saltos integrables en 
+    $-1,0,1,\ldots$ y  media cero.\par\null 
+
+    Pruebe que $\proba{M\text{ converge en }\na}=0$ y  concluya que $\liminf M_n=-\infty$ 
+    casi seguramente. (Este resultado permitir\'a dar una prueba adicional de que un Galton-Watson cr\'itico se extingue).  
+    Sugerencia: proceda como en el párrafo anterior y pruebe la integrabilidad uniforme de $(M_{T\wedge n})_{n \in \N}$.
+
+    \defin{Categor\'ias: } Teoremas de convergencia de martingalas
+\end{problema}
+
+\afterstatement\par\null
+
+Definamos 
 
 \begin{align}
-C   &=  \set{\limsup M_n=\liminf M_n\in\re}                 \\
-    &y                                                      \\
-D   &=  \set{\limsup M_n=-\infty\text{ y }\limsup M_n=\infty}.
-\end{align}\par\null
-
-Pruebe que $\proba{C\cup D}=1$. Deduzca que las caminatas aleatorias centradas 
-con saltos acotados oscilan. Sugerencia: Para cada $K>0$ defina
-
-\begin{align}
-T=\min\set{n\geq 0: \abs{M_n}\geq K}
+    T_k = \min\{ n \geq 0 : \abs{M_n} \geq k \}.
 \end{align}
 
-y aplique el teorema de convergencia de martingalas a $M^T$.\par\null
+Que significa ``la primera vez que la martingala se aleja de cero al menos $k$ unidades''. 
+Veamos que se trata de un tiempo de paro.
 
-Sea $M$ una caminata aleatoria no trivial con saltos integrables en 
-$-1,0,1,\ldots$ y  media cero.\par\null 
 
-Pruebe que $\proba{M\text{ converge en }\na}=0$ y  concluya que $\liminf M_n=-\infty$ 
-casi seguramente. (Este resultado permitir\'a dar una prueba adicional de que un Galton-Watson cr\'itico se extingue).  
-Sugerencia: proceda como en el párrafo anterior y pruebe la integrabilidad uniforme de $(M_{T\wedge n})_{n \in \N}$.
+\begin{align}
+    \{ T_k = n \}   &=  \paren{\bigcup_{i \leq n-1} \{ \abs{M_i} < k \}} \cap \paren{\{ \abs{M_n} \geq k \}}                                 \\
+                    &=  \paren{\bigcap_{i \leq n-1} \{ M_i < k \} \cap \{ M_i > -k \}} \cap \paren{\{ M_n \geq k \} \cup \{ M_n \leq -k \}}.
+\end{align}\par\null
 
-\defin{Categor\'ias: } Teoremas de convergencia de martingalas
-\end{problema}
+Donde, $\{ M_i < k \}, \{ M_i > -k \} \in \F_i \subset \F_n$ y $\{ M_n \geq k \}, \{ M_n \leq -k \} \in \F_n$. 
+Y por lo tanto $\{ T_k = n\} \in \F_n$, de donde concluimos que $T_K$ es efectivamente tiempo de paro.\par\null
+
+
+Sea $C$ una cota para los saltos de $M$. Por definición de $T_k$, es claro que para el tiempo $T_k$ (cuando $T_k$ es finito), 
+la martingala se aleja en al menos $k$ unidades de 0, pero forzosamente menos que $k + C$, pues su último salto no 
+puede superar $C$. Es decir $\abs{M_{T_k}} < k + C$. Pero esto únicamente será cierto en los casos en que $T_k$ resulte 
+ser finito. Tomemos en cuenta entonces al tiempo $T_k \wedge n$, qué satisface ser finito y que $T_k \wedge n \leq T_k$. 
+Para este tiempo, nuestro razonamiento anterior es válido y entonces tenemos $\abs{M_{T_k \wedge n}} < k + C$.\par\null
+
+Entonces $\E(\abs{M_{T_k \wedge n}}) < \E(k + C) = k + C$ para toda $n \in N$. Sabemos de [\ref{problema1_4}] que 
+$(M_{T_k \wedge n})_{n \in \N}$ es martingala. Por el Teorema de Convergencia de Martingalas, tenemos que 
+$M_{T_k \wedge n} \longrightarrow M_{T_k}$ y es finita c.s.\par\null
+
+En particular $M_{T_k}(\{ T_k = \infty \}) < \infty$ c.s.\par\null
+
+
