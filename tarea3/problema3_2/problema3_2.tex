@@ -57,6 +57,29 @@ Entonces $\E(\abs{M_{T_k \wedge n}}) < \E(k + C) = k + C$ para toda $n \in N$. S
 $(M_{T_k \wedge n})_{n \in \N}$ es martingala. Por el Teorema de Convergencia de Martingalas, tenemos que 
 $M_{T_k \wedge n} \longrightarrow M_{T_k}$ y es finita c.s.\par\null
 
-En particular $M_{T_k}(\{ T_k = \infty \}) < \infty$ c.s.\par\null
+Estudiemos ahora los casos de convergencia de la martingala. Definimos
+
+\begin{align}
+        A_1     &=  \{ \limsup M_n < \infty     \}    \\
+        A_2     &=  \{ \liminf M_n > -\infty    \}
+\end{align}
+
+Estos son los casos donde la martingala no se dispara hacia arriba indefinidamente o hacia abajo indefinidamente
+(respectivamente).\par\null
+
+Los casos que queremos estudiar son $B_1 = A_1 \cap A_2$, $B_2 = A_1^c \cap A_2$, $B_3 = A_1 \cap A_2^c$ y 
+$B_4 = A_1^c \cap A_2^c$. Es decir que $B_1$ es el caso donde la caminata se queda acotada. $B_2$ Es el caso 
+donde la caminata alcanza todos los niveles arriba de cero. $B_3$ el caso donde la caminata alcanza todos 
+los niveles abajo de cero. Y $B_4$ es el caso en el que la caminata oscila (alcanza todos los niveles).\par\null
+
+Del análisis anterior, podemos ver que $B_2$ y $B_3$ tienen probabilidad 0, pues en estos casos, el límite de
+$M_n$ es infinito y nuesto análisis mostró que la variable aleatoria a la que se converge es finita casi seguramente.\par\null
+
+De esto tenemos que $\mw(D \cup C) = 1$, pues $C \subset B_1$ y $D = B_4$ en la manera que definimos a $B_1$ y $B_4$.\par\null
+
+Ahora, notemos que $A_1, A_2 \subset \bigcup_{k \in \N} \{ T_k = \infty \}$. Del análisis anterior tenemos que 
+en $\{ T_k = \infty \}$, nuestra caminata converge casi seguramente, y por lo tanto también converge casi seguramente
+en $A_1$ y en $A_2$ (es decir, en $B_1$).\par\null
+
 
 
