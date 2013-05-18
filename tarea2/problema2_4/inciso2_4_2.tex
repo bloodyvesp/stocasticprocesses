@@ -3,3 +3,18 @@
 }
 
 \afterstatement\par\null
+
+Ahora que sabemos que si $\lambda \in [\lambda_1, \lambda_2]$ entonces $\phi(\lambda) < \infty$. Elijamos 
+$\lambda = \min(-\lambda_1, \lambda_2)$ y de esta manera, tenemos que $\phi(-\lambda), \phi(\lambda) < \infty$.\par\null
+
+Entonces
+
+\begin{align}
+    \E(e^{|\lambda S_n|})   &=      \E(e^{\lambda S_n} \indic_{\lambda S_n \geq 0} + e^{-\lambda S_n} \indic_{\lambda S_n < 0} )        \\ 
+                            &=      \E(e^{\lambda S_n} \indic_{\lambda S_n \geq 0}) + \E(e^{-\lambda S_n} \indic_{\lambda S_n < 0})     \\
+                            &\leq   \E(e^{\lambda S_n} ) + \E(e^{-\lambda S_n})                                                         \\
+                            &=      \phi(\lambda) + \phi(-\lambda)                                                                      \\
+                            &<      \infty.                                                  
+\end{align}\par\null
+
+Este hecho lo necesitaremos más adelante.\par\null
