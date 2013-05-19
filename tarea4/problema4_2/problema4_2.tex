@@ -1,13 +1,42 @@
 \begin{problema}
-Sea $\mu$ una distribuci\'on de progenie y defina $\tilde \mu_j=\mu_{j+1}$. Sea $S=\paren{S_n}$ una caminata aleatoria con distribuci\'on de salto $\tilde\mu$. Sea $k$ un entero no-negativo y defina recursivamente\begin{esn}
-Z_0=k=C_0,\quad Z_{n+1}=k+S_{C_n}\quad\text{y} C_{n+1}=C_n+Z_{n+1}.
-\end{esn}
-\begin{enumerate}
-\item Pruebe que $Z_n\geq 0$ para toda $n$ y que si $Z_n=0$ entonces $Z_{n+1}=0$.
-\item Pruebe que $C_n$ es un tiempo de paro para la filtraci\'on can\'onica asociada a $S$.
-\item Pruebe que $Z$ es un proceso de Galton-Watson con ley de progenie $\mu$. 
-\item Pruebe que si $S$ alcanza $-1$ entonces existe $n$ tal que $Z_n=0$. Deduzca que si la media de $\mu$ es $1$ entonces $Z$ se extingue. (Sugerencia: utilice un ejercicio anterior sobre martingalas con saltos acotados hacia abajo.) 
-\end{enumerate}
+	Sea $\mu$ una distribuci\'on de progenie y defina $\tilde \mu_j=\mu_{j+1}$. 
+	Sea $S=\paren{S_n}$ una caminata aleatoria con distribuci\'on de salto $\tilde\mu$. 
+	Sea $k$ un entero no-negativo y defina recursivamente
 
-\defin{Categor\'ias: } Caminatas aleatorias, Procesos de Galton-Watson%, Propiedad de Markov fuerte.
+	\begin{esn}
+		Z_0=k=C_0,\quad Z_{n+1}=k+S_{C_n}\quad\text{y} C_{n+1}=C_n+Z_{n+1}.
+	\end{esn}
+
+	\begin{enumerate}
+		\item[(i)]		[\ref{problema4_2:inciso1}]
+			Pruebe que $Z_n\geq 0$ para toda $n$ y que si $Z_n=0$ entonces $Z_{n+1}=0$.
+		
+		\item[(ii)]		[\ref{problema4_2:inciso2}]
+			Pruebe que $C_n$ es un tiempo de paro para la filtraci\'on can\'onica asociada a $S$.
+		
+		\item[(iii)] 	[\ref{problema4_2:inciso3}]
+			Pruebe que $Z$ es un proceso de Galton-Watson con ley de progenie $\mu$. 
+		
+		\item[(iv)]		[\ref{problema4_2:inciso4}] 
+			Pruebe que si $S$ alcanza $-1$ entonces existe $n$ tal que $Z_n=0$. Deduzca que si la media de $\mu$ es $1$ entonces $Z$ se extingue. (Sugerencia: utilice un ejercicio anterior sobre martingalas con saltos acotados hacia abajo.) 
+	\end{enumerate}
+
+	\defin{Categor\'ias: } Caminatas aleatorias, Procesos de Galton-Watson%, Propiedad de Markov fuerte.
 \end{problema}
+
+\begin{proof}
+    \subsection{Inciso (i)} \label{problema4_2:inciso1}
+    \input{tarea4/problema4_2/inciso4_2_1.tex}
+    \newpage
+
+    \subsection{Inciso (ii)} \label{problema4_2:inciso2}
+    \input{tarea4/problema4_2/inciso4_2_2.tex}
+    \newpage
+
+    \subsection{Inciso (iii)} \label{problema4_2:inciso3}
+    \input{tarea4/problema4_2/inciso4_2_3.tex}
+	\newpage
+	
+    \subsection{Inciso (iv)} \label{problema4_2:inciso4}
+    \input{tarea4/problema4_2/inciso4_2_4.tex}
+\end{proof}
