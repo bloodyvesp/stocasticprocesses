@@ -1,8 +1,17 @@
 \emph{
-		Pruebe que $F_1$ y $\F_2$ son condicionalmente independientes dada $\G$ 
+		Pruebe que $\F_1$ y $\F_2$ son condicionalmente independientes dada $\G$ 
 		(denotado $\condind{\F_1}{\F_2}{\G}$) si y s\'olo si para 
 		cualquier $H$ que sea $\F_1$-medible y acotada se tiene que
 		\begin{esn}
 			\espc{H}{\F_2,\G}=\espc{H}{\G}.
 		\end{esn}
 }
+
+\afterstatement\par\null
+
+Supongamos que $\condind{\F_1}{\F_2}{\G}$ y, sea $H$ una función $F_1$-medible.\par\null
+
+Sea $P = \{ G \cap F : G \in \G, F \in \F_2 \}$. Es claro ver que este conjunto no es vacío (el total pertenece a él) y
+es fácil notar que es cerrado bajo intersecciones finitas. En otras palabras $P$ es un $\pi$-sistema.\par\null
+
+Sea ahora $D = \{ A \in \sigma(\G, \F_2) : \E(H \indic_A) = \E(\E(H | \G) \indic_A)  \}$
