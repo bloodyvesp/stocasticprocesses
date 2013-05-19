@@ -17,5 +17,36 @@ igual que antes, tenemos que $\sigma(P) = \sigma(\F_1, \dots, \F_n, \G)$.\par\nu
 
 Ahora sea $D = \{ A \in \sigma(\F_1, \dots, \F_n, \G) : \E(H_{n+1} \indic_A) = \E(\E(H_{n+1} | \G) \indic_A) \}$
 
+$D$ es un sistema de Dynkin. Verificar que $\Omega \in D$ es trivial. Y las propiedades de ser cerrado bajo suceciones crecientes y 
+bajo diferencias (diferencias donde un conjunto está contenido en el otro) se demuestran exactamente igual que en el inciso
+anterior de este mismo problema [\ref{problema4_1:inciso2}].\par\null
+
+Entonces, como en el ejercicio anterior, basta demostrar que $P \subset D$, y entonces el lema de clases
+de Dynkin nos asegurará que 
+\begin{align}
+ \E(H_{n+1} | \sigma(\F_1, \dots, \F_n, \G)) = \E(H_{n+1} | \G)   \label{problema4_1:hipotesis_suficiencia_4_1_3}
+\end{align}\par\null
+
+Sea entonces $A \in P$. Donde $A = F_1 \cap \dots \cap F_n \cap G$ con $F_i \in \F_i$ y $G \in \G$.
+
+\begin{align}
+    \E(H_{n+1} \indic_A)    &=  \E(H_{n+1} \indic_{F_1} \cdots \indic_{F_n} \indic_{G})                                                     \\ 
+                            &=  \E(\E(H_{n+1} \indic_{F_1} \cdots \indic_{F_n} \indic_{G} | \G))                                            \\ 
+                            &=  \E(\indic_{G} \E(H_{n+1} \indic_{F_1} \cdots \indic_{F_n} | \G))                                            \\
+                            &\comment{gracias a que $G \in \G$}                                                                             \\
+                            &=  \E\bigg(\indic_{G} \E(H_{n+1} | \G) \E\big(\indic_{F_1} \cdots \indic_{F_n} | \G\big)\bigg)                 \\
+                            &\lcomment{gracias a que $\F_1, \F_2, \dots$ son}                                                               \\
+                            &\rcomment{condicionalmente independientes dada $\G$}                                                           \\
+                            &=  \E\bigg(\E\big( \indic_{G} \E(H_{n+1} | \G) \indic_{F_1} \cdots \indic_{F_n} | \G\big)\bigg)                \\
+                            &\lcomment{nótese que las variables que entraron son todas}                                                     \\
+                            &\rcomment{$\G$-medibles}                                                                                       \\
+                            &=  \E\bigg(\E\big( \E(H_{n+1} | \G) \indic_{G} \indic_{F_1} \cdots \indic_{F_n} | \G\big)\bigg)                \\
+                            &=  \E\bigg(\E\big( \E(H_{n+1} | \G) \indic_{A} | \G\big)\bigg)                                                 \\
+                            &=  \E\big( \E(H_{n+1} | \G) \indic_{A} \big).
+\end{align}\par\null
+
+Con esto queda demostrado que $A \in D$ y por lo tanto $P \subset D$. Utilizando el lema de clases de Dynkin obtenemos
+\eqref{problema4_1:hipotesis_suficiencia_4_1_3}, y aplicando el resultado del inciso anterior [\ref{problema4_1:inciso2}],
+obtenemos que $\F_{n+1}$ es condicionalmente independiente de $\F_1, \dots, \F_n$ dada $\G$.
 
 
