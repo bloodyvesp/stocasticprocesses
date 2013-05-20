@@ -1,3 +1,39 @@
 \emph{
 	Pruebe que $Z$ es un proceso de Galton-Watson con ley de progenie $\mu$.
 }
+
+\afterstatement\par\null
+
+Tenemos que encontrar variables $\zeta_{i,n}$ con distribución $\mu$ tales que
+
+\begin{align}
+    Z_{n+1} =   \sum_{1 \leq i \leq Z_n} \zeta_{i,n}. \label{problema4_2:expresion_Galton-Watson}
+\end{align}
+
+Sean $\xi_{i}$ con $-1 \leq i$ definidas como en el primer inciso de este ejercicio [\ref{problema4_2:inciso1}],
+estas estaban definidas bajo una distribución $\tilde\mu$ que era exactamente igual a $\mu$ pero desfasada por $-1$.
+Es decir $\tilde\mu_{-1} = \mu_{0}, \tilde\mu_{0} = \mu_{1}, \dots, \tilde\mu_{j} = \mu_{j+1}$. Entonces, 
+$\xi_{i} + 1$ tendrá distribución $\mu$.\par\null
+
+Ya teníamos una descomposición útil de $Z_{n+1}$ en \eqref{problema4_2:descomposicion_de_Z_n+1}. La reescribiremos cambiando $\xi_{i}$
+por $\xi_{i} + 1 - 1$.
+
+\begin{align}
+    Z_{n+1} &=  Z_n + \paren{\sum_{C_{n-1} < i \leq  C_{n-1} + Z_{n}} \xi_i}                \\
+            &=  Z_n + \paren{\sum_{C_{n-1} < i \leq  C_{n-1} + Z_{n}} (\xi_i + 1 - 1)}      \\
+            &=  Z_n + \paren{\sum_{C_{n-1} < i \leq  C_{n-1} + Z_{n}} (\xi_i + 1)} - Z_n    \\
+            &=  \paren{\sum_{C_{n-1} < i \leq  C_{n-1} + Z_{n}} (\xi_i + 1)}                
+\end{align}
+
+Ahora que tenemos a $Z_{n}$ expresado como suma de variables con distribución $\mu$, bastará reescribirlo de manera que
+tenga la forma \eqref{problema4_2:expresion_Galton-Watson}.\par\null
+
+Definamos entonces $\zeta_{i, n} = \xi_{C_{n-1} + 1$, y entonces
+
+\begin{align}
+    Z_{n+1} &=  \paren{\sum_{C_{n-1} < i \leq  C_{n-1} + Z_{n}} (\xi_i + 1)}    \\
+            &=  \paren{\sum_{1 \leq i \leq Z_{n}} (\zeta_{i, n})}.
+\end{align}
+
+Y con esto hemos demostrado que $Z$ es un proceso Galton-Watson con distribución de progenie $\mu$ y, como $Z_0 = k$, se trata
+de un proceso Galton-Watson con población inicial $k$.
