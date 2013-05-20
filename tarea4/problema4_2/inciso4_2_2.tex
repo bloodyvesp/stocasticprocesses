@@ -1,3 +1,35 @@
 \emph{
 	Pruebe que $C_n$ es un tiempo de paro para la filtraci\'on can\'onica asociada a $S$.
 }
+
+\afterstatement\par\null
+
+Sea $(\F_n)_{n \in \N}$ la filtración canónica asociada a $(S_n)_{n \in \N}$.
+Tenemos que demostrar que para $m \in \Z$, $\{ C_n = m \} \in \F_m$.\par\null
+
+Usemos la definición de $C_n$ para descomponerlo, 
+
+\begin{align}\label{problema4_2:descomposicion_de_C_n}
+    C_n &=  C_{n-1} + Z_n               \\
+        &=  C_{n-2} + Z_{n-1} + Z_n     \\
+        &\vdots                         \\
+        &= k + \sum_{1 \leq i \leq n} Z_i   
+\end{align}
+
+Ahora, recordando que $0 \leq Z_i$, tenemos que $k \leq C_n$, es decir que
+$\{ C_n < k\} = \emptyset$, en particular, si $m < k$, $\{C_n = m\} = \emptyset \in \F_m$.\par\null
+
+Supongamos entonces que $k \leq m$. De nuevo gracias a que $0 \leq Z_i$, tenemos que la sucesión $(C_i)_{i \in \N}$
+es creciente. Entonces, dentro del conjunto $\{ C_n = m\}$ tenemos que $C_i \leq m$ para $i \leq n$. Y por lo tanto,
+dentro del conjunto $\{ C_n = m\}$, $S_{C_i}$ es $\F_m$-medible (donde dentro del conjunto se debería interpretar como
+al intesectar con dicho conjunto, las preimagenes de $S_{C_i}$ pertenecen a $\F_m$).\par\null
+
+Entonces $Z_i = S_{C_{i-1}}$ también resulta ser $\F_m$-medible (dentro de $\{ C_n = m \}$ y por lo tanto. Entonces nos
+basta con descomponer $\{ C_n = m \}$ en conjuntos que sean $\F_m$-medibles usando lo que hemos demostrado ahora.
+Utilizando \eqref{problema4_2:descomposicion_de_C_n} tenemos que
+
+\begin{align}
+    \{ C_n = m \}   &=  \bigg\{ k + \sum_{1 \leq i \leq n} Z_i  = m \bigg\}.                         
+\end{align}
+
+Y por todo lo anteriormente dicho, el lado derecho de la igualdad resulta ser $\F_m$-medible.
