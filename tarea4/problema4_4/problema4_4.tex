@@ -1,13 +1,52 @@
 \begin{problema}
-Sean $\p$ y $\q$ dos medidas de probabilidad en el espacio can\'onico $E^\na$ para sucesiones con valores en un conjunto a lo m\'as numerable $E$. Decimos que $\q$ es \defin{localmente absolutamente continua} respecto de $\p$ si para cada $n\in\na$, $\q|_{\F_n}\ll\p|_{\F_n}$. Sea\begin{esn}
-D_n=\frac{d \q|_{\F_n}}{d \p|_{\F_n}}.
-\end{esn}
-\begin{enumerate}
-\item Pruebe que $D$ es una martingala bajo $\p$. Pruebe que si $D$ es uniformemente integrable entonces $\q\ll\p$. 
-\item Pruebe que si $T$ es un tiempo de paro finito entonces $\q|_{\F_T}\ll\p|_{\F_T}$. 
-\item Sea $\p^p$ la distribuci\'on de una caminata aleatoria simple que comienza en $0$ y va de $k$ a $k+1$ con probabilidad $p$, donde $p\in (0,1)$. Pruebe que $\p^p$ es localmente absolutamente continua respecto de $\p^{1/2}$ y encuentre la martingala $D_n$ asociada.
-\item Para $a,b>0$, sea $T=\min\set{n\in\na: X_n\in \set{-a,b}}$. Pruebe que $T$ y $X_T$ son independientes bajo $\p^{1/2}$. Al utilizar la continuidad absoluta local, pruebe que $T$ y $X_T$ tambi\'en son independientes bajo $\p^p$. Utilice alguna martingala de ejercicios anteriores para calcular $\esp{T^2}$. 
-\end{enumerate}
-
+	Sean $\p$ y $\q$ dos medidas de probabilidad en el espacio can\'onico $E^\na$ 
+	para sucesiones con valores en un conjunto a lo m\'as numerable $E$. 
+	Decimos que $\q$ es \defin{localmente absolutamente continua} respecto de $\p$ 
+	si para cada $n\in\na$, $\q|_{\F_n}\ll\p|_{\F_n}$. Sea
+	
+	\begin{esn}
+		D_n=\frac{d \q|_{\F_n}}{d \p|_{\F_n}}.
+	\end{esn}
+	
+	\begin{enumerate}
+		\item[(i)]		[\ref{problema4_4:inciso1}]
+			Pruebe que $D$ es una martingala bajo $\p$. Pruebe que si 
+			$D$ es uniformemente integrable entonces $\q\ll\p$. 
+			
+		\item[(ii)]		[\ref{problema4_4:inciso2}]
+			Pruebe que si $T$ es un tiempo de paro finito 
+			entonces $\q|_{\F_T}\ll\p|_{\F_T}$. 
+			
+		\item[(iii)]	[\ref{problema4_4:inciso3}]	
+			Sea $\p^p$ la distribuci\'on de una caminata aleatoria simple 
+			que comienza en $0$ y va de $k$ a $k+1$ con probabilidad $p$, 
+			donde $p\in (0,1)$. Pruebe que $\p^p$ es localmente absolutamente 
+			continua respecto de $\p^{1/2}$ y encuentre la martingala $D_n$ asociada.
+		
+		\item[(iv)]		[\ref{problema4_4:inciso4}]
+			Para $a,b>0$, sea $T=\min\set{n\in\na: X_n\in \set{-a,b}}$. 
+			Pruebe que $T$ y $X_T$ son independientes bajo $\p^{1/2}$. Al utilizar 
+			la continuidad absoluta local, pruebe que $T$ y $X_T$ tambi\'en son 
+			independientes bajo $\p^p$. Utilice alguna martingala de ejercicios 
+			anteriores para calcular $\esp{T^2}$. 
+			
+	\end{enumerate}
 \defin{Categor\'ias: }Cambio de medida, Caminata aleatoria simple.
 \end{problema}
+
+\begin{proof}
+    \subsection{Inciso (i)} \label{problema4_4:inciso1}
+    \input{tarea4/problema4_4/inciso4_4_1.tex}
+    \newpage
+
+    \subsection{Inciso (ii)} \label{problema4_4:inciso2}
+    \input{tarea4/problema4_4/inciso4_4_2.tex}
+    \newpage
+
+    \subsection{Inciso (iii)} \label{problema4_4:inciso3}
+    \input{tarea4/problema4_4/inciso4_4_3.tex}
+	\newpage
+	
+    \subsection{Inciso (iv)} \label{problema4_4:inciso4}
+    \input{tarea4/problema4_4/inciso4_4_4.tex}
+\end{proof}
