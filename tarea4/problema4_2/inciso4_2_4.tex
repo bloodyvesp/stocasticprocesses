@@ -1,3 +1,15 @@
 \emph{
-	Pruebe que si $S$ alcanza $-1$ entonces existe $n$ tal que $Z_n=0$. Deduzca que si la media de $\mu$ es $1$ entonces $Z$ se extingue. (Sugerencia: utilice un ejercicio anterior sobre martingalas con saltos acotados hacia abajo.) 
+    Pruebe que si $S$ alcanza $-1$ entonces existe $n$ tal que $Z_n=0$. 
+    Deduzca que si la media de $\mu$ es $1$ entonces $Z$ se extingue. 
+    (Sugerencia: utilice un ejercicio anterior sobre martingalas con saltos acotados hacia abajo.) 
 }
+
+\afterstatement\par\null
+
+Suponiendo que la media de $\mu$ es $1$, significa que $\E(\xi_i + 1) = 1$ y por lo tanto $\E(\xi_i) = 0$.\par\null
+
+Esto convierte a $(S_n)_{n \in \N}$ en una caminata aleatoria no trivial y centrada (la media de sus saltos es 0).
+Por lo dicho en [\ref{problema3_2}] tenemos que es una caminata que oscila y por lo tanto $\liminf S_n = -\infty$.\par\null
+
+Esto quiere decir que existe un $n$ tal que $S_{C_{n}} = -k$ y entonces 
+$Z_{n + 1} = k + S_{C_{n}} = k - k = 0$. Lo cual se traduce en que la población se extinge casi seguramente.\par\null
