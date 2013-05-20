@@ -1,12 +1,35 @@
 \begin{problema}
-El objetivo de este ejercicio es ver ejemplos de cadenas de Markov $X$ y de funciones $f$ tales que $\imf{f}{X}=\paren{\imf{f}{X_n},n\in\na}$ sean o no cadenas de Markov.
-\begin{enumerate}
-\item Considere el hipercubo $n$-dimensional $E=\set{0,1}^n$. A $E$ lo pensaremos como la composici\'on de la primera de dos urnas que tienen en total $n$ bolas etiquetadas del $1$ al $n$. Si $x=\paren{x_1,\ldots, x_n}\in E$, interpretaremos $x_i=1$ como que la bola $i$ est\'a en la urna $1$. Considere el siguiente experimento aleatorio: inicialmente la composici\'on de las urnas est\'a dada por $x$ y a cada instante de tiempo escogemos una bola al azar y la cambiamos de urna. Modele esta situaci\'on por medio de una cadena de Markov $X$ en $E$. Sea $\fun{f}{E}{\set{0,\ldots, n}}$ dada por $\imf{f}{x}=\sum_i x_i$. Pruebe que $\imf{f}{X}=\paren{\imf{f}{X_n},n\in\na}$ es una cadena de Markov cuya matriz de transici\'on determinar\'a.
+	El objetivo de este ejercicio es ver ejemplos de cadenas de Markov $X$ y de funciones $f$ tales que 
+	$\imf{f}{X}=\paren{\imf{f}{X_n},n\in\na}$ sean o no cadenas de Markov.
+	
+	\begin{enumerate}
+	\item[(i)]	[\ref{problema4_3:inciso1}]
+		Considere el hipercubo $n$-dimensional $E=\set{0,1}^n$. A $E$ lo pensaremos como la composici\'on 
+		de la primera de dos urnas que tienen en total $n$ bolas etiquetadas del $1$ al $n$. 
+		Si $x=\paren{x_1,\ldots, x_n}\in E$, interpretaremos $x_i=1$ como que la bola $i$ est\'a en la urna $1$. 
+		Considere el siguiente experimento aleatorio: inicialmente la composici\'on de las urnas est\'a dada por 
+		$x$ y a cada instante de tiempo escogemos una bola al azar y la cambiamos de urna. 
+		Modele esta situaci\'on por medio de una cadena de Markov $X$ en $E$. Sea $\fun{f}{E}{\set{0,\ldots, n}}$ 
+		dada por $\imf{f}{x}=\sum_i x_i$. Pruebe que $\imf{f}{X}=\paren{\imf{f}{X_n},n\in\na}$ es una cadena de 
+		Markov cuya matriz de transici\'on determinar\'a.
 
-\item Sea $\paren{S_n}_{n\in\na}$ una cadena de Markov con espacio de estados $\z$ y matriz de transici\'on\begin{esn}
-P_{i,i+1}=p\quad P_{i,i-1}=1-p
-\end{esn}donde $p\in [0,1]$. D\'e una condici\'on necesaria y suficiente para que $\paren{\abs{S_n},n\in\na}$ sea una cadena de Markov.
-\end{enumerate}
+	\item[(ii)]	[\ref{problema4_3:inciso2}]
+		Sea $\paren{S_n}_{n\in\na}$ una cadena de Markov con espacio de estados $\z$ y matriz de transici\'on
+		\begin{esn}
+		P_{i,i+1}=p\quad P_{i,i-1}=1-p
+		\end{esn}	
+		donde $p\in [0,1]$. D\'e una condici\'on necesaria y suficiente para que $\paren{\abs{S_n},n\in\na}$ 
+		sea una cadena de Markov.
+	\end{enumerate}
 
 \defin{Categor\'ias:} proyecciones de cadenas de Markov
 \end{problema}
+
+\begin{proof}
+    \subsection{Inciso (i)} \label{problema4_3:inciso1}
+    \input{tarea4/problema4_3/inciso4_3_1.tex}
+    \newpage
+
+    \subsection{Inciso (ii)} \label{problema4_3:inciso2}
+    \input{tarea4/problema4_3/inciso4_3_2.tex}
+\end{proof}
