@@ -2,3 +2,37 @@
 	Pruebe que si $T$ es un tiempo de paro finito 
 	entonces $\q|_{\F_T}\ll\p|_{\F_T}$.
 }
+
+\afterstatement\pn
+
+Gracias a [\ref{problema1_4:inciso3}] tenemos que $D_T$ es $\F_T$-medible.\pn
+
+Recordemos que $D_T = \sum_{n \in \N} D_n \indic_{T = n}$.\pn
+
+Sea entonces $A \in \F_T$.
+
+\begin{align}
+        \int_A D_T d\P|_{\F_T}  &=  \int_A D_T d\P                                                      \\
+                                &\comment{porque $D_T$ es $\F_T$-medible}                               \\
+                                &=  \int_A \sum_{n \in \N} D_n \indic_{\{T = n\}} d\P                   \\
+                                &=  \sum_{n \in \N} \int_A D_n \indic_{\{T = n\}} d\P                   \\
+                                &\lcomment{por teorema de convergencia monótona}                        \\
+                                &\rcomment{dado que $D_n$ es no negativa}                               \\
+                                &=  \sum_{n \in \N} \int D_n \indic_{\{T = n\} \cap A} d\P              \\
+                                &=  \sum_{n \in \N} \int D_n \indic_{\{T = n\} \cap A} d\P|_{\F_n}      \\
+                                &\comment{porque $\{T = n\} \cap A \in \F_n$ por definición de $\F_T$}  \\
+                                &=  \sum_{n \in \N} \Q(\{T = n\} \cap A)                                \\                                
+                                &=   \Q(\bigcup_{n \in \N} \{T = n\} \cap A)                            \\
+                                &\comment{porque los eventos \{T=n\} son disjuntos}                     \\
+                                &=   \Q(A)                                                              \\
+                                &\comment{porque $T$ es finito}                                         \\
+                                &=   \Q|_{\F_T}(A)                                                      \\
+                                &\comment{porque $A \in \F_T$}
+\end{align}
+
+En resumen tenemos
+\begin{align}
+    \Q|_{\F_T}(A) = \int_A D_T d\P|_{\F_T}
+\end{align}
+
+para todo $A \in \F_T$ y, por lo tanto $\Q|_{\F_T} \ll \P|_{\F_T}$
