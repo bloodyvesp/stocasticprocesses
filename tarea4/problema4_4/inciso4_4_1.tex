@@ -48,17 +48,58 @@ uniformemente integrable entonces existe una variable $D_\infty$ tal que $\E(D_\
 (Este teorema es el 1.9 de la versión de las notas de la clase que se incluye junto con esta tarea, 
 ver [\ref{notas}]).\pn
 
-Definimos $\F_\infty = \sigma\paren(\bigcup \F_i)$. Y  definimos
+Definimos $\F_\infty = \sigma\paren(\bigcup \F_i)$. El mismo teorema asegura que $D_n$ converge casi seguramente y en
+$L_1$ a $\E(D_\infty | \F_\infty)$. 
 
+Ahora definimos
 \begin{align}
-    P   =   \{ A \in \F_\infty : \exists i\in\N \text{  con  } A \in \F_i\}
+    P   =   \bigcup_{i \in N} \F_i.
 \end{align}\pn
 
-Claramente $P$ es no vacío, todos los $\F_i$ son subconjuntos de él. Además, si $A_1, A_2 \in P$ entonces
-existen $i, j \in \N$ tales que $A_1 \in \F_i$ y $A_2 \in \F_j$ y por lo tanto $A_1 \cap A_2 \in \F_{\max(i,j)}$.
-Entonces $P$ es un $\pi$-sistema.\pn
+Es fácil ver que $P$ es un álgebra. Claramente $P$ es no vacío, todos los $\F_i$ son subconjuntos de él. 
+Si $A_1, A_2 \in P$ entonces existen $i, j \in \N$ tales que $A_1 \in \F_i$ y $A_2 \in \F_j$ y por lo 
+tanto $A_1 \cap A_2, A_1 \cup A_2 \in \F_{\max(i,j)}$. Que sea cerrado bajo complementos se hereda directamente de
+que cada $\F_i$ es una álgebra.\pn
 
 Ahora sea 
 \begin{align}
-    D   =   \bigg\{ A \in \F_infty   :   \Q(A) = \int_A D_\infty d\P \bigg\}
+    M   =   \bigg\{ A \in \F_infty   :   \Q(A) = \int_A D_\infty d\P \bigg\}
 \end{align}
+
+Veamos que $M$ es una clase monótona. Es decir, cerrada bajo sucesiones crecientes y  decrecientes.\pn
+
+Sean $A_1, A_2, \dots \in M$ tales que $A_i \subset A_{i+1}$.
+
+\begin{align}
+    \Q\paren{\bigcup A_i}   &=  \lim_{i \rightarrow \infty} \Q(A_i)                                         \\
+                            &=  \lim_{i \rightarrow \infty} \int_{A_i}  D_\infty d\P                        \\
+                            &=  \lim_{i \rightarrow \infty} \int  D_\infty \indic_{A_i} d\P                 \\
+                            &=  \int  D_\infty \lim_{i \rightarrow \infty} \indic_{A_i} d\P                 \\
+                            &\lcomment{por que $A_n$ es creciente}                                          \\
+                            &\rcomment{ y por teorema de convergencia mónotona}                             \\
+                            &=  \int  D_\infty \indic_{\cup A_i} d\P                                        \\
+                            &=  \int_{\cup A_i}  D_\infty d\P                                               \\
+\end{align}
+
+Tomando complementos, y haciendo una demostración análoga, se tiene que $M$ también es cerrada bajo 
+sucesiones decrecientes.\pn
+
+Ahora veamos que $P \subset M$. Sea $A \in P$. Entonces existe $n \in \N$ tal que $A \in \F_n$. Entonces
+
+\begin{align}
+        \Q(A)       &=  \Q|_{F_n}(A)                                    \\
+                    &=  \int D_n \indic_A d\P|_{\F_n}                   \\
+                    &=  \int \E(D_\infty | \F_n) \indic_A d\P|_{\F_n}   \\
+                    &=  \int D_\infty \indic_A d\P|_{\F_n}              \\
+                    &\comment{la integración ya se hace sobre $\F_n$}   \\
+                    &=  \int D_\infty \indic_A d\P.              
+\end{align} 
+
+Y por lo tanto $A \in M$. El teorema de clases monótonas garantiza que $\sigma(P) \subset M$. Pero $\sigma(P) = \F_\infty$
+y $M \subset \F_\infty$, por lo tanto $\sigma(P) = \F_\infty = M$. Entonces, tenemos que para todo $A \in \F_\infty$
+
+\begin{align}
+    \Q(A)   =   \int_{A}    D_\infty    d\P.
+\end{align}
+
+Por lo tanto $\Q \ll \P$. Como buscábamos demostrar.
