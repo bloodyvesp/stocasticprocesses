@@ -2,10 +2,10 @@
 	Pruebe que $\esp{\abs{S_n}^k}<\infty$ para toda $k\geq 0$.
 }
 
-\afterstatement\par\null
+\afterstatement\pn
 
 Ahora que sabemos que si $\lambda \in [\lambda_1, \lambda_2]$ entonces $\phi(\lambda) < \infty$. Elijamos 
-$\lambda = \min(-\lambda_1, \lambda_2)$ y de esta manera, tenemos que $\phi(-\lambda), \phi(\lambda) < \infty$.\par\null
+$\lambda = \min(-\lambda_1, \lambda_2)$ y de esta manera, tenemos que $\phi(-\lambda), \phi(\lambda) < \infty$.\pn
 
 Entonces
 
@@ -15,16 +15,16 @@ Entonces
                             &\leq   \E(e^{\lambda S_n} ) + \E(e^{-\lambda S_n})                                                         \\
                             &=      \phi(\lambda) + \phi(-\lambda)                                                                      \\
                             &<      \infty.                                                  
-\end{align}\par\null
+\end{align}\pn
 
-Este hecho lo necesitaremos más adelante.\par\null
+Este hecho lo necesitaremos más adelante.\pn
 
 Ahora utilizaremos la expansión en serie de Taylor de $e^x$ \eqref{Expansion_de_taylor_de_e} para escribir
 
 \begin{align}
     e^{|\lambda S_n|}   &=  \sum_{k \in \N} \frac{|\lambda S_n|^k}{k!}      \\
                         &=  \sum_{k \in \N} \frac{\lambda^k |S_n|^k}{k!}    
-\end{align}\par\null
+\end{align}\pn
 
 Tomando esperanzas obtenemos
 
@@ -35,7 +35,7 @@ Tomando esperanzas obtenemos
                             &\rcomment{monótona para poder meter el operador esperanza}                                                 \\
                             &\leq   \E(\phi(\lambda) + \phi(-\lambda))                                                                  \\
                             &<      \infty.
-\end{align}\par\null
+\end{align}\pn
 
 Esto último implica que cada uno de los sumandos de $\sum_{i \in \N} \frac{\lambda^i \E(|S_n|)^i}{i!}$ es necesariamente finito y por lo tanto
 $\E(|S_n|^k) < \infty$ para todo $n \in \N$. Como se quería demostrar.

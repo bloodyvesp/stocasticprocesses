@@ -3,14 +3,14 @@
 }
 
 Que la sucesión $\paren{M_n-M_{n-1}}$ sea acotada, significa que existe $r \in R$ tal que
-$\abs{M_n - M_{n-1}} < r$ para todo $n \geq 1$.\par\null
+$\abs{M_n - M_{n-1}} < r$ para todo $n \geq 1$.\pn
 
 Que $T$ sea integrable significa que $\E(T) < \infty$. Recordemos que el que $T$ sea finito implica que 
-$T \wedge n \underset{c.s.}\longrightarrow T$ (la justificación está en \ref{problema3_1:inciso1}). \par\null
+$T \wedge n \underset{c.s.}\longrightarrow T$ (la justificación está en \ref{problema3_1:inciso1}). \pn
 
 Otra vez, $T \wedge n$ es tiepo de paro acotado, y por Teorema del Muestreo Opcional de Doob tenemos que 
 $\E(M_{T \wedge n}) = \E(M_0)$. En este caso nos interesa escribirlo de la siguiente manera, 
-$\E(M_{T \wedge n} - M_0) = 0$.\par\null
+$\E(M_{T \wedge n} - M_0) = 0$.\pn
 
 Ahora, 
 \begin{align}
@@ -26,7 +26,7 @@ De donde
         \E(\abs{M_{T \wedge n} - M_0})  &\leq   \E(T r) \\
                                         &= r \E(T)      \\
                                         &< \infty.
-\end{align} \par\null
+\end{align} \pn
 
 Con esto tenemos que la suceción $(M_{T \wedge n} - M_0)_{n \in \N}$ es dominada por $Tr$ y que cada 
 elemento de la suceción es integrable. Entonces tenemos todas las hipótesis del Teorema de convergencia dominada.
@@ -37,6 +37,6 @@ Y por lo tanto
                         &=  \lim_{n \rightarrow \infty} \E(M_{T \wedge n} - M_0)        \\
                         &=  \lim_{n \rightarrow \infty} 0                               \\
                         &=  0.                        
-\end{align}\par\null
+\end{align}\pn
 
 Lo cual implica $\E(M_T) = \E(M_0)$, como queríamos demostrar.

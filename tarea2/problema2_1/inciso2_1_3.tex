@@ -6,22 +6,22 @@
 \begin{align}
     \mw(M_p\geq n)  &=  \mw(T_n\leq C_p)    \\
                     &=\E((1-p)^{T_n})
-\end{align}\par\null
+\end{align}\pn
 
 \emph
 {
     para demostrar que $M_p$ tiene distribuci\'on geom\'etrica de par\'ametro $1-e^{-f(1-p)}$.
 }
 
-\afterstatement\par\null
+\afterstatement\pn
 
     Recordemos que
     
     \begin{align}
         M_p     &=  -\min_{n\leq C_p} S_n. 
-    \end{align}\par\null
+    \end{align}\pn
     
-    Donde $C_p$ es una variable aleatoria con distribución geométrica de parámetro $p$.\par\null
+    Donde $C_p$ es una variable aleatoria con distribución geométrica de parámetro $p$.\pn
     
     Entonces 
     
@@ -30,9 +30,9 @@
                             &=  \{ \min_{k \leq C_p} S_k \leq -n \}         \\
                             &=  \{ \min\{ k \in \N : S_k = -n \}\leq C_p \}   \\
                             &=  \{ T_n \leq C_p \}.
-    \end{align}\par\null
+    \end{align}\pn
     
-    De donde tenemos $\mw(M_p\geq n)=\mw(T_n\leq C_p)$.\par\null
+    De donde tenemos $\mw(M_p\geq n)=\mw(T_n\leq C_p)$.\pn
     
     Ahora descompongamos $\mw(T_n \leq C_p)$.
     
@@ -45,9 +45,9 @@
                             &=  \sum_{i \in \N} p\mw(T_n = i) \frac{(1-p)^{i-1}}{p}             \\                            
                             &=  \sum_{i \in \N} \mw(T_n = i) (1-p)^{i-1}                        \\                     
                             &=  \E((1-p)^{T_n}).                                                            
-    \end{align}\par\null
+    \end{align}\pn
     
-    Ahora calculemos $\mw(M_p = n)$.\par\null
+    Ahora calculemos $\mw(M_p = n)$.\pn
     
     \begin{align}
         \mw(M_p = n)    &=  \mw(M_p \geq n) - \mw(M_p \geq n + 1)       \\
@@ -56,6 +56,6 @@
                         &=  e^{-nf(1-p)}    - e^{-(n+1)f(1-p)}          \\
                         &=  e^{-nf(1-p)} (1- e^{-f(1-p)})               \\
                         &=  (e^{-f(1-p)})^n (1- e^{-f(1-p)}).           
-    \end{align}\par\null
+    \end{align}\pn
     
     De donde tenemos que $M_n$ tiene la distribución geométrica de parámetro $(1- e^{-f(1-p)})$.

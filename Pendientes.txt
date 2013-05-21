@@ -12,3 +12,6 @@ Lista de pendientes.
 	
 - 3.3
 	Todo
+	
+- 4.3.2
+	Todo

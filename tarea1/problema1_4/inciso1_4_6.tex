@@ -4,7 +4,7 @@
 	Sugerencia: basta probar el resultado respecto de $\paren{\F_n}$ y para esto es \'util el inciso anterior.
 }
 
-\afterstatement\par\null
+\afterstatement\pn
 
 	Es claro que $M^T$ es $(\F_n)_{n \in \N}$-adaptado. Pues
     
@@ -12,52 +12,52 @@
 		M_n^T 		&= 		M_{n \wedge T} 									        \\
 					&= 		\sum_{i \in \N} M_i \cdot \indic_{n \wedge T = i}		\\
 					&=      \sum_{i \leq n} M_i \cdot \indic_{T = i}.
-	\end{align}\par\null		
+	\end{align}\pn		
 
 	Que resulta ser suma finita de variables que son $F_n$-medibles y por lo tanto,
-	es $\F_n$-medible.\par\null
+	es $\F_n$-medible.\pn
 	
 	De aquí mismo podemos notar que $M_n^T$ es suma finita de variables en $L_1$ y por
-	lo tanto, pertenece a $L_1$.\par\null
+	lo tanto, pertenece a $L_1$.\pn
 	
-	Ahora, sean $S$ y $U$ dos tiempos de paro acotados.\par\null
+	Ahora, sean $S$ y $U$ dos tiempos de paro acotados.\pn
 	
-	Por [\ref{problema1_4:inciso1}] sabemos que $S \wedge T$ y $S \wedge U$ también son tiempos de paro.\par\null
+	Por [\ref{problema1_4:inciso1}] sabemos que $S \wedge T$ y $S \wedge U$ también son tiempos de paro.\pn
 	
-	Además por ser $S$ y $U$ acotados, $S \wedge T$ y $S \wedge U$ son acotados también.\par\null
+	Además por ser $S$ y $U$ acotados, $S \wedge T$ y $S \wedge U$ son acotados también.\pn
 
 	Sabiendo que $M$ es martingala, con el teorema del muestreo opcional de Doob, podemos notar que
 	
 	\begin{align}
 		\E(M_S^T) 	&=	\E(M_{S \wedge T}) \\
 					&= \E(M_0)
-	\end{align}\par\null
+	\end{align}\pn
 	
 	y
 	
 	\begin{align}
 		\E(M_U^T) 	&=	\E(M_{U \wedge T}) \\
 					&= \E(M_0).
-	\end{align}\par\null
+	\end{align}\pn
 	
 	Por lo tanto, para cualesquiera dos tiempo de paro acotados $S$ y $U$ tenemos que $\E(M_S^T) = \E(M_U^T)$.
 	Entonces, por lo visto en [\ref{problema1_4:inciso5}], $M^T$ es una martingala con respecto de la filtración
-	$(F_n)_{n \in \N}$.\par\null
+	$(F_n)_{n \in \N}$.\pn
 	
 	Para probar que $M_T$ es una martingala con respecto a $(\F_{T \wedge n})_{n \in \N}$, primero notemos que
-	$(\F_{T \wedge n})_{n \in \N}$ es efectivamente una filtración.\par\null
+	$(\F_{T \wedge n})_{n \in \N}$ es efectivamente una filtración.\pn
 	
-	Dado $n \in \N$, gracias a [\ref{problema1_4:inciso2}], tenemos que $\F_{T \wedge n}$ es una $\sigma$-álgebra.\par\null
+	Dado $n \in \N$, gracias a [\ref{problema1_4:inciso2}], tenemos que $\F_{T \wedge n}$ es una $\sigma$-álgebra.\pn
 
 	Además tenemos que $T \wedge n \leq T \wedge (n+1)$. El resultado de [\ref{problema1_4:inciso4}] implica que 
-	$\F_{T \wedge n} \subset \F_{T \wedge (n+1)}$ y por lo tanto $(\F_{T \wedge n})_{n \in \N}$ sí es una filtración.\par\null
+	$\F_{T \wedge n} \subset \F_{T \wedge (n+1)}$ y por lo tanto $(\F_{T \wedge n})_{n \in \N}$ sí es una filtración.\pn
 	
-	Ahora veamos que $M^T$ es adaptado a la filtración $(\F_{T \wedge n})_{n \in \N}$.\par\null
+	Ahora veamos que $M^T$ es adaptado a la filtración $(\F_{T \wedge n})_{n \in \N}$.\pn
 
 	Dado $n \in \N$ como $T \wedge n$ es acotado, por [\ref{problema1_4:inciso3}] $M_n^T = M_{T \wedge n}$ es $\F_{T \wedge n}$-medible.
-	Y con esto tenemos que $M^T$ sí es adaptado a la filtración $(\F_{T \wedge n})_{n \in \N}$.\par\null
+	Y con esto tenemos que $M^T$ sí es adaptado a la filtración $(\F_{T \wedge n})_{n \in \N}$.\pn
 	
-	Ya sabíamos que $M_n^T$ pertenecía a $L_1$.\par\null
+	Ya sabíamos que $M_n^T$ pertenecía a $L_1$.\pn
 	
 	Gracias [\ref{problema1_4:inciso5}] y a la primera parte que se demostró en este ejercicio, se sigue que $M_T$ también es
 	martingala con respecto a la filtración $(\F_{T \wedge n})_{n \in \N}$.

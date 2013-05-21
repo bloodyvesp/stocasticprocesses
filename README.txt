@@ -20,7 +20,7 @@ En tareas.tex hay que cambiar la linea que dice:
 	\input{definiciones/ornamentos.tex}
 por la linea:
 	%\input{definiciones/ornamentos.tex}
-(Esta linea debería ser la número 33).
+(Esta linea debería ser la número 40).
 
 Si esto último no funciona, entonces también cambie la linea que dice
     \RequirePackage{pgfornament,tkzexample,tikzrput}  

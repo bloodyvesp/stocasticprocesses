@@ -4,7 +4,7 @@
 	martingala. Sugerencia: considere tiempos de paro de la forma $n\indi{A}+(n+1)\indi{A^c}$ con $A\in\F_n$.
 }
 
-\afterstatement\par\null
+\afterstatement\pn
 
 	Ya tenemos dos de las hipótesis necesarias para demostrar que algo es martingala.
     \begin{enumerate}
@@ -13,16 +13,16 @@
 
         \item 
             $X_n \in L_1$ para toda $n \in \N$. 
-    \end{enumerate}\par\null
+    \end{enumerate}\pn
 
 
-	Sólo falta demostrar que $\espc{X_{n+1}}{\F_n} = X_n$ para toda $n \in \N$.\par\null
+	Sólo falta demostrar que $\espc{X_{n+1}}{\F_n} = X_n$ para toda $n \in \N$.\pn
 
     Es decir, dada una $n \in \N$, queremos demostar que para todo $A \in \F_n$,
-    ocurre que $\E(X_{n+1} \cdot \indic_{A}) = \E(X_{n} \cdot \indic_{A})$.\par\null
+    ocurre que $\E(X_{n+1} \cdot \indic_{A}) = \E(X_{n} \cdot \indic_{A})$.\pn
 
     Sean entonces $n \in \N$ y $A \in \F_n$. Definimos $T_{A,n} = n\cdot\indic_{A} + (n+1) \cdot \indic_{A^c}$. 
-    Veamos que $T_{A, n}$ es tiempo de paro.\par\null
+    Veamos que $T_{A, n}$ es tiempo de paro.\pn
 
 	Sea $k \in \N$.
 
@@ -49,9 +49,9 @@
             \begin{align}
                 \{T_{A, n} = k\} 	&= \emptyset \in \F_k.
             \end{align}
-    \end{itemize}\par\null
+    \end{itemize}\pn
 
-	Entonces, $\{ T_{A,n} = k\} \in \F_k$ para toda $k \in \N$ y por lo tanto $T_{A,n}$ es tiempo de paro.\par\null
+	Entonces, $\{ T_{A,n} = k\} \in \F_k$ para toda $k \in \N$ y por lo tanto $T_{A,n}$ es tiempo de paro.\pn
 
     Ahora notemos lo siguiente
     
@@ -59,18 +59,18 @@
     	X_{T_{A,n}} 	&=		\sum_{i \in \N} X_i \cdot  \indic_{\{T=i\}}						\\
     					&=		X_n \cdot  \indic_{\{T=n\}} + X_{n+1} \cdot  \indic_{\{T=n+1\}}	\\
     					&=		X_n \cdot  \indic_{A} + X_{n+1} \cdot  \indic_{A^c}.
-    \end{align}\par\null
+    \end{align}\pn
     
     Eso quiere decir que
     
     \begin{align}
     	\E(X_{T_{A,n}}) 	&=	\E(X_n \cdot  \indic_{A} + X_{n+1} \cdot  \indic_{A^c})		\\
 							&=	\E(X_n \cdot  \indic_{A}) + \E(X_{n+1} \cdot  \indic_{A^c}).
-    \end{align}\par\null
+    \end{align}\pn
     
     Ahora tomemos la función constante $S_n = n+1$. Por ser constante \\
     $\{S_n = k\} \in \{ \Omega, \emptyset\} \subset \F_k$ para toda $k \in \N$
-    y por lo tanto $S_n$ es tiempo de paro.\par\null
+    y por lo tanto $S_n$ es tiempo de paro.\pn
     
     Notemos entonces que
     
@@ -82,19 +82,19 @@
     
     Dado que tanto $T_{a,n}$ como $S_n$ son variables que toman una cantidad finita de valores y por lo tanto son acotadas, 
     nuestra hipótesis dice que \\
-    $\E(X_{S_n}) = \E(X_{T_{A,n}})$.\par\null
+    $\E(X_{S_n}) = \E(X_{T_{A,n}})$.\pn
     
     Entonces
     
     \begin{align}
 		\E(X_{n+1} \cdot \indic_A) +\E( X_{n+1} \cdot \indic_{A^c}) &=  \E(X_n \cdot  \indic_{A}) + \E(X_{n+1} \cdot  \indic_{A^c}).
-    \end{align}\par\null
+    \end{align}\pn
     
     De donde
     
     \begin{align}
 			\E(X_{n+1} \cdot \indic_A) &=	\E(X_n \cdot  \indic_{A}).
-    \end{align}\par\null
+    \end{align}\pn
     
     Como esto lo hicimos para $n \in \N$ y $A \in \F_n$ arbitrarios, con esto terminamos la demostración de que $(X_n)_{n \in \N}$ es
     martingala.

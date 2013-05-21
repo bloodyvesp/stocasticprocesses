@@ -24,25 +24,25 @@
 			De donde, podemos escribir:
 			\begin{align}\label{problema1_3:descomposicion_de_M_n}
 				M_n = \sum_{k=1}^{n} (X_k \cdot \indic_{T_1 \geq k}).
-			\end{align}\par\null							 		
+			\end{align}\pn							 		
 			
 			Recordemos que $X_k$ es $\F_n$-medible para toda $k \leq n $. Por ser
 			$T_1$ tiempo de paro, los conjuntos $A_k = \{T_1 = k\}$ y 
 			$B_k = \{T_1 \leq k\}$	son $F_k$ medibles y por lo tanto 
 			$A_k \cup B_k^c = \{ T_1 \geq k\}$ también lo es. De aquí que 
 			$\indic_{T_1 \geq k}$ es $\F_k$-medible y por lo tanto también $\F_n$-medible
-			para toda $n$ tal que $n \geq k$.\par\null
+			para toda $n$ tal que $n \geq k$.\pn
 			  
 			Entonces $M_n$ es suma y productos de funciones $\F_n$-medibles y por lo tanto
-			$F_n$-medible. Que es lo que queríamos demostrar.\par\null
+			$F_n$-medible. Que es lo que queríamos demostrar.\pn
 			
 		\item
-			$M_n \in L_1$\par\null
+			$M_n \in L_1$\pn
 			
 			De \eqref{problema1_3:descomposicion_de_M_n} podemos ver que $M_n$ es 
-			suma finita de variables acotadas. Por lo tanto $M_n \in L_1$.\par\null
+			suma finita de variables acotadas. Por lo tanto $M_n \in L_1$.\pn
 			
-		\item Ahora probaremos que	$\E(M_{n+1} | \F_{n}) = M_{n}$\par\null
+		\item Ahora probaremos que	$\E(M_{n+1} | \F_{n}) = M_{n}$\pn
 			
 			Primero:
 			\begin{align}
@@ -58,12 +58,12 @@
 			\end{align}
 			
 			Entonces, nos basta probar que $\E(X_{n+1} \cdot \indic_{T_1 \geq n+1} |
-			 \F_{n}) = 0$ para terminar nuestra demostración.\par\null
+			 \F_{n}) = 0$ para terminar nuestra demostración.\pn
 			 
 			Sean $A = \{T_1 = n\}$ y $B = \{ T_1 \leq n\}$. Por ser $T_1$ tiempo de paro,
 			$A$ y $B$ son $\F_n$-medibles. Por lo tanto $B \setminus A$ también es $\F_n$-medible. 
 			Notemos que $\{T_1 \geq n+1\} = (B \setminus A)^c$. Por lo tanto $\{T_1 \geq n+1\}$ es
-			$\F_n$-medible. De donde  $\indic_{T_1 \geq n+1})$ es $\F_n$-medible.\par\null
+			$\F_n$-medible. De donde  $\indic_{T_1 \geq n+1})$ es $\F_n$-medible.\pn
 			
 			Con esto, ahora tenemos que:
 			\begin{align}
@@ -73,27 +73,27 @@
                                                                     &=  \indic_{T_1 \geq n+1} \cdot \E(X_{n+1} )                                \\
                                                                     &=  \indic_{T_1 \geq n+1} \cdot 0                                           \\
                                                                     &=  0
-			\end{align}\par\null
+			\end{align}\pn
 			
 			Como queríamos demostrar.
 	\end{itemize}
 	
-	Ahora que tenemos que $(M_n)_{n \in \N}$ es martingala, confirmemos que converge casi seguramente.\par\null
+	Ahora que tenemos que $(M_n)_{n \in \N}$ es martingala, confirmemos que converge casi seguramente.\pn
 	
-	Notemos que $(T_1 \wedge n)_{n \rightarrow \infty} \rightarrow T_1$ c.s.\par\null
+	Notemos que $(T_1 \wedge n)_{n \rightarrow \infty} \rightarrow T_1$ c.s.\pn
 	
-	De aquí que $(M_n)_{n \rightarrow \infty} = (S_{T_1 \wedge n})_{n \rightarrow \infty} = S_{T_1}$ c.s.\par\null				
+	De aquí que $(M_n)_{n \rightarrow \infty} = (S_{T_1 \wedge n})_{n \rightarrow \infty} = S_{T_1}$ c.s.\pn				
 	
-	Veamos que la convergencia no ocurre en $L_1$.\par\null
+	Veamos que la convergencia no ocurre en $L_1$.\pn
 				
 	Dado que $T_1 \wedge n$ es un tiempo de paro acotado para toda $n \in \N$,
 	podemos aplicar el Teorema de Muestreo Opcional de 	Doob. 
-	El cual nos dice que $\E(M_n) = \E(S_{T_1 \wedge n}) = \E(S_0) = 0$.\par\null
+	El cual nos dice que $\E(M_n) = \E(S_{T_1 \wedge n}) = \E(S_0) = 0$.\pn
 	
 	Por otro lado, por definición de $T_1$, $S_{T_1} = 1$ c.s.	De donde $\E(S_T) = 1$.
 	
 	\begin{align}
 		\E(M_n) = 0 \not\rightarrow 1 = \E(S_{T_1}).
-	\end{align}\par\null			
+	\end{align}\pn			
 	
 	Y con esto, queda demostrado que la convergencia no se da en $L_1$.	

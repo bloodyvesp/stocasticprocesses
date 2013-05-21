@@ -9,9 +9,17 @@
 \usepackage{color}\usepackage{mathtools}
 \definecolor{azul}{RGB}{20,40,140}
 \usepackage[colorlinks,linkcolor=azul, citecolor=azul,urlcolor=azul]{hyperref}
-\usepackage{attachfile}
 \usepackage{enumitem}
 \usepackage{courier}
+
+
+
+
+\usepackage{embedfile}
+
+
+
+
 \allowdisplaybreaks
 \setlength\parindent{0pt}
 
@@ -35,6 +43,10 @@
 \numberwithin{equation}{subsection}
 
 
+
+
+
+
 %\input{definiciones/ornamentos.tex}
 
 
@@ -46,6 +58,7 @@
     Universidad Nacional Autónoma de México\\
     Héctor Manuel Téllez Gómez
 }
+
 \normalfont
 \begin{document}
     \maketitle
@@ -72,8 +85,21 @@
     \part{Tarea 6}
         \input{tarea6/tarea6.tex}        
         \nqed
+    
+    \part*{Notas}\label{notas}
+        \embedfile{notas.pdf}
+        Se ha incluido una versión de las notas del curso como archivo adjunto en este pdf. No todos los lectores de pdf soportan archivos 
+        adjuntos o no se comportan como es esperado. Adobe Reader (versión para windows) no se comporta como es esperado, pero sí es capaz de accesar a los
+        archivos adjuntos.\pn
         
+        El motivo de adjuntar el archivo, es porque se han hecho algunas citas a dichas notas, si las notas cambian (lo cual es muy probable), 
+        es posible que las referencias dejen de ser correctas.\pn
+        
+        Si no es posible recompilar este documento gracias a la librería para manejar archivos adjuntos, comente las lineas $50$ y $80$ del archivo principal y 
+        vuelva a intentar. 
+    \newpage
+    
     \part*{Referencias}
-    \bibliography{GenBib}
-    \bibliographystyle{amsalpha}
+        \bibliography{GenBib}
+        \bibliographystyle{amsalpha}
 \end{document}

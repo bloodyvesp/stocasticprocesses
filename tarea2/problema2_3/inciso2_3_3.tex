@@ -8,16 +8,16 @@
     %Ser\'a que \sum_i\abs{x_i}=\infty casi seguramente si \sum_i\abs\esp{\xi_i}=\infty? 
 }
 
-\afterstatement\par\null
+\afterstatement\pn
 
-Sea $\F_n = \sigma( \xi_0, \xi_1, \dots, \xi_n)$.\par\null
+Sea $\F_n = \sigma( \xi_0, \xi_1, \dots, \xi_n)$.\pn
 
 
 Probemos ahora que $(S_n)_{n \in \N}$ es martingala con respecto de la \newline 
-filtración $(\F_n)_{n \in \N}$.\par\null
+filtración $(\F_n)_{n \in \N}$.\pn
 
 Por como se definió $\F_n$, $S_n$ es $\F_n$-medible. Por otra parte, $S_n$ es suma finita de variables en $L_1$ 
-(pues las $\xi_i$'s tienen esperanza finita).\par\null
+(pues las $\xi_i$'s tienen esperanza finita).\pn
 
 Ahora
 \begin{align}
@@ -27,9 +27,9 @@ Ahora
                         &=  \E(\xi_{n+1}) + S_n                                         \\
                         &\comment{Porque $\xi_{n+1}$ es independiente de$F_n$}        	\\
                         &=  0 + S_n.                                                    \\
-\end{align}\par\null
+\end{align}\pn
 
-Y con esto hemos demostrado que $S_n$ es martingala.\par\null
+Y con esto hemos demostrado que $S_n$ es martingala.\pn
 
 Ahora, como $\E(\xi_n) = 0$ para todo $n \in \N$, $\E(S_n) = 0$ para todo $n \in \N$.
 
@@ -43,16 +43,16 @@ Ahora, como $\E(\xi_n) = 0$ para todo $n \in \N$, $\E(S_n) = 0$ para todo $n \in
 Ahora $\| S_n \|_2 = \sqrt{\var{S_n}} = \sqrt{\sum_{i \leq n} \sigma_i^2}$. Recordemos que por ser  $\sqrt{\cdot}$
 función continua, manda sucesiones convergentes en suceciones convergentes. Como 
 $\lim\limits_{n \rightarrow \infty} \sum\limits_{i < n} \sigma_i^2 < \infty$, 
-entonces $\lim\limits_{n \rightarrow \infty}\| S_n \|_2 < \infty$.\par\null
+entonces $\lim\limits_{n \rightarrow \infty}\| S_n \|_2 < \infty$.\pn
 
-En particular, $\sup\limits_n \| S_n \|_2 < \infty$.\par\null
+En particular, $\sup\limits_n \| S_n \|_2 < \infty$.\pn
 
 El teorema de convergencia en $L_p$ de Doob nos garantiza que $S_n$ converge casi seguramente y en $L_2$. Como queríamos
-hacer ver.\par\null
+hacer ver.\pn
 
 Definamos ahora $\xi_i$ con $\mw(\xi_i = \pm \frac{1}{i+1}) = \frac{1}{2}$.
 
-Dado que la serie $\sum_{n \geq 1} \frac{1}{n}$ es divergente. $S_n$ es absolutamente divergente casi seguramente.\par\null
+Dado que la serie $\sum_{n \geq 1} \frac{1}{n}$ es divergente. $S_n$ es absolutamente divergente casi seguramente.\pn
 
 Ahora, $\E(\xi_i) = \frac{1}{2(i+1)}-\frac{1}{2(i+1)} = 0$ y $\var(\xi_i) = \frac{1}{(i+1)^2}$. Entonces, por lo dicho en la primera
 parte de este ejercicio, $S_n$ converge casi seguramente y en $L_2$. Es decir que la serie $S_n$ converge condicinalmente casi seguramente.

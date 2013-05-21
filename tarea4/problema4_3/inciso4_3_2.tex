@@ -6,3 +6,18 @@
 	donde $p\in [0,1]$. D\'e una condici\'on necesaria y suficiente para que $\paren{\abs{S_n},n\in\na}$ 
 	sea una cadena de Markov.
 }
+
+Tenemos que $\abs{S_{n - 1} - S_n} = 1$ con probabilidad $1$. Esto significa, los saltos del proceso siempre son
+de tamaño $1$. Esto significa que, la paridad de un estado al siguiente siempre cambia con probabilidad $1$. En
+otras palabras, la paridad se preserva después de una cantidad par de pasos.\pn
+
+Es decir que si $r_1, r_2 \in \Z$ entonces:
+\begin{align}
+        \mw(S_{2n + n_0} = r_2 | S_{n_0} = r_1 ) =
+                                                    \begin{cases}
+                                                        1,  \text{si $2$ divide a $r_1 - r_2$} \\
+                                                        0,  \text{si $2$ no divide a $r_1 - r_2$} 
+                                                    \end{cases}
+\end{align}
+
+La paridad se preserva bajo valor absoluto, así que lo mismo ocurre en el caso de $\abs{S_n}$

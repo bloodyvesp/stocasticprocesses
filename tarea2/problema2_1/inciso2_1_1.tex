@@ -24,19 +24,19 @@
 
     \begin{align}
         e^x > 0 \;\; \forall x \in \R.
-    \end{align}\par\null
+    \end{align}\pn
 
     por lo tanto
 
     \begin{align}
         e^{-\lambda X_1} > 0
-    \end{align}\par\null
+    \end{align}\pn
 
     y entonces
 
     \begin{align}
         \E(e^{-\lambda X_1}) >\E(0) = 0
-    \end{align}\par\null
+    \end{align}\pn
 
     Falta ver que $\E(e^{-\lambda X_1})$ está acotada. Recordemos que $e^x$ es creciente y por lo tanto
 
@@ -46,31 +46,31 @@
         \lambda            &\geq     - \lambda X_1            & \Rightarrow\\
         e^{\lambda}        &\geq     e^{- \lambda X_1}        & \Rightarrow\\
         \E(e^{\lambda})    &\geq     \E(e^{- \lambda X_1})
-    \end{align}\par\null
+    \end{align}\pn
     
     Pero $\E(e^{\lambda}) = e^{\lambda}$. De donde
     
     \begin{align}
         e^{\lambda} \geq  \E(e^{- \lambda X_1})
-    \end{align}\par\null    
+    \end{align}\pn    
     
-    Entonces $0 < \E(e^{-\lambda X_1}) < \infty$, y con esto queda demostrado \eqref{problema2_1:parte1}.\par\null
+    Entonces $0 < \E(e^{-\lambda X_1}) < \infty$, y con esto queda demostrado \eqref{problema2_1:parte1}.\pn
     
     Probemos ahora que $(M_n)_{n \in \N}$ es martingala.
     
     \begin{itemize}
         \item 
-            Veamos que $M_n$ es $\F_n$-medible.\par\null
+            Veamos que $M_n$ es $\F_n$-medible.\pn
             
             Para esto, recordemos que si $\G$ es una $\sigma$-algebra, $f$ es $\G$-medible y $g$ es continua
-            con la topología usual de $\R$ entonces $g \circ f$ es $\G$-medible.\par\null
+            con la topología usual de $\R$ entonces $g \circ f$ es $\G$-medible.\pn
             
             $S_n$ es $\F_n$-medible. Multiplicar por constantes es función continua. Dividir entre constantes 
             es función continua. La función exponencial es continua. Y por lo tanto $M_n=e^{-\lambda S_n}g(\lambda)^{-n}$ 
-            es composición de funciones continuas con $S_n$. De donde $M_n$ es $F_n$-medible.\par\null
+            es composición de funciones continuas con $S_n$. De donde $M_n$ es $F_n$-medible.\pn
          
         \item 
-            Ahora veamos que $M_n \in L_1$.\par\null
+            Ahora veamos que $M_n \in L_1$.\pn
             
             De la misma demostración que dimos para probar la primera parte, se sigue 
             que $0 < e^{-\lambda X_n} < \infty$ y que $e^{-\lambda X_n} \in \N$ para toda $n \in \N$. Por lo tanto
@@ -78,12 +78,12 @@
             \begin{align}
                 M_n         &=      e^{-\lambda S_n}g(\lambda)^{-n} \\
                             &=      \prod_{1 \leq i \leq n} e^{-\lambda X_i} g(\lambda)^{-n}. 
-            \end{align}\par\null
+            \end{align}\pn
             
-            Entonces, $M_n$ es producto finito de funciones en $L_1$, de donde tenemos que $M_n \in L_1$.\par\null
+            Entonces, $M_n$ es producto finito de funciones en $L_1$, de donde tenemos que $M_n \in L_1$.\pn
             
          \item
-            Únicamente falta demostrar que $\E(M_{n+1} | \F_n) = M_n$.\par\null
+            Únicamente falta demostrar que $\E(M_{n+1} | \F_n) = M_n$.\pn
             
             \begin{align}
                 \E(M_{n+1} | \F_n)      &=      \E(e^{-\lambda S_{n+1}}g(\lambda)^{-(n+1)}|\F_n)                                        \\
@@ -102,7 +102,7 @@
                                         &=      g(\lambda)^{-(n+1)} e^{-\lambda S_{n}} g(\lambda)                                       \\
                                         &=      g(\lambda)^{-(n)} e^{-\lambda S_{n}}                                                    \\
                                         &=      M_n.
-            \end{align}\par\null
+            \end{align}\pn
     \end{itemize}
     
     Y con esto terminamos de demostrar que $(M_n)_{n \in \N}$ es martingala.

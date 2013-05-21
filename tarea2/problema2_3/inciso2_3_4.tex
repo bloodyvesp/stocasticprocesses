@@ -6,7 +6,7 @@
     \end{align}
 }
 
-\afterstatement\par\null
+\afterstatement\pn
 
 Descompongamos $\sum_{i \leq n} \E((X_i - X_{i-1}) (Y_i - Y_{i-1}))$
 
@@ -20,12 +20,12 @@ Descompongamos $\sum_{i \leq n} \E((X_i - X_{i-1}) (Y_i - Y_{i-1}))$
     &=  \sum_{1 \leq i \leq n} \E(X_i Y_i) - \E(Y_{i-1} X_{i-1}) - \E(X_{i-1} Y_{i-1}) + \E(X_{i-1} Y_{i-1})                            \\
     &\comment{Esto último gracias a que $X,Y$ son martingalas}                                                                          \\
     &=  \sum_{1 \leq i \leq n} \E(X_i Y_i) - \E(Y_{i-1} X_{i-1})                                                                        
-\end{align}\par\null
+\end{align}\pn
 
 En esta última suma podemos notar que se trata de una telescópica, y por lo tanto
 
 \begin{align}
     \sum_{1 \leq i \leq n} \E((X_i - X_{i-1}) (Y_i - Y_{i-1})) &=  \E(X_n Y_n) - \E(Y_{0} X_{0}).
-\end{align}\par\null
+\end{align}\pn
 
 Que es precisamente lo que buscábamos demostrar.
