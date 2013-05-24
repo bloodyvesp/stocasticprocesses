@@ -50,7 +50,7 @@ Con todo esto, ahora podemos calcular la densidad condicional $f_{T_1 | T_2}$.
     f_{T_1 | T_2}(u | v)    &=     \frac{f_{T_1 , T_2}(u, v)}{ f_{T_2}(v)}                                                                      \\
                             &=     \frac{\lambda^2 e^{-\lambda (v)} \indic_{\{ v > u > 0 \}}}{ \lambda^2 v e^{-\lambda v} \indic_{v \geq 0}}    \\
                             &=     \frac{ \indic_{\{ v > u > 0 \}}}{ v  \indic_{v \geq 0}}                                                      \\
-                            &=     \frac{ \indic_{\{ v > u > 0 \}}}{v}                                                      
-\end{align}
+                            &=     \frac{ \indic_{\{ v > u > 0 \}}}{v}.                                                      
+\end{align}\pn
 
 Y esto no es otra cosa que la distribución uniforme sobre $[0, v]$, es decir, la distribución uniforme sobre $[0, T_2]$.
