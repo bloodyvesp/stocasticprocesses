@@ -14,11 +14,11 @@ NormalPos.top=32
 NormalPos.right=1890
 NormalPos.bottom=904
 Class=LaTeXView
-Document=tarea4\problema4_4\inciso4_4_2.tex
+Document=tarea4\problema4_4\inciso4_4_1.tex
 
 [Frame0_View0,0]
-TopLine=2
-Cursor=2207
+TopLine=69
+Cursor=5618
 
 [Frame1]
 Flags=0
@@ -50,11 +50,11 @@ NormalPos.top=32
 NormalPos.right=1890
 NormalPos.bottom=904
 Class=LaTeXView
-Document=tarea4\problema4_4\inciso4_4_1.tex
+Document=tarea4\problema4_4\inciso4_4_2.tex
 
 [Frame2_View0,0]
-TopLine=69
-Cursor=5749
+TopLine=2
+Cursor=264
 
 [Frame3]
 Flags=0

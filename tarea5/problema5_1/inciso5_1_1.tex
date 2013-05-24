@@ -1,3 +1,56 @@
 \emph{
 	Pruebe que condicionalmente a $T_2$, $T_1$ es uniforme en $[0,T_2]$.
 }
+
+\afterstatement\pn
+
+Por definición de proceso Poisson de parámetro $\lambda$, la distribución de los saltos $S_n$ es
+exponencial de parámetro $\lambda$. Como $T_1 = S_1$ y $T_2 = S_1 + S_2$, entonces
+$T_1  = S_1 \sim exp(\lambda) $ y  $T_2 - T_1 = S_2 \sim exp(\lambda)$.\pn
+
+También por definición de proceso de Poisson, los saltos son independientes y por lo tanto
+$T_1$ y $T_2 - T_1$ son independientes.\pn
+
+Podemos dar su distribución conjunta como sigue:
+\begin{align}
+    f_{T_1, T_2 - T_1}(u, v)    &=  (\lambda e^{-\lambda u}) (\lambda e^{-\lambda v}) \indic_{\{ u > 0, v > 0 \}}   \\
+                                &=  \lambda^2 e^{-\lambda (u + v)} \indic_{\{ u > 0, v > 0 \}}.
+\end{align}
+
+Hacemos el cambio de variable dado por la transformación lineal $l : (u, v-u) \longrightarrow (u, v)$.
+La matriz asociada a esta transformación lineal tiene la forma
+
+\[
+    \left(
+            \begin{array}{cc}
+                    1   &   1   \\
+                    0   &   1   \end{array}
+    \right)
+\]
+
+cuyo determinante es $(1 \cdot 1) - (1 \cdot 0) = 1$ y por lo tanto tiene inversa (es fácil comprobar que $l^{-1}(u,v) = (u, v - u)$). 
+Entonces, podemos escribir
+
+\begin{align}
+    f_{T_1, T_2}(u, v)      &=    f_{T_1, T_2 - T_1}(l^{-1}(u, v))                                      \\
+                            &=    f_{T_1, T_2 - T_1}(u, v - u)                                          \\
+                            &=    \lambda^2 e^{-\lambda (u + v - u)} \indic_{\{ u > 0, v - u > 0 \}}.     \\
+                            &=    \lambda^2 e^{-\lambda (v)} \indic_{\{ v > u > 0 \}}.                    
+\end{align}\pn
+
+Ahora, $T_2 = (T_1) + (T_2 - T_1)$, de donde $T_2 \sim gamma(2, \lambda)$ y por lo tanto su función de densidad esta dada por
+
+\begin{align}
+    f_{T_2}(v) = \lambda^2 v e^{-\lambda v} \indic_{v \geq 0}.
+\end{align}
+
+Con todo esto, ahora podemos calcular la densidad condicional $f_{T_1 | T_2}$.
+
+\begin{align}
+    f_{T_1 | T_2}(u | v)    &=     \frac{f_{T_1 , T_2}(u, v)}{ f_{T_2}(v)}                                                                      \\
+                            &=     \frac{\lambda^2 e^{-\lambda (v)} \indic_{\{ v > u > 0 \}}}{ \lambda^2 v e^{-\lambda v} \indic_{v \geq 0}}    \\
+                            &=     \frac{ \indic_{\{ v > u > 0 \}}}{ v  \indic_{v \geq 0}}                                                      \\
+                            &=     \frac{ \indic_{\{ v > u > 0 \}}}{v}                                                      
+\end{align}
+
+Y esto no es otra cosa que la distribución uniforme sobre $[0, v]$, es decir, la distribución uniforme sobre $[0, T_2]$.
