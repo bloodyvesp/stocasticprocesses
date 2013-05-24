@@ -1,69 +1,79 @@
 \emph
 {
 	Sea $T_1=\min\set{n\geq 0:S_n=1}$. Explique por qu\'e $T_1$ es un 
-	tiempo de paro y calcule su esperanza.\\
+	tiempo de paro y calcule su esperanza.
 }
 
-	Consideremos a la filtración $(\F_n)_{n\in\N}$ como la filtracion 
-	generada por $X_1, X_2, \dots$.\\
+\afterstatement\pn
 
-	Es decir, $F_0 = \{\emptyset, \Omega\}$, $\F_n = \sigma(X_1, X_2, \dots, X_n)$\\
+	Consideremos a la filtración $(\F_n)_{n\in\N}$ como la filtración 
+	generada por $X_1, X_2, \dots$.\pn
+
+	Es decir, $F_0 = \{\emptyset, \Omega\}$, $\F_n = \sigma(X_1, X_2, \dots, X_n)$\pn
 
 	Nótese que $S_0$ es medible bajo cualquier sigma álgebra por ser constante, en particular bajo
-	$\F_0$.\\
+	$\F_0$.\pn
 
 	Basta demostrar que $(T_1 = n) \in \F_n$ para ver que $T_1$ es tiempo de paro. $T_1$ 
 	representa el primer tiempo en que la suma es igual a $1$. Es decir, para cualquier 
-	momento anterior, la suma no es $1$.
+	momento anterior, la suma no es $1$.\pn
 
 	Eso escrito en símbolos significa:
 
-	$$(T_1 = n) = \bigcap_{i=0}^{n-1}(S_i \not= 1) \cup (S_n = 1).$$ 
+    \begin{align}
+        (T_1 = n) = \bigcap_{i=0}^{n-1}(S_i \not= 1) \cup (S_n = 1).
+    \end{align}\pn
 
-	Para $n=0$, $(S_0 = 1) = \omega \in \F_0$. \\
+	Para $n=0$, $(S_0 = 1) = \omega \in \F_0$.\pn
 
 	Como $(S_i \not= 1) \in \F_j$ siempre que $i \leq j$. Para $n>0$, $(T_1 = n)$ es el resultado de 
-	unir e intersectar conjuntos $\F_n$-medibles, lo cual resulta $\F_n$-medible.\\
+	unir e intersectar conjuntos $\F_n$-medibles, lo cual resulta $\F_n$-medible.\pn
 
 	Para $m \in \N$. Definamos $T_m = min\{n \geq 0 : S_n = m\}$ 
-	(Nótese que para el caso $m=1$, esta definición	coincide con la definición previa de $T_1$).\\
+	(Nótese que para el caso $m=1$, esta definición	coincide con la definición previa de $T_1$).\pn
 	
 	Para $a,b \in \N$, podemos definir el tiempo de paro $T_{a,b} = T_{-a} \wedge T_b$, y 
 	corresponde al 	tiempo de paro del problema de la ruina. Para este tiempo de paro ya conocemos 
 	la esperanza y es
-	$$\E(T_{a,b}) = ab.$$\\
 	
-	Ahora, definamos la sucesion de variables aleatorias $T_{1,1}, T_{2,1}, T_{3,1}, \dots, T_{n,1}, 
-	\dots$. Notemos que si $a>a' \in N$ entonces $T_{-a} > T_{-a'}$, pues $T_{-a}$ es la primera vez
+    \begin{align}
+        \E(T_{a,b}) = ab.
+    \end{align}\pn
+	
+	Ahora, tomemos la sucesion de variables aleatorias
+    
+    \begin{align}
+        T_{1,1}, T_{2,1}, T_{3,1}, \dots, T_{n,1},\dots
+    \end{align}\pn 
+    
+    Notemos que si $a>a' \in N$ entonces $T_{-a} > T_{-a'}$, pues $T_{-a}$ es la primera vez
 	que se llega a $-a$, y para poder alcanzar $-a$ era necesario haber pasado por $-a'$.
-	De aqui tenemos que si $a>a'$, entonces $T_{a,1} \geq T_{a',1}$. De donde nuestra suceción es 
-	no decreciente.\\
+	De aqui tenemos que si $a>a'$, entonces $T_{a,1} \geq T_{a',1}$. De donde nuestra sucesión es 
+	no decreciente.\pn
 	
 	Por otro lado, que si $a>a' \in N$ entonces $T_{-a} > T_{-a'}$ implica que $T_{-n} n \in \N$ es 
-	una suceción extrictamente creciente y por lo tanto 
+	una sucesión extrictamente creciente y por lo tanto 
 	$\lim\limits_{n \rightarrow \infty} T_{-n} = \infty$, con esto tenemos que el límite de nuestra 
-	suceción es 
-	$$		
-	\lim_{n\rightarrow\infty} T_{n,1} = 
-	\lim_{n\rightarrow\infty} T_{-n} \wedge T_1 = 
-	\infty \wedge T_1 = 
-	T_1
-	$$
+	sucesión es 
+	
+    \begin{align}		
+        \lim_{n\rightarrow\infty} T_{n,1}   &=  \lim_{n\rightarrow\infty} T_{-n} \wedge T_1 \\
+                                            &=  \infty \wedge T_1                           \\
+                                            &=  T_1
+	\end{align}\pn
 
-	Tenemos todos los ingredientes para usar Teorema de convergencia monótona sobre nuestra suceción
-	y la variable $T_1$. Nuestra sucecion es monótona y converge puntualmente a $T_1$. Utilizando
+	Tenemos todos los ingredientes para usar Teorema de convergencia monótona sobre nuestra sucesión
+	y la variable $T_1$. Nuestra sucesion es monótona y converge puntualmente a $T_1$. Utilizando
 	dicho teorema obtenemos:
 	
-	$$
-	\E(T_1) = 
-	\E(\lim_{n\rightarrow\infty} T_{n,1}) = 
-	\lim_{n\rightarrow\infty} \E(T_{n,1}) = 
-	\lim_{n\rightarrow\infty} n\cdot 1 =
-	\infty.
-	$$
+	\begin{align}
+        \E(T_1)     &=  \E(\lim_{n\rightarrow\infty} T_{n,1})       \\
+                    &=  \lim_{n\rightarrow\infty} \E(T_{n,1})       \\
+                    &=  \lim_{n\rightarrow\infty} n\cdot 1          \\
+                    &=  \infty.
+	\end{align}\pn
 	
 	Lo cual era intuitivo. Si $\E(T_1)$ fuese finito, diría que existe un número de volados donde
 	uno puede apostar con mucha certeza que ganará un peso después de jugar "cerca" de esa cantidad
 	de volados. Intuitivamente, esto vuelve injusto un juego de volados donde la moneda es
-	justa.\\
-	
+	justa.	

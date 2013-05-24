@@ -1,0 +1,32 @@
+Desigualdad de Azema-Hoeffding, tomado de \par
+\cite[E14.2, p.237]{MR1155402}\pn
+
+\begin{enumerate}
+    \item[(v.i)]    [\ref{problema2_3:subinciso5_1}]
+         Muestre que si $Y$ es una variable aleatoria con valores en $[-c,c]$ y media cero entonces, para $\theta\in\re$
+        
+        \begin{align}
+            \esp{e^{\theta Y}} \leq \cosh(\theta c)\leq e^{(\frac{1}{2}\theta^2c^2)}. 
+        \end{align}\pn
+
+    \item[(v.ii)]    [\ref{problema2_3:subinciso5_2}]
+        Pruebe que si $M$ es una martingala nula en cero tal que para algunas constantes $\paren{c_n,n\in\na}$ se tiene que
+        
+        \begin{align}
+            \abs{M_n-M_{n-1}}\leq c_n\quad\forall n
+        \end{align}
+        
+        entonces, para $x>0$
+        
+        \begin{align}
+            \proba{\max_{k\leq n} M_k\geq x}\leq \imf{\exp}{\frac{x^2}{2\sum_{k=1}^n c_k^2}}.
+        \end{align}
+\end{enumerate}
+    
+\subsubsection{Subinciso (v.i)}     \label{problema2_3:subinciso5_1}
+    \input{tarea2/problema2_3/subinciso2_3_5_1.tex}
+    \newpage
+    
+\subsubsection{Subinciso (v.ii)}    \label{problema2_3:subinciso5_2} 
+    \input{tarea2/problema2_3/subinciso2_3_5_2.tex}
+

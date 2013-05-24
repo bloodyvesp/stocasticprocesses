@@ -1,0 +1,97 @@
+\emph{
+		Pruebe que $\F_1$ y $\F_2$ son condicionalmente independientes dada $\G$ 
+		(denotado $\condind{\F_1}{\F_2}{\G}$) si y s\'olo si para 
+		cualquier $H$ que sea $\F_1$-medible y acotada se tiene que
+		\begin{esn}
+			\espc{H}{\F_2,\G}=\espc{H}{\G}.
+		\end{esn}
+}
+
+\afterstatement\pn
+
+Supongamos que $\condind{\F_1}{\F_2}{\G}$ y, sea $H$ una función $\F_1$-medible y acotada.\pn
+
+Sea $P = \{ G \cap F : G \in \G, F \in \F_2 \}$. Es claro ver que este conjunto no es vacío (el total pertenece a él) y
+es fácil notar que es cerrado bajo intersecciones finitas. En otras palabras $P$ es un $\pi$-sistema. Nótese que
+$\G, \F_2 \subset P$ y que $\sigma(P) = \sigma(\G, \F_2)$. Esto será importante más adelante.\pn
+
+Sea ahora $D = \{ A \in \sigma(\G, \F_2) : \E(H \indic_A) = \E(\E(H | \G) \indic_A)  \}$. Veamos que $D$ así definido
+es un $\lambda$-sistema (o sistema de Dynkin).
+
+\begin{itemize}
+	\item 
+        Es claro que $\Omega \in D$.\pn
+
+    \item
+        Veamos que $D$ es cerrado bajo sucesiones crecientes.\pn
+
+        Sean $A_1, A_2, A_3, \dots \in D$ tales que $A_i \subset A_{i+1}$. Entonces
+
+        \begin{align}
+         \E\paren{H \indic_{\bigcup A_i}}   &=  \lim_{n \rightarrow \infty}    \E(H \indic_{A_n})             \\
+                                            &\comment{Gracias a que $H$ es acotada}                           \\
+                                            &=  \lim_{n \rightarrow \infty}    \E(\E( H | \G) \indic_{A_n})   \\
+                                            &=  \E\paren{\E( H | \G) \indic_{\bigcup A_i}}.
+        \end{align}
+
+        Es decir, $\bigcup A_i \in D$.\pn
+
+    \item
+        Sean $A, B \in D$ con $B \subset A$. Veamos ahora que $D$ es cerrado bajo diferencias de este tipo de conjuntos. 
+
+        \begin{align}
+                \E(H \indic_{(A \setminus B)}   &=  \E(H (\indic_A - \indic_B))                                                 \\
+                                                &\lcomment{Esta descomposición es válida gracias}                               \\
+                                                &\rcomment{a la contención de $B$ en $A$}                                      \\
+                                                &=  \E(H \indic_A) - \E(H \indic_B)                                             \\
+                                                &=  \E(\E(H | \G) \indic_A) - \E(\E(H | \G) \indic_B)                           \\
+                                                &\comment{Hipótesis de que $A, B \in D$}                                        \\
+                                                &=  \E(E(H | \G) \indic_{A \setminus B})
+        \end{align}
+
+        Es decir, $A \setminus B \in D$.\pn
+\end{itemize}
+
+Con esto queda demostrado que $D$ es un sistema de Dynkin. Si $P \subset D$ entonces el lema de clases de Dynkin asegura que
+$\sigma(\G, \F_2) = \sigma(P) \subset D$ y entonces habríamos terminado la demostración de la suficiencia.\pn
+
+Sea entonces $G \cap F \in P$ con $G \in \G$ y $F \in \F_2$. Entonces
+\begin{align}
+        \E(H \indic_{G \cap F})     &=  \E(H \indic_G \indic_F)                                     \\
+                                    &=  \E(\E(H \indic_G \indic_F) | \G)                            \\
+                                    &=  \E(\indic_G \E(H \indic_F \G))                              \\
+                                    &\comment{Gracias a que $\indic_G$ es $\G$-medible}             \\
+                                    &=  \E(\indic_G \E(H | \G) \E(\indic_F | \G))                   \\
+                                    &\lcomment{Hipótesis de que $F_1, F_2$ son}                     \\
+                                    &\rcomment{condicionalmente independientes dada $\G$}           \\
+                                    &=  \E\bigg(\E\big(\indic_G \E(H | \G) \indic_F | \G\big)\bigg) \\
+                                    &=  \E(\indic_G \E(H | \G) \indic_F)                            \\
+                                    &=  \E(\E(H | \G) \indic_G \indic_F)                            \\
+                                    &=  \E(\E(H | \G) \indic_{G \cap F}).
+\end{align}
+
+Con lo que queda demostrado que $G \cap F \in D$, es decir que $P \subset D$ y por lo tanto la suficiencia queda demostrada.\pn
+
+Demostremos ahora la necesidad. Sean $H_1, H_2$ funciones $\F_1, \F_2$-medibles (respectivamente) y acotadas. Nuestra hipótesis dice que
+\begin{align}
+    \E(H_1 | \G, \F_2) = \E(H_1 | \G) \label{problema4_1:hipotesis_necesidad_4_1_2}.   
+\end{align}\pn
+
+Sea entonces $A \in G$
+
+\begin{align}
+        \E(H_1 H_2 \indic_A)    &=  \E(\E(H_1 H_2 \indic_A | \sigma(\G, \F_2)))                                     \\
+                                &=  \E(H_2 \E(H_1 \indic_A | \sigma(\G, \F_2)))                                     \\
+                                &\comment{gracias a que $H_2$ es $\F_2$-medible}                                    \\
+                                &=  \E(H_2 \indic_A \E(H_1  | \sigma(\G, \F_2)))                                    \\
+                                &\comment{gracias a que $A \in \G$}                                                 \\
+                                &=  \E(H_2 \indic_A \E(H_1  | \G))                                                  \\
+                                &\comment{gracias a la hipótesis \eqref{problema4_1:hipotesis_necesidad_4_1_2}}     \\
+                                &=  \E(\E(H_2 \indic_A \E(H_1  | \G) | \G))                                         \\
+                                &=  \E(\indic_A \E(H_2  \E(H_1  | \G) | \G))                                        \\
+                                &=  \E(\indic_A \E(H_1  | \G) \E(H_2 | \G))                                         \\
+                                &\comment{porque $\E(H_1  | \G)$ es $\G$-medible}
+\end{align}
+
+Y con esto queda demostrado que cualquier versión de $\E(H_1  | \G) \E(H_2 | \G)$ es también una versión de $\E(H_1 H_2 | \G)$
+y entonces, $\F_1$ y $\F_2$ son condicionalmente independientes dada $\G$.

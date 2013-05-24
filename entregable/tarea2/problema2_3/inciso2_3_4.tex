@@ -1,0 +1,31 @@
+\emph{
+    Sean $X$ y $Y$ dos martingalas (respecto de la misma filtraci\'on) y tales que $\esp{X_i},\esp{Y_i}<\infty$ 
+    para toda $i$. Pruebe la siguiente f\'ormula de integraci\'on por partes: 
+    \begin{align}
+        \E{X_nY_n}-\E{X_0 Y_0}=\sum_{i=1}^n \E{\paren{X_i-X_{i-1}}\paren{Y_i-Y_{i-1}}}. 
+    \end{align}
+}
+
+\afterstatement\pn
+
+Descompongamos $\sum_{i \leq n} \E((X_i - X_{i-1}) (Y_i - Y_{i-1}))$
+
+\begin{align}
+    &\sum_{1 \leq i \leq n} \E((X_i - X_{i-1}) (Y_i - Y_{i-1}))                                                                         \\
+    &=  \sum_{1 \leq i \leq n} \E(X_i Y_i - X_i Y_{i-1} - X_{i-1} Y_i + X_{i-1} Y_{i-1})                                                \\
+    &=  \sum_{1 \leq i \leq n} \E(X_i Y_i) - \E(X_i Y_{i-1}) - \E(X_{i-1} Y_i) + \E(X_{i-1} Y_{i-1})                                    \\
+    &=  \sum_{1 \leq i \leq n} \E(X_i Y_i) - \E(\E(X_i Y_{i-1}) | \F_{i-1}) - \E(\E(X_{i-1} Y_i) | \F_{i-1}) + \E(X_{i-1} Y_{i-1})      \\
+    &=  \sum_{1 \leq i \leq n} \E(X_i Y_i) - \E(Y_{i-1} \E(X_i | \F_{i-1})) - \E(X_{i-1}\E(Y_i | \F_{i-1})) + \E(X_{i-1} Y_{i-1})       \\
+    &\comment{Esto último gracias a que $X_{i-1}, Y_{i-1}$ son $F_{i-1}$ medibles}                                                      \\
+    &=  \sum_{1 \leq i \leq n} \E(X_i Y_i) - \E(Y_{i-1} X_{i-1}) - \E(X_{i-1} Y_{i-1}) + \E(X_{i-1} Y_{i-1})                            \\
+    &\comment{Esto último gracias a que $X,Y$ son martingalas}                                                                          \\
+    &=  \sum_{1 \leq i \leq n} \E(X_i Y_i) - \E(Y_{i-1} X_{i-1})                                                                        
+\end{align}\pn
+
+En esta última suma podemos notar que se trata de una telescópica, y por lo tanto
+
+\begin{align}
+    \sum_{1 \leq i \leq n} \E((X_i - X_{i-1}) (Y_i - Y_{i-1})) &=  \E(X_n Y_n) - \E(Y_{0} X_{0}).
+\end{align}\pn
+
+Que es precisamente lo que buscábamos demostrar.

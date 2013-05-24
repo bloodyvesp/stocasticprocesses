@@ -1,0 +1,60 @@
+\emph{
+    Sea $\paren{X_n,n\geq 0}$ una sucesi\'on $\paren{\F_n}$-adaptada. Pruebe que
+    \begin{align}
+        \sum_{k=1}^n X_k-\espc{X_k}{\F_{k-1}}, \quad n\geq 0
+    \end{align}
+    es una $\paren{\F_n}$-martingala.
+}
+
+\afterstatement\pn
+
+Nombremos $M_n = \sum_{k=1}^n X_k-\espc{X_k}{\F_{k-1}}, n \in \N$.\pn
+
+\begin{itemize}
+	\item 
+        Veamos que $(M_n)_{n \in \N}$ es $(\F_n)_{n \in \N}$-adaptada.\pn
+    
+        $\sum_{k = 1}^n X_k$ es $\F_n$-medible por definición. $\E(X_k | \F_{k-1})$ es $\F_{k-1}$-medible por definición
+        de esperanza condicional. \pn
+        
+        Por lo tanto $\sum_{k = 1}^n \E(X_k | \F_{k-1})$ es $\F_{n-1}$-medible y por lo tanto
+        $\F_n$-medible. Entonces
+        
+        \begin{align}
+            \sum_{k = 1}^n X_k - \sum_{k = 1}^n \E(X_k | \F_{k-1}) &=  \sum_{k = 1}^n X_k - \E(X_k | \F_{k-1})    \\
+                                                                    &=  M_n   
+        \end{align}\pn
+    
+        Es suma finita de variables $\F_n$-medibles y por lo tanto $\F_n$-medible. Como queríamos ver.\pn
+        
+    \item
+        Veamos que $M_n \in L_1$.\pn
+        
+        Como no fue mencionado. Supondremos que $X_n \in L_1$. Si logramos demostrar que $\E(X_k | F_{k-1}) \in L_1$ habremos terminado.
+        Puesto que $M_n$ sería suma finita de variables aleatorias en $L_1$ y por lo tanto pertenecería a $L_1$.\pn
+        
+        \begin{align}
+            \E(\abs{\E(X_k | F_{k-1})})     &\leq   \E(\E(\abs{X_k} | F_{k-1})) \\
+                                            &=      \E(\abs{X_k}). 
+        \end{align}
+        
+        Donde $\E(\abs{X_k})$ es finita por supocisión.\pn
+        
+        Por lo tanto $\E(\abs{\E(X_k | F_{k-1})})$ también lo es, como queríamos demostrar.\pn
+
+
+    \item
+        Veamos por último que $\E(M_n | \F_{n-1}) = M_{n-1}$.
+        
+        \begin{align}
+            \E(M_n | \F_{n-1})  &=  \E\left(\sum_{k=1}^n X_k - \E(X_k | \F_{k-1}) | \F_{n-1}\right)                                     \\
+                                &=  \sum_{k=1}^n \E\left(X_k - \E(X_k | \F_{k-1}) | \F_{n-1}\right)                                     \\
+                                &=  \sum_{k=1}^n \E\left(X_k \bigg| \F_{n-1}\right) - \E\left(\E(X_k | \F_{k-1}) | \F_{n-1}\right)      \\
+                                &=  \sum_{k=1}^n \E\left(X_k \bigg| \F_{n-1}\right) - \E(X_k | \F_{k-1})                                \\        
+                                &=  \sum_{k=1}^{n-1} X_k  - \E(X_k | \F_{k-1}) + \E(X_n | \F_{n-1}) - \E(X_n | \F_{n-1})                \\
+                                &=  \sum_{k=1}^{n-1} X_k  - \E(X_k | \F_{k-1})                                                          \\
+                                &=  M_{n-1}.
+        \end{align}
+\end{itemize}
+
+Y con esto terminamos la demostración de que $(M_n)_{n \in \N}$ es martingala con respecto a la filtración $(F_n)_{n \in \N}$.\

@@ -1,0 +1,61 @@
+\emph
+{
+    Argumente que
+}
+
+\begin{align}
+    \mw(M_p\geq n)  &=  \mw(T_n\leq C_p)    \\
+                    &=\E((1-p)^{T_n})
+\end{align}\pn
+
+\emph
+{
+    para demostrar que $M_p$ tiene distribuci\'on geom\'etrica de par\'ametro $1-e^{-f(1-p)}$.
+}
+
+\afterstatement\pn
+
+    Recordemos que
+    
+    \begin{align}
+        M_p     &=  -\min_{n\leq C_p} S_n. 
+    \end{align}\pn
+    
+    Donde $C_p$ es una variable aleatoria con distribución geométrica de parámetro $p$.\pn
+    
+    Entonces 
+    
+    \begin{align}
+        \{ M_p \geq n\}     &=  \{ -\min_{k\leq C_p} S_k \geq n \}          \\
+                            &=  \{ \min_{k \leq C_p} S_k \leq -n \}         \\
+                            &=  \{ \min\{ k \in \N : S_k = -n \}\leq C_p \}   \\
+                            &=  \{ T_n \leq C_p \}.
+    \end{align}\pn
+    
+    De donde tenemos $\mw(M_p\geq n)=\mw(T_n\leq C_p)$.\pn
+    
+    Ahora descompongamos $\mw(T_n \leq C_p)$.
+    
+    \begin{align}
+        \mw(T_n \leq C_p)   &=  \sum_{i \in \N} \mw(T_n \leq C_p | T_n = i) \mw(T_n = i)        \\
+                            &=  \sum_{i \in \N} \mw(i \leq C_p) \mw(T_n = i)                    \\
+                            &=  \sum_{i \in \N} \sum_{j = i}^{\infty} \mw(C_p = j) \mw(T_n = i) \\
+                            &=  \sum_{i \in \N} \sum_{j = i}^{\infty} (1-p)^{k-1} p\mw(T_n = i) \\
+                            &=  \sum_{i \in \N} p\mw(T_n = i) \sum_{j = i}^{\infty} (1-p)^{k-1} \\                            
+                            &=  \sum_{i \in \N} p\mw(T_n = i) \frac{(1-p)^{i-1}}{p}             \\                            
+                            &=  \sum_{i \in \N} \mw(T_n = i) (1-p)^{i-1}                        \\                     
+                            &=  \E((1-p)^{T_n}).                                                            
+    \end{align}\pn
+    
+    Ahora calculemos $\mw(M_p = n)$.\pn
+    
+    \begin{align}
+        \mw(M_p = n)    &=  \mw(M_p \geq n) - \mw(M_p \geq n + 1)       \\
+                        &=  \mw(T_n \leq Cp)- \mw(T_{n+1} \leq n + 1)   \\
+                        &=  \E((1-p)^{T_n}) - \E((1-p)^{T_{n+1}})       \\
+                        &=  e^{-nf(1-p)}    - e^{-(n+1)f(1-p)}          \\
+                        &=  e^{-nf(1-p)} (1- e^{-f(1-p)})               \\
+                        &=  (e^{-f(1-p)})^n (1- e^{-f(1-p)}).           
+    \end{align}\pn
+    
+    De donde tenemos que $M_n$ tiene la distribución geométrica de parámetro $(1- e^{-f(1-p)})$.

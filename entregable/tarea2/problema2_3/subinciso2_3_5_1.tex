@@ -1,0 +1,101 @@
+\emph{
+     Muestre que si $Y$ es una variable aleatoria con valores en $[-c,c]$ y media cero entonces, para $\theta\in\re$
+    \begin{align}
+        \esp{e^{\theta Y}} \leq \cosh(\theta c)\leq e^{(\frac{1}{2}\theta^2c^2)}. 
+    \end{align}
+}
+
+\afterstatement\pn
+
+Notemos primero que la función $e^{\theta y}$ es convexa. Esto es fácil viendo que su segunda derivada es
+$\theta^2 e^{\theta y} \geq 0$.\pn
+
+Ahora
+\begin{align}
+    Y   &=  \frac{2cY}{2c}                              \\
+        &=  \frac{cY + cY}{2c}                          \\
+        &=  \frac{c^2 + cY - c^2+ cY}{2c}               \\
+        &=  \frac{c(c + Y) - c (c - Y)}{2c}             \\  
+        &=  c\frac{(c + Y)}{2c} - c \frac{(c - Y)}{2c}  
+\end{align}\pn
+
+De donde $\theta Y = c\theta \frac{(c + Y)}{2c} - c\theta \frac{(c - Y)}{2c}$.\pn
+
+Entonces
+\begin{align}
+    e^{\theta Y} = e^{\paren{c\theta \frac{(c + Y)}{2c} - c\theta \frac{(c - Y)}{2c}}}
+\end{align}\pn
+
+Ya que $\abs{Y} \leq c$ tenemos que $0 \leq c + Y \leq 2c$ y $0 \leq c - Y \leq 2c$. Y por lo tanto 
+$0 \leq \frac{c + Y}{2c} \leq 1$ y $0 \leq \frac{c - Y}{2c} \leq 1$. 
+Además $\frac{c + Y}{2c} + \frac{c - Y}{2c} = \frac{c + Y + c - Y }{2c} = 1$. Entonces podemos utilizar 
+la convexidad de $e^{\theta y}$ sobre los puntos $-c$ y $c$ para obtener lo siguiente
+
+\begin{align}
+    e^{\theta Y} \leq e^{c\theta} \frac{(c + Y)}{2c} + e^{-c\theta} \frac{(c - Y)}{2c}.
+\end{align}\pn
+
+Tomando esperanza en ambos lados obtenemos y recordando que $\cosh{x} = \frac{e^x + e^{-x}}{2}$
+
+\begin{align}
+    \E(e^{\theta Y})    &\leq   \E(e^{c\theta} \frac{(c + Y)}{2c} + e^{-c\theta} \frac{(c - Y)}{2c})            \\
+                        &=      e^{c\theta} \frac{(c + \E(Y))}{2c} + e^{-c\theta} \frac{(c - \E(Y))}{2c}        \\
+                        &=      e^{c\theta} \frac{c}{2c} + e^{-c\theta} \frac{c}{2c}                            \\
+                        &=      e^{c\theta} \frac{1}{2} + e^{-c\theta} \frac{1}{2}                              \\                       
+                        &=      \frac{e^{c\theta} + e^{-c\theta}}{2}                                            \\
+                        &=      \cosh(c \theta).
+\end{align}\pn
+
+Con lo que terminamos de demostrar la primera desigualdad.\pn
+
+Para la segunda desigualdad recordemos que la expansión en serie de Taylor de $e^x$ es
+
+\begin{align}
+    e^x     &=  \sum_{n \in \N} \frac{x^{n}}{n!}.   \label{Expansion_de_taylor_de_e}
+\end{align}\pn
+
+De donde 
+
+\begin{align}
+    e^{-x}  &=  \sum_{n \in \N} \frac{-x^{n}}{n!}           \\
+            &=  \sum_{n \in \N} (-1)^{n}\frac{x^{n}}{n!}.   
+\end{align}\pn
+
+Sumando estos dos y dividendo entre 2
+
+\begin{align}
+    \cosh(x)    &=  \frac{e^x + e^{-x}}{2}                                                  \\
+                &=  \sum_{n \in \N} \frac{\frac{x^{n}}{n!} + (-1)^{n}\frac{x^{n}}{n!}}{2}   \\
+                &=  \sum_{n \in \N} \frac{x^{2n}}{(2n)!}. \label{problema2_3:expansion_en_serie_de_taylor}
+\end{align}\pn
+
+Ahora notemos lo siguiente.
+
+\begin{align}
+    2^0(0!) = 1     &\leq  1     = (2 \cdot 0)!      \\
+    2^1(1!) = 2     &\leq  2     = (2 \cdot 1)!      \\
+    2^2(2!) = 8     &\leq  24    = (2 \cdot 2)!      \\
+    2^3(3!) = 48    &\leq 720    = (2 \cdot 3)!      
+\end{align}\pn
+
+Apliquemos inducción sobre esto. Supongamos que para cierto $n$ ocurre que $2^n(n!) \leq (2n)!$. Como $n \geq 0$, 
+entonces $2 \leq 2(n + 1)$ y $n + 1\leq 2n+1$ , por lo tanto $2 (n+1) \leq (2n+1) (2n + 2)$. 
+De donde 
+
+\begin{align}
+    2^{n+1}(n+1)! = 2(n+1) 2^n(n!) \leq (2n)! (2n+1)(2n+2) = (2(n+1))!.
+\end{align}\pn
+
+Con esto, podemos acotar \eqref{problema2_3:expansion_en_serie_de_taylor} de la siguiente manera
+
+\begin{align}
+    \cosh(x)    &=      \sum_{n \in \N} \frac{x^{2n}}{(2n)!}            \\
+                &\leq   \sum_{n \in \N} \frac{x^{2n}}{2^n(n)!}          \\
+                &=   \sum_{n \in \N} \frac{(x^2)^{n}}{2^n(n)!}          \\
+                &=   \sum_{n \in \N} \frac{(\frac{x^2}{2})^{n}}{(n)!}   \\   
+                &=   e^{\frac{x^2}{2}}   
+\end{align}
+
+Y utilizando esto tenemos que $\cosh(c \theta) \leq e^{\frac{c^2 \theta^2}{2}}$.
+
+

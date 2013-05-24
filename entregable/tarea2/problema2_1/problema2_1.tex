@@ -1,0 +1,87 @@
+\begin{problema}
+        Sea $S_n=X_1+\cdots+X_n$ una caminata aleatoria con saltos $X_i\in \{-1,0,1,\ldots\}$. 
+        Sea $C_p$ una variable aleatoria geom\'etrica de par\'ametro $p$ independiente de $S$ y definimos 
+        
+        \begin{align}
+            M_p=-\min_{n\leq C_p} S_n. 
+        \end{align}\pn
+        
+        El objetivo del ejercicio es determinar la distribuci\'on de $M_p$.\pn
+
+        (A las caminatas aleatorias como $S$ se les ha denominado Skip-free random walks Para aplicaciones de este tipo 
+        de procesos, ver \cite{MR1978607}. Tambi\'en aparecen en el estudio de Procesos Galton-Watson. 
+        Este ejercicio es el resultado b\'asico del estudio de sus extremos, denominado teor\'ia de fluctuaciones.)\pn
+
+    \begin{enumerate}
+        \item[(i)]  [\ref{problema2_1:inciso1}]
+                    Sea
+                    
+                    \begin{align}
+                        g(\lambda)=E(e^{- \lambda X_1}).
+                    \end{align} 
+                    
+                    Pruebe que $g(\lambda)\in (0,\infty)$ y que
+                    
+                    \begin{align}
+                        M_n=e^{-\lambda S_n}g(\lambda)^{-n},n\geq 0
+                    \end{align}
+                    
+                    es una martingala.
+        
+        \item[(ii)] [\ref{problema2_1:inciso2}]
+                    Pruebe que $g$ es log-convexa al aplicar la desigualdad de H\"older. Pruebe que si $P(X_1=-1)>0$ 
+                    (hip\'otesis que se utilizar\'a desde ahora) 
+                    entonces $g(\lambda)\to\infty$ conforme $\lambda\to\infty$. Utilice esta informaci\'on para esbozar la gr\'afica de $g$. 
+                    Defina $ f(s)=\inf \{ \lambda>0:g(\lambda)^{-1} < s\} $. Note que $1/g\circ f=Id$ en $(0,1)$. Pruebe que si $g(\lambda)>1$, 
+                    la martingala $M$ es acotada hasta el tiempo de arribo de $S$ a $-k$ dado por 
+                    
+                    \begin{align}
+                        T_k =\min \{n\in\na:S_n=-k\} 
+                    \end{align}
+                    
+                    (donde se utiliza la convenci\'on $\inf\emptyset=\infty$ ). Aplique el teorema de muestreo opcional de Doob para mostrar que 
+                    
+                    \begin{align}
+                        E(s^{T_k})=e^{-k f(s)}.
+                    \end{align}
+                    
+                    Justifique MUY bien por qu\'e la f\'ormula es válida aún cuando $T_k$ puede tomar el valor $\infty$ 
+                    y deduzca que de hecho $\p (T_k=\infty)=0$.
+                        
+        \item[(iii)] [\ref{problema2_1:inciso3}]
+                    Argumente que
+        
+                    \begin{align}
+                        \mw(M_p\geq n)=\mw(T_n\leq C_p)=\E((1-p)^{T_n})
+                    \end{align}
+                    
+                    para demostrar que $M_p$ tiene distribuci\'on geom\'etrica de par\'ametro $1-e^{-f(1-p)}$.
+                    
+        \item[(iv)] [\ref{problema2_1:inciso4}]
+                    Tome el límite conforme $p\to 0$ para mostrar que la variable aleatoria 
+                    \begin{align}
+                        M=-\min_{n\geq 0}S_n
+                    \end{align}
+                    tiene una distribuci\'on geom\'etrica de par\'ametro $1-e^{-f(1)}$. Interprete esto cuando $f(1)=0$.
+    \end{enumerate}
+
+        \defin{Categor\'ias:} Caminatas aleatorias, muestreo opcional, fluctuaciones.
+\end{problema}
+
+
+\begin{proof}
+    \subsection{Inciso (i)}     \label{problema2_1:inciso1}
+    \input{tarea2/problema2_1/inciso2_1_1.tex}
+    \newpage
+    
+    \subsection{Inciso (ii)}    \label{problema2_1:inciso2} 
+    \input{tarea2/problema2_1/inciso2_1_2.tex}
+    \newpage
+        
+    \subsection{Inciso (iii)}    \label{problema2_1:inciso3}
+    \input{tarea2/problema2_1/inciso2_1_3.tex}
+    \newpage
+    
+    \subsection{Inciso (iv)}    \label{problema2_1:inciso4}
+    \input{tarea2/problema2_1/inciso2_1_4.tex}
+\end{proof}

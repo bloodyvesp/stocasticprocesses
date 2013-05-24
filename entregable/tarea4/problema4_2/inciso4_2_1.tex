@@ -1,0 +1,75 @@
+\emph{
+    Pruebe que $Z_n\geq 0$ para toda $n$ y que si $Z_n=0$ entonces $Z_{n+1}=0$.
+}
+
+\afterstatement\pn
+
+Sean $(\xi_i)_{i \in \N}$ v.a.i.i.d con distribución $\tilde\mu$ 
+(es decir, $\mw(\xi_i = s) = \tilde\mu_s$ donde $-1 \leq s$).\pn
+
+Es decir que podemos denotar a $S_n = \sum_{i \leq n} \xi_i$.\pn
+
+Primero demostraremos que $Z_n \geq 0$. La demostración se hará por inducción sobre $n$.
+
+\begin{itemize}
+	\item 
+        \textbf{Base De Inducción.}
+        
+        Para $n = 0$ tenemos $Z_0 = k \geq 0$.\pn
+        
+    \item
+        \textbf{Hipótesis De Inducción.}
+        
+        Sea $n$ tal que $Z_i \geq 0$ para toda $i \leq n$.\pn
+        
+    \item
+        \textbf{Paso Inductivo.}
+        
+        \begin{align} \label{problema4_2:descomposicion_de_Z_n+1}
+            Z_{n+1}     &=  k + S_{C_n}                                                                             \\
+                        &=  k + \sum_{i \leq C_n} \xi_i                                                             \\
+                        &=  k + \sum_{i \leq C_{n-1} + Z_{n}} \xi_i                                                 \\
+                        &=  k + \sum_{i \leq C_{n-1}} \xi_i + \sum_{C_{n-1} < i \leq  C_{n-1} + Z_{n}} \xi_i        \\
+                        &=  k + S_{C_n-1} + \sum_{C_{n-1} < i \leq  C_{n-1} +Z_{n}} \xi_i                           \\
+                        &=  Z_n + \sum_{C_{n-1} < i \leq  C_{n-1} + Z_{n}} \xi_i                                    \\                        
+        \end{align}
+        
+        En la suma del lado derecho tenemos exáctamente $Z_n$ sumandos, y cada sumando es mayor o igual a $-1$. Entonces
+        en el peor de los casos la suma de la derecha es igual a $-Z_n$. Es decir, 
+        
+        \begin{align}
+            \sum_{C_{n-1} < i \leq  C_{n-1} + Z_{n}} \xi_i \geq -Z_n.
+        \end{align}
+        
+        Y combinando estos resultados tenemos
+        
+        \begin{align}
+            Z_{n+1} &=      Z_n + \sum_{C_{n-1} < i \leq  C_{n-1} + Z_{n}} \xi_i    \\
+                    &\geq   Z_n - Z_n                                               \\
+                    &=      0.
+        \end{align}
+        
+        Y con esto termina la demostración.
+\end{itemize}
+
+Ahora demostraremos que si $Z_n = 0$, entonces $Z_{n+1} = 0$.\pn
+
+Notemos los siguientes hechos. 
+\begin{itemize}
+	\item 
+        $Z_n = k + S_{C_{n-1}} = 0$ implica que $S_{C_{n-1}} = -k$.
+    
+    \item
+        $C_n = C_{n-1} + Z_n = C_{n-1}$.
+\end{itemize}
+
+Con esto presente, basta recordar la definición de $Z_{n+1}$:
+
+\begin{align}
+    Z_{n+1} &=  k   +   S_{C_n}         \\
+            &=  k   +   S_{C_{n-1}}     \\
+            &=  k   -   k               \\
+            &=  0.
+\end{align}
+
+Que era lo que buscábamos demostrar.

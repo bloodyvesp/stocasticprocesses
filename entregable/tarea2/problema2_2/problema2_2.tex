@@ -1,0 +1,74 @@
+\begin{problema}-\par
+    \begin{enumerate}
+        \item[(i)] 
+            Instale \href{www.octave.org}{Octave} en su computadora
+        \item[(ii)] 
+            \'Echele un ojo a la documentaci\'on
+        \item[(iii)] 
+   
+            Ejecute el siguiente c\'odigo linea por linea: 
+            \small
+            \texttt{
+                    \lstinputlisting[caption=]{tarea2/problema2_2/polya1.R}
+                    }
+            \normalsize
+        \item[(iv)] 
+            Lea las secciones sobre 
+            \href{http://www.gnu.org/software/octave/doc/interpreter/Simple-Examples.html#Simple-Examples}{simple examples}, 
+            \href{http://www.gnu.org/software/octave/doc/interpreter/Ranges.html#Ranges}{ranges}, 
+            \href{http://www.gnu.org/software/octave/doc/interpreter/Random-Number-Generation.html#Random-Number-Generation}{random number generation} 
+            y 
+            \href{http://www.gnu.org/software/octave/doc/interpreter/Comparison-Ops.html#Comparison-Ops}{comparison operators} 
+            y escriba su interpretaci\'on de lo que hace el c\'odigo anterior. Nota: est\'a relacionado con uno de los ejemplos del curso.
+        \item[(v)] 
+            Vuelva a correr el c\'odigo varias veces y escriba sus impresiones sobre lo que est\'a sucediendo.
+    \end{enumerate}
+\end{problema}
+
+\afterstatement\pn
+
+En el código de arriba, se implementó una ejecución del proceso de las urnas de Poyla.\pn
+
+El vector \texttt{x} representa la proporción de las bolas ``verdes'' en la urna conforme el tiempo avanza. Que
+al tiempo inicial se tenga \texttt{x=[1/2]} quiere decir que al inicio había tantas bolas ``verdes'' como ``rojas''.\pn
+
+Para octave los booleanos pueden operarse numéricamente. \texttt{true} es equivalente a \texttt{1} y
+\texttt{false} es equivalente a \texttt{0}. Entonces, la parte que dice \\
+\texttt{+(u(i)$<$x(i))} significa que se está sumando
+uno o cero dependiendo de si la condición se satisface. 
+Lo cual quiere decir que la constante de bolas que se agregan a la urna es $1$.\pn
+
+El vector \texttt{u} representa el resultado de sacar una bola. Si \texttt{u(i)$<$x(i)} significa que en el turno \texttt{i}, 
+se obtuvo una bola ``verde''.\pn
+
+Notemos que en la implementación de arriba, \texttt{x(2) = 3/8} ó \texttt{x(2) = 5/8}. Lo que quiere decir que para 
+el turno \texttt{2} existen al menos \texttt{8} bolas. Aún más, podemos asegurar que para el turno \texttt{2} existe 
+un número par de bolas. Es decir que en el turno 1 el número de bolas era impar, pero la proporción de bolas ``verdes'' 
+con respecto al total era \texttt{1/2}. Esto revela que existe un error de desfase en la implementación.\pn 
+
+Imagino, que lo que se intentó hacer fue una urna con una bola ``verde'' y una bola ``roja'' inicialmente. En este caso, lo que 
+debería decir en el ciclo \texttt{for} es lo siguiente:\pn
+
+\begin{verbatim}
+for i = 1:600
+    x(i+1) = (2+i-1)/(2+i) x(i) + (u(i)<x(i))/(2+i);
+endfor
+\end{verbatim}\pn
+
+Con una chequeo rápido uno puede comprobar que en esta versión modificada de la implementación, 
+\texttt{x(2) = 1/3} ó \texttt{x(2) = 2/3}. Como al inicio la proporción era \texttt{1/2}, esto 
+significa que al inicio existían una bola ``verde'' y una ``roja'' exactamente.\pn
+
+A continuación una gráfica obtenida de ejcutar el código (cambiando \texttt{600} por \texttt{1500} para que 
+sea más clara la estabilización de la proporción de bolas).
+
+\begin{center}
+    \includegraphics[width=8cm]{tarea2/problema2_2/poyla.PNG}
+\end{center}
+\begin{center}
+    Gráfica de una ejecución de urnas de Poyla \par
+    $1$ bola verde inicial, $1$ bola roja inicial y constante $1$. $1500$ iteraciones.
+\end{center}\pn
+
+Se puede apreciar que conforme avanza el tiempo, la proporción de bolas ``verdes'' se estabiliza. Justo como se demostró en clase para
+martingalas positivas.

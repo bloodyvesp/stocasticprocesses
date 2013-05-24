@@ -1,0 +1,290 @@
+\emph{
+    Pruebe que $g$ es $\log$-convexa al aplicar la desigualdad de H\"older. Pruebe que si $P(X_1=-1)>0$ (hip\'otesis que se utilizar\'a desde ahora) 
+    entonces $g(\lambda)\to\infty$ conforme $\lambda\to\infty$. Utilice esta informaci\'on para esbozar la gr\'afica de $g$. 
+    Defina $ f(s)=\inf \{ \lambda>0:g(\lambda)^{-1} < s\} $. Note que $1/g\circ f=Id$ en $(0,1)$. Pruebe que si $g(\lambda)>1$, 
+    la martingala $M$ es acotada hasta el tiempo de arribo de $S$ a $-k$ dado por 
+    \null
+    \begin{align}
+        T_k =\min \{n\in\na:S_n=-k\} 
+    \end{align}
+    \null
+    (donde se utiliza la convenci\'on $\inf\emptyset=\infty$ ). Aplique el teorema de muestreo opcional de Doob para mostrar que 
+    \null
+    \begin{align}
+        E(s^{T_k})=e^{-k f(s)}.
+    \end{align}
+    \null
+    Justifique MUY bien por qu\'e la f\'ormula es válida aún cuando $T_k$ puede tomar el valor $\infty$ y deduzca que de hecho 
+    $\p (T_k=\infty)=0$.
+}
+\afterstatement
+    Primero probemos que $g$ es $\log$-convexa, es decir, que $\log \circ g$ es convexa.Sean $a < b$ en el dominio de $g$ 
+    y sea $t \in [0, 1]$.\pn
+    
+    Queremos demostrar que:
+    
+    \begin{align}
+            \log\circ g ((1-t)a + (t)b) \leq (1-t)(\log\circ g (a)) + (t)(\log\circ g (b)).
+    \end{align}
+    
+    Si $t=0$ tenemos:
+    
+    \begin{align}
+        \log\circ g ((1-0)a + (0)b)     &= \log\circ g (a) \\
+                                        &= (1-0)(\log\circ g (a)) + (0)(\log\circ g (b))
+    \end{align}
+    
+    y por lo tanto no hay nada que demostrar. Análogamente ocurre con $t=1$.\pn
+    
+    Entonces concentrémonos en el caso donde $t\in (0, 1)$.\pn
+    
+    Recordemos que la desigualdad de Hölder dice que si $f \in L_p$ y $g \in L_q$ con 
+    $p,q \in (1,\infty)$ y $\frac{1}{p} + \frac{1}{q} = 1$. Entonces
+                
+    \begin{align}
+                \E(| fg |) \leq (\E(\abs{f}^p))^{\frac{1}{p}} (\E(\abs{g}^q))^\frac{1}{q}. \label{Desigualdad_de_Holder}
+    \end{align}
+    
+    Sean entonces $p = \frac{1}{1-t}$ y $q = \frac{1}{t}$. Tenemos que\pn
+    
+    \begin{align}
+        \frac{1}{p} + \frac{1}{q}   &= \frac{1}{\frac{1}{1-t}} + \frac{1}{\frac{1}{t}}  \\
+                                    &= t + 1 - t                                        \\ 
+                                    &= 1.
+    \end{align}
+    
+    Veamos que $e^{-a(1-t) X_1}$ pertenece a $L_p$.\pn
+    
+    Como $e^x > 0$ para todo $x \in \R$. $\abs{e^x} = e^x$. Entonces
+    
+    \begin{align}
+         \bigg(\E\bigg(\abs{e^{-a(1-t) X_1}}^p\bigg)\bigg)^{\frac{1}{p}} 
+                &=  \bigg(\E\bigg(\abs{e^{-a(1-t) X_1}}^{\frac{1}{1-t}}\bigg)\bigg)^{{1-t}} \\
+                &=  \bigg(\E\bigg(\abs{e^{-aX_1}}\bigg)\bigg)^{{1-t}}                       \\
+                &=  \bigg(\E\bigg(e^{-aX_1}\bigg)\bigg)^{{1-t}}                             \\
+                &=  ( g(a))^{{1-t}}                                                         \\
+                &<   \infty
+    \end{align}
+    
+    Donde la última desigualdad es gracias a que $a$ fue tomado en el dominio de $g$ y a lo demostrado en 
+    [\ref{problema2_1:inciso1}]. Con esto hemos demostrado que $e^{-a(1-t) X_1}$ pertenece a $L_p$.\pn
+    
+    De manera análoga se puede demostrar que $e^{-b(t) X_1}$ pertenece a $L_q$.\pn
+    
+    Ahora que tenemos todas las hipótesis para la desigualdad de Hölder, basta aplicarla.\pn
+        
+    \begin{align}
+        \log\circ g ((1-t)a + (t)b)     &=       \log\bigg( \E\bigg(e^{-a(1-t) + b(t) X_1}\bigg) \bigg)                              \\
+                                        &=       \log\bigg( \E\bigg(e^{-a(1-t) X_1} \cdot e^{-b(t) X_1}\bigg) \bigg)                 \\
+                                        &=       \log\bigg( \E\bigg(\abs{e^{-a(1-t) X_1} \cdot e^{-b(t) X_1}}\bigg) \bigg)           \\
+                                        &\leq    \log\bigg(
+                                                            \E
+                                                                \bigg(
+                                                                    \abs{e^{-a(1-t) X_1}}^p
+                                                                \bigg)^{\frac{1}{p}} 
+                                                        \cdot 
+                                                            \E
+                                                                \bigg(
+                                                                    \abs{e^{-b(t) X_1}}^q
+                                                                \bigg)^\frac{1}{q}
+                                                    \bigg)                                                                          \\
+                                        &\lcomment{Esta desigualdad es gracias a la desigualdad de }                           \\
+                                        &\rcomment{Hölder y a que $\log$ es una función creciente}                            \\
+                                        &=      \log\bigg( 
+                                                            \E
+                                                                \bigg(
+                                                                    e^{-a(1-t) X_1 p}
+                                                                \bigg)^{\frac{1}{p}} 
+                                                        \cdot     
+                                                            \E
+                                                                \bigg(
+                                                                    e^{-b(t) X_1 q}
+                                                                \bigg)^\frac{1}{q}
+                                                     \bigg)                                                                         \\
+                                        &=      \log\bigg( 
+                                                            \E
+                                                                \bigg(
+                                                                    e^{-a(1-t) X_1 \frac{1}{1-t}}
+                                                                \bigg)^{\frac{1}{\frac{1}{1-t}}} 
+                                                        \cdot    
+                                                            \E
+                                                                \bigg(
+                                                                    e^{-b(t) X_1 \frac{1}{t}}
+                                                                \bigg)^\frac{1}{\frac{1}{t}}
+                                                     \bigg)                                                                         \\
+                                        &=      \log\bigg( 
+                                                        \E
+                                                            \bigg(
+                                                                e^{-a X_1}
+                                                            \bigg)^{1-t} 
+                                                        \cdot                                                             
+                                                        \E
+                                                            \bigg(
+                                                                e^{-b X_1}
+                                                            \bigg)^{t}
+                                                     \bigg)                                                                         \\
+                                        &=      \log\bigg( 
+                                                        \E
+                                                            \bigg(
+                                                                e^{-a X_1}
+                                                            \bigg)^{1-t} 
+                                                \bigg)
+                                                        + 
+                                                \log\bigg(
+                                                        \E
+                                                            \bigg(
+                                                                e^{-b X_1}
+                                                            \bigg)^{t}
+                                                \bigg)                                                                              \\
+                                         &=      \log\bigg( 
+                                                        g(a)^{1-t} 
+                                                \bigg)
+                                                        + 
+                                                \log\bigg(
+                                                        g(b)^{t}
+                                                \bigg)                                                                              \\
+                                         &=      (1-t)\log(g(a))+(t)\log(g(b))                                                      \\
+                                         &=      (1-t)(\log \circ g (a))+(t)(\log \circ g (b))                                        
+    \end{align}
+    
+    Que es lo que necesitabamos mostrar para probar que $g$ es $\log$-convexa.\pn
+    
+    Ahora supongamos que $\mw(X_1 = -1) > 0$.\pn
+    
+    Para ver que $g$ tiende a infinito conforme $\lambda$ crece, descompongamos a $g(\lambda)$ de la siguiente manera.
+    
+    \begin{align}
+        g(\lambda)      &=      \E(e^{-\lambda X_1})                \\
+                        &=      \sum_{-1 \leq i} e^{-\lambda i} \mw( X_1 = i)
+    \end{align}\pn
+    
+    De donde obtenemos que $g(\lambda) \geq e^{\lambda} \mw( X_1 = -1)$. Dado que $e^{\lambda}$ tiende a infinito comforme
+    $\lambda$ crece, tenemos que $g(\lambda)$ también lo hace.\pn
+    
+    Probemos ahora que $(\frac{1}{g}) \circ f (s) = s$ para toda $s \in (0,1)$.\pn
+    
+    Ahora notemos que $g$ es convexa también. $\log \circ g$ es convexa por la primera parte de este inciso y 
+    $e^x$ es convexa y creciente porque su primera y segunda derivada siempre son mayor que cero. 
+    Dado esto, notemos que $g = e^{\log(g)}$ y entonces por ser $g$ una composición de una función convexa con una
+    convexa creciente tenemos que $g$ es convexa.\pn
+    
+    Uno de los resultados de los cursos de cálculo de la licencuatura es que una función convexa con dominio abierto, es continua.
+    $g$ está definida sobre todo $\R$, que es abierto, y por lo tanto $g$ es continua.\pn
+    
+    Ahora sea $s \in (0,1)$. Y sea $\lambda_0 = f(s)$. Por definición, $\lambda_0 = \inf\{ \lambda > 0 : g(\lambda)^{-1} < s\}$. Por definición de ínfimo,
+    para cualquier $n \in \N$, existe $\lambda_n > 0$ tal que 
+    
+    \begin{align}
+        \lambda_0 \leq \lambda_n \leq \lambda_0 + \frac{1}{n}. \label{problema2_1:sucesion_convergente_a_lambda_0}
+    \end{align}\pn
+     
+    y que
+    
+    \begin{align}
+        g(\lambda_n)^{-1} < s. \label{problema2_1:sucesion_dominada_por_s}
+    \end{align}\pn
+    
+    Por \eqref{problema2_1:sucesion_convergente_a_lambda_0} sabemos que $\lambda_n \rightarrow \lambda_0$.
+    De \eqref{problema2_1:sucesion_dominada_por_s} obtenemos $\frac{1}{s} < g(\lambda_n)$. Por continuidad de $g$
+    tenemos entonces que $\frac{1}{s} \leq g(\lambda_0)$.\pn
+    
+    Supongamos que $\frac{1}{s} < g(\lambda_0)$. Entonces, por continuidad de $g$, existe $\varepsilon > 0$ tal que
+    $\varepsilon < \frac{\lambda_0}{2}$ y tal que para toda $x \in \R$ es cumple que $\abs{\lambda_0 - x} < \varepsilon$ 
+    entonces $\frac{1}{s} < g(x)$.\pn
+    
+    Sea $x_0 = \lambda_0 - \frac{\varepsilon}{2}$. Entonces $\abs{\lambda_0 - x_0} = \frac{\varepsilon}{2} <    \varepsilon$ y por lo tanto
+    $\frac{1}{s}<g(x_0)$. Entonces $\frac{1}{s} < g(x_0)$ y por lo tanto $x_0 \in \{ \lambda > 0 : g(\lambda)^{-1} < s \}$.
+    Pero como $x_0 < \lambda_0$, esto contradice que $\lambda_0$ sea el ínfimo de dicho conjunto. Por lo tanto
+    $g(\lambda_0) = \frac{1}{s}$.\pn
+    
+    De esto último, tenemos que $g(\lambda_0) = g(f(s)) = \frac{1}{s}$ y por lo tanto \\
+    $\frac{1}{g(f(s))} = (\frac{1}{g}) \circ f (s) = s$ y con esto terminamos la demostración que buscábamos.\pn
+    
+    Ahora supongamos que $g(\lambda) > 1$.\pn
+    
+    Sea $n \in\N$ y $A_n = \{ n \leq T_k \}$. Entonces $S_n(A_n) \geq -k$  (abusando de la notación) y por lo tanto
+    $-\lambda S_n(A_n) \leq \lambda k$. Por ser $e^x$ una función estrictamente creciente, 
+    $e^{-\lambda S_n(A_n)} \leq e^{\lambda k}$.\pn
+    
+    Entonces
+    \begin{align}
+        M_n(A_n)    &=      e^{-\lambda S_n} g(\lambda)^{-1} (A_n) \\
+                    &\leq   e^{-\lambda k} g(\lambda)^{-1}         \\
+                    &\leq   e^{-\lambda k}                         
+    \end{align}
+    
+    Donde en el último paso se usa la hipótesis de que $g(\lambda) > 1$.\pn
+
+    Esto nos dice que la martingala $M_n$ es acotada hasta el tiempo de paro $T_k$ 
+    (Antes de $T_k$, $M_n$ es acotada por $e^{-\lambda k}$). Que es lo que buscábamos demostrar.
+    Nótese que para esta demostración nunca asumimos que $T_k  < \infty$ y por lo tanto
+    es perfectamente válida cuando $T_k = \infty$.\pn
+    
+    Para la siguiente parte, sea $n \in \N$ y sea $T_k^n = T_k \wedge n$. 
+    Sabemos que $T_k^n$ es tiempo de paro y por definición es acotado. Entonces el teorema de 
+    muestreo opcional de Doob nos dice que:
+    
+    \begin{align}
+        \E(M_{T_k^n})   &=  \E(M_1)                                 \\
+                        &=  \E(e^{-\lambda S_1} g(\lambda)^{-1})    \\
+                        &=  g(\lambda)^{-1}\E(e^{-\lambda S_1})     \\
+                        &=  g(\lambda)^{-1} g(\lambda)              \\
+                        &=  1
+    \end{align}\pn
+    
+    Como $T_k^n$ no rebasa a $T_k$, entonces, por la parte anterior de este ejercicio $M_{T_k^n}$ es acotada.\pn
+    
+    Eso quiere decir que podemos aplicar el teorema de convergencia dominada y entonces.
+    
+    \begin{align}
+        1 = \lim_{n \rightarrow \infty} \E(M_{T_k^n}) = \E(M_{T_k}).
+    \end{align}\pn
+        
+    Ahora, recordando la definición de $M_n$
+    
+    \begin{align}
+       1    &=  \E(M_{T_k})                                 \\
+            &=  \E(e^{-\lambda S_{T_k}} g(\lambda)^{-T_k})  \\
+            &=  \E(e^{\lambda k} g(\lambda)^{-T_k})         \\
+            &=  e^{\lambda k} \E(g(\lambda)^{-T_k}).        
+    \end{align}\pn
+    
+    Sea ahora $\lambda = f(s)$. Entonces
+    
+    \begin{align}
+        1   &=  e^{\lambda k} \E(g(\lambda)^{-T_k})        \\
+            &=  e^{f(s) k} \E(g(f(s))^{-T_k})              \\
+            &=  e^{f(s) k} \E((g(f(s))^{-1})^{T_k})        \\            
+            &=  e^{f(s) k} \E(s^{T_k}).                 
+    \end{align}\pn
+    
+    De donde $e^{-f(s) k} = \E(s^{T_k})$. Como queríamos demostrar.\pn
+    
+    Ahora, si $T_k = \infty$, ya que $s \in (0,1)$, entonces $s^(T_k) = 0$.\pn
+    
+    Por otro lado si $T_k = \infty$, entonces $S_n > -k$ para toda $n$. Entonces
+    $-\lambda S_n < \lambda k$ y por ser $e^x$ una función estrictamente creciente entonces
+    $e^{-\lambda S_n} < e^{\lambda k}$. Tomando esperanza tenemos
+    
+    \begin{align}
+            (g(\lambda))^n      &=  \E(e^{-\lambda X_1})^{n}                                    \\ 
+                                &=  \E(e^{-\lambda S_n})                                        \\
+                                &\comment{Por ser las $X_i$ independientes entre sí}     		\\
+                                &<  \E(e^{\lambda k})                                           \\
+                                &=   e^{\lambda k}.
+    \end{align}\pn
+    
+    De donde $g(\lambda) < e^{\frac{\lambda k}{n}}$ para toda $n$. pero $e^{\frac{\lambda k}{n}}$ tiende
+    a $1$ conforme $n$ tiende a infinito. Por lo tanto $g(\lambda) \leq 1$. Entonces, si $s \in (0,1)$, 
+    $\frac{1}{s} \in (1, \infty)$. Por lo tanto, no existe $\lambda$ tal que $\frac{1}{s} < g(s)$.
+    Es decir $f(s) = \inf \{ \lambda > 0 : \frac{1}{s} < g(s)\} = \inf \emptyset = \infty$.\pn
+    
+    Entonces, si $T_k = \infty$, ocurre que
+    
+    \begin{align}
+        \E(s^{T_k})     &= \E(0) \\
+                        &= 0     \\
+                        &= e^{-f(s) k}.
+    \end{align}
+    
+    Y con esto queda cubierto el caso en que $T_k = \infty$.

@@ -1,17 +1,24 @@
 Lista de pendientes.
 
 - 2.4.3
-	Todo
+    -
+
 - 2.4.4
-	Todo
+    -
 	
 - 3.2 
-	Caso con saltos integrables en -1,0,1......., 
-	Demostrar que lim inf M_n = - \infty.
-	Demostrar que P(D) = 1. Podría ayudar http://planetmath.org/martingaleconvergencetheorem
+	-Caso con saltos integrables en -1,0,1......., 
+	-Demostrar que lim inf M_n = - \infty.
+	-Demostrar que P(D) = 1. Podría ayudar http://planetmath.org/martingaleconvergencetheorem
 	
 - 3.3
-	Todo
+	-
 	
 - 4.3.2
-	Todo
+	-
+	
+- 4.4.3
+	-
+	
+- 4.4.4
+	-

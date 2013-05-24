@@ -1,0 +1,68 @@
+\emph{
+    Descomposici\'on de Doob para submartingalas: Sea $X=\paren{X_n}_{n\in\na}$ una submartingala. 
+    Pruebe que $X$ se puede descomponer de manera \'unica como $X=M+A$ donde $M$ es una martingala y $A$ 
+    es un proceso previsible con $A_0=0$. Sugerencia: Asuma que ya tiene la descomposici\'on y calcule 
+    esperanza condicional de $X_{n+1}$ dada $X_n$. 
+}
+
+\afterstatement\pn
+
+$\paren{X_n}_{n\in\na}$ es $(\F_n)_{n \in \N}$-adaptada por definición de submartingala. Utilizando el inciso anterior tenemos
+que $M_n = \sum_{k=1}^n X_k-\espc{X_k}{\F_{k-1}}, n \in \N$ es martingala.\pn
+
+Si definimos a $A_n = X_n - M_n$ tendremos que $M_n + A_n = M_n + X_n - M_n = X_n$. Probemos ahora que
+$(A_n)_{n \in \N}$ es previsible.\pn
+
+\begin{align}
+    A_n     &=      X_n - M_n                                                                   \\
+            &=      X_n - \sum_{k=1}^n X_k-\espc{X_k}{\F_{k-1}}                                 \\
+            &=      X_n - X_n + \E(X_n | \F_{n-1}) + \sum_{k=1}^{n-1} X_k-\E(X_k|\F_{k-1})      \\     
+            &=      \E(X_n | \F_{n-1}) + \sum_{k=1}^{n-1} X_k-\E(X_k|\F_{k-1}).     
+\end{align}\pn
+
+Donde por ser $(X_n){n \in \N}$ submartingala tenemos que $\E(X_k|\F_{k-1})$ es $F_{n-1}$ siempre que $0 \leq k \leq n-1$.
+Y por lo tanto $A_n$ es suma finita de variables $F_{n-1}$-medibles y por lo tanto $F_{n-1}$-medible.\pn
+
+Hemos demostrado hasta ahora que una submartingala se puede descomponer como la suma de una martingala y un proceso previsible.
+Demostremos ahora la unicidad.\pn
+
+Sean entonces $M'_n$ y $A'_n$ una martingala y un proceso previsible respectivamente tal que $X_n = M'_n + A'_n$.\pn
+
+Entonces para toda $n \in \N$ tenemos que $M'_n + A'_n = M_n + A_n$. Por lo tanto 
+
+\begin{align}
+    (M'_n + A'_n) - (M'_{n+1} + A'_{n+1}) = (M_n + A_n) - (M_{n+1} + A_{n+1})
+\end{align}\pn
+
+Tomemos esperanzas condicionales sobre el lado derecho.
+
+\begin{align}
+                                                    & \E((M_n + A_n) -( M_{n+1} + A_{n+1}) | \F_n)                                              \\ 
+                                                    &=  \E((M_n + A_n) -( M_{n+1} + A_{n+1}) | \F_n)                                            \\
+                                                    &=  \E(M_n - M_{n+1}| \F_n) + \E(A_n - A_{n+1} | \F_n)                                      \\
+                                                    &=  M_n - M_{n} + \E(A_n - A_{n+1} | \F_n) \label{problema2_3:hipotesis_de_martingala}      \\
+                                                    &=  \E(A_n - A_{n+1} | \F_n)                                                                \\
+                                                    &=  \E(A_n| \F_n) - \E(A_{n+1} | \F_n)                                                      \\
+                                                    &=  A_n - A_{n+1} \label{problema2_3:hipotesis_de_proceso_previsible}                                                                               
+\end{align}\pn
+
+Donde \eqref{problema2_3:hipotesis_de_martingala} es gracias a que $(M_n)_{n\in\N}$ es martingala y \eqref{problema2_3:hipotesis_de_proceso_previsible}
+es gracias a que $(A_n)_{n\in\N}$ es un proceso previsible.\pn
+
+De manera análoga obtenemos que $\E((M'_n + A'_n) - (M'_{n+1} + A'_{n+1}) | \F_n) = A'_n - A'_{n+1}$ y por lo tanto $A_n - A_{n+1} = A'_n - A'_{n+1}$.\pn
+
+Lo que esto último dice, es que $(A_n)_{n\in\N}$ y $(A'_n)_{n\in\N}$ crecen igual. Recordemos que por hipótesis $A'_0, A_0 = 0$.\pn
+
+Entonces
+\begin{align}
+    A_0 - A_1 &= A'_0 - A'_1 &\Rightarrow A_1 &= A'_1
+\end{align}\pn
+
+Inductivamente, si $A_n = A'_n$, entonces
+           
+\begin{align}
+    A_n - A_{n+1} &= A'_n - A'_{n+1} &\Rightarrow A_{n+1} &= A'_{n+1}
+\end{align}                                                                                                         
+
+Y con esto queda demostrada la unicidad de $(A_n)_{n\in\N}$. Para la demostración de la unicidad de $M_n$, sólo recordemos que 
+$M_n = X_n - A_n$ y que $M'_n = X_n - A'_n$, por ser $A_n$ y $A'_n$ iguales, entonces $M_n$ y $M'_n$ también lo son.

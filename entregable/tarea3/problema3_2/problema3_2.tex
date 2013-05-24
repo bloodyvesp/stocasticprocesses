@@ -1,0 +1,82 @@
+\begin{problema}
+    Sea $M$ una $\paren{\F_n}$-martingala con saltos acotados. Sean
+
+    \begin{align}
+    C   &=  \set{\limsup M_n=\liminf M_n\in\re}                 \\
+        &y                                                      \\
+    D   &=  \set{\limsup M_n=-\infty\text{ y }\limsup M_n=\infty}.
+    \end{align}\pn
+
+    Pruebe que $\proba{C\cup D}=1$. Deduzca que las caminatas aleatorias centradas 
+    con saltos acotados oscilan. Sugerencia: Para cada $K>0$ defina
+
+    \begin{align}
+    T=\min\set{n\geq 0: \abs{M_n}\geq K}
+    \end{align}
+
+    y aplique el teorema de convergencia de martingalas a $M^T$.\pn
+
+    Sea $M$ una caminata aleatoria no trivial con saltos integrables en 
+    $-1,0,1,\ldots$ y  media cero.\pn 
+
+    Pruebe que $\proba{M\text{ converge en }\na}=0$ y  concluya que $\liminf M_n=-\infty$ 
+    casi seguramente. (Este resultado permitir\'a dar una prueba adicional de que un Galton-Watson cr\'itico se extingue).  
+    Sugerencia: proceda como en el párrafo anterior y pruebe la integrabilidad uniforme de $(M_{T\wedge n})_{n \in \N}$.
+
+    \defin{Categor\'ias: } Teoremas de convergencia de martingalas
+\end{problema}
+
+\afterstatement\pn
+
+Definamos 
+
+\begin{align}
+    T_k = \min\{ n \geq 0 : \abs{M_n} \geq k \}.
+\end{align}
+
+Que significa ``la primera vez que la martingala se aleja de cero al menos $k$ unidades''. 
+Veamos que se trata de un tiempo de paro.
+
+
+\begin{align}
+    \{ T_k = n \}   &=  \paren{\bigcup_{i \leq n-1} \{ \abs{M_i} < k \}} \cap \paren{\{ \abs{M_n} \geq k \}}                                 \\
+                    &=  \paren{\bigcap_{i \leq n-1} \{ M_i < k \} \cap \{ M_i > -k \}} \cap \paren{\{ M_n \geq k \} \cup \{ M_n \leq -k \}}.
+\end{align}\pn
+
+Donde, $\{ M_i < k \}, \{ M_i > -k \} \in \F_i \subset \F_n$ y $\{ M_n \geq k \}, \{ M_n \leq -k \} \in \F_n$. 
+Y por lo tanto $\{ T_k = n\} \in \F_n$, de donde concluimos que $T_K$ es efectivamente tiempo de paro.\pn
+
+
+Sea $C$ una cota para los saltos de $M$. Por definición de $T_k$, es claro que para el tiempo $T_k$ (cuando $T_k$ es finito), 
+la martingala se aleja en al menos $k$ unidades de 0, pero forzosamente menos que $k + C$, pues su último salto no 
+puede superar $C$. Es decir $\abs{M_{T_k}} < k + C$. Pero esto únicamente será cierto en los casos en que $T_k$ resulte 
+ser finito. Tomemos en cuenta entonces al tiempo $T_k \wedge n$, qué satisface ser finito y que $T_k \wedge n \leq T_k$. 
+Para este tiempo, nuestro razonamiento anterior es válido y entonces tenemos $\abs{M_{T_k \wedge n}} < k + C$.\pn
+
+Entonces $\E(\abs{M_{T_k \wedge n}}) < \E(k + C) = k + C$ para toda $n \in N$. Sabemos de [\ref{problema1_4}] que 
+$(M_{T_k \wedge n})_{n \in \N}$ es martingala. Por el Teorema de Convergencia de Martingalas, tenemos que 
+$M_{T_k \wedge n} \longrightarrow M_{T_k}$ y es finita c.s.\pn
+
+Estudiemos ahora los casos de convergencia de la martingala. Definimos
+
+\begin{align}
+        A_1     &=  \{ \limsup M_n < \infty     \}    \\
+        A_2     &=  \{ \liminf M_n > -\infty    \}
+\end{align}
+
+Estos son los casos donde la martingala no se dispara hacia arriba indefinidamente o hacia abajo indefinidamente
+(respectivamente).\pn
+
+Los casos que queremos estudiar son $B_1 = A_1 \cap A_2$, $B_2 = A_1^c \cap A_2$, $B_3 = A_1 \cap A_2^c$ y 
+$B_4 = A_1^c \cap A_2^c$. Es decir que $B_1$ es el caso donde la caminata se queda acotada. $B_2$ Es el caso 
+donde la caminata alcanza todos los niveles arriba de cero. $B_3$ el caso donde la caminata alcanza todos 
+los niveles abajo de cero. Y $B_4$ es el caso en el que la caminata oscila (alcanza todos los niveles).\pn
+
+Del análisis anterior, podemos ver que $B_2$ y $B_3$ tienen probabilidad 0, pues en estos casos, el límite de
+$M_n$ es infinito y nuesto análisis mostró que la variable aleatoria a la que se converge es finita casi seguramente.\pn
+
+De esto tenemos que $\mw(D \cup C) = 1$, pues $C \subset B_1$ y $D = B_4$ en la manera que definimos a $B_1$ y $B_4$.\pn
+
+%Ahora, notemos que $A_1, A_2 \subset \bigcup_{k \in \N} \{ T_k = \infty \}$. Del análisis anterior tenemos que 
+%en $\{ T_k = \infty \}$, nuestra caminata converge casi seguramente, y por lo tanto también converge casi seguramente
+%en $A_1$ y en $A_2$ (es decir, en $B_1$).\pn

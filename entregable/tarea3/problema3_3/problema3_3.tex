@@ -1,0 +1,35 @@
+\begin{problema}
+    Sean $X_1,X_2,\ldots$ variables aleatorias intercambiables:
+    
+    \begin{esn}
+        \paren{X_1,\ldots, X_n}\stackrel{d}{=}\paren{X_{\pi_1},\ldots, X_{\pi_n}}
+    \end{esn}
+    
+    para cada permutaci\'on $\sigma$ de $\set{1,\ldots,n}$. 
+    
+    \begin{enumerate}
+        \item Para $\G,\h$ sub$\sigma$-\'algebras de $\F$ definimos a $\G\vee\h=\sag{\G\cup\h}$. Sea \begin{esn}
+        \G^n=\sag{\imf{f}{X_1,\ldots, X_n}: \fun{f}{\re^n}{\re}\text{ es sim\'etrica}}\vee\sag{X_{n+1},X_{n+2},\ldots}. 
+        \end{esn}Pruebe que $\G^n,n\geq 1$ es una filtraci\'on al rev\'es. Sea $\G$ su intersecci\'on.
+    
+        \item Para cada $A\in\mc{B}_{\re}$, defina a
+            \begin{esn}
+                \imf{\Xi_n}{A}=\frac{1}{n}\sum_{i=1}^n \indi{X_i\in A}.
+            \end{esn}
+            
+            Pruebe que
+            \begin{esn}
+                \probac{X_1\in A}{\G^n}=\imf{\Xi_n}{A}. 
+            \end{esn}?`Por qu\'e puede definir a  $\imf{\Xi}{A}=\lim_{n\to\infty}\imf{\Xi_n}{A}$?
+        
+        \item Al considerar a la martingala
+        
+        \begin{esn}
+            \frac{1}{n\paren{n-1}}\sum_{1\leq i<j\leq n}\indi{X_i\in A}\indi{X_j\in A},
+        \end{esn}
+        pruebe que $\probac{X_1\in A,X_2\in A}{\G}=\probac{X_1\in A}{\G}\probac{X_2\in A}{\G}$. 
+        Extienda la afirmaci\'on de independencia condicional anterior a $X_1,\ldots, X_n$. 
+    \end{enumerate}
+    
+    \defin{Cagegor\'ias: }Teorema de convergencia de martingalas, variables intercambiables, teorema de de Finetti.
+\end{problema}

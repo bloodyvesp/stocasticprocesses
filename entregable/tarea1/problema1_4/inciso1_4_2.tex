@@ -6,34 +6,37 @@
 	a la que nos referimos como la $\sigma$-\'algebra detenida en $\tau$. Comente qu\'e puede fallar si $T$ no es tiempo de paro. 
 	Pruebe que $T$ es $\F_T$-medible.\\		
 }			
-		
-	Primero hay que demostrar que $\F_T$ es $\sigma$-algebra.\\
+\afterstatement		
+	Primero hay que demostrar que $\F_T$ es $\sigma$-algebra.\pn
 	
 	\begin{itemize}
-		\item $\Omega \in \F_T$. \\
+		\item $\Omega \in \F_T$.\pn
 		
 			Notemos que 
+            
 			\begin{align}
 				\Omega \cap \{T \leq n\} = \{T \leq n\} \in \F_n.
-			\end{align}
+			\end{align}\pn
+            
 			Donde la pertenencia a $\F_n$ es gracias a que $T$ es tiempo de paro. (Esta parte podria fallar si 
-			$T$ no fuera tiempo de paro).\\
+			$T$ no fuera tiempo de paro).\pn
 		
-		\item $\F_T$ es cerrado bajo complementación.\\
+		\item $\F_T$ es cerrado bajo complementación.\pn
 		
 			Sea $A \in \F_T$. Eso significa que para todo $n \in  \N$ ocurre que $B = A \cap \{ T \leq n \} \in \F_n$. 
 			Por ser $\F_n$ una $\sigma$-algebra tenemos que el complemento de $B$ también debe estar en $\F_n$. 
 			Escrito en símbolos:
 			
 			\begin{align}
-				B^c 	&= (A   \cap \{ T \leq n \})^c \\
+				B^c 	&= (A   \cap \{ T \leq n \})^c      \\
 						&=  A^c \cup \{ T > n \} \in \F_n
 			\end{align}
 			
 			Dado que $B^c$ y $\{ T \leq n \}$ se encuentran en $\F_n$, también \\
-			$B^c \cap \{ T \leq n \} \cap \{ T \leq n \}$.\\
+			$B^c \cap \{ T \leq n \} \cap \{ T \leq n \}$.\pn
 			
 			Escribiendo esto último de otra manera:
+            
 			\begin{align}
 				B^c \cap \{ T \leq n \} \cap \{ T \leq n \} 	&=		A^c \cup \{ T > n \} \cap \{ T \leq n \} \cap \{ T \leq n \} \\
 																&= 		A^c \cap \{ T \leq n \} \cup \{ T > n \} \cap \{ T \leq n \} \\
@@ -44,7 +47,7 @@
 																&=		A^c \cap \{ T \leq n \} \in \F_n
 			\end{align}
 			
-			Y por lo tanto $A^c \in \F_T$.\\
+			Y por lo tanto $A^c \in \F_T$.\pn
 			
 		\item $\F_T$ es cerrado bajo uniones numerables.
 		
@@ -55,8 +58,7 @@
 			
 			La última parte, por definición de $\F_T$ es una unión numerable de elementos de $\F_n$ y por lo tanto, dicha unión
 			tambien pertenece a $\F_n$. Y por último $\cup A_k \in \F_T$.
-	\end{itemize}
-	\null
+	\end{itemize}\pn
 	
 	Ahora veamos que $T$ es $\F_T$-medible. Dado un $k \in \N$, ocurre que:
 	
@@ -65,4 +67,3 @@
 	\end{align}
 
 	Y por lo tanto $\{T \leq k\} \in \F_T$.
-	

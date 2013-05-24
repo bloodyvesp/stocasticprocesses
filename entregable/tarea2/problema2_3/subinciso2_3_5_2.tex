@@ -1,0 +1,77 @@
+\emph{
+    Pruebe que si $M$ es una martingala nula en cero tal que para algunas constantes $\paren{c_n,n\in\na}$ se tiene que
+    \begin{align}
+        \abs{M_n-M_{n-1}}\leq c_n\quad\forall n                                             \label{problema2_3:cota_para_diferencias}
+    \end{align}
+    entonces, para $x>0$
+    \begin{align}
+        \proba{\max_{k\leq n} M_k\geq x}\leq \imf{\exp}{\frac{x^2}{2\sum_{k=1}^n c_k^2}}.   \label{problema2_3:desiguladad_por_demostrar}
+    \end{align}
+}
+
+\afterstatement\pn
+
+Lo primero que sugiere \eqref{problema2_3:desiguladad_por_demostrar} es utilizar la desigualdad maximal de Doob que dice que si $N=(N_n)_{n\in\N}$
+es una $(\G_n)_{n\in\N}$-submartingala, entonces para toda $\lambda > 0$ se tiene
+
+\begin{align}
+        \lambda \mw\left(\overline{N}_n^+ > \lambda \right) \leq \E(N_n^+) \label{problema2_3:desigualdad_maximal_de_Doob}
+\end{align}
+
+Donde $\overline{N}_n^+ = \max\limits_{1 \leq i \leq n} N_n^+$.\pn
+
+Ahora construiremos una submartingala conveniente. En clase se vio que por ser $M$ es una martingala, al aplicarle la función convexa $e^{\theta y}$, el
+proceso resultante $(e^{\theta M_n})_{n \in \N}$ es una submartingala positiva con respecto de la filtración $(\F_n)_{n\in\N}$.\pn
+
+Aplicando \eqref{problema2_3:desigualdad_maximal_de_Doob} con $\lambda = e^{\theta x}$ obtenemos
+
+\begin{align}
+    e^{\theta x} \mw\left( \max_{1 \leq k \leq n} e^{\theta M_k} > x \right) \leq \E(e^{\theta M_n})
+\end{align}\pn
+ 
+Y por lo tanto
+
+\begin{align}
+    \mw\left( \max_{1 \leq k \leq n} e^{\theta M_k} > e^{\theta x} \right) \leq e^{- \theta x} \E(e^{\theta M_n})
+\end{align}\pn
+
+Ahora notemos que si $\theta > 0$, entonces $e^{\theta y}$ es inyectiva y por lo tanto los eventos
+$\{ \max_{1 \leq i \leq n} e^{\theta M_k} > e^{\theta x} \}$ y $\{ \max_{1 \leq i \leq n} M_k > x \}$ son iguales.
+Supongamos entonces que $\theta > 0$ y por lo tanto
+
+\begin{align}
+    \mw\left( \max_{1 \leq k \leq n} M_k > x \right) \leq e^{- \theta x} \E(e^{\theta M_n})
+\end{align}\pn
+
+Ahora, gracias a \eqref{problema2_3:cota_para_diferencias} tenemos que
+
+\begin{align}
+        |M_n|   &=      \bigg| \sum_{1 \leq k \leq n} M_k - M_{k-1} \bigg|       \\
+                &\leq   \sum_{1 \leq k \leq n} \bigg| M_k - M_{k-1} \bigg|       \\
+                &\leq   \sum_{1 \leq k \leq n} c_k.                               
+\end{align}
+
+Entonces, gracias a lo demostrado en [\ref{problema2_3:subinciso5_1}] y usando que \par$\sum_{1 \leq k \leq n} c_k^2 \leq (\sum_{1 \leq k \leq n} c_k)^2$ tenemos
+
+\begin{align}
+    e^{\theta M_n}  &\leq   e^{\left( \frac{1}{2} \theta^2 \left( \sum_{1 \leq k \leq n} c_k \right)^2\right)}  \\
+                    &\leq   e^{\left( \frac{1}{2} \theta^2 \left( \sum_{1 \leq k \leq n} c_k^2 \right)\right)}.
+\end{align}\pn
+
+Definamos entonces
+
+\begin{align}
+    \theta &= \frac{x}{\sum_{1 \leq k \leq n} c_k^2}.
+\end{align}\pn
+
+Definido así, $\theta > 0$ y por lo tanto, todo lo mencionado anteriormente es válido. Conectemos todo lo dicho hasta ahora.\pn
+
+\begin{align}
+    \mw\left( \max_{1 \leq k \leq n} M_k > x \right)    &\leq   e^{- \theta x} \E(e^{\theta M_n})                                                                                                                                                           \\
+                                                        &\leq   e^{- \theta x} e^{\left( \frac{1}{2} \theta^2 \left( \sum_{1 \leq k \leq n} c_k^2 \right)\right)}                                                                                           \\
+                                                        &=      e^{- \left(\frac{x}{\sum_{1 \leq k \leq n} c_k^2}\right) x} e^{\left( \frac{1}{2} \left(\frac{x}{\sum_{1 \leq k \leq n} c_k^2}\right)^2 \left( \sum_{1 \leq k \leq n} c_k^2 \right)\right)} \\
+                                                        &=      e^{- \left(\frac{x^2}{2 \sum_{1 \leq k \leq n} c_k^2}\right)}.
+\end{align}\pn
+
+Que es precisamente lo que búscabamos demostrar.
+
