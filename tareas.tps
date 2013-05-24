@@ -11,14 +11,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
-NormalPos.right=1890
-NormalPos.bottom=904
+NormalPos.right=1104
+NormalPos.bottom=442
 Class=LaTeXView
-Document=tarea4\problema4_4\inciso4_4_1.tex
+Document=tarea4\tarea4.tex
 
 [Frame0_View0,0]
-TopLine=69
-Cursor=5618
+TopLine=0
+Cursor=146
 
 [Frame1]
 Flags=0
@@ -29,14 +29,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
-NormalPos.right=1890
-NormalPos.bottom=904
+NormalPos.right=1104
+NormalPos.bottom=442
 Class=LaTeXView
-Document=tarea4\problema4_1\inciso4_1_2.tex
+Document=tarea3\tarea3.tex
 
 [Frame1_View0,0]
-TopLine=61
-Cursor=397
+TopLine=0
+Cursor=390
 
 [Frame2]
 Flags=0
@@ -47,14 +47,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
-NormalPos.right=1890
-NormalPos.bottom=904
+NormalPos.right=1104
+NormalPos.bottom=442
 Class=LaTeXView
-Document=tarea4\problema4_4\inciso4_4_2.tex
+Document=tarea5\problema5_1\inciso5_1_2.tex
 
 [Frame2_View0,0]
-TopLine=2
-Cursor=264
+TopLine=0
+Cursor=2055
 
 [Frame3]
 Flags=0
@@ -65,16 +65,52 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
-NormalPos.right=1890
-NormalPos.bottom=904
+NormalPos.right=1104
+NormalPos.bottom=442
+Class=LaTeXView
+Document=definiciones\definicionesdehtellez.tex
+
+[Frame3_View0,0]
+TopLine=0
+Cursor=415
+
+[Frame4]
+Flags=0
+ShowCmd=1
+MinPos.x=-1
+MinPos.y=-1
+MaxPos.x=-1
+MaxPos.y=-1
+NormalPos.left=4
+NormalPos.top=32
+NormalPos.right=1104
+NormalPos.bottom=442
+Class=LaTeXView
+Document=tarea5\problema5_1\inciso5_1_1.tex
+
+[Frame4_View0,0]
+TopLine=0
+Cursor=1119
+
+[Frame5]
+Flags=0
+ShowCmd=1
+MinPos.x=-1
+MinPos.y=-1
+MaxPos.x=-1
+MaxPos.y=-1
+NormalPos.left=4
+NormalPos.top=32
+NormalPos.right=1104
+NormalPos.bottom=442
 Class=LaTeXView
 Document=tareas.tex
 
-[Frame3_View0,0]
+[Frame5_View0,0]
 TopLine=0
 Cursor=0
 
 [SessionInfo]
-FrameCount=4
+FrameCount=6
 ActiveFrame=0
 
