@@ -10,8 +10,18 @@ todos tienen distribución exponencial de parámetro $\lambda$. Por lo tanto, su
 de densidad conjunta está dada por
 
 \begin{align}
-    f_{T_1, T_2 - T_1, \dots, T_n - T_{n-1}}(u_1, u_2, \dots, u_n)  &=  \prod_{1 \leq i \leq n} \lambda e^{-\lambda u_i}.
-\end{align}
+    f_{T_1, T_2 - T_1, \dots, T_n - T_{n-1}}(u_1, u_2, \dots, u_n)  &=  
+    \prod_{1 \leq i \leq n} \lambda e^{-\lambda u_i}. \label{problema5_1:distribucion_conjunta}
+\end{align}\pn
+
+También recordemos que $T_n$ es suma de $n$ variables independientes con distribución exponencial de
+parámetro $\lambda$ y por lo tanto, $T_n$ tiene distribución $gamma(n, \lambda)$. Por lo tanto su 
+función de densidad está dada por
+
+\begin{align}
+    f_{T_n}(u)  &=  \frac{ \lambda^{n} u^{n-1} e^{- \lambda u}}{\Gamma(n)} \\
+                &=  \frac{ \lambda^{n} u^{n-1} e^{- \lambda u}}{(n-1)!}
+\end{align}\pn
 
 De manera similar a como se procedió en [\ref{problema5_1:inciso1}] definimos la transformación lineal 
 $l: (t_1, t_2 - t_1, \dots, t_n - t_{n-1}) \longrightarrow (t_1, t_2, \dots, t_n)$ cuya matriz asociada es la 
@@ -31,5 +41,24 @@ matriz triangular superior
 \]\pn
 
 cuyo determinante es $1$ (esto úlitmo no es difícil de verificar). Es decir, tiene inversa y también es fácil de verificar que 
-su inversa está dada por\par $l^{-1}: (x_1, x_2, \dots, x_n) \longrightarrow (x_1, x_2-x_1, \dots, x_n - x_{n-1})$.
+su inversa está dada por\par $l^{-1}: (x_1, x_2, \dots, x_n) \longrightarrow (x_1, x_2-x_1, \dots, x_n - x_{n-1})$.\pn
+
+Entonces podemos escribir
+
+\begin{align}
+    f_{T_1, T_2, \dots, T_n}(u_1, u_2, \dots, u_n)  &=  f_{T_1, T_2 - T_1, \dots, T_n - T_{n-1}}(l^{-1}(u_1, u_2, \dots, u_n))      \\
+                                                    &=  f_{T_1, T_2 - T_1, \dots, T_n - T_{n-1}}(u_1, u_2-u_1, \dots, u_n - u_{n-1}).
+\end{align}\pn
+
+Para comodidad de notación, definimos $u_0 = 0$ y entonces esta última ecuación la podemos escribir como
+
+\begin{align}
+    f_{T_1, T_2, \dots, T_n}(u_1, u_2, \dots, u_n) =                                    \\  
+    f_{T_1, T_2 - T_1, \dots, T_n - T_{n-1}}(u_1 - u_0, u_2-u_1, \dots, u_n - u_{n-1})
+\end{align}\pn
+
+Utilizando \eqref{problema5_1:distribucion_conjunta} obtenemos
+\begin{align}
+    f_{T_1, T_2, \dots, T_n}(u_1, u_2, \dots, u_n)  &= \prod_{1 \leq i \leq n} \lambda e^{-\lambda u_i - u_{i-1}}.
+\end{align}\pn
 
