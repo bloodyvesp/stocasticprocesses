@@ -1,3 +1,35 @@
 \emph{
 	Conjeture c\'omo se  generaliza lo anterior con $T_n$ y $T_1$.
 }
+
+Por definición de proceso de Poisson de parámetro $\lambda$, los saltos $S_n$ se distribuyen
+de manera exponencial de parámetro $\lambda$ y son independientes entre sí.\pn
+
+Es decir que $T_1 = S_1, T_2 - T_1 = S_2, \dots, T_n - T_{n-1} = S_n$ son independientes y 
+todos tienen distribución exponencial de parámetro $\lambda$. Por lo tanto, su función
+de densidad conjunta está dada por
+
+\begin{align}
+    f_{T_1, T_2 - T_1, \dots, T_n - T_{n-1}}(u_1, u_2, \dots, u_n)  &=  \prod_{1 \leq i \leq n} \lambda e^{-\lambda u_i}.
+\end{align}
+
+De manera similar a como se procedió en [\ref{problema5_1:inciso1}] definimos la transformación lineal 
+$l: (t_1, t_2 - t_1, \dots, t_n - t_{n-1}) \longrightarrow (t_1, t_2, \dots, t_n)$ cuya matriz asociada es la 
+matriz triangular superior
+
+\[
+    \left(
+            \begin{array}{ccccc}
+                    1       &   1       & 1      &\dots   &  1      \\
+                    0       &   1       & 1      &\dots   &  1      \\
+                    0       &   0       & 1      &\dots   &  1      \\
+                    0       &   0       & 0      &\dots   &  1      \\
+                    \vdots  &   \vdots  & \vdots &\vdots  & \vdots  \\
+                    0       &   0       & 0      &\dots   &  1
+            \end{array}
+    \right)
+\]\pn
+
+cuyo determinante es $1$ (esto úlitmo no es difícil de verificar). Es decir, tiene inversa y también es fácil de verificar que 
+su inversa está dada por\par $l^{-1}: (x_1, x_2, \dots, x_n) \longrightarrow (x_1, x_2-x_1, \dots, x_n - x_{n-1})$.
+

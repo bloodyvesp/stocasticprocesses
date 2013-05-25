@@ -11,14 +11,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
-NormalPos.right=1104
-NormalPos.bottom=442
+NormalPos.right=1890
+NormalPos.bottom=904
 Class=LaTeXView
 Document=tarea4\tarea4.tex
 
 [Frame0_View0,0]
 TopLine=0
-Cursor=146
+Cursor=306
 
 [Frame1]
 Flags=0
@@ -29,8 +29,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
-NormalPos.right=1104
-NormalPos.bottom=442
+NormalPos.right=1890
+NormalPos.bottom=904
 Class=LaTeXView
 Document=tarea3\tarea3.tex
 
@@ -47,8 +47,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
-NormalPos.right=1104
-NormalPos.bottom=442
+NormalPos.right=1890
+NormalPos.bottom=904
 Class=LaTeXView
 Document=tarea5\problema5_1\inciso5_1_2.tex
 
@@ -65,8 +65,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
-NormalPos.right=1104
-NormalPos.bottom=442
+NormalPos.right=1890
+NormalPos.bottom=904
 Class=LaTeXView
 Document=definiciones\definicionesdehtellez.tex
 
@@ -83,8 +83,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
-NormalPos.right=1104
-NormalPos.bottom=442
+NormalPos.right=1890
+NormalPos.bottom=904
 Class=LaTeXView
 Document=tarea5\problema5_1\inciso5_1_1.tex
 
@@ -101,8 +101,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
-NormalPos.right=1104
-NormalPos.bottom=442
+NormalPos.right=1890
+NormalPos.bottom=904
 Class=LaTeXView
 Document=tareas.tex
 
