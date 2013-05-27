@@ -1,19 +1,22 @@
 Estas tareas utilizan una librería llamada pgfornament.
+Las librerías parecen sólo estar hechas para funcionar con TexLive.
+En caso de usar MikTek, ir directamente a la Solución 2 que
+indica como "desactivar" el uso de dichas librerías.
 
 Hay dos maneras de conseguir compilar el códgio:
-
 Solución 1------------------------------------------------------------------------------------
+
 Esta librería tiene que instalarse para poder compilar el código tal cual está.
 
 En la raiz de proyecto se encuentra un archivo nombrado "pgfornament.zip" que contiene las instrucciones y las librerías.
 las instrucciones se encuentran en el archivo ornaments.pdf, página 5.
 
-Después de poner los archivos mencionados en las instrucciones en los lugares mencionados en las instrucciones desde la terminal
-hay que ejectuar texhash:
+Después de poner los archivos mencionados en las instrucciones en los lugares mencionados en las instrucciones, 
+desde la terminal hay que ejectuar texhash:
  
 usuer@location> texhash
 
-Y con esto tex reconocerá los cambios.
+Y con esto tex reconocerá los cambios hechos en el sistema de librerías que se han hecho.
 
 Solución 2-------------------------------------------------------------------------------------
 En tareas.tex hay que cambiar la linea que dice:
