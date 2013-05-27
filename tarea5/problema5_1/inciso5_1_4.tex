@@ -4,3 +4,46 @@
 	s\'olo variables exponenciales y en el otro puede utilizar una 
 	variable Poisson.
 }
+
+Utilizando variables de distribución exponencial para los 
+saltos:\pn
+
+\small
+\texttt{
+	\lstinputlisting[inputencoding=utf8]{tarea5/problema5_1/ProcesoPoissonConExponenciales.m}
+}
+\normalsize
+
+A continuación una gráfica obtenida de ejecutar este código:\pn
+\begin{center}
+    \includegraphics[width=8cm]{tarea5/problema5_1/ProcesoPoissonConExponenciales.png}
+\end{center}
+
+La implementación anterior fue hecha intentando representar el proceso de Poisson de parámetro
+$\lambda$ durante los $50$ primeros saltos.
+
+\newpage
+
+Utilizando variables de distribución Poisson para determinar 
+la cantidad de saltos hasta el tiempo $t$:\pn
+
+\small
+\texttt{
+	\lstinputlisting[inputencoding=utf8]{tarea5/problema5_1/ProcesoPoissonConPoisson.m}
+}
+\normalsize
+
+A continuación una gráfica obtenida de ejecutar este código:\pn
+
+\begin{center}
+    \includegraphics[width=8cm]{tarea5/problema5_1/ProcesoPoissonConPoisson.png}
+\end{center}
+
+A diferencia de la implementación anterior, esta vez intentamos representar el proceso de Poisson 
+hasta un tiempo dado y no hasta un número de saltos dado. \pn
+
+Como se puede apreciar, en esta última ejecución hasta el tiempo $50$ únicamente hubo $23$ saltos. 
+A diferencia de que en la ejecución de la primera implementacción hubo casi $50$ saltos para el 
+tiempo $50$. Cabe notar, que el parámetro lambda de la primera implementación era aproximadamente 
+$0.861297$, mientras que el de la segunda a penas $0.479403$.
+
