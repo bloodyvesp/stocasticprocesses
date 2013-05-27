@@ -42,8 +42,12 @@ A continuación una gráfica obtenida de ejecutar este código:\pn
 A diferencia de la implementación anterior, esta vez intentamos representar el proceso de Poisson 
 hasta un tiempo dado y no hasta un número de saltos dado. \pn
 
-Como se puede apreciar, en esta última ejecución hasta el tiempo $50$ únicamente hubo $23$ saltos. 
+Como se puede apreciar, en esta última ejecución hasta el tiempo $50$ únicamente hubo $18$ saltos. 
 A diferencia de que en la ejecución de la primera implementacción hubo casi $50$ saltos para el 
 tiempo $50$. Cabe notar, que el parámetro lambda de la primera implementación era aproximadamente 
-$0.861297$, mientras que el de la segunda a penas $0.479403$.
+$0.861297$, mientras que el de la segunda a penas aproximadamente $0.333371$.\pn
 
+\textbf{Nota: } Para poder implementar esta versión del algoritmo se necesitó implementar
+una función que se deduce del resultado de [\ref{problema5_1:inciso3}]. Esta parte está en el archivo con nombre
+\texttt{t1\_dado\_tn\_rnd.m}. Esta función se usa para calcular los tiemos de salto y lo único
+que hace es simular una variable aleatoria con la densidad del resultado de [\ref{problema5_1:inciso3}].
