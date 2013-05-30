@@ -4,3 +4,66 @@
 }
 
 \afterstatement\pn
+
+Separemos la integral de manera conveniente:
+
+\begin{align}
+   \int 1\wedge x\, \nu(dx) &= \int (1 \wedge x) \indi{0<x} C/x^{1+\alpha} \,dx                                                 \\
+                            &= \int_0^\infty (1 \wedge x) C/x^{1+\alpha} \,dx                                                   \\
+                            &= \int_0^1 (1 \wedge x) C/x^{1+\alpha} \,dx + \int_1^\infty (1 \wedge x) C/x^{1+\alpha} \,dx       \\
+                            &= \int_0^1 x C/x^{1+\alpha} \,dx + \int_1^\infty C/x^{1+\alpha} \,dx                               \label{problema5_2:descomposicion_de_integral}
+\end{align}
+
+Para que la integral que nos interesa sea finita es necesario y suficiente que los dos sumandos de la última 
+parte de la ecuación lo sean. \pn
+
+Veamos qué ocurre en el primer termino si $\alpha = 1$.
+
+\begin{align}
+    \int_0^1 x C/x^{1+\alpha} \,dx  &=  \int_0^1 x C/x^{2} \,dx                                                 \\
+                                    &=  \int_0^1 C/x \,dx                                                       \\
+                                    &=  \lim_{t \rightarrow 0^+}\int_t^1 C/x \,dx                               \\
+                                    &=  C \lim_{t \rightarrow 0^+} \int_t^1 1/x \,dx                            \\
+                                    &=  C \lim_{t \rightarrow 0^+} [\log(x)]_t^1                                \\
+                                    &=  C \lim_{t \rightarrow 0^+} \log(1) - \log(t)                            \\
+                                    &=  C \lim_{t \rightarrow 0^+} - \log(t)                                    \\
+                                    &=  C \cdot \infty.                                                                
+\end{align}\pn
+
+Por lo tanto $\alpha \not= 1$. Veamos ahora qué ocurre con el primer sumando de \eqref{problema5_2:descomposicion_de_integral}
+suponiendo que $\alpha \not= 1$.
+
+\begin{align}
+    \int_0^1 x C/x^{1+\alpha} \,dx  &=  \int_0^1 C/x^{\alpha}   \,dx                                                                                    \\
+                                    &=  C \int_0^1 x^{-\alpha} \,dx                                                                                     \\
+                                    &=  C \left[ \frac{x^{(1-\alpha)}}{(1-\alpha)}\right]_0^1                                                           \\
+                                    &=  C \left( \frac{1^{(1-\alpha)}}{(1-\alpha)} - \lim_{t \rightarrow 0}\frac{t^{(1-\alpha)}}{(1-\alpha)}\right)     \\
+\end{align}\pn
+
+El límte $\lim_{t \rightarrow 0}\frac{t^{(1-\alpha)}}{(1-\alpha)}$ exíste únicamente si $0 < 1-\alpha$, es decir, si $\alpha < 1$. Entonces basta con 
+que $\alpha < 1$ para que el primer sumando de \eqref{problema5_2:descomposicion_de_integral} sea finito.\pn
+
+Ahora, si $\alpha = 0$ y analizamos el segundo sumando de \eqref{problema5_2:descomposicion_de_integral} vemos que
+
+\begin{align}
+    \int_1^\infty C/x^{1+\alpha} \,dx   &=  C \int_1^\infty 1/x \,dx                                            \\ 
+                                        &=  C \lim_{t \rightarrow \infty} \int_1^t 1/x \,dx                     \\ 
+                                        &=  C \lim_{t \rightarrow \infty} \left[ \log(x) \right]_1^t            \\ 
+                                        &=  C \lim_{t \rightarrow \infty} \log(t) - \log(1)                     \\ 
+                                        &=  C \lim_{t \rightarrow \infty} \log(t)                               \\ 
+                                        &=  C \cdot \infty.                                                       
+\end{align}
+
+Por lo cual necesitamos $\alpha \not= 0$. Supongamos entonces $\alpha \not= 0$ y analicemos el segundo sumando de \eqref{problema5_2:descomposicion_de_integral}:
+
+\begin{align}
+    \int_1^\infty C/x^{1+\alpha} \,dx   &=  C \int_1^\infty 1/x^{1+\alpha} \,dx                                                                     \\
+                                        &=  C \int_1^\infty x^{-1-\alpha} \,dx                                                                      \\
+                                        &=  C \lim_{t \rightarrow \infty} \int_1^t x^{-1-\alpha} \,dx                                               \\
+                                        &=  C \lim_{t \rightarrow \infty} \left[ \frac{x^{-\alpha}}{-\alpha} \right]_1^t                            \\
+                                        &=  C \left( \lim_{t \rightarrow \infty} \frac{t^{-\alpha}}{-\alpha} - \frac{1}{-\alpha} \right)            \\
+\end{align}
+
+Donde el límite $\lim_{t \rightarrow \infty} \frac{t^{-\alpha}}{-\alpha}$ existe únicamente si $-\alpha < 0$, es decir, si $0 < \alpha$.\pn
+
+Entonces podemos concluir que los valores de $\alpha$ para los que \eqref{problema5_2:descomposicion_de_integral} es finito están en $(0, 1)$. 

@@ -1,11 +1,11 @@
 \begin{problema}
 %Simulaci\'on de un proceso Poisson puntual... subordinador...
     Sea $\Xi$ una medida de Poisson aleatoria en $(0,\infty)\times (0,\infty)$ cuya 
-    medida de intensidad $\nu$ est\'a dada por $\imf{\nu}{ds,dx}=\indi{0<x} \indi{s<t}C/x^{1+\alpha}\, ds\,dx$. 
+    medida de intensidad $\nu$ est\'a dada por $\imf{\nu}{ds,dx}=\indi{0<x} C/x^{1+\alpha}\, ds\,dx$. 
     
     \begin{enumerate}
         \item[(i)]		[\ref{problema5_2:inciso1}] 
-			Determine los valores de $\alpha$ para los cuales $\int 1 \wedge x\,\imf{\nu}{dx}<\infty$. 
+			Determine los valores de $\alpha$ para los cuales $\int 1 \wedge x\,\imf{\nu}{dx}<\infty$.\pn 
     \end{enumerate}
     
     Nos restringimos ahora a valores de $\alpha$ para los cuales la integral anterior sea finita. 
@@ -13,16 +13,16 @@
     
     \begin{enumerate}[resume]
         \item[(ii)]		[\ref{problema5_2:inciso2}] 
-			Determine los valores  de $\alpha$ para los cuales $X_t < \infty$ para toda $t \geq 0$ casi seguramente.
+			Determine los valores  de $\alpha$ para los cuales $X_t < \infty$ para toda $t \geq 0$ casi seguramente.\pn
     \end{enumerate}
 
     Nos restringiremos a dichos valores de $\alpha$. 
     
     \begin{enumerate}[resume]
         \item[(iii)]	[\ref{problema5_2:inciso3}] 
-			Calcule $\esp{e^{-\lambda X_t}}$ y pruebe que $X_{t}$ tiene la misma distribuci\'on que $t^{1/\alpha}X_1$. 
+			Calcule $\esp{e^{-\lambda X_t}}$ y pruebe que $X_{t}$ tiene la misma distribuci\'on que $t^{1/\alpha}X_1$.\pn 
         \item[(iv)]		[\ref{problema5_2:inciso4}] 
-			Diga por qu\'e el siguiente c\'odigo en Octave simula la trayectoria aproximada del proceso $X$ en el intervalo $[0,1]$.
+			Diga por qu\'e el siguiente c\'odigo en Octave simula la trayectoria aproximada del proceso $X$ en el intervalo $[0,1]$.\pn
 			\texttt{
 				\lstinputlisting{tarea5/problema5_2/SuborEst.m}
 			}
