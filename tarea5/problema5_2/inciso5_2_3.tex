@@ -3,3 +3,75 @@
 }
 
 \afterstatement\pn
+
+La primera parte de la proposición $4.6$ de la versión de las notas que se adjuntó en este documento (ver [\ref{notas}]) dice que
+si $f$ es medible y no negativa entonces la integral de $f$ con respecto de $\Xi$ es una variable aleatoria y 
+
+\begin{align}
+    \E\left( e^{-\Xi f} \right)   &=  e^{-\int (1-e^{-f}) \,d\nu}.
+\end{align}\pn
+
+Usando esto mismo pero con $\Xi \lambda f_t = \lambda X_t$, tenemos
+
+\begin{align}
+    \E\left( e^{- \lambda X_t} \right)   &=  e^{-\int (1-e^{-\lambda f_t}) \,d\nu}. \label{problema5_2:resultado4_6}
+\end{align}\pn.
+
+Analicemos qué ocurre con $\int (1-e^{-\lambda f_t}) \,d\nu$.
+
+\begin{align}
+    \int (1-e^{-\lambda f_t}) \,d\nu    &=  \int \int (1-e^{-\lambda f_t})\frac{C}{x^{1+\alpha}}\,ds\,dx                                        \\
+                                        &=  \int \int (1-e^{-\lambda \indic_{\{s \leq t\}} x})\frac{C}{x^{1+\alpha}}\,ds\,dx                    \\
+                                        &=  \int_0^\infty \int_0^t (1-e^{-\lambda  x})\frac{C}{x^{1+\alpha}}\,ds\,dx                            \\
+                                        &=  \int_0^\infty t (1-e^{-\lambda  x})\frac{C}{x^{1+\alpha}}\,dx                                       \\
+                                        &=  tC \int_0^\infty  (1-e^{-\lambda  x})\frac{1}{x^{1+\alpha}}\,dx                                     \\
+    \intertext{
+    Ahora reescribimos a $(1-e^{-\lambda  x})$ como $\int_0^x \lambda e^{-\lambda y} \,dy$ y entonces la ecuación 
+    anterior se transforma en}
+                                        &=  tC \int_0^\infty  \left(\int_0^x  \lambda e^{-\lambda y} \,dy \right)\frac{1}{x^{1+\alpha}}\,dx     \\
+                                        &=  tC \int_0^\infty  \frac{\int_0^x  \lambda e^{-\lambda y}}{x^{1+\alpha}}\,dy\,dx                     \\
+                                        &=  tC \int_0^\infty  \int_0^x\frac{ \lambda e^{-\lambda y}}{x^{1+\alpha}} \lambda \,dy\,dx                      \\
+    \intertext{
+    La función que se encuentra en la integral es positiva, por lo tanto podemos aplicar el Teorema de Tonelli 
+    para intercambiar las integrales de la siguiente manera:}
+                                        &=  tC \int_0^\infty  \int_y^\infty\frac{ \lambda e^{-\lambda y}}{x^{1+\alpha}}\,dx\,dy                 \\
+    \intertext{
+    Recordando que $\alpha \in (0,1)$, tenemos que 
+    $\int_y^\infty\frac{ 1 }{x^{1+\alpha}}\,dx = \lim_{x \rightarrow \infty} \frac{x^{-\alpha}}{-\alpha} - \frac{y^{-\alpha}}{-\alpha} = 
+    - \frac{y^{-\alpha}}{-\alpha} = \frac{y^{-\alpha}}{\alpha}$. Sustituyendo esto tenemos}
+                                        &=  tC \int_0^\infty  \frac{y^{-\alpha}}{\alpha} \lambda e^{-\lambda y}\,dy                             \\
+                                        &=  \frac{tC}{\alpha} \int_0^\infty  y^{-\alpha}  e^{-\lambda y} \lambda\,dy                            \\
+                                        &=  \frac{tC \lambda^{\alpha}}{\alpha} \int_0^\infty  (\lambda y)^{-\alpha}  e^{-\lambda y}\,dy         \\
+    \intertext{
+    Recordemos que $\int_0^\infty  (\lambda y)^{-\alpha}  e^{-\lambda y}\,dy$ se puede escribir 
+    como $\Gamma(1-\alpha)$ y entonces nuestra ecuación se puede escribir como}
+                                        &=  \frac{tC \lambda^{\alpha}}{\alpha} \Gamma(1-\alpha).                                                 \\
+\end{align}
+
+Ahora, regresando a \eqref{problema5_2:resultado4_6}, tenemos que 
+
+\begin{align}
+    \E\left( e^{- \lambda X_t} \right)  &=  e^{-\int (1-e^{-\lambda f_t}) \,d\nu}                               \\
+                                        &=  e^{-\frac{tC \lambda^{\alpha}}{\alpha} \Gamma(1-\alpha)}            \\
+\end{align}\pn
+
+Ahora de la ecuación anterior, remplacemos $t$ por $1$ y entonces obtenemos
+
+\begin{align}
+    \E\left( e^{- \lambda X_1} \right)   &= e^{-\frac{C \lambda^{\alpha}}{\alpha} \Gamma(1-\alpha)}
+\end{align}
+
+De esto último, remplacemos ahora $\lambda$ por $\lambda t^{1/\alpha}$
+
+\begin{align}
+    \E\left( e^{- \lambda t^{1/\alpha} X_1} \right)   &= e^{-\frac{C (\lambda t^{1/\alpha})^{\alpha}}{\alpha} \Gamma(1-\alpha)}    \\
+                                                      &= e^{-\frac{C \lambda^\alpha t}{\alpha} \Gamma(1-\alpha)}    \\
+\end{align}
+
+De donde podemos observar fácilmente que
+\begin{align}
+    \E\left( e^{- \lambda X_t} \right)  &=  \E\left( e^{- \lambda t^{1/\alpha} X_1} \right).
+\end{align}
+
+Lo que acabamos de escribir no son mas que las funciones generadoras de momentos de $X_t$ y $t^{1/\alpha} X_1$ evaluadas en $-\lambda$. Lo que 
+acabamos de demostrar es que sus funciones generadoras de momentos son idénticas para cada $\lambda$ y por lo tanto, sus distribuciones son iguales.
