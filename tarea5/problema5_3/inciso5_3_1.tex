@@ -1,6 +1,38 @@
 \emph{
 	Pruebe que si $X$ tiene incrementos independientes entonces el proceso $X^t$ dado por $X^t_s=X_{t+s}-X_t$ 
-	es independiente de $\F^X_t=\sag{X_s:s\geq 0}$.
+	es independiente de $\F^X_t=\sag{X_s : s \leq t}$.
 }
 
 \afterstatement\pn
+
+Recordemos que tener incrementos independientes significa que siempre que $0 \leq r_1 < r_2 < r_3 < \dots < r_m$ 
+se tiene que $X_{r_1} - X_{r_2}, X_{r_2} - X_{r_3}, \dots, X_{r_m} - X_{t_{m-1}}$ son variables aleatorias independientes.\pn
+
+Veamos quien es la $\sigma$-álgebra generada por los incrementos de $X$ hasta $t$. En otras palabaras, la 
+$\sigma$-álgebra generada por conjuntos de la forma
+
+\begin{align}
+    \bigcap_{1 \leq i \leq n} \{ X_{s_i} - X_{s_{i-1}} \in B_i \} \label{problema5_3:sigma_algebra_de_incrementos}
+\end{align}\pn
+
+Donde $0 \leq s_1 < s_2 < \dots < s_n \leq t$, y $B_i \in \B_\R$ y, por comodida de notación, $X_{s_{0}} = 0$.\pn 
+
+Notemos primero que estos conjuntos son todos $\F_t^X$ medibles. También notemos que los conjuntos 
+$\{ X_s \in B : B \in \B_\R \}$ con $0 \leq s \leq t$ también son de esta forma. Basta con escoger 
+$s_1 = s$, $B_1 = B$ y $B_i = \R$ para $i \geq 2$.\pn
+
+Lo que acabamos de mostrar es que la $\sigma$-álgebra generada por los conjuntos definidos en \eqref{problema5_3:sigma_algebra_de_incrementos} es
+igual a $\F_t^X$. Llamemos $P$ a la clase de los conjuntos de esta forma. Es fácil ver que $P$ es un $\pi$-sistema. Es no vacío 
+($\R$ y $\emptyset$ están en él) y es fácil ver que la intersección de dos de ellos está otra vez en $P$.\pn
+
+Ahora analicemos a la $\sigma$-álgebra generada por los incrementos de $X^t$. Llamemos $P'$ a la clase de los conjuntos de la forma
+
+
+
+Definamos un conjunto generador de $\F^X_t$ conveniente.\pn
+
+\begin{align}
+    A   &= \bigcap_{i \leq n} \{ X_{s_i} \in B_i \}
+\end{align}
+
+Donde $B_i \in \B_\R$ y $s_i \geq 0$
