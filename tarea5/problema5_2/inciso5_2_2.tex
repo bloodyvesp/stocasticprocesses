@@ -3,3 +3,22 @@
 }
 
 \afterstatement\pn
+
+Sean $f_t(s,x) = \indic_{\{ s \leq t\}} x$ y $X_t = \Xi f_t$.\pn
+
+De la segunda afirmación del teorema $4.6$ de la versión de las notas que se incluye en este documento 
+(ver [\ref{notas}]) sabemos que la variable aleatoria $\Xi f_t$ es casi seguramente finita o casi seguramente infinita de
+acuerdo a si la integral $\int 1 \wedge f_t \,d\nu$ es finita o no.\pn
+
+\begin{align}
+    \int 1 \wedge f_t \,d\nu    &=   \int 1 \wedge \left( \indic_{\{ s \leq t\}} x \right) \,d\nu                                   \\
+                                &=   \int \int 1 \wedge \left( \indic_{\{ s \leq t\}} x \right) \indi{0<x} C/x^{1+\alpha} \,ds\,dx  \\
+                                &=   \int_0^\infty \int 1 \wedge \left( \indic_{\{ s \leq t\}} x \right) C/x^{1+\alpha} \,ds\,dx    \\
+                                &=   \int_0^\infty \int_0^t (1 \wedge x) C/x^{1+\alpha} \,ds\,dx                                    \\
+                                &=   \int_0^\infty t (1 \wedge x) C/x^{1+\alpha} \,dx                                               \\
+                                &=   tC \left(\int_0^\infty  (1 \wedge x) 1/x^{1+\alpha} \,dx\right)                                \\
+                                &=   tC \left(\int_0^1  1/x^{\alpha} \,dx + \int_1^\infty 1/x^{1+\alpha} \,dx\right).
+\end{align}
+
+En [\ref{problema5_2:inciso1}] vimos que para que las integrales entre paréntesis tengan suma finita es neceario y suficiente que $\alpha \in (0, 1)$. 
+Entonces basta que $\alpha \in (0, 1)$ para que $\int 1 \wedge f_t \,d\nu < \infty$.
