@@ -45,17 +45,16 @@ La idea ahora es encontrar un sistema de Dynkin que contenga a $P$ y que sea ind
 de $P'$. De esta manera, utilizando el Lema de clases de Dynkin podemos extender la propieadad de ser
 independiente de $P'$.\pn
 
-Sea $C' \in P'$. Definimos
 \begin{align}
-    D_{C'} =   \{ S \in \sigma(P) : \P(S  \cap C') = \P(S) \P(C') \}.
+    D =   \{ S \in \sigma(P) : \P(S  \cap C') = \P(S) \P(C') \; \forall C' \in P'\}.
 \end{align}\pn
 
-Veamos que $P \subset D_{C'}$. Para ello, sea $C \in P$ con
+Veamos que $P \subset D$. Para ello, sea $C \in P$ con
 \begin{align}
      C  &=  \bigcap_{1 \leq i\leq n} \{ X_{s_i} - X_{s_{i-1}} \in B_i \}.
 \end{align}\pn
 
-Como $C' \in P$, entonces se puede escribir como
+Y sea $C' \in P$, con
 \begin{align}
     C'  &=  \bigcap_{1 \leq i' \leq n'} \{  X_{t + r_i'} - X_{t + r_{i' - 1}} \in B_i' \}
 \end{align}
@@ -75,4 +74,5 @@ Entonces
 \end{align}\pn
 \normalsize
 
-Con esto hemos demostrado que $C \in D_{C'}$ y por lo tanto $P \subset D_{C'}$.
+Con esto hemos demostrado que $C \in D$ y por lo tanto $P \subset D$. Para ver que $D$ es sistema de Dynkin, notemos primero que $\R \in D$ 
+(el total siempre es un conjunto independiente de cualquier otro). 
