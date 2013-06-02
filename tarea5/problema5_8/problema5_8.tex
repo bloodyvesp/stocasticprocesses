@@ -1,15 +1,37 @@
 \begin{problema}
-Sea\begin{esn}
-Q=\begin{pmatrix}
--2&2\\
-3&-3
-\end{pmatrix}.
-\end{esn}\begin{enumerate}
-\item Haga un programa en octave que permita simular las trayectorias de una cadena de Markov a tiempo continuo $X$ con matriz infinitesimal $Q$.
-\item Utilice su programa para generar 10000 trayectorias en el intervalo de tiempo $[0,10]$ comenzando con probabilidad $1/2$ en cada estado y obtenga la distribuci\'on emp\'irica de $X_10$. 
-\item Calcule $e^{10Q}$ (utilizando alg\'un comando adecuado) y contraste con la distribuci\'on emp\'irica del inciso anterior.
-\item Codifique el siguiente esquema num\'erico, conocido como m\'etodo de Euler, para aproximar a $e^{10 Q}$: escoja $h>0$ peque\~no, defina a $P^h_0$ como la matriz identidad y recursivamente\begin{esn}
-P^h_{i+1}=P^h_i+hQP^h_i. 
-\end{esn}corra hasta que $i=\floor{10/h}$ y compare la matriz resultante con $e^{10Q}$. Si no se parecen escoja a $h$ m\'as peque\~no. ?`Con qu\'e $h$ puede aproximar a $e^{10Q}$ a 6 decimales?
-\end{enumerate}
+    Sea
+
+    \begin{esn}
+        Q=
+            \begin{pmatrix}
+                -2  &   2   \\
+                3   &   -3
+            \end{pmatrix}.
+    \end{esn}
+
+    \begin{enumerate}
+        \item 
+            Haga un programa en octave que permita simular las trayectorias de una 
+            cadena de Markov a tiempo continuo $X$ con matriz infinitesimal $Q$.\pn
+            
+        \item 
+            Utilice su programa para generar 10000 trayectorias en el intervalo de tiempo $[0,10]$ 
+            comenzando con probabilidad $1/2$ en cada estado y obtenga la distribuci\'on emp\'irica 
+            de $X_{10}$.\pn
+            
+        \item 
+            Calcule $e^{10Q}$ (utilizando alg\'un comando adecuado) y contraste con la 
+            distribuci\'on emp\'irica del inciso anterior.\pn
+        
+        \item 
+            Codifique el siguiente esquema num\'erico, conocido como m\'etodo de Euler, 
+            para aproximar a $e^{10 Q}$: escoja $h>0$ peque\~no, defina a $P^h_0$ como 
+            la matriz identidad y recursivamente
+            \begin{esn}
+                P^h_{i+1}=P^h_i+hQP^h_i. 
+            \end{esn}
+            corra hasta que $i=\floor{10/h}$ y compare la matriz resultante con $e^{10Q}$. 
+            Si no se parecen escoja a $h$ m\'as peque\~no. 
+            ?`Con qu\'e $h$ puede aproximar a $e^{10Q}$ a 6 decimales?
+    \end{enumerate}
 \end{problema}
