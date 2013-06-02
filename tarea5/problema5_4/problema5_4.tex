@@ -50,10 +50,10 @@ Ahora veamos que ocurre con la entrada $(i,j)$ de la matriz $P_t P_s$.
                         &= e^{-\lambda (t+s)} \lambda^{j - i} \sum_{i \leq k \leq j}   \frac{ t^{k-i} s^{j-k}}{(j - k)!(k - i)!}                            \\
 \end{align}
 
-Si definimos $k' = k - i$ (nótese que $0 \lek k' \leq j - i$) y hacemos la sustitución teniendo cuidado con los límites de las sumas obtenemos
+Si definimos $k' = k - i$ (nótese que $0 \leq k' \leq j - i$) y hacemos la sustitución teniendo cuidado con los límites de las sumas obtenemos
 \begin{align}
     (P_t P_s)(i,j)      &=  e^{-\lambda (t+s)} \lambda^{j - i} \sum_{i \leq k \leq j}   \frac{ t^{k-i} s^{j-k}}{(j - k)!(k - i)!}                              \\
-                        &=  e^{-\lambda (t+s)} \lambda^{j - i} \sum_{k' \leq j - i}   \frac{ t^{k'} s^{j-k'+i}}{(j - i - k')!(k')!}                            \\
+                        &=  e^{-\lambda (t+s)} \lambda^{j - i} \sum_{k' \leq j - i}   \frac{ t^{k'} s^{j - i -k'}}{(j - i - k')!(k')!}                        
 \end{align}\pn
 
 Que es exactamente equivalente a lo que habíamos conseguido antes y por lo tanto $P_{t+s} = P_t P_s$.
