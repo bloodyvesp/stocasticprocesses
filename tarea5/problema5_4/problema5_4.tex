@@ -1,16 +1,59 @@
 \begin{problema}
-Sea $P_t$ la probabilidad de transici\'on en $t$ unidades de tiempo para el proceso de Poisson de par\'ametro $\lambda$. 
+    Sea $P_t$ la probabilidad de transici\'on en $t$ unidades de tiempo para el proceso de Poisson de 
+    par\'ametro $\lambda$. 
 
-Al utilizar el teorema del biniomio, pruebe directamente que las probabilidades de transici\'on del proceso de Poisson satisfacen las ecuaciones de Chapman-Kolmogorov $P_{t+s}=P_tP_s$. D\'e adem\'as un argumento probabil\'istico, basado en condicionar con lo que sucede al tiempo $s$, para probar dicha ecuaci\'on. 
+    Al utilizar el teorema del biniomio, pruebe directamente que las probabilidades de transici\'on del 
+    proceso de Poisson satisfacen las ecuaciones de Chapman-Kolmogorov $P_{t+s}=P_tP_s$. D\'e adem\'as un 
+    argumento probabil\'istico, basado en condicionar con lo que sucede al tiempo $s$, para probar dicha ecuaci\'on. 
 
-Sea\begin{esn}
-\imf{Q}{i,j}=\begin{cases}
--\lambda&j=i\\
-\lambda&j=i+1\\
-0&j\neq i,i+1
-\end{cases}.
-\end{esn}Pruebe directamente que se satisfacen las ecuaciones de Kolmogorov\begin{equation*}
-%\label{CKEquationsForPoisson}
-\frac{d}{dt}\imf{P_t}{i,j}=\imf{QP_t}{i,j}=\imf{P_tQ}{i,j},
-\end{equation*}donde $QP_t$ es el producto de las matrices $Q$ y $P_t$.
+    Sea
+    \begin{esn}
+        \imf{Q}{i,j}=
+            \begin{cases}
+                -\lambda    &   j   =       i     \\
+                \lambda     &   j   =       i+1   \\
+                0           &   j   \neq    i,i+1
+            \end{cases}.
+    \end{esn}
+
+    Pruebe directamente que se satisfacen las ecuaciones de Kolmogorov
+    \begin{equation*} %\label{CKEquationsForPoisson}
+        \frac{d}{dt}\imf{P_t}{i,j}=\imf{QP_t}{i,j}=\imf{P_tQ}{i,j},
+    \end{equation*}
+    donde $QP_t$ es el producto de las matrices $Q$ y $P_t$.
 \end{problema}
+
+Sean $i \leq j \in \N$. Por definición
+\begin{align}
+    P_r(i, j)   &=  \P(N_r = j-i)   \\
+                &=  e^{-\lambda r}   \frac{(\lambda r)^{j - i}}{(j - i)!}
+\end{align}\pn
+
+(si $j < i$, $P_r$ es cero). Sean ahora, $t,s \in \R^+$.
+
+\begin{align}
+    P_{t + s}(i,j)  &=  e^{-\lambda (t+s)}  \frac{(\lambda(t+s))^{j-i}}{(j-i)!}                                                 \\
+                    &=  e^{-\lambda (t+s)}  \frac{\lambda^{j-i} \sum_{k \leq j-i} \binom{j-i}{k} t^k s^{j-i-k}}{(j-i)!}         \\
+                    &=  e^{-\lambda (t+s)} \lambda^{j-i} \sum_{k \leq j-i} \frac{ \binom{j-i}{k} t^k s^{j-i-k}}{(j-i)!}         \\
+                    &=  e^{-\lambda (t+s)} \lambda^{j-i} \sum_{k \leq j-i} \frac{ (j-i)! t^k s^{j-i-k}}{(j-i-k)!(k)!(j-i)!}     \\
+                    &=  e^{-\lambda (t+s)} \lambda^{j-i} \sum_{k \leq j-i} \frac{ t^k s^{j-i-k}}{(j-i-k)!(k)!}     \\
+\end{align} 
+
+Ahora veamos que ocurre con la entrada $(i,j)$ de la matriz $P_t P_s$.
+
+\begin{align}
+    (P_t P_s)(i,j)      &=  \sum_{k \geq 0}         P_t(i,k) P_t(k,j)                                                                                       \\
+                        &=  \sum_{i \leq k \leq j}  P_t(i,k) P_t(k,j)                                                                                       \\
+                        &\comment{Pues $P_r(i,j) = 0$ siempre que $j < i$}                                                                                  \\
+                        &= \sum_{i \leq k \leq j}  e^{-\lambda t} \frac{(\lambda t)^{k- i}}{(k - i)!} e^{-\lambda s} \frac{(\lambda s)^{j - k}}{(j - k)!}   \\
+                        &= e^{-\lambda (t+s)}\sum_{i \leq k \leq j}   \frac{(\lambda)^{j - i} t^{k-i} s^{j-k}}{(j - k)!(k - i)!}                            \\
+                        &= e^{-\lambda (t+s)} \lambda^{j - i} \sum_{i \leq k \leq j}   \frac{ t^{k-i} s^{j-k}}{(j - k)!(k - i)!}                            \\
+\end{align}
+
+Si definimos $k' = k - i$ (nótese que $0 \lek k' \leq j - i$) y hacemos la sustitución teniendo cuidado con los límites de las sumas obtenemos
+\begin{align}
+    (P_t P_s)(i,j)      &=  e^{-\lambda (t+s)} \lambda^{j - i} \sum_{i \leq k \leq j}   \frac{ t^{k-i} s^{j-k}}{(j - k)!(k - i)!}                              \\
+                        &=  e^{-\lambda (t+s)} \lambda^{j - i} \sum_{k' \leq j - i}   \frac{ t^{k'} s^{j-k'+i}}{(j - i - k')!(k')!}                            \\
+\end{align}\pn
+
+Que es exactamente equivalente a lo que habíamos conseguido antes y por lo tanto $P_{t+s} = P_t P_s$.
