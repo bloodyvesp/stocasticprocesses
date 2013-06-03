@@ -43,9 +43,11 @@ A diferencia de la implementación anterior, esta vez intentamos representar el 
 hasta un tiempo dado y no hasta un número de saltos dado. \pn
 
 Como se puede apreciar, en esta última ejecución hasta el tiempo $50$ únicamente hubo $18$ saltos. 
-A diferencia de que en la ejecución de la primera implementacción hubo casi $50$ saltos para el 
+A diferencia de que en la ejecución de la primera implementacción hubo $43$ saltos para el 
 tiempo $50$. Cabe notar, que el parámetro lambda de la primera implementación era aproximadamente 
-$0.861297$, mientras que el de la segunda a penas aproximadamente $0.333371$.\pn
+$0.915432$, mientras que el de la segunda a penas aproximadamente $0.333371$. Hay que recordar
+que los ``holding times'' tienen distribución exponencial, tienden a ser más largos 
+conforme $\lambda$ es más pequeño, y por lo tanto, entre más pequeño sea, habrá saltos con menos frecuencia.\pn
 
 \textbf{Nota: } Para poder implementar esta versión del algoritmo se necesitó implementar
 una función que se deduce del resultado de [\ref{problema5_1:inciso3}]. Esta parte está en el archivo con nombre

@@ -1,12 +1,12 @@
 clear;			
 #Se define el parametro lambda en [0, 1].
-	lambda = rand();					
+	lambda = 0.915432451654213;					
 
 #Numero de saltos. 
 	n = 50;							
 
 #Muestra para S_1, S_2, .....               
-	S = exprnd(lambda, n, 1);	
+	S = exprnd(1/lambda, n, 1);	
 	
 #Aqui se calculan los tiempos
 #de salto.   
