@@ -1,6 +1,6 @@
 clear;			
 #Se define el parametro lambda en [0, 1].
-	lambda = 0.915432451654213;					
+	lambda = rand();					
 
 #Numero de saltos. 
 	n = 50;							

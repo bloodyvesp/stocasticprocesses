@@ -39,7 +39,7 @@ Sean $i \leq j \in \N$. Por definición
                     &=  e^{-\lambda (t+s)} \lambda^{j-i} \sum_{k \leq j-i} \frac{ \binom{j-i}{k} t^k s^{j-i-k}}{(j-i)!}         \\
                     &=  e^{-\lambda (t+s)} \lambda^{j-i} \sum_{k \leq j-i} \frac{ (j-i)! t^k s^{j-i-k}}{(j-i-k)!(k)!(j-i)!}     \\
                     &=  e^{-\lambda (t+s)} \lambda^{j-i} \sum_{k \leq j-i} \frac{ t^k s^{j-i-k}}{(j-i-k)!(k)!}     \\
-\end{align} 
+\end{align}\pn
 
 Ahora veamos que ocurre con la entrada $(i,j)$ de la matriz $P_t P_s$.
 
@@ -50,7 +50,7 @@ Ahora veamos que ocurre con la entrada $(i,j)$ de la matriz $P_t P_s$.
                         &= \sum_{i \leq k \leq j}  e^{-\lambda t} \frac{(\lambda t)^{k- i}}{(k - i)!} e^{-\lambda s} \frac{(\lambda s)^{j - k}}{(j - k)!}   \\
                         &= e^{-\lambda (t+s)}\sum_{i \leq k \leq j}   \frac{(\lambda)^{j - i} t^{k-i} s^{j-k}}{(j - k)!(k - i)!}                            \\
                         &= e^{-\lambda (t+s)} \lambda^{j - i} \sum_{i \leq k \leq j}   \frac{ t^{k-i} s^{j-k}}{(j - k)!(k - i)!}
-\end{align}
+\end{align}\pn
 
 Si definimos $k' = k - i$ (nótese que $0 \leq k' \leq j - i$) y hacemos la sustitución teniendo cuidado con los límites de las sumas obtenemos
 \begin{align}
@@ -60,12 +60,11 @@ Si definimos $k' = k - i$ (nótese que $0 \leq k' \leq j - i$) y hacemos la sust
 
 Que es equivalente a lo que habíamos conseguido antes y por lo tanto $P_{t+s} = P_t P_s$.
 Ahora una prueba utilizando los argumentos de que los incrementos son estacionarios e independientes.
-
 \begin{align}
     P_{t+s}(i,j)    &=  \P(N_{t+s} = i-j)                                              \\
                     &=  \sum_{0 \leq k\leq j-i}\P(N_{t+s} = j-i, N_s = k)              \\
                     &=  \sum_{0 \leq k\leq j-i}\P(N_{t+s} - N_s = j-i-k, N_s = k)      \\
-\end{align}
+\end{align}\pn
 
 Hacemos $k' = j - k$ y entonces podemos escribir
 \begin{align}
@@ -76,7 +75,7 @@ Hacemos $k' = j - k$ y entonces podemos escribir
                     &=  \sum_{i \leq k' \leq j}\P(N_{t} = k' - i)\P(N_s = j - k')               \\
                     &\comment{Esto último porque los incrementos son estacionarios}             \\
                     &=  \sum_{i \leq k' \leq j} P_t(i,k) P_s(k',j)                              \\
-\end{align}
+\end{align}\pn
 
 Por otro lado
 \begin{align}
@@ -94,7 +93,7 @@ Ahora las ecuaciones ``forward'' y ``backward''.
 Derivando con respecto a $r$ obtenemos:
 \begin{align}
     \frac{d}{dr}    P_r(i, j)   &=  \frac{d}{dr} \left( e^{-\lambda r}   \frac{(\lambda r)^{j - i}}{(j - i)!}   \right)                                                         \\
-                                &=  e^{-\lambda r} \lambda \frac{(\lambda r)^{j - i - 1 }}{(j - i - 1)!} -\lambda e^{-\lambda r}   \frac{(\lambda r)^{j - i}}{(j - i)!}         \\
+                                &=  e^{-\lambda r} \lambda \frac{(\lambda r)^{j - i - 1}}{(j - i - 1)!} -\lambda e^{-\lambda r}   \frac{(\lambda r)^{j - i}}{(j - i)!}         \\
                                 &=  \lambda P_r(i+1, j) - \lambda P_r(i,j).
 \end{align}\pn
 
@@ -112,7 +111,7 @@ Con lo que queda demostrado que $\frac{d}{dr}P_r(i,j) = QP_r$. De manera similar
                 &=  P_r(i,j)Q(j,j)  +   P_r(i,j-1)Q(j-1,j)          \\
                 &=  P_r(i,j)(-\lambda)  +   P_r(i,j-1)(\lambda)     \\
                 &=  P_r(i,j)(-\lambda)  +   P_r(i+1,j)(\lambda)     \\
-                &\comment(porque $j-1-i = j-(i+1)$)                 \\
+                &\comment{porque $j-1-i = j-(i+1)$}                 \\
                 &=  -\lambda P_r(i,j)  +   \lambda P_r(i+1,j)
 \end{align}\pn
-Con lo que queda demostrado que $\frac{d}{dr}P_r(i,j) = QP_r = P_rQ$.
+Con lo que queda demostrado que $\frac{d}{dr} P_r(i,j) = QP_r = P_rQ$.

@@ -10,20 +10,20 @@
     \end{esn}
 
     \begin{enumerate}
-        \item 
+        \item[(i)]      [\ref{problema5_8:inciso1}] 
             Haga un programa en octave que permita simular las trayectorias de una 
             cadena de Markov a tiempo continuo $X$ con matriz infinitesimal $Q$.\pn
             
-        \item 
+        \item[(ii)]     [\ref{problema5_8:inciso2}]
             Utilice su programa para generar 10000 trayectorias en el intervalo de tiempo $[0,10]$ 
             comenzando con probabilidad $1/2$ en cada estado y obtenga la distribuci\'on emp\'irica 
             de $X_{10}$.\pn
             
-        \item 
+        \item[(iii)]    [\ref{problema5_8:inciso3}]
             Calcule $e^{10Q}$ (utilizando alg\'un comando adecuado) y contraste con la 
             distribuci\'on emp\'irica del inciso anterior.\pn
         
-        \item 
+        \item[(iv)]     [\ref{problema5_8:inciso4}]
             Codifique el siguiente esquema num\'erico, conocido como m\'etodo de Euler, 
             para aproximar a $e^{10 Q}$: escoja $h>0$ peque\~no, defina a $P^h_0$ como 
             la matriz identidad y recursivamente
@@ -35,3 +35,20 @@
             ?`Con qu\'e $h$ puede aproximar a $e^{10Q}$ a 6 decimales?
     \end{enumerate}
 \end{problema}
+
+\begin{proof}
+    \subsection{Inciso (i)} \label{problema5_8:inciso1}
+    \input{tarea5/problema5_8/inciso5_8_1.tex}
+    \newpage
+
+    \subsection{Inciso (ii)} \label{problema5_8:inciso2}
+    \input{tarea5/problema5_8/inciso5_8_2.tex}
+    \newpage
+
+    \subsection{Inciso (iii)} \label{problema5_8:inciso3}
+    \input{tarea5/problema5_8/inciso5_8_3.tex}
+	\newpage
+	
+    \subsection{Inciso (iv)} \label{problema5_8:inciso4}
+    \input{tarea5/problema5_8/inciso5_8_4.tex}
+\end{proof}
