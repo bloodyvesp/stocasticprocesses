@@ -6,3 +6,24 @@
 }
 
 \afterstatement\pn
+
+Como no hay estados absorbentes, podemos utilizar la fórmula
+\begin{align}
+        P(i,j)  &=  \frac{Q(i, j)}{c(i)} (i-\delta_{i,j})
+\end{align}
+
+donde $c(i)$ es la suma de las entradas positivas de la $i$-ésima fila de $Q$ y $\delta_{i,j} = 1$
+si $i = j$ y $\delta_{i,j} = 0$ en cualquier otro caso.\pn
+
+Después de algunas cuentas se obtiene:
+\begin{align}
+     P=
+        \begin{pmatrix}
+            0           &   1   &   0               \\
+            \frac{1}{7} &   0   &   \frac{6}{7}     \\
+            0           &   1   &   0
+        \end{pmatrix}.   
+\end{align}\pn
+
+De $P$ se puede todos los estados son alcanzables desde cualquier otro (de los estados 0 y 2 se puede llegar al $1$, y del 1 a cualquiera
+de los otros).
