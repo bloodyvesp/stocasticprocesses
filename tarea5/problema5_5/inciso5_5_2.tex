@@ -9,7 +9,7 @@ Ahora la estrategia consiste en diagonalizar $Q$.
 Su polinomio característico es
 \begin{align}
         q(x) =  \lambda (\lambda + 5) (\lambda + 10).
-\end{align}\pn
+\end{align}
 
 Por lo tanto sus valores propios son $0, -5, -10$. Después de resolver los
 sistemas de ecuaciones correspondientes se obtiene que los vectores propios correspondientes son
@@ -18,55 +18,55 @@ $(1,1,1), (18, 3, -2), (-6, 4, -1)$.
 Con lo que definimos a la matriz
 \begin{align}
      A      =
-            \begin{pmatrix}
-                1   &   18  &   -6      \\
-                1   &   3   &   4       \\
-                1   &   -2  &   -1
-            \end{pmatrix}   
+                \begin{pmatrix}
+                    1   &   18  &   -6      \\
+                    1   &   3   &   4       \\
+                    1   &   -2  &   -1
+                \end{pmatrix}   
 \end{align}
 la cual tiene inversa
 \begin{align}
      A^{-1}     =   \frac{1}{25}
-                \begin{pmatrix}
-                    1       &   6   &   18      \\
-                    1       &   1   &   -2      \\
-                    -1      &   4   &   -3
-                \end{pmatrix}.   
-\end{align}\pn
+                    \begin{pmatrix}
+                        1       &   6   &   18      \\
+                        1       &   1   &   -2      \\
+                        -1      &   4   &   -3
+                    \end{pmatrix}.   
+\end{align}
 
 Ahora definimos
 \begin{align}
     D = A^{-1} Q A  =
-                    \begin{pmatrix}
-                        0   &   0   &   0      \\
-                        0   &   -5  &   0      \\
-                        0   &   0   &   -10
-                    \end{pmatrix}.
+                        \begin{pmatrix}
+                            0   &   0   &   0      \\
+                            0   &   -5  &   0      \\
+                            0   &   0   &   -10
+                        \end{pmatrix}.
 \end{align}
 
 Para calcular la probablidad de que $2$ generadores estén funcionando al tiempo $t$ dado que se empezó con $1$, necesitamos 
-encontrar la entrada $(2,3)$ de $P_t$ (recordemos que el estado $1$ significa ningún generador está funcionando, el $2$ es un 
-generador está funcionando y $3$ es ambos generadores están funcionando).\pn
+encontrar la entrada $(2,3)$ de $P_t$ (recordemos que el estado representado en el renglón $1$ significa ningún generador 
+está funcionando, el representado por el renglón $2$ significa que un generador está funcionando y el representado por el 
+$3$ significa que ambos generadores están funcionando).\pn
   
 Para ello utilizamos que $P_t = e^tQ = e^{t(ADA^{-1})} = Ae^{tD}A^{-1}$ y que
 \begin{align}
     e^{tD}  =   
-            \begin{pmatrix}
-                e^{0 t} &   0           &   0      \\
-                0       &   e^{-5 t}    &   0      \\
-                0       &   0           &   e^{-10 t}
-            \end{pmatrix}
+                \begin{pmatrix}
+                    e^{0 t} &   0           &   0      \\
+                    0       &   e^{-5 t}    &   0      \\
+                    0       &   0           &   e^{-10 t}
+                \end{pmatrix}
             =   
-            \begin{pmatrix}
-                0       &   0           &   0      \\
-                0       &   e^{-5 t}    &   0      \\
-                0       &   0           &   e^{-10 t}
-            \end{pmatrix}.
-\end{align}\pn
+                \begin{pmatrix}
+                    1       &   0           &   0      \\
+                    0       &   e^{-5 t}    &   0      \\
+                    0       &   0           &   e^{-10 t}
+                \end{pmatrix}.
+\end{align}
 
 Entonces, 
 \begin{align}
-        P_t(2,3) &= \frac{1}{25} (1,-2,-1) \cdot (18, -2e^{-5t}, -3e^{10t})                                                                                 \\
-                 &= \frac{1}{25} (18 + 4e^{-5t} + 3e^{10t}).                                                                                                \\
+        P_t(2,3) &= \frac{1}{25} (1,3,4) \cdot (18, -2e^{-5t}, -3e^{10t})                                                                                 \\
+                 &= \frac{1}{25} (18 - 6e^{-5t} - 12e^{10t}).                                                                                                \\
 \end{align}
-
