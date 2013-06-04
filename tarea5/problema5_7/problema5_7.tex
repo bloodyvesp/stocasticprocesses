@@ -1,13 +1,33 @@
 \begin{problema}
+    (Tomado del examen general de conocimientos del \'area de Probabilidad del Posgrado 
+    en Ciencias Matem\'aticas, UNAM, 
+    \href{http://www.posgradomatematicas.unam.mx/contenidoEstatico/archivo/files/pdf/Examenes_Generales/Probabilidad/Probabilidad2011-2.pdf}{Agosto 2011})
 
-(Tomado del examen general de conocimientos del \'area de Probabilidad del Posgrado en Ciencias Matem\'aticas, UNAM, \href{http://www.posgradomatematicas.unam.mx/contenidoEstatico/archivo/files/pdf/Examenes_Generales/Probabilidad/Probabilidad2011-2.pdf}{Agosto 2011})
+    Sea $N$ un proceso de Poisson homog\'eneo de par\'ametro $\lambda$. Sea $E=\paren{-1,1}$ y $X_0$ una 
+    variable aleatoria con valores en $E$ independiente de $N$. Se define el proceso
+    \begin{esn}
+        X_t=X_0 \times \paren{-1}^{N_t}, \quad t\geq 0.
+    \end{esn}
 
-Sea $N$ un proceso de Poisson homog\'eneo de par\'ametro $\lambda$. Sea $E=\paren{-1,1}$ y $X_0$ una variable aleatoria con valores en $E$ independiente de $N$. Se define el proceso\begin{esn}
-X_t=X_0 \times \paren{-1}^{N_t}, \quad t\geq 0.
-\end{esn}
-\begin{enumerate}
-\item Explique por qu\'e $X$ es una cadena de Markov a tiempo continuo con valores en $E$. 
-\item Calcule sus probabilidades de transici\'on y su matriz infinitesimal. 
-\item ?`Existe una distribuci\'on estacionaria para esta cadena? En caso afirmativo ?'Cu\'al es?
-\end{enumerate}
+    \begin{enumerate}
+        \item[(i)]      [\ref{problema5_7:inciso1}]
+            Explique por qu\'e $X$ es una cadena de Markov a tiempo continuo con valores en $E$.\pn 
+        \item[(ii)]     [\ref{problema5_7:inciso1}]
+            Calcule sus probabilidades de transici\'on y su matriz infinitesimal.\pn
+        \item[(iii)]    [\ref{problema5_7:inciso1}]
+            ?`Existe una distribuci\'on estacionaria para esta cadena? En caso afirmativo ?`Cu\'al es?\pn
+    \end{enumerate}
 \end{problema}
+
+\begin{proof}
+    \subsection{Inciso (i)} \label{problema5_7:inciso1}
+    \input{tarea5/problema5_7/inciso5_7_1.tex}
+    \newpage
+
+    \subsection{Inciso (ii)} \label{problema5_7:inciso2}
+    \input{tarea5/problema5_7/inciso5_7_2.tex}
+    \newpage
+
+    \subsection{Inciso (iii)} \label{problema5_7:inciso3}
+    \input{tarea5/problema5_7/inciso5_7_3.tex}
+\end{proof}
