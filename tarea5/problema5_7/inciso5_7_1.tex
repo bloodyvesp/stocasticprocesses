@@ -1,4 +1,21 @@
 \emph{
     Explique por qu\'e $X$ es una cadena de Markov a tiempo continuo con valores en $E$.\pn 
 }
+
 \afterstatement\pn
+
+Sea $T_n$ el tiempo en el que ocurre el $n$-ésimo salto del proceso de Poisson
+($T_0 = 0$). Definimos $W_{T_n} = X_{T_n}$. Veamos que $W_n$ es una cadena de Markov.
+
+\begin{align}
+    & \;\;\;\;\; \P\left(W_n = i_n | W_{n-1} = i_{n-1}, \dots, W_0 = i_0 \right)                \\
+    & =\P\left(X_0 \cdot (-1)^n  = i_n | X_0 \cdot (-1)^{n-1}  = i_{n-1}, X_0 = i_{0} \right)   \\
+    & =\P\left( -(i_{n-1})  = i_n | X_0 \cdot (-1)^{n-1}  = i_{n-1}, X_0 = i_{0} \right)        \\
+    & =\indic_{-(i_{n-1})  = i_n}                                                               \\
+    & =\P\left(X_0 \cdot (-1)^n  = i_n | X_0 \cdot (-1)^{n-1}  = i_{n-1}\right)                 \\
+    & =\P\left(W_n  = i_n | W_{n-1}  = i_{n-1}\right)                                                 
+\end{align}\pn
+
+Con esto hemos demostrado que $W_n$ es una cadena de Markov a tiempo discreto. Como además,
+el tiempo entre saltos tiene distribución exponencial (porque está definido por un proceso de Poisson),
+concluimos que $X$, es una cadena de Markov.

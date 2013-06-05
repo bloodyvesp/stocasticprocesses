@@ -1,31 +1,49 @@
 Lista de pendientes.
 
-- 2.4.3
-    -
+2.4
+    2.4.3
+        -
 
-- 2.4.4
-    -
-	
-- 3.2. 
+    2.4.4
+        -
+        
+3.2. 
 	-Caso con saltos integrables en -1,0,1......., 
 	-Demostrar que lim inf M_n = - \infty.
 	-Demostrar que P(D) = 1. Podría ayudar http://planetmath.org/martingaleconvergencetheorem
 	
-- 3.3
+3.3
 	-
-	
-- 4.3.2
-	-
-	
-- 4.4.3
-	-
-	
-- 4.4.4
-	-
-	
-- 5.3.1
-	-Demostrar que el conjunto $D$ es sistema de Dynkin.
-	
-- 5.6
 
-- 5.7
+4.3	
+    4.3.2
+        -
+	
+4.4
+    4.4.3
+        -
+        
+    4.4.4
+        -
+        
+5.3
+    5.3.1
+        -Demostrar que el conjunto $D$ es sistema de Dynkin.
+
+5.6
+    5.6.1 
+        -Detalles de cómo construir cadenas de Markov. Copiar explicación de sección 3, capítulo 5 de las notas.
+    5.6.2
+        -
+    5.6.3
+        -
+    5.6.4
+        -
+    5.6.5
+        -
+    5.6.6
+        -
+    5.6.7
+        -
+    5.6.8
+        -
