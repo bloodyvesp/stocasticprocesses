@@ -1,4 +1,27 @@
 \emph{
     ?`Existe una distribuci\'on estacionaria para esta cadena? En caso afirmativo ?`Cu\'al es?\pn
 }
+
 \afterstatement\pn
+
+Sí existe. Dado que se trata de un proceso de estados finitos y recurrentes, sabemos que es positivo
+recurrente y por lo tanto existe una distribución invariante que además es única.\pn
+
+Existe un teorema que nos asegura que una distribución $\nu$ es invariante para una cadena continua si y solo
+si $cv = (c_x \nu_x, x \in E)$ es invariante para la cadena discreta asociada.\pn
+
+Entonces estamos buscando un vector $(\pi_1, \pi_2)$ tal que $(\pi_1, \pi_2) P = (\pi_1, \pi_2)$.\pn
+
+Pero
+\begin{align}
+        (\pi_1, \pi_2) P &= 
+                        (\pi_1, \pi_2) 
+                        \begin{pmatrix}
+                            0   &   1 \\
+                            1   &   0 \\
+                        \end{pmatrix} \\
+                        &=              
+                        (\pi_2, \pi_1)
+\end{align}
+
+Así que $\pi_1 = \pi_2$. Además $\pi_1 + \pi_2 = 1$ por tratarse de una distribución. Así que $\pi_1 = \pi_2 = \frac{1}{2}$.
