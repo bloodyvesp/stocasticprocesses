@@ -5,10 +5,9 @@
 
 \afterstatement\pn
 
-Para el caso en el que los padres mueren. Detener a la martingala en $\tau$, no hace
-ninguna diferencia. El proceso ya era absorbente en $0$. Es decir, que si $X_t = 0$,
-$X_{t+s} = 0$ y por lo tanto $X_{(t+s) \wedge \tau} = X_t$. Entonces, la matriz infinitesimal
-de este caso es
+Para el caso en el que los padres mueren. Detener a la martingala en $\tau$, hace que
+el proceso se detenga en $0$, es decir, el estado $0$ es absorbente. Entonces, la matriz 
+infinitesimal de este caso es
 
 \begin{align}
         Q(i,j)  &=
@@ -22,6 +21,7 @@ de este caso es
 Para el caso en el que los padres no mueren. Notemos que $\tau = \infty$. Puesto que la población
 nunca dismiuye. Entonces $t \wedge \tau = t$ y $Y_t = X_t$. Es decir, que la matriz infinitesimal
 de $Y$ sería:
+
 \begin{align}
         Q(i,j)  &=
                 \begin{cases}
