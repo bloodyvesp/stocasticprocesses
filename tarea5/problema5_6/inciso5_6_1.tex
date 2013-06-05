@@ -4,3 +4,56 @@
     a tiempo continuo.\pn
 }
 \afterstatement\pn
+
+Para el primer caso, en el que los padres mueren, notemos que cualquier población es posible de un paso al 
+siguiente. Si $i$ es la cantidad de individuos en un momento determinado, cada individuo puede tener como
+descendencia cualquier cantidad de individuos (mayor o igual que cero). Sin embargo, si $i$ es cero, el proceso
+se estaciona porque ya no existen individuos que dejen descendencia. Entonces la matriz de tasas de cambio $\alpha$
+la podemos expresar como:
+
+\begin{align}
+        \alpha(i,j)  &=
+                \begin{cases}
+                    0                   \;\; \text{si $i$ = 0 ó si $j - i < -1$}          \\
+                    \lambda i \mu_{k+1} \;\; \text{si $j - i = k$}
+                \end{cases}
+\end{align}\pn
+
+Donde $\mu_1 = 0$, puesto que tener un individuo como descendencia y morir no afecta la población.
+Notemos que esta definición hace que $\sum_j \alpha(0,j) = 0$, es decir, el estado ``población 0'' es
+absorbente. Justo como necesitamos.\pn
+
+Con esto ahora podemos definir $P$ como:
+\begin{align}
+        P(i,j)  = 
+            \begin{cases}
+                \frac{\alpha(i,j)}{\sum_{j'}\alpha(i, j')} = \mu_{j-i+1}  \;\; \text{si $\sum_{j'}\alpha(i, j') \not= 0$} \\
+                1                                                         \;\; \text{en cualquier otro caso}
+            \end{cases}
+\end{align}
+
+Donde por comodidad de notación hacemos $\mu_{j-i+1} = 0$ si $j - i + 1< 0$.\pn
+
+Para el segundo caso, donde nadie muere y puede tener cualquier cantidad de descendientes, la población nunca tiende a decrecer. 
+Entonces la matriz de tasas de cambio $\alpha$ se puede expresar como:
+
+\begin{align}
+        \alpha(i,j)  &=
+                \begin{cases}
+                    0                   \;\; \text{si $i$ = 0 ó si $j < i$}          \\
+                    \lambda i \mu_{k}   \;\; \text{si $j - i = k > 0$}
+                \end{cases}
+\end{align}\pn
+
+Donde hacemos $\mu_0 = 0$, puesto que no tener descendientes no afecta a la población. Entonces podemos calcular $P$ de la misma manera que antes
+\begin{align}
+        P(i,j)  = 
+            \begin{cases}
+                \frac{\alpha(i,j)}{\sum_{j'}\alpha(i, j')} = \mu_{j-i+1}  \;\; \text{si $\sum_{j'}\alpha(i, j') \not= 0$} \\
+                1                                                         \;\; \text{en cualquier otro caso}
+            \end{cases}
+\end{align}
+
+En las notas, en la sección 3 ``Matrices infinitesimales y construcción de procesos de Markov'' del capítulo 5 
+``Procesos de Markov constantes por pedazos'' (véase \ref{notas}), se explica como a partir de las tasas de cambio se puede
+construir una cadena de Markov a tiempo continuo con dichas tasas. Aplicándo dicho método, conseguimos las cadenas de Markov que buscamos.
