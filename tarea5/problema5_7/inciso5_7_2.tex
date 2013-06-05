@@ -1,4 +1,82 @@
 \emph{
     Calcule sus probabilidades de transici\'on y su matriz infinitesimal.\pn
 }
+
 \afterstatement\pn
+
+Recordemos que los tiempos de cambio están dados por un proceso de Poisson
+de parámetro $\lambda$ y que únicamente tenemos $2$ estados. Es decir que
+para pasar de un estado al otro, la tasa de cambio es precisamente $\lambda$ y
+que la tasa de cambio de un estado a sí mismo es $0$. Dicho esto, 
+tenemos que la matriz infinitesimal tiene que ser
+
+\begin{align}
+        Q   &= 
+            \begin{pmatrix}
+                    -\lambda    &   \lambda     \\
+                    \lambda     &   -\lambda    \\
+            \end{pmatrix}
+\end{align}\pn
+
+Esto no le deja más opciones a la matriz de la cadena de Markov asociada más que ser:
+\begin{align}
+        P   &=
+            \begin{pmatrix}
+                0   &   1\\
+                1   &   0\\
+            \end{pmatrix}
+\end{align}\pn
+
+Para poder calcular $P_t$, escribimos a $Q$ como conjugada de una matriz diagonal:
+\begin{align}
+       Q    &=
+            \frac{1}{2}
+            \begin{pmatrix}
+                1 & 1       \\
+                1 & -1
+            \end{pmatrix}           
+            \begin{pmatrix}
+                0 & 0       \\
+                0 & -2\lambda
+            \end{pmatrix}
+            \begin{pmatrix}
+                1 & 1   \\
+                1 & -1
+            \end{pmatrix}
+\end{align}\pn
+
+Utilizando de nuevo que $P_t = e^{tQ}$ y que si $Q = A D A^{-1}$ entonces $e^{tQ} = Ae^{tD}A^{-1}$, 
+obtenemos que las matrices de transición son
+
+\begin{align}
+    P_t     &=
+            \frac{1}{2}
+            \begin{pmatrix}
+                1 & 1               \\
+                1 & -1
+            \end{pmatrix}           
+            \begin{pmatrix}
+                1 & 0               \\
+                0 & e^{-2\lambda}
+            \end{pmatrix}
+            \begin{pmatrix}
+                1 & 1               \\
+                1 & -1
+            \end{pmatrix}           \\
+            &=
+            \frac{1}{2}
+            \begin{pmatrix}
+                1 & e^{-2\lambda}   \\
+                1 & -e^{-2\lambda}
+            \end{pmatrix}
+            \begin{pmatrix}
+                1 & 1               \\
+                1 & -1
+            \end{pmatrix}           \\
+            &=
+            \frac{1}{2}
+            \begin{pmatrix}
+                1+e^{-2\lambda} & 1-e^{-2\lambda}       \\
+                1-e^{-2\lambda} & 1+e^{-2\lambda}
+            \end{pmatrix}
+\end{align}
