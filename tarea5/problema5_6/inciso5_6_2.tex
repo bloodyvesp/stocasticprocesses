@@ -4,7 +4,7 @@
 }
 \afterstatement\pn
 
-Sea $T_n$ definido como en el inciso anterior. Y sea $W_n = X_{T_n} = k + S_n$. Sean $\xi_i$ las
+Sea $T_n$ definido como en el inciso anterior y, sea $W_n = X_{T_n} = k + S_n$. Sean $\xi_i$ las
 variables independientes que definen a la caminata aleatoria $S$.\pn
 
 Veamos que $W$ cumple la condición de Markov.
@@ -27,8 +27,8 @@ tenemos que la matriz infinitesimal es
 \begin{align}
         Q(i,j)  &=
                 \begin{cases}
-                    \lambda i \mu_{j-i+1}   &    \text{si $i \leq j+1$ y $j \neq i$} \\
-                    -\lambda i              &    \text{si $i = j$}                   \\
+                    \lambda i \mu_{j-i+1}   &    \text{si $i \leq j+1$, $j \neq i$ e $i \neq 0$}    \\
+                    -\lambda i              &    \text{si $i = j$}                                  \\
                     0                       &    \text{en cualquier otro caso}
                 \end{cases}
 \end{align}
@@ -38,8 +38,8 @@ la matriz infenitesimal está dado por
 \begin{align}
         Q(i,j)  &=
                 \begin{cases}
-                    \lambda i \mu_{j-i}     &    \text{si $j > i$ y $i > 0$} \\
-                    -\lambda i              &    \text{si $i = j$}                   \\
+                    \lambda i \mu_{j-i}     &    \text{si $j > i$ e $i > 0$}        \\
+                    -\lambda i              &    \text{si $i = j$}                  \\
                     0                       &    \text{en cualquier otro caso}
                 \end{cases}
 \end{align}
