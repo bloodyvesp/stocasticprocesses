@@ -12,5 +12,42 @@
 Definamos $T_n$ como en [\ref{problema5_6:inciso1}]. Nos interesa ver cómo se comporta $Y_t$ en los intervalos
 $[T_{n-1}, T_{n})$, pues en estos intervalos $Y_t$ es constante.\pn
 
-Analizando el primer segumento, sea $t \in [T_{0}, T_{1})$, donde la población no cambia, tenemos que 
-$int_{0}^{t} Y_t = tk$
+Analizemos el primer segmento, sea $t \in [0, T_{1})$, donde la población no cambia, tenemos que 
+$int_{0}^{t} Y_t = tk$. Supongamos que $Z_t = k$ tenemos que la integral de $\int_{0}^{t} Z_s ds = kt$ y entonces
+si $t \in [0, \frac{T_1}{k})$, tenemos que $\int_{0}^{t} Z_s ds < T_1$ y entonces $Y_{\int_{0}^{t} Z_s ds} = k = Z_t$. 
+Entonces, al menos para $t \in [0, \frac{T_1}{k})$, $Z_t = k$. Por continuidad de la integral, para
+$t \in [0, \frac{T_1}{k})$, cualquier otro porceso $Z$ que cumpla con la misma condición, es casi seguramente igual a 
+$k$.\pn
+
+Analizemos el siguiente segmento, sea $t \in [T_{1}, T_{2})$. Aquí $Y_t = k + S_1$. Queremos que $\int_{T_1}^t Z_s \,ds$
+recorra todos los valores entre $T_1$ y $T_2$. Es decir 
+
+\begin{align}
+        T_1 \leq \int_{0}^t k + \int_{\frac{T_1}{k}}^t S_1 < T_2
+\end{align}\pn
+
+Que resulta equivalente a pedir:
+\begin{align}
+        \frac{T_1}{k} \leq t < \frac{T_1}{k} + \frac{T_2 - T_1}{k + S_1}
+\end{align}\pn
+
+Es decir que basta definir a $Z_t = k + S_1$ cuando $t \in [\frac{T_1}{k}, \frac{T_1}{k} + \frac{T_2 - T_1}{k + S_1})$ para
+que $Z$ se comporte como queremos. De nuvo, la continuidad de la integral nos dice que cualquier otra función que cumpla
+la condición, es casi seguramente igual a $k + S_1$ dentro del intervalo mencionado.\pn
+
+Generalizando esta idea, si $t \in [T_{n-1}, T_n)$, definimos $I_n = \sum_{0 \leq i}^{n-1} \frac{T_{i+1} - T_{i}}{k + S_i}$, 
+donde $T_0 = S_0 = I_0 = 0$ por comodidad de notación. Para que $Z_t = Y_{\int_0^t Z_s \, ds}$ necesitamos
+\begin{align}
+    T_{n-1} \leq  \sum_{0 \leq i}^{n-2} \int_{I_i}^{I_{i+1}} k + S_i + \int_{I_{n-1}}^{t} k + S_{n-1} < T_n
+\end{align}\pn
+
+Después de muchas cuentas, esto significa que
+\begin{align}
+         I_{n-1} \leq t < I_{n}
+\end{align}\pn
+
+E igual que antes, si $t \in [I_{n-1}, I_{n})$ se cumple con la condición $Z_t = \int_{0}^t Z_s \,ds$ se satisface. Otra vez
+argumentando la continuidad de la integral, cualquier otro proceso que cumpla lo que $Z$, es casi seguramente igual a $Z$.\pn
+
+Ahora, por ser $N$ un proceso de Poisson, $I_{n} - I_{n-1}$ resulta tener distribución exponencial y en estos intervalos
+$Z$ es constante. Así que $Z$ es una cadena de Markov a tiempo continuo. Y entonces es un proceso de ramificación.
