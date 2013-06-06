@@ -5,3 +5,26 @@
 
 \afterstatement\pn
 
+De [\ref{problema5_6:inciso4}] tenemos que $Z_t$ es positiva.
+
+Sea $(\F_t)_{t \geq 0}$ la filtración natural para $Z_t$, es decir, $\F_t = \sigma(Z_s : s \leq t)$.
+De tal manera que $e^{-\lambda t} Z_t$ es adaptada a $(\F_t)_{t \geq 0}$.\pn
+
+En [\ref{problema5_6:inciso6}] se demostró que $Z_t \in L_1$, como también $e^{-\lambda t} \in L_1$,
+entonces $e^{-\lambda t} Z_t \in L_1$.\pn
+
+Únicamente falta demostrar la propiedad de martingala. Sean entonces $s \leq t$.
+\begin{align}
+        \E(e^{-\lambda t} Z_t | \F_s)   &=  e^{-\lambda t} \E( Z_t | \F_s)          \\
+                                        &=  e^{-\lambda t} \E_{Z_s}(Z_{t-s})        \\
+                                        &\comment{propiedad de Markov fuerte}       \\
+                                        &=  e^{-\lambda t} Z_s e^{\lambda(t-s)}     \\
+                                        &\comment{por [\ref{problema5_6:inciso6}]}  \\
+                                        &=  e^{\lambda(t-s)-\lambda t} Z_s          \\
+                                        &=  e^{\lamda s} Z_s                        \\
+\end{align}\pn
+
+De donde $e^{-\lambda t} Z_t$ es martingala.\pn
+
+Por ser no negativa, el teorema de convergencia de martingalas nos garantiza que el proceso converge casi
+seguramente a una variable aleatoria $W$.
