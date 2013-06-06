@@ -38,7 +38,7 @@ Lista de pendientes.
     6.2.1 
         - A
     6.2.2
-        -M
+        - M
         
 6.3 -M
 

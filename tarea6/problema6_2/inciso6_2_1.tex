@@ -1,0 +1,22 @@
+\emph{
+    Pruebe que existe un espacio de probabilidad $\ofp$ en el que existe 
+    una sucesi\'on $B^1,B^2,\ldots$ de movimientos brownianos en $[0,1]$ 
+    independientes. (Sugerencia: utilice la construcci\'on del movimiento 
+    browniano de L\'evy  para que la soluci\'on sea corta.)
+}
+\afterstatement\pn
+
+La idea principal es utilizar que $\aleph_0 \times \aleph_0 = \aleph_0$ y aprovechar
+la construcción que se dió en las notas [véase \ref{notas}].\pn
+
+Se sabe que existe un espacio de probabilidad $(\Omega, \F, \P)$ donde están
+definidas $\xi_{i,n}$ ($0 \leq i \leq 2^n$) con distribuciónes normales de media 0 y 
+varianza 1 e independientes [ver \ref{notas}].\pn
+
+Entonces, podemos para cada $m \in \N$ dar una sucesión de variables $\xi_{i,n}^m$
+($0 \leq i \ 2^n$) con distribuciones normales de media 0 y varianza 1 tales que
+son independientes entre sí y de las otras $\Xi_{i,n}^{m'}$.\pn
+
+Entonces, para cada $m$ podemos construir un movimiento browniano $B^m$ en $[0, 1]$ utilizando
+las $\xi_{i,n}^m$. Dichos movimientos serán independientes entre sí por la selección
+de las $(\xi_{i,n}^m)_{m \in \N}$.
