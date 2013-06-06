@@ -8,3 +8,108 @@
     \end{esn}\pn
 }
 \afterstatement\pn
+
+Esta vez, cada individuo tiene exáctamente un descendiente y no muere. Entonces, su matriz infinitesimal
+es como en [\ref{problema5_6:inciso2}], sólo que $\mu_n = 0$ si $n \neq 1$ y $\mu_1 = 1$. Es decir
+\begin{align}
+    Q(i,j)  &=
+            \begin{cases}
+                \lambda i \mu_{1}       &   \text{si $j = i+1$ e $i \neq 0$}        \\
+                -\lambda i              &   \text{si $i = j$}                       \\
+                0                       &   \text{en cualquier otro caso}
+            \end{cases}
+\end{align}\pn
+
+Entonces
+\begin{align}
+    \frac{d}{dt}    P_t(i, j)   &=  \sum_{k \in \N} Q(i,k)P_t(k,j)                  \\
+                                &=  Q(i,i+1)P_t(i+1,j)  +   Q(i,i)P_t(i,j)          \\
+                                &=  \lambda i P_t(i+1,j)  - \lambda i P_t(i,j)      \\
+\end{align}\pn
+
+Supongamos entonces $i = j$ y entonces 
+\begin{align}
+    \frac{d}{dt}    P_t(i, i)   &=  \lambda i P_t(i+1,i)  - \lambda i P_t(i,i)      \\
+                                &=  -i \lambda P_(i, i).
+\end{align}\pn
+
+Donde, la solución a la ecuación diferencial
+
+\begin{align}
+    \frac{d}{dt}    P_t(i, i)   &=  - \lambda i P_(i, i).
+\end{align}
+
+es
+\begin{align}
+    P_t(i, i)   &=  e^{-t i \lambda}    
+\end{align}
+
+Supongamos ahora $j = i + 1$ y entonces
+\begin{align}
+     \frac{d}{dt}    P_t(i, i+1)    &=  \lambda i P_t(i+1,i+1)  - \lambda i P_t(i,i+1)          \\   
+                                    &=  \lambda i e^{-t (i+1) \lambda}  - \lambda i P_t(i,i+1)  \\
+                                    &\comment{la sustitución es por el caso recién demostrado}
+\end{align}
+
+De donde
+\begin{align}
+     \frac{d}{dt}P_t(i, i+1)  +  \lambda i P_t(i,i+1)                                       &&=&&&      \lambda i e^{-t (i+1) \lambda}                  \\
+     (e^{\lambda i t}) \frac{d}{dt}P_t(i, i+1)  + (e^{\lambda i t}) \lambda i P_t(i,i+1)    &&=&&&      (e^{\lambda i t}) \lambda i e^{-t (i+1) \lambda}\\
+     \comment{se multiplicó en ambos lados por lo mismo}                                    && &&&                                                      \\
+     (e^{\lambda i t}) \frac{d}{dt}P_t(i, i+1)  + (e^{\lambda i t}) \lambda i P_t(i,i+1)    &&=&&&      \lambda i e^{-t \lambda}                        \\
+      \frac{d}{dt} \bigg( (e^{\lambda i t}) P_t(i, i+1) \bigg)                              &&=&&&      \lambda i e^{-t \lambda}                        \\
+     \comment{la suma se escribió como la derivada de un producto}                          && &&&                                                      \\
+\end{align}
+
+Este último término, lo podemos integrar suponiendo la condición inicial $P_0(i, i+1) = 0$
+\begin{align}
+       (e^{\lambda i t}) P_t(i, i+1)    &=  \int \frac{d}{dt} \bigg( (e^{\lambda i t}) P_t(i, i+1) \bigg) dt    \\      
+                                        &=  \int_{0}^{t}    \lambda i e^{-t \lambda} dt                         \\    
+                                        &=  i (1-e^{\lambda t})                         
+\end{align}\pn
+
+ Y por lo tanto
+\begin{align}
+       P_t(i, i+1)  &=  i (1-e^{\lambda t})(e^{-\lambda i t})                         
+\end{align}\pn
+
+Hagamos entonces la hipótesis de inducción (que mágicamente se ha cumplido hasta ahora, pero que para encontrar fue necesario hacer más cuentas)
+\begin{align}
+    P_t(i, i+k)     &=  \binom{i + k - 1}{k} e^{-\lambda i t} (1 - e^{- \lambda t})^k    
+\end{align}\pn
+
+Probemos entonces que para $j = i + k + 1$ también se cumple:
+\begin{align}
+    \frac{d}{dt} P_t(i, i + k + 1)  &=  \lambda i P_t(i + 1, i + 1 + k) - \lambda i P_t(i, i + 1 + k)                                    \\
+                                    &=  \lambda i \binom{i + k }{k} e^{-\lambda (i + 1) t} (1 - e^{- \lambda t})^k - \lambda i P_t(i, i + 1 + k)   \\
+\end{align}\pn
+
+Y entonces
+\begin{align}
+    \frac{d}{dt} P_t(i, i + k + 1) - \lambda i P_t(i, i + 1 + k)                                    &=&&  \lambda i \binom{i + k}{k} e^{-\lambda (i + 1) t} (1 - e^{- \lambda t})^k                    \\
+    (e^{\lambda i t}) \bigg( \frac{d}{dt} P_t(i, i + k + 1) - \lambda i P_t(i, i + 1 + k) \bigg)    &=&&  \lambda i \binom{i + k}{k} (e^{\lambda i t}) e^{-\lambda (i + 1) t} (1 - e^{- \lambda t})^k  \\
+    \comment{se multiplicó en ambos lados por lo mismo, otra vez}                                   & &&                                                                                      \\
+    \frac{d}{dt} \bigg((e^{\lambda i t}) P_t(i, i + k + 1)\bigg)                                    &=&&  \lambda i \binom{i + k}{k}  e^{-\lambda t} (1 - e^{- \lambda t})^k                           \\
+     \comment{la suma se escribió como la derivada de un producto}                                  & &&
+\end{align}\pn
+
+Por lo tanto
+\begin{align}
+    (e^{\lambda i t}) P_t(i, i + k + 1)     &=  \int \frac{d}{dt} \bigg((e^{\lambda i t}) P_t(i, i + k + 1)\bigg)     dt            \\
+                                            &=  \int_{0}^{t} \lambda i \binom{i + k}{k} e^{-\lambda t}(1 - e^{- \lambda t})^k    dt \\          
+                                            &=  \binom{i + k}{k} i  \int_{0}^{t} \lambda  e^{-\lambda t} (1 - e^{- \lambda t})^k dt \\          
+                                            &=  \binom{i + k}{k} \frac{i}{k+1}  (1-e^{- \lambda t})^{k+1}                           \\          
+                                            &=  \binom{i + k + 1}{k + 1} (1-e^{- \lambda t})^{k+1}                                  \\          
+\end{align}\pn
+
+y entonces
+\begin{align}
+    P_t(i, i + k + 1)     &=  \binom{i + k + 1}{k + 1} (e^{-\lambda i t})(1-e^{- \lambda t})^{k+1}                                  \\
+\end{align}\pn
+
+como queríamos demostrar.
+
+Entonces basta sustituir a $k = j - i$ para tener una fórmula en términos de $i$, $j$.\pn
+\begin{align}
+    P_t(i, j)     &=  \binom{j - 1}{j - i} e^{-\lambda i t} (1 - e^{- \lambda t})^k    
+\end{align}\pn
