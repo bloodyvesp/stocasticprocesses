@@ -6,3 +6,30 @@
     casi seguramente.\pn
 }
 \afterstatement\pn
+
+Sea $C > 0$ y sean $A_n = \left\{ \sup_{t\in [0,1]}\abs{B_{n+t}-B_n}\leq nC \right\}$. Entonces tenemos
+$A_n^c = \left\{  \sup_{t\in [0,1]} \abs{B_{n+t}-B_n} > nC \right\}$ y por desigualdad de Markov.
+
+\begin{align}
+        \P(A_n^c)   &=  \P(\sup_{t\in [0,1]}\abs{B_{n+t}-B_n} > nC)         \\
+                    &=  \frac{\E(\sup_{t\in [0,1]}\abs{B_{n+t}-B_n})}{nC}
+\end{align}
+
+De [\ref{problema6_5:inciso2}] tenemos que para todo $n\in \N$, 
+$\E(\sup_{t\in [0,1]}\abs{B_{n+t}-B_n} = r < \infty$ y por lo tanto
+$\lim_{n \rightarrow \infty} \P(A_n^c) = 0$. Es decir que $\lim_{n \rightarrow \infty} \P(A_n) = 1$.\pn
+
+Una condición necesaria para la convergencia de una serie es que el límite de la sucesión
+sea $0$. Por lo tanto la serie $\sum \P(A_n)$ diverge.\pn
+
+De  [\ref{problema6_5:inciso2}] tenemos que los $A_n$ son independientes. Y por lo tanto, Borel-Cantelli
+nos asegura que
+\begin{align}
+    \P(\limsup A_n) = 1.
+\end{align}
+
+Con lo que queda demostrado que
+\begin{esn}
+    \limsup_{n\to\infty}\sup_{t\in [0,1]}\abs{B_{n+t}-B_n}/n\leq C
+\end{esn} 
+casi seguramente.
