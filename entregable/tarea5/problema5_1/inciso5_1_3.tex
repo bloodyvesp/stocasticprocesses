@@ -1,0 +1,102 @@
+\emph{
+	Conjeture c\'omo se  generaliza lo anterior con $T_n$ y $T_1$.
+}
+
+Por definición de proceso de Poisson de parámetro $\lambda$, los saltos $S_n$ se distribuyen
+de manera exponencial de parámetro $\lambda$ y son independientes entre sí.\pn
+
+Es decir que $T_1 = S_1, T_2 - T_1 = S_2, \dots, T_n - T_{n-1} = S_n$ son independientes y 
+todos tienen distribución exponencial de parámetro $\lambda$. Por lo tanto, su función
+de densidad conjunta está dada por
+
+\begin{align} \label{problema5_1:distribucion_conjunta}
+    f_{T_1, T_2 - T_1, \dots, T_n - T_{n-1}}(u_1, u_2, \dots, u_n)  &=  
+    \prod_{1 \leq i \leq n} \lambda e^{-\lambda u_i} \indic_{\{ 0 < u_i \}}. 
+\end{align}\pn
+
+También recordemos que $T_n$ es suma de $n$ variables independientes con distribución exponencial de
+parámetro $\lambda$ y por lo tanto, $T_n$ tiene distribución $gamma(n, \lambda)$. Por lo tanto su 
+función de densidad está dada por
+
+\begin{align}
+    f_{T_n}(u)  &=  \frac{ \lambda^{n} u^{n-1} e^{- \lambda u}}{\Gamma(n)} \\
+                &=  \frac{ \lambda^{n} u^{n-1} e^{- \lambda u}}{(n-1)!}
+\end{align}\pn
+
+De manera similar a como se procedió en [\ref{problema5_1:inciso1}] definimos la transformación lineal 
+$l: (t_1, t_2 - t_1, \dots, t_n - t_{n-1}) \longrightarrow (t_1, t_2, \dots, t_n)$ cuya matriz asociada es la 
+matriz triangular superior
+
+\[
+    \left(
+            \begin{array}{ccccc}
+                    1       &   1       & 1      &\dots   &  1      \\
+                    0       &   1       & 1      &\dots   &  1      \\
+                    0       &   0       & 1      &\dots   &  1      \\
+                    0       &   0       & 0      &\dots   &  1      \\
+                    \vdots  &   \vdots  & \vdots &\vdots  & \vdots  \\
+                    0       &   0       & 0      &\dots   &  1
+            \end{array}
+    \right)
+\]\pn
+
+cuyo determinante es $1$ (esto úlitmo no es difícil de verificar). Es decir, tiene inversa y también es 
+fácil de verificar que su inversa está dada por\par 
+$l^{-1}: (x_1, x_2, \dots, x_n) \longrightarrow (x_1, x_2-x_1, \dots, x_n - x_{n-1})$.\pn
+
+Entonces podemos escribir
+
+\begin{align}
+    f_{T_1, T_2, \dots, T_n}(u_1, u_2, \dots, u_n)  &=  f_{T_1, T_2 - T_1, \dots, T_n - T_{n-1}}(l^{-1}(u_1, u_2, \dots, u_n))      \\
+                                                    &=  f_{T_1, T_2 - T_1, \dots, T_n - T_{n-1}}(u_1, u_2-u_1, \dots, u_n - u_{n-1}).
+\end{align}\pn
+
+Para comodidad de notación, definimos $u_0 = 0$ y entonces esta última ecuación la podemos escribir como
+
+\begin{align}
+    f_{T_1, T_2, \dots, T_n}(u_1, u_2, \dots, u_n) =                                    \\  
+    f_{T_1, T_2 - T_1, \dots, T_n - T_{n-1}}(u_1 - u_0, u_2-u_1, \dots, u_n - u_{n-1}).
+\end{align}\pn
+
+Utilizando \eqref{problema5_1:distribucion_conjunta} obtenemos
+\begin{align}
+    f_{T_1, T_2, \dots, T_n}(u_1, u_2, \dots, u_n)  &=  \prod_{1 \leq i \leq n} \lambda e^{-\lambda u_i - u_{i-1}} \indic_{\{ 0 < u_i - u_{i-1}\}}              \\
+                                                    &=  \prod_{1 \leq i \leq n} \lambda e^{-\lambda u_i - u_{i-1}} \indic_{\{ 0 < u_1 < u_2< \dots <u_{n}\}}    \\
+                                                    &=  \lambda^n e^{-\lambda u_n} \indic_{\{ 0 < u_1 < u_2< \dots <u_{n}\}}.                                   
+\end{align}\pn
+
+Ahora tenemos todo lo necesario para calcular la densidad de $T_1, T_2, \dots, T_{n-1}$ dado $T_n$.
+\begin{align}
+    f_{T_1, dots, T_{n-1} | T_n} (u_1, \dots, u_{n-1} | u_n)    &=  \frac{f_{T_1, T_2, \dots, T_n}(u_1, u_2, \dots, u_n)}{f_{T_n}(u_n)}             \\
+                                                                &=  \frac{\lambda^n e^{-\lambda u_n} \indic_{\{ 0 < u_1 < u_2< \dots <u_{n}\}}}
+                                                                    {\frac{ \lambda^{n} {u_n}^{n-1} e^{- \lambda u_n}}{(n-1)!}}                     \\
+                                                                &=  \frac{ \indic_{\{ 0 < u_1 < u_2< \dots <u_{n}\}}}
+                                                                    {\frac{ {u_n}^{n-1} }{(n-1)!}}                                                  \\
+                                                                &=  \frac{(n-1)!}{{u_n}^{n-1}} \indic_{\{ 0 < u_1 < u_2< \dots <u_{n}\}}.
+\end{align}\pn
+
+Y a partir de aquí podemos obtener la densidad de $T_1$ dado $T_n$ de la siguiente manera
+
+\begin{align}
+    &f_{T_1 | T_n}(u_1 | u_n)                                                                                                                                                           \\
+    &=  \int \dots \int \frac{(n-1)!}{{u_n}^{n-1}} \indic_{\{ 0 < u_1 < u_2< \dots <u_{n}\}}    du_2 \dots du_{n-1}                                                                     \\
+    &=  \frac{(n-1)!}{{u_n}^{n-1}} \int \dots \int  \indic_{\{ 0 < u_1 < u_2< \dots <u_{n}\}}   du_2 \dots du_{n-1}                                                                     \\
+    &=  \frac{(n-1)!}{{u_n}^{n-1}} \indic_{\{ 0 < u_1 < u_{n}\}} \int_{u_1}^{u_n} \dots \int_{u_1}^{u_3} 1 du_2 \dots du_{n-1}                                                          \\
+    &=  \frac{(n-1)!}{{u_n}^{n-1}} \indic_{\{ 0 < u_1 < u_{n}\}} \int_{u_1}^{u_n} \dots \int_{u_1}^{u_4} (u_3 - u_1) du_3 \dots du_{n-1}                                                \\
+    &=  \frac{(n-1)!}{{u_n}^{n-1}} \indic_{\{ 0 < u_1 < u_{n}\}} \int_{u_1}^{u_n} \dots \int_{u_1}^{u_5} \frac{1}{2} [(u_4 - u_1)^2 - (u_1 - u_1)^2] du_4 \dots du_{n-1}                \\
+    &=  \frac{(n-1)!}{{u_n}^{n-1}} \indic_{\{ 0 < u_1 < u_{n}\}} \frac{1}{2} \int_{u_1}^{u_n} \dots \int_{u_1}^{u_5} (u_4 - u_1)^2 du_4 \dots du_{n-1}                                  \\
+    &=  \frac{(n-1)!}{{u_n}^{n-1}} \indic_{\{ 0 < u_1 < u_{n}\}} \frac{1}{2} \int_{u_1}^{u_n} \dots \int_{u_1}^{u_6} \frac{1}{3} [(u_5 - u_1)^3 - (u_1 - u_1)^3] du_5 \dots du_{n-1}    \\ 
+    &=  \frac{(n-1)!}{{u_n}^{n-1}} \indic_{\{ 0 < u_1 < u_{n}\}} \frac{1}{2 \cdot 3} \int_{u_1}^{u_n} \dots \int_{u_1}^{u_6} (u_5 - u_1)^3 du_5 \dots du_{n-1}                          \\
+    &\vdots                                                                                                                                                                             \\                                                                                                                                                 \\
+    &=  \frac{(n-1)!}{{u_n}^{n-1}} \indic_{\{ 0 < u_1 < u_{n}\}} \frac{1}{2 \cdot 3 \cdots (n-2)} (u_n - u_1)^{n-2}                                                                     \\
+    &=  \frac{(n-1)!}{{u_n}^{n-1}} \frac{(u_n - u_1)^{n-2}}{(n-2)!} \indic_{\{ 0 < u_1 < u_{n}\}}                                                                                       \\
+    &=  (n-1) \frac{(u_n - u_1)^{n-2}}{{u_n}^{n-1}} \indic_{\{ 0 < u_1 < u_{n}\}}                                                                                                       \\
+    &=  (n-1) \frac{1}{u_n} \cdot \frac{(u_n - u_1)^{n-2}}{{u_n}^{n-2}} \indic_{\{ 0 < u_1 < u_{n}\}}                                                                                   \\                                                                                       
+    &=  (n-1) \frac{1}{u_n} \cdot \paren{1 - \frac{u_1}{u_n}}^{n-2} \indic_{\{ 0 < u_1 < u_{n}\}}.                                                                                       \\                                                                                       
+\end{align}
+
+En resumen, la distribución de $T_1$ dado $T_n$ se generaliza de la siguiente manera
+
+\begin{align}
+    f_{T_1 | T_n}(u_1 | u_n) = (n-1) \frac{1}{u_n} \cdot \paren{1 - \frac{u_1}{u_n}}^{n-2} \indic_{\{ 0 < u_1 < u_{n}\}}.
+\end{align}

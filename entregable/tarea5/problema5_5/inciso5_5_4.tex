@@ -1,0 +1,28 @@
+\emph{
+    Encuentre la proporci\'on de tiempo asint\'otica en que los dos generadores est\'an trabajando. 
+    Si cada generador produce 2.5 MW de energ\'ia por unidad de tiempo, ?`Cu\'al es la cantidad promedio 
+    de energ\'ia producida a largo plazo por unidad de tiempo?\pn
+}
+
+\afterstatement\pn
+
+Cuando hay $2$, generadores, utilizando el resultado de [\ref{problema5_5:inciso2}].
+Tenemos
+\begin{align}
+        \lim_{t \rightarrow \infty} P_t(2,3)    &= \lim_{t \rightarrow \infty}   \frac{1}{25}    (18 - 6 e^{-5t} - 2 e^{-10t}) 
+                                                &= \frac{18}{25}.
+\end{align}\pn
+
+Para calcular la cantidad de energía promedio necesitamos el análogo para $P_t(2, 2)$, que haciendo el mismo
+análisis que en [\ref{problema5_5:inciso2}] resulta ser
+\begin{align}
+        \lim_{t \rightarrow \infty} P_t(2,2)    &=  \lim_{t \rightarrow \infty}   \frac{1}{25}    (6 + 3 e^{-5t} + 16 e^{-10t}) 
+                                                &=  \frac{6}{25}.
+\end{align}\pn
+
+Entonces el promedio de mega Watts producidos es:
+\begin{align}
+    \left(\frac{18}{25}\right) 5 MW + \left(\frac{6}{25}\right) 2.5 MW  &=  \left(\frac{36}{50}\right) 5 MW + \left(\frac{6}{50}\right) 5 MW  \\
+                                                                        &=  \left(\frac{42}{10}\right)   MW                      \\
+                                                                        &=  4.2 MW.
+\end{align}

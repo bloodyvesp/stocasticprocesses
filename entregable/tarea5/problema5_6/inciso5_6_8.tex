@@ -1,0 +1,40 @@
+\emph{
+    Al calcular la transformada de Laplace de $e^{-\lambda t}Z_t$, pruebe que $W$ tiene 
+    distribuci\'on exponencial. Por lo tanto, argumente que casi seguramente $Z$ crece exponencialmente.
+    %La distribuciÑn lÕmite està tomada de Beroin-Goldschmidt, ellos citan y corrigen un error de Athreya.
+    \pn
+}
+\afterstatement\pn
+
+La transformada de Laplace de una distribución binomial negativa de parámetros $p$, $r$ está dada por
+\begin{align}
+        \E(e^{u Z_t})   &=  \left( \frac{p e^u}{1-(1-p)e^u}\right)^r
+\end{align}
+[véase \href{http://mathworld.wolfram.com/NegativeBinomialDistribution.html}{propiedades de la distribución binomial negativa}]\pn
+
+En nuestro caso, $r = x$ y $p = e^{-\lambda t}$, suponiendo $x=1$ como población inicial.\pn
+
+Tenemos entonces
+\begin{align}
+        \E(e^{u Z_t})   &=  \left( \frac{e^{-\lambda t} e^u}{1-(1-e^{-\lambda t})e^u}\right)^1       \\
+                        &=  \frac{e^{-\lambda t} e^u}{1-(1-e^{-\lambda t})e^u}                       \\ 
+                        &=  \frac{e^{-\lambda t}}{e^{-u}-(1-e^{-\lambda t})}                         
+\end{align}\pn
+
+Hacemos un cambio de variable $u = v e^{-\lambda t}$ y entonces obtenemos
+\begin{align}
+    \E(e^{v e^{-\lambda t} Z_t})    &=  \frac{e^{-\lambda t}}{e^{-v e^{-\lambda t}}-(1-e^{-\lambda t})}
+\end{align}\pn
+
+De donde
+\begin{align}
+    \lim{t \rightarrow \infty}   \E(e^{v e^{-\lambda t} Z_t})   &= \lim{t \rightarrow \infty}  \frac{e^{-\lambda t}}{e^{-v e^{-\lambda t}}-(1-e^{-\lambda t})}  \\
+                                                                &= \lim{s \rightarrow 0}  \frac{s}{e^{-v s}-(1-s)}                                              \\                                                                         
+                                                                &\lcomment{se hizo un cambio de variable $s = e^{-\lambda t}$, el}                              \\
+                                                                &\rcomment{ cual tiende a 0 conforme $t$ a infinito}                                            \\
+                                                                &= \lim{s \rightarrow 0}  \frac{1}{-v e^{-v s}+1}                                               \\                                                                          
+                                                                &\comment{se aplicó L'Hopital, pues quedaba un límite del estilo $\frac{0}{0}$}                 \\
+                                                                &= \frac{1}{1-v}                                                                                \\                                                                          
+\end{align}
+
+Lo cual corresponde a la función característica de una exponencial de parámetro $1$ y por lo tanto $W$ tiene distribución exponencial.

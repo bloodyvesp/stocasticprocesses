@@ -1,0 +1,45 @@
+\emph{
+    Diga brevemente por qu\'e $X$ es una cadena de Markov a tiempo continuo e identifique 
+    su matriz infinitesimal para ambos modelos.\pn
+}
+\afterstatement\pn
+
+Sea $T_n$ definido como en el inciso anterior y, sea $W_n = X_{T_n} = k + S_n$. Sean $\xi_i$ las
+variables independientes que definen a la caminata aleatoria $S$.\pn
+
+Veamos que $W$ cumple la condición de Markov.
+
+\begin{align}
+    &   \;\;\;\;\; \P\left( W_n = i_n | W_{n-1} = i_{n-1}, \dots, W_{1} = i_{1} \right)                                                                                                     \\
+    &   =\left(\frac{\P\left( W_n = i_n , W_{n-1} = i_{n-1}, \dots, W_{1} = i_{1} \right)}{\P\left( W_{n-1} = i_{n-1}, \dots, W_{1} = i_{1} \right)}\right)                                              \\
+    &   =\left(\frac{\P\left( W_n - W_{n-1} = i_n - i_{n-1}, \dots, W_{1} = i_{1} \right)}{\P\left( W_{n-1} - W_{n-2} = i_{n-1} - i_{n-2}, \dots, W_{1} = i_{1} \right)}\right)                          \\
+    &   =\left(\frac{\P\left( \xi_n = i_n - i_{n-1}, \dots, \xi_{1} = i_{1} - k \right)}{\P\left( \xi_{n-1} = i_{n-1} - i_{n-2}, \dots, \xi_{1} = i_{1} - k \right)}\right)                              \\
+    &   =\left(\frac{\P\left( \xi_n = i_n - i_{n-1}\right) \cdots \P\left(\xi_{1} = i_{1} - k \right)}{\P\left( \xi_{n-1} = i_{n-1} - i_{n-2}\right) \cdots \P\left(\xi_{1} = i_{1} - k \right)}\right)  \\
+    &   =\P\left( \xi_n = i_n - i_{n-1}\right)                                                                                                                                              \\
+    &   =\P\left( W_n = i_n | W_{n-1} = i_{n-1} \right).
+\end{align}
+
+Dado que los incrementos de $T_n$ están dados por el proceso de Poisson, tenemos que tienen distribución exponencial
+de parámetro $\lambda$. Por lo tanto $X_t$ es una cadena de Markov a tiempo continuo.\pn
+
+Para el caso en donde los padres mueren, recordando la suposición de que $\mu_1 = 0$ porque es el caso que no afecta a la población,
+tenemos que la matriz infinitesimal es
+\begin{align}
+        Q(i,j)  &=
+                \begin{cases}
+                    \lambda i \mu_{j-i+1}   &    \text{si $i \leq j+1$, $j \neq i$ e $i \neq 0$}    \\
+                    -\lambda i              &    \text{si $i = j$}                                  \\
+                    0                       &    \text{en cualquier otro caso}
+                \end{cases}
+\end{align}
+
+Para el caso donde los padres no mueren, recordando la suposición de que $\mu_0 = 0$ porque es el caso que no afecta a la población,
+la matriz infenitesimal está dado por
+\begin{align}
+        Q(i,j)  &=
+                \begin{cases}
+                    \lambda i \mu_{j-i}     &    \text{si $j > i$ e $i > 0$}        \\
+                    -\lambda i              &    \text{si $i = j$}                  \\
+                    0                       &    \text{en cualquier otro caso}
+                \end{cases}
+\end{align}

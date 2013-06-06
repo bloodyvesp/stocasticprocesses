@@ -1,0 +1,117 @@
+\begin{problema}
+    Sea $P_t$ la probabilidad de transici\'on en $t$ unidades de tiempo para el proceso de Poisson de 
+    par\'ametro $\lambda$. 
+
+    Al utilizar el teorema del biniomio, pruebe directamente que las probabilidades de transici\'on del 
+    proceso de Poisson satisfacen las ecuaciones de Chapman-Kolmogorov $P_{t+s}=P_tP_s$. D\'e adem\'as un 
+    argumento probabil\'istico, basado en condicionar con lo que sucede al tiempo $s$, para probar dicha ecuaci\'on. 
+
+    Sea
+    \begin{align}\label{problema5_4:definicionQ}
+        \imf{Q}{i,j}=
+            \begin{cases}
+                -\lambda    &   j   =       i     \\
+                \lambda     &   j   =       i+1   \\
+                0           &   j   \neq    i,i+1
+            \end{cases}.
+    \end{align}
+
+    Pruebe directamente que se satisfacen las ecuaciones de Kolmogorov
+    \begin{equation*} %\label{CKEquationsForPoisson}
+        \frac{d}{dt}\imf{P_t}{i,j}=\imf{QP_t}{i,j}=\imf{P_tQ}{i,j},
+    \end{equation*}
+    donde $QP_t$ es el producto de las matrices $Q$ y $P_t$.
+\end{problema}
+
+\afterstatement\pn
+
+Sean $i \leq j \in \N$. Por definición
+\begin{align}
+    P_r(i, j)   &=  \P(N_r = j-i)   \\
+                &=  e^{-\lambda r}   \frac{(\lambda r)^{j - i}}{(j - i)!}
+\end{align}\pn
+
+(si $j < i$, $P_r$ es cero). Sean ahora, $t,s \in \R^+$.
+
+\begin{align}
+    P_{t + s}(i,j)  &=  e^{-\lambda (t+s)}  \frac{(\lambda(t+s))^{j-i}}{(j-i)!}                                                 \\
+                    &=  e^{-\lambda (t+s)}  \frac{\lambda^{j-i} \sum_{k \leq j-i} \binom{j-i}{k} t^k s^{j-i-k}}{(j-i)!}         \\
+                    &=  e^{-\lambda (t+s)} \lambda^{j-i} \sum_{k \leq j-i} \frac{ \binom{j-i}{k} t^k s^{j-i-k}}{(j-i)!}         \\
+                    &=  e^{-\lambda (t+s)} \lambda^{j-i} \sum_{k \leq j-i} \frac{ (j-i)! t^k s^{j-i-k}}{(j-i-k)!(k)!(j-i)!}     \\
+                    &=  e^{-\lambda (t+s)} \lambda^{j-i} \sum_{k \leq j-i} \frac{ t^k s^{j-i-k}}{(j-i-k)!(k)!}     \\
+\end{align}\pn
+
+Ahora veamos que ocurre con la entrada $(i,j)$ de la matriz $P_t P_s$.
+
+\begin{align}
+    (P_t P_s)(i,j)      &=  \sum_{k \geq 0}         P_t(i,k) P_t(k,j)                                                                                       \\
+                        &=  \sum_{i \leq k \leq j}  P_t(i,k) P_t(k,j)                                                                                       \\
+                        &\comment{Pues $P_r(i,j) = 0$ siempre que $j < i$}                                                                                  \\
+                        &= \sum_{i \leq k \leq j}  e^{-\lambda t} \frac{(\lambda t)^{k- i}}{(k - i)!} e^{-\lambda s} \frac{(\lambda s)^{j - k}}{(j - k)!}   \\
+                        &= e^{-\lambda (t+s)}\sum_{i \leq k \leq j}   \frac{(\lambda)^{j - i} t^{k-i} s^{j-k}}{(j - k)!(k - i)!}                            \\
+                        &= e^{-\lambda (t+s)} \lambda^{j - i} \sum_{i \leq k \leq j}   \frac{ t^{k-i} s^{j-k}}{(j - k)!(k - i)!}
+\end{align}\pn
+
+Si definimos $k' = k - i$ (nótese que $0 \leq k' \leq j - i$) y hacemos la sustitución teniendo cuidado con los límites de las sumas obtenemos
+\begin{align}
+    (P_t P_s)(i,j)      &=  e^{-\lambda (t+s)} \lambda^{j - i} \sum_{i \leq k \leq j}   \frac{ t^{k-i} s^{j-k}}{(j - k)!(k - i)!}                           \\
+                        &=  e^{-\lambda (t+s)} \lambda^{j - i} \sum_{k' \leq j - i}   \frac{ t^{k'} s^{j - i -k'}}{(j - i - k')!(k')!}                        
+\end{align}\pn
+
+Que es equivalente a lo que habíamos conseguido antes y por lo tanto $P_{t+s} = P_t P_s$.
+Ahora una prueba utilizando los argumentos de que los incrementos son estacionarios e independientes.
+\begin{align}
+    P_{t+s}(i,j)    &=  \P(N_{t+s} = i-j)                                              \\
+                    &=  \sum_{0 \leq k\leq j-i}\P(N_{t+s} = j-i, N_s = k)              \\
+                    &=  \sum_{0 \leq k\leq j-i}\P(N_{t+s} - N_s = j-i-k, N_s = k)      \\
+\end{align}\pn
+
+Hacemos $k' = j - k$ y entonces podemos escribir
+\begin{align}
+    P_{t+s}(i,j)    &=  \sum_{i \leq k' \leq j}\P(N_{t+s} - N_s = j-i-k, N_s = k)               \\    
+                    &=  \sum_{i \leq k' \leq j}\P(N_{t+s} - N_s = k' - i, N_s = j - k')         \\    
+                    &=  \sum_{i \leq k' \leq j}\P(N_{t+s} - N_s = k' - i)\P(N_s = j - k')       \\
+                    &\comment{Esto úlitmo por la independencia de los incrementos}              \\
+                    &=  \sum_{i \leq k' \leq j}\P(N_{t} = k' - i)\P(N_s = j - k')               \\
+                    &\comment{Esto último porque los incrementos son estacionarios}             \\
+                    &=  \sum_{i \leq k' \leq j} P_t(i,k) P_s(k',j)                              \\
+\end{align}\pn
+
+Por otro lado
+\begin{align}
+    (P_t P_s)(i,j)  &=  \sum{i \leq k \leq j}   P_t(i,k) P_s(k',j)
+\end{align}
+
+Dado que ests son equivalentes, tenemos que $P_{t+s} = P_t P_s$, que es la propiedad de semigrupo que describen
+las ecuaciones de Chapman-Kolmogorov.\pn
+
+Ahora las ecuaciones ``forward'' y ``backward''.
+\begin{align}
+    P_r(i, j)   &=  e^{-\lambda r}   \frac{(\lambda r)^{j - i}}{(j - i)!}
+\end{align}\pn
+
+Derivando con respecto a $r$ obtenemos:
+\begin{align}
+    \frac{d}{dr}    P_r(i, j)   &=  \frac{d}{dr} \left( e^{-\lambda r}   \frac{(\lambda r)^{j - i}}{(j - i)!}   \right)                                                         \\
+                                &=  e^{-\lambda r} \lambda \frac{(\lambda r)^{j - i - 1}}{(j - i - 1)!} -\lambda e^{-\lambda r}   \frac{(\lambda r)^{j - i}}{(j - i)!}         \\
+                                &=  \lambda P_r(i+1, j) - \lambda P_r(i,j).
+\end{align}\pn
+
+Ahora, recordando \eqref{problema5_4:definicionQ}, veamos que
+\begin{align}
+     QP_r(i,j)  &= \sum_{k \in \N} Q(i,k)P_r(k,j)           \\
+                &= Q(i,i)P_r(i,j)   + Q(i, i+1)P_r(i+1,j)   \\
+                &= Q(i,i)P_r(i,j)   + Q(i, i+1)P_r(i+1,j)   \\
+                &=  -\lambda P_r(i,j) + \lambda P_r(i+1,j).
+\end{align}\pn
+
+Con lo que queda demostrado que $\frac{d}{dr}P_r(i,j) = QP_r$. De manera similar
+\begin{align}
+    P_rQ(i,j)   &=  \sum_{k \in \N} P_r(i,k)Q(k,j)                  \\
+                &=  P_r(i,j)Q(j,j)  +   P_r(i,j-1)Q(j-1,j)          \\
+                &=  P_r(i,j)(-\lambda)  +   P_r(i,j-1)(\lambda)     \\
+                &=  P_r(i,j)(-\lambda)  +   P_r(i+1,j)(\lambda)     \\
+                &\comment{porque $j-1-i = j-(i+1)$}                 \\
+                &=  -\lambda P_r(i,j)  +   \lambda P_r(i+1,j)
+\end{align}\pn
+Con lo que queda demostrado que $\frac{d}{dr} P_r(i,j) = QP_r = P_rQ$.

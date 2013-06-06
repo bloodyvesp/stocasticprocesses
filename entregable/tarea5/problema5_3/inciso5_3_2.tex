@@ -1,0 +1,118 @@
+\emph{
+	Calcular la esperanza y varianza del proceso de Poisson y de Poisson compuesto (en t\'erminos de 
+	la intensidad y la distribuci\'on de salto). Probar que si $X$ es proceso Poisson compuesto con salto $\xi_i$
+	\begin{esn}
+		\esp{e^{iu X_t}}=e^{-\lambda t\paren{1-\imf{\psi}{u}}}\quad\text{donde}\quad \imf{\psi}{u}=\esp{e^{iu \xi_1}}. 
+	\end{esn}
+}
+
+\afterstatement\pn
+
+Sea $N_t$ un proceso de Poisson de intensidad $\lambda$. Es decir, que la distribución de $N_t$ tiene distribución de Poisson de parámetro
+$\lambda t$. Entonces:
+
+\begin{align}
+    \E(N_t) &=  \sum_{i \in \N} i \P(N_t = i)                                                   \\
+            &=  \sum_{i \in \N} i e^{- \lambda t} \frac{(\lambda t)^i}{i!}                      \\
+            &=  e^{- \lambda t} \sum_{i \in \N} i \frac{(\lambda t)^i}{i!}                      \\
+            &=  e^{- \lambda t} (\lambda t) \sum_{i \in \N} \frac{(\lambda t)^{i-1}}{(i-1)!}    \\
+            &=  e^{- \lambda t} (\lambda t) e^{\lambda t}                                       \\
+            &=  \lambda t.
+\end{align}
+
+Ahora
+\begin{align}
+    \E(N_t^2)   &=  \sum_{i \in \N} i^2 \P(N_t = i)                                                                                                                         \\
+                &=  e^{- \lambda t} \sum_{i \in \N} i^2 \frac{(\lambda t)^i}{i!}                                                                                            \\
+                &=  e^{- \lambda t} \sum_{i \in \N} i \frac{(\lambda t)^i}{(i-1)!}                                                                                          \\
+                &=  e^{- \lambda t} (\lambda t) \sum_{i \in \N} i \frac{(\lambda t)^{i-1}}{(i-1)!}                                                                          \\
+                &=  e^{- \lambda t} (\lambda t) \sum_{i \in \N} (i - 1 + 1) \frac{(\lambda t)^{i-1}}{(i-1)!}                                                                \\
+                &=  e^{- \lambda t} (\lambda t) \left(\sum_{i \in \N} (i - 1) \frac{(\lambda t)^{i-1}}{(i-1)!} + \sum_{i \in \N} \frac{(\lambda t)^{i-1}}{(i-1)!} \right)   \\                
+                &=  e^{- \lambda t} (\lambda t) \left(\sum_{i \in \N} (i - 1) \frac{(\lambda t)^{i-1}}{(i-1)!} + e^{\lambda t} \right)                                      \\                
+                &=  \left((\lambda t) e^{- \lambda t} \sum_{i \in \N} (i - 1) \frac{(\lambda t)^{i-1}}{(i-1)!} + e^{- \lambda t} (\lambda t) e^{\lambda t} \right)          \\                                      \\                
+                &=  (\lambda t) \E(N_t) +  (\lambda t)                                                                                                                      \\                
+                &=  (\lambda t)^2 +  (\lambda t).
+\end{align}
+
+Por lo tanto
+\begin{align}
+    Var(N_t)    &=  \E(N_t^2) - \E(N_t)^2                           \\
+                &=  (\lambda t)^2 +  (\lambda t) - (\lambda t)^2    \\
+                &=  (\lambda t).
+\end{align}
+
+Sea ahora $X$ un proceso de Poisson compuesto. Es decir
+\begin{align}
+    X_t     &=  \sum_{i \leq N_t} \xi_i.
+\end{align}\pn
+
+Con $\xi_i$ variables aleatorias independientes, idénticamente distribuidas e independientes del proceso de Poisson $N_t$.
+Entonces 
+\begin{align}
+    \E(X_t)     &=  \E\left( \sum_{i \leq N_t} \xi_i \right)                                    \\
+                &=  \E\left( \sum_{i \in \N} \xi_i \indic_{\{ T_i \leq t\}} \right)             \\
+                &=  \left( \sum_{i \in \N} \E(\xi_i \indic_{\{ T_i \leq t\}}) \right)           \\
+                &\comment{por teorema de la convergencia monótona}                              \\
+                &=  \left( \sum_{i \in \N} \E(\xi_i) \E(\indic_{\{ T_i \leq t\}}) \right)       \\
+                &\comment{por independencia de las $\xi$ del proceso de Poisson}                \\
+                &=  \left( \sum_{i \in \N} \E(\xi_1) \E(\indic_{\{ T_i \leq t\}}) \right)       \\
+                &\comment{por que las $\xi$ son idénticamente distribuidas}                     \\
+                &=  \E(\xi_1) \left( \sum_{i \in \N} \E(\indic_{\{ T_i \leq t\}}) \right)       \\
+                &=  \E(\xi_1) \E(N_t)                                                           \\
+                &=  \E(\xi_1) (\lambda t).                                                        \\
+\end{align}\pn
+
+[ahora más cuentas]. 
+\begin{align}
+    \E(X_t^2)   &=  \E(\E(X_t^2 \bigg| N_t))                                                                                                                                \\
+                &=  \E\left(\E\left[ \left(\sum_{i \leq N_t} \xi_i \right)^2 \bigg| N_t\right] \right)                                                                      \\
+                &=  \E\left(\sum_{j \in \N} \E\left[ \left(\sum_{i \leq N_t} \xi_i \right)^2 \bigg| N_t = j\right] \indic_{\{ N_t = j\}} \right)                            \\
+                &=  \E\left(\sum_{j \in \N} \E\left[ \left(\sum_{i \leq j} \xi_i \right)^2 \right] \indic_{\{ N_t = j\}} \right)                                            \\
+                &\comment{otra vez por independenia de las $\xi$ del proceso de Poisson}                                                                                    \\
+                &=  \E\left(\sum_{j \in \N} \E\left[ \sum_{i, i' \leq j} \xi_i \xi_{i'} \right] \indic_{\{ N_t = j\}} \right)                                               \\
+                &=  \E\left(\sum_{j \in \N} \left[ \sum_{i, i' \leq j} \E(\xi_i \xi_{i'}) \right] \indic_{\{ N_t = j\}} \right)                                             \\
+                &=  \E\left(\sum_{j \in \N} \left[ \sum_{i \leq j} \E(\xi_i \xi_i) + \sum_{i < i' \leq j} \E(\xi_i \xi_{i'}) \right] \indic_{\{ N_t = j\}} \right)          \\
+                &=  \E\left(\sum_{j \in \N} \left[ \sum_{i \leq j} \E(\xi_i^2) + \sum_{i < i' \leq j} \E(\xi_i) \E(\xi_{i'}) \right] \indic_{\{ N_t = j\}} \right)          \\
+                &\comment{por independencia de los $\xi_i$}                                                                                                                 \\
+                &=  \E\left(\sum_{j \in \N} \left[ \sum_{i \leq j} \E(\xi_1^2) + \sum_{i < i' \leq j} \E(\xi_1) \E(\xi_1) \right] \indic_{\{ N_t = j\}} \right)             \\
+                &\comment{porque las $\xi_i$ son indénticamente distribuidas}                                                                                               \\
+                &=  \E\left(\sum_{j \in \N} \left[ j \E(\xi_1^2) + j(j-1) \E(\xi_1)^2  \right] \indic_{\{ N_t = j\}} \right)                                                \\
+                &=  \E\left(\sum_{j \in \N} j \left[  (\E(\xi_1^2) + (j-1) \E(\xi_1)^2) \right] \indic_{\{ N_t = j\}} \right)                                               \\
+                &=  \E\left(\sum_{j \in \N} j \left[ j \E(\xi_1)^2 + (\E(\xi_1^2) - \E(\xi_1)^2) \right] \indic_{\{ N_t = j\}} \right)                                      \\
+                &=  \E\left(\sum_{j \in \N} j \left[ j \E(\xi_1)^2 + Var(\xi_1) \right] \indic_{\{ N_t = j\}} \right)                                                       \\
+                &=  \E\left(\sum_{j \in \N} \left[ j^2 \E(\xi_1)^2 + j Var(\xi_1)) \right] \indic_{\{ N_t = j\}} \right)                                                    \\
+                &=  \E\left( N_t^2 \E(\xi_1)^2 + N_t Var(\xi_1)  \right)                                                                                                    \\
+                &=  \E( N_t^2) \E(\xi_1)^2 + \E(N_t) Var(\xi_1)                                                                                                             \\
+                &=  ((\lambda t)^2 + (\lambda t) ) \E(\xi_1)^2 + (\lambda t) Var(\xi_1)                                                                                     \\
+                &=  ((\lambda t)^2 + (\lambda t) ) \E(\xi_1)^2 + (\lambda t) (\E(\xi_1^2) - \E(\xi_1)^2)                                                                    \\
+                &=  (\lambda t)^2\E(\xi_1)^2 + (\lambda t)\E(\xi_1)^2 + (\lambda t) \E(\xi_1^2) - (\lambda t)\E(\xi_1)^2                                                    \\
+                &=  (\lambda t)^2\E(\xi_1)^2 + (\lambda t) \E(\xi_1^2)                                                                                                      \\
+\end{align}\pn
+
+Entonces
+\begin{align}
+    Var(X_t)    &=  \E(X_t^2) - \E(X_t)^2                                                           \\
+                &=  (\lambda t)^2\E(\xi_1)^2 + (\lambda t) \E(\xi_1^2) - \E(\xi_1)^2 (\lambda t)^2  \\
+                &=  (\lambda t) \E(\xi_1^2). 
+\end{align}\pn
+
+Para la última parte, sólo haran falta más cuentas
+\begin{align}
+        \E(e^{iuX_t})   &=  \E\left( e^{iu \sum_{j \leq N_t} \xi_j }  \right)                                                                       \\
+                        &=  \E\left( \E\left[e^{iu \sum_{j \leq N_t} \xi_j } \bigg| N_t \right]\right)                                              \\
+                        &=  \E\left( \sum_{k \in \N} \indic_{N_t = k} \E\left[e^{iu \sum_{j \leq k} \xi_j } \bigg| N_t = k \right]\right)           \\
+                        &=  \E\left( \sum_{k \in \N} \indic_{N_t = k} \E\left[e^{iu \sum_{j \leq k} \xi_j } \right]\right)                          \\
+                        &\comment{otra vez por independenia de las $\xi$ del proceso de Poisson}                                                    \\
+                        &=  \E\left( \sum_{k \in \N} \indic_{N_t = k} \E\left[e^{iu \xi_1 } \right]^k \right)                                       \\
+                        &\lcomment{por propiedades de la función característica y por}                                                              \\
+                        &\rcomment{ que las $\xi_i$ son independientes e idénticamente distribuidas}                                                \\
+                        &=  \E\left( \E\left[e^{iu \xi_1 } \right]^{N_t} \right)                                                                    \\
+                        &=  \E\left( \psi(u)^{N_t} \right)                                                                                          \\
+                        &=  \sum_{j \in \N} \psi(u)^{j} e^{- \lambda t} \frac{(\lambda t)^j}{j!}                                                    \\                                       \\
+                        &=  e^{- \lambda t} \sum_{j \in \N}  \frac{(\psi(u) \lambda t)^j}{j!}                                                       \\                                       \\
+                        &=  e^{- \lambda t} e^{\psi(u) \lambda t}                                                                                   \\                                       \\
+                        &=  e^{\psi(u) \lambda t - \lambda t}                                                                                       \\                                       \\
+                        &=  e^{\lambda t (\psi(u) - 1)}                                                                                             \\        
+                        &=  e^{-\lambda t (1 - \psi(u))}.                  
+\end{align}\pn
+Con lo que termina la demostración.

@@ -1,0 +1,25 @@
+\emph{
+    Al utilizar la f\'ormula para la esperanza de una variable binomial negativa, 
+    pruebe que
+    \begin{esn}
+        \imf{\se_x}{Z_t}= xe^{\lambda t}.
+    \end{esn}\pn
+}
+
+\afterstatement\pn
+
+Del inciso anterior, tenemos que $P_t(i,j) = \P(W = i - j)$ donde $W$ es una variable aleatoria con
+distribución binomial negativa de parámetros $r = x$ y $p = e^{-\lambda t}$ 
+[véase \href{http://en.wikipedia.org/wiki/Negative_binomial_distribution}{distribución binomial negativa}].\pn
+
+Entonces
+\begin{align}
+        \E_x(Z_t)   &=  \sum_{j} j \P_x(Z_t = j)   \\
+                    &=  \sum_{j} j P_t(x, j)       \\
+                    &=  \E(W)                      \\
+                    &=  \frac{r}{p}                \\
+                    &=  \frac{x}{e^{-\lambda t}}   \\
+                    &=  x e^{\lambda t}.
+\end{align}\pn
+
+Como buscábamos demostrar.

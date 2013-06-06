@@ -1,0 +1,15 @@
+\emph{
+	Pruebe que casi seguramente las trayectorias de $N$ son no-decrecientes.
+}
+
+\afterstatement\pn
+
+Por ser un proceso de Lévy, sabemos que sus incrementos son estacionarios. Es decir, que para $s,t \geq 0$.
+$N_{t+s} - N_t$ tiene la misma distirbución que $N_s$. La cual tiene distribución $Poisson(\lambda s)$ y
+por lo tanto toma valores enteros, mayores o iguales a $0$, con probabilidad $1$. Es decir, casi seguramente
+$N_{t+s}$ es mayor o igual a $N_t$. Ahora, recordemos que las $N_t$ casi seguramente toman valores en los entereos y por otra parte, 
+los procesos de Lévy tienen trayectorias continuas por la derecha y con límites por la izquierda (cádlág).\pn
+
+La continuidad por la derecha y que las alturas son enteras nos definen trayectorias constantes a pedazos.
+Es decir que si ocurriera que $N_t > N_{t+s}$, ocurriría para toda una vecindad (por la derecha) de $t+s$, pero, como
+ya vimos, este suceso tiene probabilidad $0$.

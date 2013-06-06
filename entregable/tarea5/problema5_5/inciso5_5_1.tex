@@ -1,0 +1,112 @@
+\emph{
+    Encuentre la matriz de transici\'on de la cadena de Markov de los estados distintos que toma $X$, 
+    clasifique los estados, diga si existe una \'unica distribuci\'on invariante y en caso afirmativo, 
+    encu\'entrela. Calcule expl\'icitamente las potencias de la matriz de transici\'on. 
+    (Recuerde que de ser posible diagonalizar, esta es una buena estrategia.)\pn
+}
+
+\afterstatement\pn
+
+Como no hay estados absorbentes, podemos utilizar la fórmula
+\begin{align}
+        P(i,j)  &=  \frac{Q(i, j)}{c(i)} (i-\delta_{i,j})
+\end{align}
+
+donde $c(i)$ es la suma de las entradas positivas de la $i$-ésima fila de $Q$ y $\delta_{i,j} = 1$
+si $i = j$ y $\delta_{i,j} = 0$ en cualquier otro caso.\pn
+
+Después de algunas cuentas se obtiene:
+\begin{align}
+     P=
+        \begin{pmatrix}
+            0           &   1   &   0               \\
+            \frac{1}{7} &   0   &   \frac{6}{7}     \\
+            0           &   1   &   0
+        \end{pmatrix}.   
+\end{align}\pn
+
+De $P$ se puede todos los estados son alcanzables desde cualquier otro (de los estados $0$ y $2$ 
+se puede llegar al $1$, y del $1$ a cualquiera de los otros). Es decir, es irreducible.\pn
+
+Existe un teorema que nos asegura que por ser irreducible y de estados finitos, los estados son positivos
+recurrentes y existe una distribución invariante. También existe otro teorema que nos asegura que por tener
+estados positivos recurrentes, la distribución invariante es única.\pn
+
+Entonces, buscar una distribución invariante se reduce a resolver el sistema de ecuaciones
+
+\begin{align}
+        \frac{1}{7}x_2              &=      x_1 \\
+        x_1 + x_3                   &=      x_2 \\
+        \frac{6}{7}x_2              &=      x_3 \\
+\end{align}
+
+Donde $x_1 + x_2 + x_3 = 1$. Después de algunas cuentas, se llega a que la solución del sistema es
+$x_1 = \frac{1}{14}$, $x_2 = \frac{7}{14}$, $x_3 = \frac{6}{14}$.\pn
+
+Para calcular explícitamente las potencias de $P$, primero encontramos el polinomio característico de $P$.
+\begin{align}
+        p(x)    =   -\lambda(\lambda + 1)(\lambda - 1).
+\end{align}
+
+De donde, los valores propios son $0, -1, 1$. Después de resolver los sistemas de ecuaciones correspondientes 
+(lo cual son muchas cuentas) se obtiene que los vectores propios correspondientes son $(-6, 0 ,1), (1, 1, 1), (1, -1, 1)$.
+
+Por lo tanto, $P$ se puede diagonalizar como
+\begin{align}
+    A^{-1} P A  = D
+\end{align}
+
+Donde 
+\begin{align}
+     A  =
+        \begin{pmatrix}
+            -6  &   1   &   1      \\
+            0   &   1   &   -1     \\
+            1   &   1   &   1
+        \end{pmatrix}.   
+\end{align}\pn
+
+y 
+
+
+\begin{align}
+     D  =
+        \begin{pmatrix}
+            0   &   0   &   0      \\
+            0   &   1   &   0      \\
+            0   &   0   &   -1
+        \end{pmatrix}.   
+\end{align}\pn
+
+y Entonces
+
+\begin{align}
+        P^n = A D^n A^{-1}
+\end{align}
+
+Ahora notemos que 
+
+\begin{align}
+     D^n  =
+            \begin{pmatrix}
+                0   &   0   &   0      \\
+                0   &   1   &   0      \\
+                0   &   0   &   -1^n
+            \end{pmatrix}.   
+\end{align}\pn
+
+Por lo tanto
+\begin{align}
+     P^{2n + 1} = A D^{2n+1} A^{-1} = A D A^{-1} = P
+\end{align}
+
+Y 
+\begin{align}
+     P^{2n} = A D^{2} A^{-1} = 
+                            \begin{pmatrix}
+                                \frac{1}{7}     &   0   &   \frac{6}{7}     \\
+                                0               &   1   &   0               \\
+                                \frac{1}{7}     &   0   &   \frac{6}{7}
+                            \end{pmatrix}.
+\end{align}
+

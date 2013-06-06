@@ -15,6 +15,8 @@
 
 
 
+
+
 \usepackage{embedfile}
 
 
@@ -49,10 +51,8 @@
 
 %\input{definiciones/ornamentos.tex}
 
-
-
-\title[Problemas de Procesos I]{
-    Problemas de Procesos Estocásticos I\\ 
+\title[Tarea de procesos estocásticos 2013-2]{
+    Problemas de Procesos Estocásticos\\ 
     Semestre 2013-II\\ 
     Posgrado en Ciencias Matemáticas\\ 
     Universidad Nacional Autónoma de México\\
@@ -78,28 +78,33 @@
         \input{tarea4/tarea4.tex}        
         \nqed    
     
-    %\part{Tarea 5}
-        %\input{tarea5/tarea5.tex}        
-        %\nqed
-    %
+    \part{Tarea 5}
+        \input{tarea5/tarea5.tex}        
+        \nqed
+    
     %\part{Tarea 6}
         %\input{tarea6/tarea6.tex}        
         %\nqed
     
-    \part*{Notas}\label{notas}
-        \embedfile{notas.pdf}
-        Se ha incluido una versión de las notas del curso como archivo adjunto en este pdf. No todos los lectores de pdf soportan archivos 
-        adjuntos o no se comportan como es esperado. Adobe Reader (versión para windows) no se comporta como es esperado, pero sí es capaz de accesar a los
-        archivos adjuntos.\pn
-        
-        El motivo de adjuntar el archivo, es porque se han hecho algunas citas a dichas notas, si las notas cambian (lo cual es muy probable), 
-        es posible que las referencias dejen de ser correctas.\pn
-        
-        Si no es posible recompilar este documento gracias a la librería para manejar archivos adjuntos, comente las lineas $50$ y $80$ del archivo principal y 
-        vuelva a intentar. 
-    \newpage
-    
     \part*{Referencias}
         \bibliography{GenBib}
         \bibliographystyle{amsalpha}
+        \newpage
+
+    \part*{Notas}\label{notas}
+        \embedfile{notas.pdf}
+        Se ha incluido una versión de las notas del curso como archivo adjunto en este \texttt{pdf}. No todos los lectores de \texttt{pdf} soportan 
+        archivos adjuntos o no se comportan como es esperado. Adobe Reader y Evince (versiones para Windows) no se comportan como es esperado, 
+        pero sí son capaces de accesar a los archivos adjuntos de alguna manera (la manera comprobada [en Windows] es extraer el archivo diciendo 
+        ``guardar como'' y luego, como se hace con cualquier otro \texttt{pdf}, abrir el archivo recién creado).\pn
+        
+        El motivo de adjuntar el archivo, es porque se han hecho algunas citas a dichas notas. Si las notas cambian (lo cual es probable), 
+        es posible que las referencias dejen de ser correctas.\pn
+        
+        Si no es posible recompilar este documento gracias a la librería para manejar archivos adjuntos, comente las lineas $50$ y $90$ del archivo 
+        principal (\texttt{tareas.tex}) y vuelva a intentar.\pn
+        
+        Para el creador de las notas: Sería muy útil antes de cada sección mencionar en qué otra fuente se puede consultar el material de
+        la sección. A veces se omiten detalles que para los novatos en probabilidad (como yo) no son obvios. Personalmente, añadiría recomendaciones 
+        a los libros de $J.\,R.\,Norris$ y $Krishna\,B.\,Athreya$.
 \end{document}

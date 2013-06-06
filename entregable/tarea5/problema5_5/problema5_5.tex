@@ -1,0 +1,50 @@
+\begin{problema}[Tomado del examen general de probabilidad del Posgrado en Ciencias Matem\'aticas, UNAM, \href{http://www.posgradomatematicas.unam.mx/contenidoEstatico/archivo/files/pdf/Examenes_Generales/Probabilidad/Probabilidad2011-1.pdf}{Febrero 2011}]
+Una planta de producci\'on toma su energ\'ia de dos generadores. La cantidad de generadores al tiempo 
+$t$ est\'a representado por una cadena de Markov a tiempo continuo $\set{X_t,t\geq 0}$ con espacio de 
+estados $E=\set{0,1,2}$ y matriz infinit\'esimal $Q$ dada por
+\begin{esn}
+    Q=
+        \begin{pmatrix}
+            -6  &6  &   0  \\
+            1   &-7 &   6  \\
+            0   &2  &   -2
+        \end{pmatrix}.
+\end{esn}
+    \begin{enumerate}
+        \item[(i)]      [\ref{problema5_5:inciso1}]
+            Encuentre la matriz de transici\'on de la cadena de Markov de los estados distintos que toma $X$, 
+            clasifique los estados, diga si existe una \'unica distribuci\'on invariante y en caso afirmativo, 
+            encu\'entrela. Calcule expl\'icitamente las potencias de la matriz de transici\'on. 
+            (Recuerde que de ser posible diagonalizar, esta es una buena estrategia.)\pn
+            
+        \item[(ii)]     [\ref{problema5_5:inciso2}] 
+            ?`Cu\'al es la probabilidad de que ambos generadores est\'en trabajando al tiempo $t$ 
+            si s\'olo uno trabaja al tiempo cero?\pn
+            
+        \item[(iii)]    [\ref{problema5_5:inciso3}] 
+            Si $\rho_2$ denota la primera vez que ambos generadores est\'an trabajando al mismo tiempo, 
+            encuentre la distribuci\'on de $\rho_2$ cuando s\'olo un generador est\'a trabajando al tiempo cero.\pn
+            
+        \item[(iv)]     [\ref{problema5_5:inciso4}]
+            Encuentre la proporci\'on de tiempo asint\'otica en que los dos generadores est\'an trabajando. 
+            Si cada generador produce 2.5 MW de energ\'ia por unidad de tiempo, ?`Cu\'al es la cantidad promedio 
+            de energ\'ia producida a largo plazo por unidad de tiempo?\pn
+    \end{enumerate}
+\end{problema}
+
+\begin{proof}
+    \subsection{Inciso (i)} \label{problema5_5:inciso1}
+    \input{tarea5/problema5_5/inciso5_5_1.tex}
+    \newpage
+
+    \subsection{Inciso (ii)} \label{problema5_5:inciso2}
+    \input{tarea5/problema5_5/inciso5_5_2.tex}
+    \newpage
+
+    \subsection{Inciso (iii)} \label{problema5_5:inciso3}
+    \input{tarea5/problema5_5/inciso5_5_3.tex}
+	\newpage
+	
+    \subsection{Inciso (iv)} \label{problema5_5:inciso4}
+    \input{tarea5/problema5_5/inciso5_5_4.tex}
+\end{proof}

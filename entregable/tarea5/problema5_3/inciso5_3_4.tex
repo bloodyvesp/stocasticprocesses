@@ -1,0 +1,57 @@
+\emph{
+	Sea $\Xi$ la \'unica medida en $\mc{B}_{\re_+}$ tal que $\imf{\Xi}{[0,t]}=N_t$. Pruebe que 
+	$\Xi$ es una medida de Poisson aleatoria de intensidad $\lambda \cdot\leb$.
+}
+
+\afterstatement\pn
+
+Sea
+\begin{align}
+    M = \left\{ A \in \B_{\R^+} : \Xi(A) \sim Poisson(\lambda Leb(A)) \right\}
+\end{align}
+
+Sean $A_1, A_2, \dots \in M$ tales que $A_i \subset A_{i+1}$ y sea $A = \bigcup A_i$. Por ser $\Xi$ medida
+aleatoria, tenemos que $\Xi(A_i) \longrightarrow \Xi(A)$. Y por lo tanto \par
+$\lim\limits_{n \rightarrow \infty} \P(\Xi(A_i) = n) = \P(\Xi(A) = n)$.\pn
+
+Como $A_1, A_2, \dots in M$, podemos escribir lo siguiente
+\begin{align}
+    \lim_{n \rightarrow \infty} \P(\Xi(A_i) = n)    &=  \lim_{n \rightarrow \infty} e^{-\lambda Leb(A_i)} \frac{(\lambda Leb(A_i))^n}{n!}       \\
+                                                    &=  e^{-\lambda Leb(A)} \frac{(\lambda Leb(A))^n}{n!}                                       \\
+                                                    &\comment{pues $A_i \rightarrow A$ y $Leb(A_i) \rightarrow Leb(A)$}.
+\end{align}
+
+Por lo tanto $A \in M$ y esto demuestra que $M$ es una clase monótona.\pn
+
+Ahroa sea
+\begin{align}
+    P = \left\{  A \in \B_{\R^+} : A = \bigcup_{ i  \leq n } (a_i, b_i] \text{ tal que } b_i < a_{i+1} \right\}
+\end{align}\pn
+
+Es fácil notar que $P$ es un álgebra y que $\sigma(P) = \B_{\R^+}$.\pn
+
+Sea $A \in P$. Es decir, $A$ tiene la forma
+\begin{align}
+    A = \bigcup_{ i  \leq n } (a_i, b_i]
+\end{align}
+con $b_i < a_{i+1}$. Nombremos $A_i = (a_i, b_i]$. Entonces
+\begin{align}
+    \Xi(A)  &=      \Xi\left(\bigcup (a_i, b_i] \right)                         \\
+            &=      \sum_{i \leq n}     \Xi((a_i, b_i])                         \\
+            &=      \sum_{i \leq n}     \Xi([0, b_i])  -\Xi([0, a_i])           \\
+            &=      \sum_{i \leq n}     N_{b_i}  -  N_{a_i}                     \\
+            &\sim   \sum_{i \leq n}     N_{b_i - a_i} 
+\end{align}\pn
+
+Los $N_{b_i - a_i}$ tiene distribución $Poisson(\lambda (b_i - a_i))$ y son independientes. Por lo tanto
+la distribución de su suma es $Poisson\left(\lambda \sum (b_i - a_i) \right)$. Pero $Leb(A) = \sum (b_i - a_i)$. Así que
+$\Xi(A)$ tiene distribución $Poisson(\lambda Leb(A))$ y por lo tanto pertenece a $M$.\pn
+
+Como $P$ es un álgebra y $M$ es una clase monótona que la contiene, el teorema de clases monotonas nos dice que
+$\sigma(P) \subset M$. Pero como $\sigma(P) = \B_{\R^+}$ y $M \subset \B_{\R^+}$, tenemos que $\sigma(P) = M$ y por lo tanto
+$\Xi(A) \sim Poisson(\lambda Leb(A))$ para todo $A \in \B_{\R^+}$.\pn
+
+Con esto hemos demostrado la primera condición necesaria para ser variable aleatoria de Poisson de intensidad $\lambda Leb$. La
+condición que nos falta es que si $A_1, A_2, \dots, A_n \in \B_{\R^+}$ son ajenos dos a dos, entonces las variables aleatorias 
+$\Xi(A_1), \Xi(A_2), \dots, \Xi(A_n)$ son independientes. Esta demostración es idéntica a la segunda parte de la demostración de la
+propocisión $4.5$ de las notas de la clase (véase [\ref{notas}]).\pn

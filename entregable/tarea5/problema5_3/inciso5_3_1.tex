@@ -1,0 +1,78 @@
+\emph{
+	Pruebe que si $X$ tiene incrementos independientes entonces el proceso $X^t$ dado por $X^t_s=X_{t+s}-X_t$ 
+	es independiente de $\F^X_t=\sag{X_s : s \leq t}$.
+}
+
+\afterstatement\pn
+
+Recordemos que tener incrementos independientes significa que siempre que $0 \leq r_1 < r_2 < r_3 < \dots < r_m$ 
+se tiene que $X_{r_1} - X_{r_2}, X_{r_2} - X_{r_3}, \dots, X_{r_m} - X_{t_{m-1}}$ son variables aleatorias 
+independientes.\pn
+
+Veamos quien es la $\sigma$-álgebra generada por los incrementos de $X$ hasta $t$. En otras palabaras, 
+la $\sigma$-álgebra generada por conjuntos de la forma
+
+\begin{align}
+    \bigcap_{1 \leq i \leq n} \{ X_{s_i} - X_{s_{i-1}} \in B_i \} \label{problema5_3:sigma_algebra_de_incrementos}
+\end{align}\pn
+
+Donde $0 \leq s_1 < s_2 < \dots < s_n \leq t$, $B_i \in \B_\R$ y, por comodida de notación, $X_{s_{0}} = 0$.\pn 
+
+Notemos primero que estos conjuntos son todos $\F_t^X$ medibles. También notemos que los conjuntos 
+$\{ X_s \in B : B \in \B_\R \}$ con $0 \leq s \leq t$ también son de esta forma. Basta con escoger 
+$s_1 = s$, $B_1 = B$ y $B_i = \R$ para $i \geq 2$.\pn
+
+Lo que acabamos de mostrar es que la $\sigma$-álgebra generada por los conjuntos definidos en 
+\eqref{problema5_3:sigma_algebra_de_incrementos} es igual a $\F_t^X$. Llamemos $P$ a la clase 
+de los conjuntos de esta forma. Es fácil ver que $P$ es un $\pi$-sistema. Es no vacío ($\R$ y $\emptyset$ 
+pertenecen a él) y es fácil ver que la intersección de dos de ellos está otra vez en $P$.\pn
+
+Ahora analicemos a la $\sigma$-álgebra generada por los incrementos de $X^t$. Llamemos $P'$ a
+la clase de los conjuntos de la forma
+
+\begin{align}
+    \bigcap_{1 \leq i \leq n} \{  X_{t + r_i} - X_{t + r_{i - 1}} \in B_i \}
+\end{align}
+
+Donde $0 \leq r_1 < r_2 < \dots < r_n$,  $B_i \in \B_\R$ y, por comodida de notación 
+$r_0 = 0$. Otra vez, es fácil notar que $P'$ es un $pi$-sistema. Es no vacío ($\R$ y $\emptyset$ 
+pertenecen a él) y es fácil ver que la intersección de dos de ellos está otra vez en $P'$.\pn
+
+$P'$ en la forma que lo construimos, es el álgebra de los incrementos de $X^t$, por lo tanto, 
+la $\sigma$-álgebra que genera es la $\sigma$-álgebra de los incrementos de $X^t$.\pn
+
+La idea ahora es encontrar un sistema de Dynkin que contenga a $P$ y que sea independiente
+de $P'$. De esta manera, utilizando el Lema de clases de Dynkin podemos extender la propieadad de ser
+independiente de $P'$.\pn
+
+\begin{align}
+    D =   \{ S \in \sigma(P) : \P(S  \cap C') = \P(S) \P(C') \; \forall C' \in P'\}.
+\end{align}\pn
+
+Veamos que $P \subset D$. Para ello, sea $C \in P$ con
+\begin{align}
+     C  &=  \bigcap_{1 \leq i\leq n} \{ X_{s_i} - X_{s_{i-1}} \in B_i \}.
+\end{align}\pn
+
+Y sea $C' \in P$, con
+\begin{align}
+    C'  &=  \bigcap_{1 \leq i' \leq n'} \{  X_{t + r_i'} - X_{t + r_{i' - 1}} \in B_i' \}
+\end{align}
+
+Entonces
+\tiny               
+\begin{align}
+    &   \P(C \cap C')                                                                                                                                                                                                                                                   =   \\
+    &   \P\left( \left[ \bigcap_{1 \leq i\leq n} \{ X_{s_i} - X_{s_{i-1}} \in B_i \} \right] \cap \left[ \bigcap_{1 \leq i' \leq n'} \{  X_{t + r_i'} - X_{t + r_{i' - 1}} \in B_i' \} \right] \right)                                                                  =   \\
+    &   \P\left( \left[ \bigcap_{1 \leq i\leq n} \{ X_{s_i} - X_{s_{i-1}} \in B_i \} \right] \cap \{X_t - X_{s_n} \in \R\} \cap \left[ \bigcap_{1 \leq i' \leq n'} \{  X_{t + r_i'} - X_{t + r_{i' - 1}} \in B_i' \} \right] \right)                                    =   \\
+    &   \comment{Se está intersectando con un conjunto que es igual a $\R$, por eso la igualdad se preserva}                                                                                                                                                                \\
+    &   \P\left( \left[ \bigcap_{1 \leq i\leq n} \{ X_{s_i} - X_{s_{i-1}} \in B_i \} \right] \right) \cdot \P\left( \{X_t - X_{s_n} \in \R\} \right) \cdot \P\left(\left[ \bigcap_{1 \leq i' \leq n'} \{  X_{t + r_i'} - X_{t + r_{i' - 1}} \in B_i' \} \right] \right) =   \\
+    &   \comment{Se utilizó la hipótesis de que $X$ tiene incrementos independientes}                                                                                                                                                                                       \\
+    &   \P\left( \left[ \bigcap_{1 \leq i\leq n} \{ X_{s_i} - X_{s_{i-1}} \in B_i \} \right] \right) \cdot \P\left(\left[ \bigcap_{1 \leq i' \leq n'} \{  X_{t + r_i'} - X_{t + r_{i' - 1}} \in B_i' \} \right] \right)                                                 =   \\
+    &   \comment{El termino que desapareció era la probabilidad del total, es decir $1$}                                                                                                                                                                                    \\
+    &   \P(C) \P(C').
+\end{align}\pn
+\normalsize
+
+Con esto hemos demostrado que $C \in D$ y por lo tanto $P \subset D$. Para ver que $D$ es sistema de Dynkin, notemos primero que $\R \in D$ 
+(el total siempre es un conjunto independiente de cualquier otro). 

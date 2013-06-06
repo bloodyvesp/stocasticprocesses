@@ -1,0 +1,26 @@
+\emph{
+	Pruebe que si $W_1$ y $W_2$  son  exponenciales de par\'ametro 
+	$\lambda$  independientes entre si y de una variable uniforme $U$, 
+	entonces $U\paren{W_1+W_2}$ es una variable aleatoria exponencial 
+	de par\'ametro $\lambda$.
+}
+
+\afterstatement\pn
+
+Como $W_1, W_2$ son exponenciales de parámetro $\lambda$, entonces $W_1 + W_2 \sim gamma(2, \lambda)$.
+Entonces
+\begin{align}
+    f_{U(W_1 + W_2)}(v)     &=  \int    f_{W_1 + W_2, U(W_1 + W_2)}(u, v) du                                                            \\
+                            &=  \int    f_{W_1 + W_2}(u) f_{U}(v/u)\frac{1}{u} du                                                       \\
+                            &\lcomment{esto último por la independencia de }                                                            \\
+                            &\rcomment{$U$ y $W_1 + W_2$}                                                                               \\
+                            &=  \int    \lambda^2 u e^{-\lambda u} \indic_{\{0 < u\}} f_{U}(v/u)\frac{1}{u} du                          \\
+                            &=  \int    \lambda^2 u e^{-\lambda u} \indic_{\{0 < u\}} \indic_{\{0 \leq v/u \leq 1\}}\frac{1}{u} du      \\
+                            &=  \int    \lambda^2 e^{-\lambda u} \indic_{\{0 < u\}} \indic_{\{0 \leq v/u \leq 1\}} du                   \\
+                            &=  \int_v^\infty \lambda^2 e^{-\lambda u}  du                                                              \\
+                            &=  \lambda^2 \int_v^\infty e^{-\lambda u}  du                                                              \\
+                            &=  \lambda^2 \frac{1}{\lambda} e^{-\lambda v}                                                              \\
+                            &=  \lambda e^{-\lambda v}                                                                                  
+\end{align}
+
+Y con esto queda demostrado que $U(W_1 + W_2)$ tiene distribución exponencial de parámetro $\lambda$.

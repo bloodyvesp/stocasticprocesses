@@ -1,0 +1,47 @@
+\begin{problema}.\pn
+	
+	\begin{enumerate}
+		\item[(i)]		[\ref{problema5_3:inciso1}]
+			Pruebe que si $X$ tiene incrementos independientes entonces el proceso $X^t$ dado por $X^t_s=X_{t+s}-X_t$ 
+			es independiente de $\F^X_t=\sag{X_s:s\geq 0}$.
+
+		\item[(ii)]		[\ref{problema5_3:inciso2}]
+			Calcular la esperanza y varianza del proceso de Poisson y de Poisson compuesto (en t\'erminos de 
+			la intensidad y la distribuci\'on de salto). Probar que si $X$ es proceso Poisson compuesto con salto $\xi_i$
+			\begin{esn}
+				\esp{e^{iu X_t}}=e^{-\lambda t\paren{1-\imf{\psi}{u}}}\quad\text{donde}\quad \imf{\psi}{u}=\esp{e^{iu \xi_1}}. 
+			\end{esn}
+	\end{enumerate}\pn
+		Sea $N$ un proceso de L\'evy tal que $N_t$ tiene distribuci\'on de par\'ametro $\lambda t$. 
+
+	\begin{enumerate}[resume]
+		\item[(iii)]	[\ref{problema5_3:inciso3}] 
+			Pruebe que casi seguramente las trayectorias de $N$ son no-decrecientes.
+		\item[(iv)]		[\ref{problema5_3:inciso4}] 
+			Sea $\Xi$ la \'unica medida en $\mc{B}_{\re_+}$ tal que $\imf{\Xi}{[0,t]}=N_t$. Pruebe que 
+			$\Xi$ es una medida de Poisson aleatoria de intensidad $\lambda \cdot\leb$.
+		\item[(v)]		[\ref{problema5_3:inciso5}]
+			Concluya que $N$ es un proceso de Poisson de intensidad $\lambda$. 
+	\end{enumerate}
+\end{problema}
+
+\begin{proof}
+    \subsection{Inciso (i)}	    \label{problema5_3:inciso1}
+	\input{tarea5/problema5_3/inciso5_3_1.tex}
+	\newpage
+	
+	\subsection{Inciso (ii)}	\label{problema5_3:inciso2}
+	\input{tarea5/problema5_3/inciso5_3_2.tex}
+	\newpage
+	
+	\subsection{Inciso (iii)}	\label{problema5_3:inciso3}
+	\input{tarea5/problema5_3/inciso5_3_3.tex}
+	\newpage
+	
+	\subsection{Inciso (iv)}	\label{problema5_3:inciso4}
+	\input{tarea5/problema5_3/inciso5_3_4.tex}
+    \newpage
+	
+	\subsection{Inciso (v)}	    \label{problema5_3:inciso5}
+	\input{tarea5/problema5_3/inciso5_3_5.tex}
+\end{proof}
