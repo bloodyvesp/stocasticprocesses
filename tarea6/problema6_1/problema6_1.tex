@@ -2,3 +2,76 @@
 	Un proceso estoc\'astico $B=\paren{B_t,t\geq 0}$ es un movimiento 
 	browniano en ley si y s\'olo si es un proceso gaussiano centrado y $\esp{B_sB_t}=s\wedge t$. 
 \end{problema}
+
+\afterstatement\pn
+
+Necesidad. Sea $B = (B_t, t \geq 0)$ un movimiento browniano en ley. Sabemos que los incrementos de un
+movimiento browniano conforman un vector gaussiano y que son independientes. También sabemos que $\E(B_t) = 0$ (que el proceso es centrado), 
+y que $\E(B_s B_t) = s \wedge t$.\pn
+
+Sólo falta ver que se trata de un proceso gaussiano.\pn
+
+Sean $0 \geq t_1 < t_2 < \dots < t_n$.\pn
+
+Para cualquier combinación lineal 
+\begin{align}
+        \sum_{1 \leq i \leq n}  \alpha_i B_{t_i}
+\end{align}\pn
+
+Podemos encontrar $\beta_i$'s ($1 \leq i \leq n$) tales que:
+\begin{align}
+        \sum_{1 \leq i \leq n}  \alpha_i B_{t_i} = \sum_{1 \leq i \leq n}  \beta_i (B_{t_i} - B_{t_{i-1}}) 
+\end{align}\pn
+
+(Donde por comodidad de notación $B_{t_0} = 0$). Para el argumento de que podemos encontrar a las $\beta_i$'s, considérese el sistema
+de ecuaciones lineales $\alpha_i = \beta_i - \beta_{i+1}$, donde $\beta_{n+1} = 0$ y entonces tenemos un sistema lineal de $n$ 
+ecuaciones y $n$ variables.\pn
+
+Entonces, cualquier combinación lineal del estilo $\sum_{1 \leq i \leq n}  \alpha_i B_{t_i}$ es una combinación linea de
+variables aleatorias normales y por lo tanto normal. Es decir que $(B_{t_1}, B_{t_2},\dots ,B_{t_n})$, es un vector gaussiano. Que es lo único
+que hacía falta.\pn
+
+Suficiencia. Sea $B =   \paren{B_t,t\geq 0}$ un proceso gaussiano centrado tal que $\E(B_s B_t) = s \wedge t$.\pn
+
+Veamos que el proceso comienza en $0$. Que el proceso sea centrado nos dice que $\E(B_0) = 0$. Como la esperanza es $0$, entonces
+la varianza es $Var(B_0) = \E(B_0^2) = \E(B_0 B_0) = 0 \wedge 0 = 0$. Entonces $B_0 = 0$ c.s.\pn
+
+
+De manera similar, como $\E(B_t) = 0$, tenemos que $Var(B_t) = \E(B_t B_t) = t$. Como $B_t$ es una combinación linea de un proceso gaussiano,
+entonces tiene distribución normal. Y como acabamos de ver, con media 0 y varianza $t$.
+
+Igual que antes, para cualquier combinación lineal
+\begin{align}
+    \sum_{1 \leq i \leq n}  \beta_i (B_{t_i} - B_{t_{i-1}})    
+\end{align}
+(Donde por comodiad de notación $B_{t_0} = 0$). Podemos encontrar $\alpha_i$'s ($1 \leq i \leq n$) tales que
+
+\begin{align}
+    \sum_{1 \leq i \leq n}  \beta_i (B_{t_i} - B_{t_{i-1}}) = \sum_{1 \leq i \leq n}  \alpha_i B_{t_i}.
+\end{align}\pn
+
+(El argumento es el mismo que arriba). Y entonces tenemos que los incrementos siempre forman un vector gaussiano. 
+Para ver la independencia de los incrementos sean $1 \leq i < j \leq n$ y entonces
+
+\begin{align}
+        &   \;\;\;\;\;\E((B_{t_i} - B_{t_{i-1}})(B_{t_j} - B_{t_{j-1}}))                                                \\
+        &=  \E(B_{t_{i}}B_{t_{j}} - B_{t_{i}}B_{t_{j-1}} - B_{t_{i-1}}B_{t_{j}} + B_{t_{i-1}}B_{t_{j-i}})               \\
+        &=  \E(B_{t_{i}}B_{t_{j}}) - \E(B_{t_{i}}B_{t_{j-1}}) - \E(B_{t_{i-1}}B_{t_{j}}) + \E(B_{t_{i-1}}B_{t_{j-i}})   \\
+        &=  t_{i} \wedge t_{j} - t_{i} \wedge t_{j-1} - t_{i-1} \wedge t_{j} + t_{i-1} \wedge t_{j-i}                   \\
+        &=  t_{i} - t_{i} - t_{i-1} + t_{i-1}                                                                           \\
+        &=  0.
+\end{align}\pn
+
+Y por lo tanto, la correlación entre los incrementos, siempre es $0$. Por lo que son independientes.\pn
+
+Ahora sean $s,t \geq 0$. Sabemos que $\E(B_{t+s} - B_t) =\E(B_{t+s}) - \E(B_t) = 0 - 0 = 0$. Así que $Var(B_{t+s} - B_t) = \E((B_{t+s} - B_t)^2)$. 
+Desarrollando de manera similar a hace un momento
+\begin{align}
+    E((B_{t+s} - B_t)^2)    &=  \E(B_{t+s}B_{t+s}) - 2\E(B_{t+s}B_{t}) + \E(B_{t}B_{t})     \\
+                            &=  t+s -2t + t                                                 \\
+                            &=  s.
+\end{align}
+
+Además $B_{t+s} - B_{t}$ es una combinación lineal de variables de un proceso gaussiano, y por lo tanto tiene distribución gaussiana con media $0$ 
+y varianza $s$ (por lo que acabamos de demostrar). Por lo tanto $(B_{t+s} - B_t) \sim B_s$. Entonces tenemos $B$ cumple con todas las hipótesis para ser
+movimiento browniano en ley.
