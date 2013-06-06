@@ -33,9 +33,6 @@ Lista de pendientes.
 5.6
     5.6.1 
         -Detalles de cómo construir cadenas de Markov. Copiar explicación de sección 3, capítulo 5 de las notas.
-
-    5.6.8
-        -A
         
 6.1 -A
 
