@@ -13,10 +13,10 @@ $A_n^c = \left\{  \sup_{t\in [0,1]} \abs{B_{n+t}-B_n} > nC \right\}$ y por desig
 \begin{align}
         \P(A_n^c)   &=  \P(\sup_{t\in [0,1]}\abs{B_{n+t}-B_n} > nC)         \\
                     &=  \frac{\E(\sup_{t\in [0,1]}\abs{B_{n+t}-B_n})}{nC}
-\end{align}
+\end{align}\pn
 
 De [\ref{problema6_5:inciso2}] tenemos que para todo $n\in \N$, 
-$\E(\sup_{t\in [0,1]}\abs{B_{n+t}-B_n} = r < \infty$ y por lo tanto
+$\E(\sup_{t\in [0,1]}\abs{B_{n+t}-B_n}) = r < \infty$ y por lo tanto
 $\lim_{n \rightarrow \infty} \P(A_n^c) = 0$. Es decir que $\lim_{n \rightarrow \infty} \P(A_n) = 1$.\pn
 
 Una condición necesaria para la convergencia de una serie es que el límite de la sucesión
@@ -26,10 +26,14 @@ De  [\ref{problema6_5:inciso2}] tenemos que los $A_n$ son independientes. Y por 
 nos asegura que
 \begin{align}
     \P(\limsup A_n) = 1.
-\end{align}
+\end{align}\pn
 
 Con lo que queda demostrado que
 \begin{esn}
     \limsup_{n\to\infty}\sup_{t\in [0,1]}\abs{B_{n+t}-B_n}/n\leq C
+\end{esn}\pn
+ 
+casi seguramente. Es decir
+\begin{esn}
+    \limsup_{n\to\infty}\sup_{t\in [0,1]}\abs{B_{n+t}-B_n}/n = 0.
 \end{esn} 
-casi seguramente.
