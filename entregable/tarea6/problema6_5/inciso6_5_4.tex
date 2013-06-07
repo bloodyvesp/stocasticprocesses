@@ -1,0 +1,35 @@
+\emph{
+    Pruebe que $\paren{B_n/n,n\geq 1}$ converge casi seguramente a $0$ y deduzca que
+    \begin{esn}
+        \lim_{t\to\infty }B_t/t=0.
+    \end{esn}\pn
+}
+
+\afterstatement\pn
+
+Escribimos
+\begin{align}
+        B_n = \sum_{i \leq n} (B_i - B_{i-1})
+\end{align}
+
+Recordemos que gracias a [\ref{problema6_5:inciso2}] tenemos que los sumandos de la derecha son variables aleatorias idénticamente
+distribuidas y que además, su distribución es normal de media $0$ y varianza $1$.\pn
+
+De aquí, aplicando ley fuerte de los grandes números, tenemos que
+\begin{align}
+        \lim_{n \rightarrow \infty} \frac{B_n}{n}   &= \lim_{n \rightarrow \infty} \frac{\sum_{i \leq n} (B_i - B_{i-1})}{n}    \\
+                                                    &= \E(B_1)                                                                  \\
+                                                    &=  0.
+\end{align}\pn
+
+Sean ahora $t \geq 0$, $n = \lfloor t \rfloor$ y $s = t - n$ y entonces acotamos a $B_t/t$ por algo que ya conozcamos.
+\begin{align}
+    \frac{\abs{B_t}}{t} &=      \frac{\abs{B_{n+s}}}{n+s}                                                   \\
+                        &\leq   \frac{\abs{B_{n+s}}}{n}                                                     \\
+                        &=      \frac{\abs{B_{n+s} - B_n + B_n}}{n}                                         \\
+                        &=      \frac{\abs{B_{n+s} - B_n}}{n} + \frac{\abs{B_n}}{n}                         \\
+                        &=      \frac{\sup_{s \leq 1}\abs{B_{n+s} - B_n}}{n} + \frac{\abs{B_n}}{n}          \\
+\end{align}\pn 
+
+Ahora tomaremos límite superior, el primer sumando se hace $0$ por la conclusión de [\ref{problema6_5:inciso3}], y el sumando de la
+derecha tiene límite y es 0, por lo tanto tiene límite superior y  también es 0.

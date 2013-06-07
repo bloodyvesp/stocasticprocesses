@@ -2,25 +2,44 @@
 	\mbox{}
 	\begin{enumerate}
 	\item 
-		Al aplicar la desigualdad maximal de Doob sobre los racionales de orden $n$ y pasar al l\'imite conforme $n\to\infty$, pruebe que $\sup_{t\leq }\abs{B_t-B_1}$ es cuadrado integrable.
+		Al aplicar la desigualdad maximal de Doob sobre los racionales de orden $n$ y pasar al l\'imite 
+        conforme $n\to\infty$, pruebe que $\sup_{t\leq }\abs{B_t-B_1}$ es cuadrado integrable.\pn
 	
 	\item 
 		Pruebe que la sucesi\'on de variables aleatorias
 		\begin{esn}
 			\paren{\sup_{t\in [0,1]}\abs{B_{n+t}-B_n},n\in\na}
 		\end{esn}
-		son independientes, id\'enticamente distribuidas y de media finita. (Utilice la propiedad de Markov.)
+		son independientes, id\'enticamente distribuidas y de media finita. (Utilice la propiedad de Markov.)\pn
 	
 	\item 
 		Al utilizar Borel-Cantelli, pruebe que, para cualquier $C>0$ fija
 		\begin{esn}
 			\limsup_{n\to\infty}\sup_{t\in [0,1]}\abs{B_{n+t}-B_n}/n\leq C
-		\end{esn} casi seguramente.
+		\end{esn} 
+        casi seguramente.\pn
 	
 	\item 
 		Pruebe que $\paren{B_n/n,n\geq 1}$ converge casi seguramente a $0$ y deduzca que
 		\begin{esn}
 			\lim_{t\to\infty }B_t/t=0.
-		\end{esn}
+		\end{esn}\pn
 	\end{enumerate}
 \end{problema}
+
+\begin{proof}
+    \subsection{Inciso (i)} \label{problema6_5:inciso1}
+    \input{tarea6/problema6_5/inciso6_5_1.tex}
+    \newpage
+
+    \subsection{Inciso (ii)} \label{problema6_5:inciso2}
+    \input{tarea6/problema6_5/inciso6_5_2.tex} 
+    \newpage
+
+    \subsection{Inciso (iii} \label{problema6_5:inciso3}
+    \input{tarea6/problema6_5/inciso6_5_3.tex} 
+    \newpage
+
+    \subsection{Inciso (iv)} \label{problema6_5:inciso4}
+    \input{tarea6/problema6_5/inciso6_5_4.tex} 
+\end{proof}

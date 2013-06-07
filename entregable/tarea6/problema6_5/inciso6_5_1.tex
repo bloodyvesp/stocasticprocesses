@@ -1,0 +1,41 @@
+\emph{
+    Al aplicar la desigualdad maximal de Doob sobre los racionales de orden $n$ y pasar al l\'imite 
+    conforme $n\to\infty$, pruebe que $\sup_{t\leq 1}\abs{B_t-B_1}$ es cuadrado integrable.\pn
+}
+
+\afterstatement\pn
+
+La idea es partir el proceso en martingalas finitas que al irse refinando nos den un conjunto denso en $[0, 1]$ y
+luego utilizar el argumento de continuidad para llenar los huecos.\pn
+
+Llamemos 
+\begin{align}
+ D_n = \bigg\{ \frac{i}{2_n} : i = 0, 1, \dots, 2^n \bigg \}   
+\end{align}
+
+Con estos conjuntos, discretizamos a $B$ haciendo las martingalas finitas
+$(B_j^n : j \in D_n)$ [donde $B_j^n = B_j$]. Por propiedades de la esperanza condicional y el hecho de que
+$(B_j^n : j \in D_n)$ son martingalas. Tenemos que $(\abs{B_j^n} : j \in D_n)$ son sub-marginalas.\pn
+
+La desigualdad maximal de Doob para el caso $L_2$ nos dice que
+\begin{align}
+        \| \max_{j \in D_n} \abs{B_j^n} \|_2 \leq 2 \| B_1^n\|_2
+\end{align}
+
+De donde, elevando al cuadrado y usando que $\E(B_1^n) = 0$.
+\begin{align}
+        \E\left( \left( \max_{j \in D_n} \abs{B_j^n} \right)^2 \right)  &=  4 \E( (B_1^n)^2 )   \\
+                                                                        &=  4 Var(B_1^n)        \\
+                                                                        &=  4 Var(B_1)          \\
+                                                                        &=  4.
+\end{align}\pn
+
+Ahora tenemos que conforme $n \rightarrow \infty$, $\max_{j \in D_n} \abs{B_j^n}$ converge a $\sup \abs{B_t}$ c.s.
+El teorema de convergencia monótona nos asegura que
+\begin{align}
+        E\left( \left( \sup \abs{B_t} \right)^2 \right) &= \lim_{n \rightarrow \infty}   \E\left( \left( max_{j \in D_n} \abs{B_j^n} \right)^2 \right)
+\end{align}\pn
+
+Como cada término del límite de la derecha está acotado por $4$ por la demostración de arriba.\pn
+
+Entonces  $\sup_{t\leq 1}\abs{B_t-B_1}$ es cuadrado integrable.
