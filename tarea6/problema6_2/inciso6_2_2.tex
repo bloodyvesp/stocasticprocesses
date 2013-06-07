@@ -2,4 +2,71 @@
     Defina a $B_t=B^1_1+\cdots+B^{\floor{t}}_1+B^{\ceil{t}}_{t-\floor{t}}$ 
     para $t\geq 0$. Pruebe que $B$ es un movimiento browniano. 
 }
+
 \afterstatement\pn
+
+$B_0 = B_0^1 = 0$. 
+
+Veamos que $B_t$ es un proceso gaussiano. Sean $0 \leq t_1 < t_2 < \dots < t_n$ y sea 
+\begin{align}
+       \sum_{i \leq n}  \lambda_i B_{t_i}
+\end{align}
+una combinación lineal. Por ser los $B^m$'s movimientos brownianos independientes, entonces cada $B_{t_i}$
+es una combinación lineal de normales independientes, por lo tanto cada $B_{t_i}$ es normal y por construcción, independientes.
+Si sucediera que más de un $B_{t_i}$ pertenecieran al mismo $B^m$, basta argumentar que cada $B^m$ es por sí mismo un
+proceso gaussiano. Entonces nuestra combinación lineal también es normal y con esto hemos dicho que $B_t$ es un proceso gaussiano.\pn
+
+$B_{t}$ es suma de movimientos brownianos, los cuales son centrados. Por linealidad de la esperanza tenemos que
+$\E(B_t) = 0$.\pn
+
+Ahora, 
+\begin{align}
+        Var(B_t)    &=  Var\left( B^1_1+\cdots+B^{\floor{t}}_1+B^{\ceil{t}}_{t-\floor{t}} \right)                           \\
+                    &=  \sum_{i \leq \lfloor t \rfloor} Var(B_1^i) + Var(B^{\ceil{t}}_{t-\floor{t}})                        \\
+                    &\comment{por independencia de los movimientos}                                                         \\
+                    &=  \lfloor t \rfloor + Var(B^{\ceil{t}}_{t-\floor{t}})                                                 \\
+                    &\comment{porque las $B_1^i$ tienen distribución normal(0,1)}                                           \\
+                    &=  \lfloor t \rfloor + t - \lfloor t \rfloor                                                           \\                    
+                    &\comment{por que la distribución de $B^{\ceil{t}}_{t-\floor{t}}$ es normal(0, $t - \lfloor t \rfloor$)}\\
+                    &= t.
+\end{align}\pn
+
+Entonces, $B_t$ tiene distribución normal(0,t).\pn
+
+Veamos que $\E(B_t B_s) = t \wedge s$. Si $t = s$, aprovechamos que $B_t$ tiene distribución normal de media 0 y varianza 1 y entonces
+$\E(B_t B_t) = Var(B_t) = t$. Si $t < s$, partiremos en dos casos, uno cuando $s \leq \lceil t \rceil$ y otro para $\leq \lceil t \rceil < s$.\pn
+
+Para el primer caso
+\begin{align}
+        B_t =   B^1_1+\cdots+B^{\floor{t}}_1+B^{\ceil{t}}_{t-\floor{t}}   \\
+        B_s =   B^1_1+\cdots+B^{\floor{t}}_1+B^{\ceil{t}}_{s-\floor{t}}
+\end{align}\pn
+
+Entonces
+\begin{align}
+        \E(B_t B_s) &=  \E\left(\left(B^1_1+\cdots+B^{\floor{t}}_1+B^{\ceil{t}}_{t-\floor{t}}\right) \cdot \left(B^1_1+\cdots+B^{\floor{t}}_1+B^{\ceil{t}}_{s-\floor{t}}\right)\right)  \\
+                    &=  \sum_{i \leq \floor{t}} \E\left( (B_1^i)^2 \right) + \E\left( B^{\ceil{t}}_{t-\floor{t}} B^{\ceil{t}}_{s-\floor{t}}\right)                                      \\
+                    &\comment{por independencia de los movimientos $B^m$}                                                                                                               \\
+                    &=  \floor{t} + \E\left( B^{\ceil{t}}_{t-\floor{t}} B^{\ceil{t}}_{s-\floor{t}}\right)                                                                               \\
+                    &=  \floor{t} + (t-\floor{t}) \wedge (s-\floor{t})                                                                                                                  \\
+                    &=  \floor{t} + (t-\floor{t})                                                                                                                                       \\
+                    &=  t.                                                                                                                                                          
+\end{align}\pn
+
+Para el segundo caso
+\begin{align}
+        B_t =   B^1_1+\cdots+B^{\floor{t}}_1+B^{\ceil{t}}_{t-\floor{t}}   \\
+        B_s =   B^1_1+\cdots+B^{\floor{s}}_1+B^{\ceil{s}}_{s-\floor{s}}
+\end{align}
+
+Entonces
+\begin{align}
+    \E(B_t B_s) &=  \sum_{i \leq \floor{t}} \E\left( (B_1^i)^2 \right) + \E\left( B^{\ceil{t}}_{t-\floor{t}} B^{\ceil{t}}_1\right)                                      \\
+                &\comment{por independencia de los movimientos $B^m$}                                                                                                               \\
+                &=  \floor{t} + \E\left( B^{\ceil{t}}_{t-\floor{t}} B^{\ceil{t}}_1\right)                                                                             \\
+                &=  \floor{t} + (t  - \floor{t})                                                                                                                                       \\
+                &=  t.                                                                                                                                                          
+\end{align}
+
+Con todo esto dicho, basta utilizar [\ref{problema6_1}] para conculir que $B_t$ es un movimiento browniano en ley. Y la continuidad de las
+trayectorias se dá por la construcción de $B_t$ puesto que los $B^m$ que lo componen son continuos.
