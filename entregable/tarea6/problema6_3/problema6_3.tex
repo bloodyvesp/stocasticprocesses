@@ -4,3 +4,38 @@
 	un movimiento browniano en ley y $\tilde B$ es una modificaci\'on de $B$ con 
 	trayectorias continuas entonces $\tilde B$ es un movimiento browniano. 
 \end{problema}
+
+\afterstatement\pn
+
+Que $\tilde X$ sea una modificaci\'on de $X$ significa que para todo $t\geq 0$
+se tiene que $\P(\tilde X_t = X_t) = 1$.\pn
+
+Sean $0 \leq t_1 < t_2 < \dots < t_n$ y sea $A = \bigcap_{i \leq n} \{ \tilde X_{t_i} = X_{t_i} \}$,
+como $A$ es intersección de sucesos con probabilidad 1, se tiene que $\P(A) = 1$. Y por lo tanto $\P(A^c) = 0$.\pn
+
+Sean ahora $x_1, x_2, \dots, x_n \in \R$, $B = \bigcap_{i \leq n} \{ X_{t_i} \leq x_i \}$ y $C = \bigcap_{i \leq n} \{\tilde X_{t_i} \leq x_i \}$ . Notemos
+que
+\begin{align}
+        A \cap B    &=  \left( \bigcap_{i \leq n} \{ \tilde X_{t_i} = X_{t_i} \} \right) \cap \left( \bigcap_{i \leq n} \{ X_{t_i} \leq x_i \} \right)          \\
+                    &=  \bigcap_{i \leq n} \left( \{ \tilde X_{t_i} = X_{t_i} \} \cap \{ X_{t_i} \leq x_i \} \right)                                            \\
+                    &=  \bigcap_{i \leq n} \left( \{ \tilde X_{t_i} = X_{t_i} \} \cap \{ \tilde X_{t_i} \leq x_i \} \right)                                     \\
+                    &=  \left( \bigcap_{i \leq n} \{ \tilde X_{t_i} = X_{t_i} \} \right) \cap \left( \bigcap_{i \leq n} \{ \tilde X_{t_i} \leq x_i \} \right)   \\
+                    &=  A \cap C
+\end{align} 
+
+y por lo tanto
+\begin{align}
+    \P(B)   &=  \P\left( (B \cap A) \cup (B \cap A^c) \right)            \\
+            &=  \P\left( B \cap A \right) + \P\left(B \cap A^c \right)   \\
+            &=  \P\left( B \cap A \right) + 0                            \\
+            &=  \P\left( C \right)                                       \\
+\end{align}
+
+y por lo tanto $\P(X_{t_1} \leq x_1, \dots, X_{t_n} \leq x_n) = \P( \tilde X_{t_1} \leq x_1, \dots, \tilde X_{t_n} \leq x_n)$, lo 
+cual significa que $\tilde X$ y $X$ tienen las mismas distribuciones finito dimensionales.\pn
+
+Si $B$ es un movimiento browniano, y $\tilde B$ es una modificación de $B$, por lo que se acaba de demostrar, cualquier vector de
+la forma $(B_{t_1}, \dots, B_{t_n})$ (el cual es gaussiano centrado en 0), tiene la misma distribución que $(\tilde B_{t_1}, \dots, \tilde B_{t_n})$ y
+por lo tanto, este segundo también es un vector gaussiano centrado en 0. Además $\E(\tilde B_t \tilde B_s) = \E(B_t B_s) = t \wedge s$ así
+que, por [$\ref{problema6_1}$], tenemos que se trata de un movimiento browniano en ley. Además, por hipótesis, $\tilde B$ tiene trayectorias
+continuas, y por lo tanto es un movimiento browniano.
