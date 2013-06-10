@@ -4,3 +4,48 @@
 }
 
 \afterstatement\pn
+
+Analicemos las primeras derivadas.
+
+\begin{align}
+    \frac{d}{d\lambda}  M_t^\lambda &=  \frac{d}{d\lambda} \left( e^{\lambda B_t - \lambda^2 t/2} \right)                       \\
+                                    &=  \frac{d}{d\lambda} \left( e^{\lambda B_t} e^{- \lambda^2 t/2} \right)                   \\
+                                    &=  B_t e^{\lambda B_t} e^{- \lambda^2/2}  - \lambda t e^{\lambda B_t} e^{- \lambda^2 t/2}  \\
+                                    &=  B_t M_t^\lambda - \lambda t M_t^\lambda                                                 \\
+                                    &=  M_t^\lambda (B_t - \lambda t).                                                          \\
+\end{align}
+
+La de segundo orden
+\begin{align}
+    \frac{d^2}{d\lambda^2}  M_t^\lambda     &=  \frac{d}{d\lambda} \left( M_t^\lambda (B_t - \lambda t) \right)                     \\
+                                            &=  M_t^\lambda (B_t - \lambda t) (B_t - \lambda t) -  t M_t^\lambda                    \\ 
+                                            &=  \left( \frac{d}{d\lambda} M_t^\lambda \right) (B_t - \lambda t) -  t M_t^\lambda         
+\end{align}\pn
+
+Como hipótesis de inducción digamos que
+\begin{align}
+    \frac{d^n}{d\lambda^n}  M_t^\lambda     &=  \left( \frac{d^{n-1}}{d\lambda^{n-1}} M_t^\lambda \right) (B_t - \lambda t) - 
+                                            (n-1)t \left( \frac{d^{n-2}}{d\lambda^{n-2}} M_t^\lambda \right)
+\end{align}
+(donde $n \geq 1$, derivada de orden $0$ significa no derivar, y derivada de orden $-1$ significa $0$).\pn
+
+Verifiquemos el paso inductivo.
+
+\begin{align}
+    &   \;\;\;\;\;\frac{d^{n+1}}{d\lambda^{n+1}}  M_t^\lambda                                                           \\
+    &=  \frac{d}{d \lambda}\left(\left( \frac{d^{n-1}}{d\lambda^{n-1}} M_t^\lambda \right) (B_t - \lambda t)\right) - 
+        \frac{d}{d \lambda}\left((n-1)t \left( \frac{d^{n-2}}{d\lambda^{n-2}} M_t^\lambda \right)\right)                \\
+    &=  \left( \frac{d^{n}}{d\lambda^{n}} M_t^\lambda \right) (B_t - \lambda t) + 
+        \left( \frac{d^{n-1}}{d\lambda^{n-1}} M_t^\lambda \right) \left(\frac{d}{d \lambda}(B_t - \lambda t)\right)     \\
+    &   \;\;\;\;\;-(n-1)t \left( \frac{d^{n-1}}{d\lambda^{n-1}} M_t^\lambda \right)                                     \\
+    &=  \left( \frac{d^{n}}{d\lambda^{n}} M_t^\lambda \right) (B_t - \lambda t) + 
+        \left( \frac{d^{n-1}}{d\lambda^{n-1}} M_t^\lambda \right) (-t)                                                  \\
+    &   \;\;\;\;\;-(n-1)t \left( \frac{d^{n-1}}{d\lambda^{n-1}} M_t^\lambda \right)                                     \\
+    &=  \left( \frac{d^{n}}{d\lambda^{n}} M_t^\lambda \right) (B_t - \lambda t) - (n)t \left( \frac{d^{n-1}}{d\lambda^{n-1}} M_t^\lambda \right)                                     \\
+\end{align}\pn
+
+Una variable aleatoria con distribución normal es acotada casi seguramente y 
+por lo tanto tiene momentos de todos los órdenes. Por el mismo argumento, el valor 
+absoluto de una variable aleatoria con distribución normal tiene momentos de todos los
+órdenes.
+
