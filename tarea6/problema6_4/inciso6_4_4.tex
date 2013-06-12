@@ -7,3 +7,65 @@
 }
 
 \afterstatement\pn
+
+Primero, trabajemos con $n=1$. Como de costumbre, trabajaremos con los tiempos acotados $T_{a,b} \wedge s$, donde podemos aplicar
+el teorema del muestreo opcional de Doob y obtener que $\E(B_{T_{a,b} \wedge s}) = \E(B_0) = 0$.\pn
+
+Ahora, $B_{T_{a,b} \wedge s}$ está acotado por $\max\{ a, b\}$ y además $B_{T_{a,b} \wedge s} \longrightarrow B_{T_{a,b}}$
+conforme $s$ crece. Así que podemos utilizar el teorema de convergencia acotada para obtener que 
+$\E(B_{T_{a,b}})  = \lim_{s \rightarrow \infty} \E(B_{T_{a,b} \wedge s}) = 0$.\pn
+
+Al igual que en el problema de la ruina, como $B_{T_{a,b}} \in \{-a, b\}$ casi seguramente (porque la martingala $B$ oscila), 
+tenemos que 
+\begin{align}
+    0   &=  \E(B_{T_{a,b}})                                     \\
+        &= -a \P(B_{T_{a,b}} = -a) + b \P(B_{T_{a,b}} = b)      \\
+        &= -a \P(B_{T_{a,b}} = -a) + b (1-\P(B_{T_{a,b}} = -a)) \\   
+        &= -a \P(B_{T_{a,b}} = -a) + b - b\P(B_{T_{a,b}} = -a)) \\   
+        &= b - (a+b)\P(B_{T_{a,b}} = -a)) \\   
+\end{align}
+
+De donde $\P(B_{T_{a,b}} = -a) = \frac{b}{a+b}$ y análogamente $\P(B_{T_{a,b}} = b) = \frac{a}{a+b}$.\pn
+
+De manera complétamente análoga, tomando $n=2$, la martingala $(B_t)^2 -t$, tenemos que
+\begin{align}
+    0   &=  \E((B_{T_{a,b}})^2 -{T_{a,b}}).
+\end{align}
+
+Descomponiendo la esperanza tenemos
+\begin{align}
+    0   &=  \E((B_{T_{a,b}})^2 -{T_{a,b}})                                      \\
+        &=  a^2 \P(B_{T_{a,b}} = -a) + b^2 \P(B_{T_{a,b}} = b) - \E(T_{a,b})    \\
+        &=  a^2 \frac{b}{a+b} + b^2 \frac{a}{a+b} - \E(T_{a,b})
+\end{align}
+
+De donde concluimos que 
+\begin{align}
+    \E(T_{a,b}) &=  \frac{a^2b +b^2a}{a+b}  \\
+                &=  \frac{ab (a+b)}{a+b}    \\
+                &=  ab.
+\end{align}
+es finito.
+
+Para $n=3$, con los mismos argumentos tenemos que
+\begin{align}
+    0   &=  \E((B_{T_{a,b}})^3 - 3 B_{T_{a,b}}T_{a,b})              \\
+        &=  \frac{b^3 a - a^3 b}{a + b} - 3\E(B_{T_{a,b}}T_{a,b})   \\
+\end{align}\pn
+
+De donde $\E(B_{T_{a,b}}T_{a,b})$ es finito.
+
+Para $n=4$, con los mismos argumentos de nuevo, tenemos que
+\begin{align}
+    0   &=  \E((B_{T_{a,b}})^4 - 6(B_{T_{a,b}})^2T_{a,b} + 3 (T_{a,b})^2)                   \\
+        &=  \E((B_{T_{a,b}})^4) - 6\E((B_{T_{a,b}})^2T_{a,b}) + 3 \E((T_{a,b})^2))          \\
+        &=  \frac{a^4 b + b^4 a}{a+b} - 6\E((B_{T_{a,b}})^2T_{a,b}) + 3 \E((T_{a,b})^2))
+\end{align}\pn
+
+Luego, argumentando que de nuevo que $B_{T_{a,b}} \in \{-a, b\}$ casi seguramente, podemos partir la esperanza $\E((B_{T_{a,b}})^2T_{a,b})$
+en los casos $B_{T_{a,b}} = -a$ y $B_{T_{a,b}} = b$ y luego aplicar el resultado del caso $n=3$ para concluir que $\E((T_{a,b})^2))$ es finito.\pn
+
+De \eqref{problema6_4:equivalencia_recursiva} podemos ver que para cada $n$ par, en $H_n(x)$ queda un término constante que en $t^{n/2}H_n(B_t t^{-1/2})$
+se convierte en un término de $t^{n/2}$ por una constante. Para el resto de los términos, recursivamente se conoce el momento que resulta ser siempre finito 
+(para los términos del tipo $(B_{T_{a,b}})^j (T_{a,b})^k$ basta con descomponer en los casos $B_{T_{a,b}} = -a$ y $B_{T_{a,b}} = b$ e iterar el procedimiento
+sobre lo que queda). Despejando, obtendremos que $\E((T_{a,b})^{n/2})$ resulta ser finito y por lo tanto, tenemos momentos de todos los ordenes para $T_{a,b}$. 
