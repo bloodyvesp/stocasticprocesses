@@ -6,3 +6,44 @@
 }
 
 \afterstatement\pn
+
+\begin{align}
+        H_1(x)  &=  x                       \\
+        H_2(x)  &=  x^2 - 1                 \\
+        H_3(x)  &=  x^3 - 3x                \\
+        H_4(x)  &=  x^4 - 6x^2 + 3          \\
+        H_5(x)  &=  x^5 - 10x^3 + 15x       \\
+\end{align}
+
+Supongamos que para cierto $n \in \N$ tenemos que $H_n$ es un polinomio
+de orden $n$. Es decir, exísten $r_0, r_1, r_2, \dots, r_n \in \R$ tales que
+\begin{align}
+        H_n &=  r_n x^n + \dots + r_1 x + r_0. 
+\end{align}
+
+Entonces
+\scriptsize
+\begin{align}
+    H_{n+1} &=  (-1)^{n+1}  e^{x^2/2}   \frac{d^n}{dx^{n+1}}e^{-x^2/2}                                                                              \\
+            &=  (-1)^{n+1}  e^{x^2/2}   \frac{d}{dx}\left(\frac{d^n}{dx^{n}}e^{-x^2/2}\right)                                                       \\
+            &=  (-1)^{n+1}  e^{x^2/2}   \frac{d}{dx}\left((-1)^n e^{-x^2/2}(r_n x^n + \dots + r_1 x + r_0)\right)                                   \\
+            &\comment{hemos despejado la derivada de orden $n$ en terminos del supuesto polinomio $H_n$}                                            \\
+            &=  (-1)^{n+1}  e^{x^2/2} (-1)^n \frac{d}{dx}\left(e^{-x^2/2}(r_n x^n + \dots + r_1 x + r_0)\right)                                     \\
+            &=  (-1)^{n+1}  e^{x^2/2} (-1)^n \left(-x e^{-x^2/2}(r_n x^n + \dots + r_1 x + r_0) + e^{-x^2/2}(r_n n x^{n-1} + \dots + r_1)\right)    \\
+            &=  (-1)^{n+1}  e^{x^2/2} e^{-x^2/2} (-1)^n \left(-x (r_n x^n + \dots + r_1 x + r_0) + (r_n n x^{n-1} + \dots + r_1)\right)             \\
+            &=  (-1)^{n+1} (-1)^n \left(-x (r_n x^n + \dots + r_1 x + r_0) + (r_n n x^{n-1} + \dots + r_1)\right)                                   \\
+            &=  (-1) \left(-x (r_n x^n + \dots + r_1 x + r_0) + (r_n n x^{n-1} + \dots + r_1)\right)                                                \\
+            &=  (-1) \left(-(r_n x^{n+1} + \dots + r_1 x^2 + r_0 x) + (r_n n x^{n-1} + \dots + r_1)\right)                                          \\
+            &=  (r_n x^{n+1} + \dots + r_1 x^2 + r_0 x) - (r_n n x^{n-1} + \dots + r_1)                                                             \\
+            &=  r_n x^{n+1} + \dots + (r_{m-2} - m r_m) x^{m-1} + \dots - r_1                                                                       \\
+\end{align}
+\normalsize
+
+Hemos demostrado que si $H_n$ es un polinomio de grado $n$, entonces $H_{n+1}$ es 
+uno de grado $n+1$. Lo que demostramos al inicio de este inciso no es otra 
+cosa sino la base de inducción. Por lo tanto tenemos que para todo $n \in \N$, 
+$H_n$ es un polinomio de grado $n$.\pn
+
+Para verificar la equivalencia $d^n M^\lambda_t/d \lambda^n=t^{n/2}\imf{H_n}{(B_t - \lambda t)/\sqrt{t}}M^\lambda_t$, basta sustituir en la ecuación anterior
+$B_t^\lambda$ (definido en el inciso anterior) en vez de $x$, y comparar con $\eqref{problema6_4:equivalencia_recursiva}$. (Nótese que está mal escrito
+el enunciado del problema, en vez de escribir $B_t - \lambda t$ se escribe únicamente $B_t$).
