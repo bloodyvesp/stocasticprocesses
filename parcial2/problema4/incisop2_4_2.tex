@@ -9,17 +9,17 @@
 
 Por ser cadena de Markov con distribución inicial $\pi$, tenemos que
 \begin{align}
-        \P(X_0 = x_0, \dots, X_n = x_n) &=  \pi_{x_0} P_{x_0, x_1} P_{x_1, x_2} \dots P_{x_{n-1}, x_{n}}.
+        \P(X_0 = x_0, \dots, X_n = x_n) &=  \pi_{x_0} P_{x_0, x_1} P_{x_1, x_2} \cdots P_{x_{n-1}, x_{n}}.
 \end{align}\pn
 
 Utilizando la hipótesis de que $\pi$ y $P$ están en balance detallado tenemos que
 \begin{align}
-    &   \pi_{x_0} P_{x_0, x_1} P_{x_1, x_2} \dots P_{x_{n-1}, x_{n}}    \\
-    &=  P_{x_1, x_0} \pi_{x_1} P_{x_1, x_2} \dots P_{x_{n-1}, x_{n}}    \\
-    &=  P_{x_1, x_0} P_{x_2, x_1} \pi_{x_2} \dots P_{x_{n-1}, x_{n}}    \\
+    &   \pi_{x_0} P_{x_0, x_1} P_{x_1, x_2} \cdots P_{x_{n-1}, x_{n}}   \\
+    &=  P_{x_1, x_0} \pi_{x_1} P_{x_1, x_2} \cdots P_{x_{n-1}, x_{n}}   \\
+    &=  P_{x_1, x_0} P_{x_2, x_1} \pi_{x_2} \cdots P_{x_{n-1}, x_{n}}   \\
     &\vdots                                                             \\
-    &=  P_{x_1, x_0} P_{x_2, x_1} \dots P_{x_{n}, x_{n-1}} \pi_{x_n}    \\
-    &= P(X_n = x_n, \dots, X_0 = x_0).
+    &=  P_{x_1, x_0} P_{x_2, x_1} \cdots P_{x_{n}, x_{n-1}} \pi_{x_n}   \\
+    &= P(X_n = x_n, \cdots, X_0 = x_0).
 \end{align}\pn
 
 Con lo que termina la demostración.
