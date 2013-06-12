@@ -1,0 +1,29 @@
+﻿\emph{
+    Pruebe que $T_0, T_1,\dots$ son tiempos de renovación de un proceso de renovación aritmético.
+}
+\afterstatement\pn
+
+    Pensemos en $B_1, B_2, \dots$ como volados con monedas cargadas donde $B_i = 1$ significa que ganamos el
+    $i$-ésimo volado.\pn
+    
+    Con esta interpretación, $T_n$ no es otra cosa sino el tiempo en que ganamos por $n$-ésima vez. Por lo tanto\pn
+    \begin{align}
+        \P(T_{n} = k) = \binom{k-1}{n-1} p^n (1-p)^{k-n}
+    \end{align}
+    
+    Es decir, $T_n$ tiene distribución binomial negativa de parámetros $n$ y $p$.\pn
+    
+    Definimos entonces a los tiempos de vida $S_0 = 0$ y $S_n = T_n - T_{n-1}$. Por tener $T_n$ y $T_{n-1}$ distribución
+    binomial negativa de parámetros $n$, $p$ y $n-1$, $p$ respectivamente, tenemos que $S_n$ tiene distribución
+    geométrica de parámetro $p$.\pn
+    
+    Otra manera de escribir a $S$ es
+    \begin{align}
+        S_n = \sum_{i = T_{n-1} + 1}^{T_n} i B_i
+    \end{align}
+    
+    De donde tenemos que $S_n$ es suma de variables aleatorias independientes, todas distintas de las que suman $S_{n-1}$.
+    Por lo tanto las $S_n$ son independientes y dado que $S_n$ tiene distribución geométrica de parámetro $p$ para toda
+    $n$, tenemos que son idénticamente distribuidas.\pn
+    
+    Con esto, tenemos un proceso de renovación con tiempos de vida $S_n$ y tiempos de renovación $T_n$.

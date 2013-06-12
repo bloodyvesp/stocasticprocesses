@@ -1,0 +1,29 @@
+\emph{
+    Defina al proceso de contéo asociado $N$, expréselo en términos de las variables $B_1, B_2, \dots$ y pruebe
+    diréctamente que $N_n/n$ converge casi seguramente conforme $n$ crece. Identifíque el límite.
+}
+\afterstatement\pn
+
+Sea
+\begin{align}
+        N_n = \sum^n_{i = 1} B_i.
+\end{align}
+
+Y notemos que 
+\begin{align}
+        \min \{ m : T_{m+1} > n \} 
+\end{align}
+significa, el tiempo de volado más alto antes de pasarnos de $n$.\pn
+
+Interpretado de esta forma tenemos que coinciden
+\begin{align}
+    \min \{ m : T_{m+1} > n \} = \sum^n_{i = 1} B_i = N_n.
+\end{align}\pn
+
+Por lo tanto tenemos que $N_n$ sí es un proceso de conteo para nuestro proceso de renovación.\pn
+
+Por otra parte $N_n$ es suma de $n$ variables idependientes e idénticamente distribuidas
+con esperanza $p$. $N_n / n$ es su promedio y la ley fuerte de los grandes números nos dice que
+\begin{align}
+    N_n/n \rightarrow p \;\; c.s.
+\end{align}

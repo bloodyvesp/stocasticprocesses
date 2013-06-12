@@ -1,0 +1,45 @@
+\emph{
+    Calcule la distribución del tiempo residual al tiempo $n$
+        \begin{align}
+                R_n = \min\{k > n: B_k = 1\} - n
+        \end{align}
+    Asuma que dicho proceso es una cadena de Markov e identifique las probabilidades de transición.
+    Pruebe que la distribución geométrica de parámetro $p$ es invariante para dicho proceso.
+}
+
+\afterstatement\pn
+
+$R_n = k$ significa que si han pasado $n$ volados, en $k$ volados ganaremos uno, y antes de eso ninguno.
+Dado que los $B_i$ son idénticamente distribuidos, tenemos que eso significa que
+\begin{align}
+        \P(R_n = k) = p (1-p)^r-1
+\end{align}\pn
+
+Es decir, $R_n$ tiene distribución geométrica de parámetro $p$.\pn
+
+Supongamos ahora que $R_n$ es una cadena de Markov. Y supongamos que al tiempo $n$, sabemos que
+$R_n = k \neq 0$, es decir, nos faltan $k$ volados para volver a ganar. Entonces $R_{n+1} = k-1$ forzosamente.\pn
+Entonces, en nuestra matriz de transición tendremos $P_{k, k-1} = 1$ cuando $k \neq 0$.\pn
+
+Para el caso $R_n = 0$, la probabilidad de que pasemos de $0$ a $k>0$, es equivalente a perder los siguientes $k-1$ volados y luego
+ganar el $k$-ésimo. Es decir, $P_{0, k} = p (1-p)^{k-1}$.\pn
+
+Entonces la matriz de transición está determinada por
+\begin{align}
+        P_{i,j} =
+                    \begin{cases}
+                        1               &   \text{si $i > 0$ y $j = i - 1$}     \\
+                        p (1-p)^{j-1}   &   \text{si $i = 0$ y $j>0$}           \\
+                        0               &   \text{en cualquier otro caso}
+                    \end{cases}
+\end{align}\pn
+
+Veamos que la distribución $\pi$, con $\pi_i = p (1-p)^{i-1}$ si $i>0$ y $\pi_0 = 0$ resulta invariante para este proceso.
+
+\begin{align}
+        (\pi \times P)_{j}      &=  \sum_{k \geq 0} \pi_{k} P_{k,j}     \\
+                                &=  \pi_0 P_{0, j} + \pi_{j} P_{j+1, j} \\
+                                &=  0 + \pi_{j} 1.
+\end{align}\pn
+
+Con lo que terminamos que $\pi$ es una distribución invariante para el proceso.
