@@ -1,0 +1,19 @@
+\emph{
+    Sea $G=(V,E)$ una gráfica y defina la matriz de transición $P$ sobre $V$ al estipular que
+    $P_{x,y}$ es igual a 1 sobre el grado de $x$, denotado como $\delta_x$. Muestre que la distribución $\pi$
+    Dada por $\pi_x = \frac{\delta_x}{\sum{v \in V} \delta_v}$.
+}
+
+Si $x,y$ son tales que $\{x,y\} \not\in E$, tenemos que $P_{x,y} = 0 = P_{y,x}$. Por lo tanto
+la condición de balance se da trivialmente en estos casos.\pn
+
+Para, $x,y$ tales que $\{x, y\} \in E$, sencillamente verifiquemos la igualdad pertinente
+\begin{align}
+        \pi_x P_{x,y}   &=  \frac{\delta_x}{\sum{v \in V} \delta_v} \frac{1}{\delta_x}          \\
+                        &=  \frac{1}{\sum{v \in V} \delta_v}                                    \\
+                        &=  \frac{\delta_y}{\delta_y} \frac{1}{\sum{v \in V} \delta_v}          \\
+                        \comment{es válido porque $\delta_y \geq 1$, pues $x$ es vecino de $y$} \\
+                        &=  \frac{1}{\delta_y} \frac{\delta_y}{\sum{v \in V} \delta_v}          \\
+                        &=  P_{y,x} \pi_y.
+\end{align}
+Con lo que termina la demostración.
