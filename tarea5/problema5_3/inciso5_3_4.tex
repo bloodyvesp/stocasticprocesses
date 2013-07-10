@@ -14,7 +14,7 @@ Sean $A_1, A_2, \dots \in M$ tales que $A_i \subset A_{i+1}$ y sea $A = \bigcup 
 aleatoria, tenemos que $\Xi(A_i) \longrightarrow \Xi(A)$. Y por lo tanto \par
 $\lim\limits_{n \rightarrow \infty} \P(\Xi(A_i) = n) = \P(\Xi(A) = n)$.\pn
 
-Como $A_1, A_2, \dots in M$, podemos escribir lo siguiente
+Como $A_1, A_2, \dots \in M$, podemos escribir lo siguiente
 \begin{align}
     \lim_{n \rightarrow \infty} \P(\Xi(A_i) = n)    &=  \lim_{n \rightarrow \infty} e^{-\lambda Leb(A_i)} \frac{(\lambda Leb(A_i))^n}{n!}       \\
                                                     &=  e^{-\lambda Leb(A)} \frac{(\lambda Leb(A))^n}{n!}                                       \\
@@ -31,10 +31,13 @@ Ahroa sea
 Es fácil notar que $P$ es un álgebra y que $\sigma(P) = \B_{\R^+}$.\pn
 
 Sea $A \in P$. Es decir, $A$ tiene la forma
+
 \begin{align}
     A = \bigcup_{ i  \leq n } (a_i, b_i]
 \end{align}
+
 con $b_i < a_{i+1}$. Nombremos $A_i = (a_i, b_i]$. Entonces
+
 \begin{align}
     \Xi(A)  &=      \Xi\left(\bigcup (a_i, b_i] \right)                         \\
             &=      \sum_{i \leq n}     \Xi((a_i, b_i])                         \\

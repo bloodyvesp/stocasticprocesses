@@ -89,7 +89,6 @@
                 \E(M_{n+1} | \F_n)      &=      \E(e^{-\lambda S_{n+1}}g(\lambda)^{-(n+1)}|\F_n)                                        \\
                                         &=      g(\lambda)^{-(n+1)}\E(e^{-\lambda S_{n+1}}|\F_n)                                        \\
                                         &\comment{Esto último es gracias a que $g(\lambda)^{-(n+1)}$ es constante}               		\\
-                                        &=      g(\lambda)^{-(n+1)}\E(e^{-\lambda S_{n+1}}|\F_n)                                        \\
                                         &=      g(\lambda)^{-(n+1)}\E(e^{-\lambda S_{n} \cdot X_{n+1}}|\F_n)                            \\
                                         &=      g(\lambda)^{-(n+1)}\E(e^{-\lambda S_{n}} \cdot e^{-\lambda X_{n+1}}|\F_n)               \\
                                         &=      g(\lambda)^{-(n+1)} e^{-\lambda S_{n}} \E(e^{-\lambda X_{n+1}}|\F_n)                    \\                                       
@@ -97,8 +96,8 @@
                                         &=      g(\lambda)^{-(n+1)} e^{-\lambda S_{n}} \E(e^{-\lambda X_{n+1}})                         \\
                                         &\comment{Esto último es gracias a que $X_{n+1}$ es independiente de $F_n$}              		\\
                                         &=      g(\lambda)^{-(n+1)} e^{-\lambda S_{n}} \E(e^{-\lambda X_{1}})                           \\
-                                        &\rcomment{Esto último es gracias a que $X_{n+1}$ y $X_1$ tienen la}                       	    \\ 
-                                        &\lcomment{misma distribución}   															    \\
+                                        &\lcomment{Esto último es gracias a que $X_{n+1}$ y $X_1$ tienen la}                       	    \\ 
+                                        &\rcomment{misma distribución}   															    \\
                                         &=      g(\lambda)^{-(n+1)} e^{-\lambda S_{n}} g(\lambda)                                       \\
                                         &=      g(\lambda)^{-(n)} e^{-\lambda S_{n}}                                                    \\
                                         &=      M_n.

@@ -18,7 +18,7 @@ Document=parcial2\parcial2.tex
 
 [Frame0_View0,0]
 TopLine=12
-Cursor=1405
+Cursor=1320
 
 [Frame1]
 Flags=0

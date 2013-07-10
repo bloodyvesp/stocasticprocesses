@@ -9,13 +9,13 @@
 \afterstatement\pn
 
 La propiedad de Markov nos asegura que para todo $n \in N$ el proceso dado obtenido ``desfasar'' el proceso 
-en $n$  es decir: $B_{n+t} - B_n$ es independiente de $\F_n = \sigma(B_t : t \leq n)$ y por lo tanto
+en $n$ es independiente del pasado, es decir: $B_{n+t} - B_n$ es independiente de $\F_n = \sigma(B_t : t \leq n)$ y por lo tanto
 también $\abs{B_{n+t} - B_n}$ es independiente de $\F_n$ para toda $n$ y por lo tanto son independientes.\pn
 
-Además, sabemos que desfasar es únicamente volver a empezar el proceso, es decir, $B_{n+t} - B_n \sim \B_t$ y entonces
+Además, sabemos que desfasar es únicamente volver a empezar el proceso, es decir, $B_{n+t} - B_n \sim B_t$ y entonces
 $\abs{B_{n+t} - B_n} \sim \abs{B_t}$. Tomando supremos $\sup_{t \leq 1} \abs{B_{n+t} - B_n} \sim \sup_{t \leq 1} \abs{B_t}$.
 Es decir que $\sup_{t \leq 1} \abs{B_{n+t} - B_n}$ tienen todas la misma distribución que $\sup_{t \leq 1} \abs{B_t}$.\pn
 
 El en [\ref{problema6_5:inciso1}] se demostró que $\sup_{t\leq 1}\abs{B_t-B_1}$ es cuadrado integrable, y por lo tanto
 tiene medida finita. Ese es el caso cuando $n = 1$, pero como para toda $n$ se tiene la misma distribución, todas
-tienen medida finita.
+tienen media finita.

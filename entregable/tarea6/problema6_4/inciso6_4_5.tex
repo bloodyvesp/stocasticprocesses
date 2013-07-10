@@ -1,0 +1,61 @@
+\emph{
+    Aplique el teorema de muestreo opcional a la martingala 
+    $M^\lambda $ al tiempo aleatorio $T_a=\inf\set{t\geq 0:B_t\geq a}$ 
+    si $\lambda>0$. Diga por qu\'e es necesaria la \'ultima 
+    hip\'otesis y calcule la transformada de Laplace de $T_a$
+}
+
+\afterstatement\pn
+
+Sabemos que $T_a$ es finito casi seguramente dado que la martingala $B$ oscila.\pn
+
+Aplicando el teorema de muestreo opcional de Doob con el tiempo de paro acotado
+$T_a \wedge s$ tenemos que
+\begin{align}
+    \E(M_{T_a \wedge s}^\lambda) = \E(M_0^\lambda) = 1
+\end{align}\pn
+
+Por otro lado, $M_{T_a}^\lambda = e^{\lambda B_{T_a} - \lambda^2 B_{T_a}/2}$. Argumentando que $B$ empieza en 0, 
+para el caso $s \leq T_a$, tenemos que $B_s \leq B_{T_a} = a$ tenemos 
+\begin{align}
+    M_{T_a \wedge s}^\lambda    &=  M_{s}^\lambda                       \\
+                                &=  e^{\lambda B_{s} - \lambda^2 s/2}   \\
+                                &=  e^{\lambda a - \lambda^2 s/2}       \\
+                                &\leq e^{\lambda a}.   
+\end{align}
+Aquí fue necesaria la suposición $\lambda > 0$.\pn
+
+Para el caso $T_a < s$, tenemos
+\begin{align}
+    M_{T_a \wedge s}^\lambda    &=      M_{T_a}^\lambda                 \\
+                                &=      e^{\lambda a - \lambda^2 T_a/2} \\
+                                &\leq   e^{\lambda a}.
+\end{align}\pn
+
+De este análisis de casos, tenemos que $M_{T_a \wedge s}^\lambda$ es una martingala acotada por $e^{\lambda a}$.
+Dado que $M_{T_a \wedge s}^lambda \rightarrow M_{T_a}^\lambda$, el teorema de convergencia acotada nos dice que
+\begin{align}
+    \E(M_{T_a}^\lambda) &=  \lim_{s \rightarrow \infty} \E(M_{T_a \wedge s}^lambda)   \\
+                        &=  1.
+\end{align}
+
+Es decir
+\begin{align}
+    \E(M_{T_a}^\lambda) &=  \E(e^{\lambda a - \lambda^2 T_a/2})         \\
+                        &=  \E(e^{\lambda a} e^{-\lambda^2 T_a/2})      \\
+                        &=  e^{\lambda a} \E(e^{-\lambda^2 T_a/2})      \\
+                        &=  1
+\end{align}
+
+De donde $\E(e^{-\lambda^2 T_a/2}) = e^{-\lambda a}$. Para concular la transformada de Laplace de $T_a$, 
+\begin{align}
+    L_{T_a}(\alpha) &=  \E(e^{-\alpha T_a})
+\end{align}
+(véase \href{http://en.wikipedia.org/wiki/Laplace_transform#Formal_definition}{Laplace transform: Formal definition})
+Haciendo $\alpha = \lambda^2/2$ y por lo tanto, $\lambda = (2\alpha)^{1/2}$ tenemos
+\begin{align}
+    L_{T_a}(\alpha) &=  \E(e^{-\alpha T_a})         \\
+                    &=  \E(e^{-\lambda^2 T_a/2})    \\
+                    &=  e^{-\lambda a}              \\
+                    &=  e^{-(2\alpha)^{1/2} a}.
+\end{align}

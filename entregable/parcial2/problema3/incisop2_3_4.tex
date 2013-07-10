@@ -1,0 +1,23 @@
+\emph{
+    Calcule la distribución del proceso de edad al tiempo $n$:
+    \begin{align}
+            A_n = n - \max{k \leq n: B_k = 1}
+    \end{align}
+    Calcula la distribución límite de $A_n$ conforme $n \rightarrow \infty$.
+}
+
+\afterstatement\pn
+
+Supongamos $r < n$. Entonces $A_n = r$ significa que hace $r$ volados ganamos y que desde
+entonces hemos perdido. Eso quiere decir que $\P(A_n = r) = p (1-p)^r$. Es decir que para el caso
+$r < n$, $A_n$ se comporta como una variable con distribución geométrica de parámetro $p$.\pn
+
+Para el caso $r = n$. $A_n = r$ significa que nunca hemos ganado un volado. Por lo tanto
+$\P(A_n = r) = (1-p)^r$\pn
+
+Recordemos para el caso $n < r$, tenemos que $\P(A_n = r) = 0$, pues estaríamos preguntando por la probabilidad
+de haber perdido más veces que el número de volados jugados.\pn
+
+Eso quiere decir que $A_n \sim Geo(p) \wedge n$.\pn
+
+De esta última fórmula es fácil verificar que $A_n \rightarrow A_{\infty} \sim Geo(p)$.

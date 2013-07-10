@@ -1,0 +1,20 @@
+\emph{
+    Pruebe que $t^{n/2}\imf{H_n}{B_t/\sqrt{t}}$ es una martingala para 
+    toda $n$ y calc\'ulela para $n\leq 5$.\pn
+}
+
+\afterstatement\pn
+
+Que $t^{n/2}\imf{H_n}{B_t/\sqrt{t}}$ es una martingala para toda $n$ se 
+sigue de lo dicho en [\ref{problema6_4:inciso1}] y [\ref{problema6_4:inciso2}].\pn
+
+Las primeras cino son
+\scriptsize
+\begin{align}
+        &t^{1/2} H_1(B_t/\sqrt{t})   &&=  t^{1/2}\left[(B_t/\sqrt{t})\right] &=& B_t                                                                        \\
+        &t H_2(B_t/\sqrt{t})         &&=  t\left[(B_t/\sqrt{t})^2 - 1\right] &=& B_t^2 - t                                                                  \\
+        &t^{3/2} H_3(B_t/\sqrt{t})   &&=  t^{3/2}\left[(B_t/\sqrt{t})^3 - 3(B_t/\sqrt{t})\right] &=& B_t^3 - 3t B_t                                         \\
+        &t^{2} H_4(B_t/\sqrt{t})     &&=  t^{2}\left[(B_t/\sqrt{t})^4 - 6(B_t/\sqrt{t})^2 + 3\right] &=& B_t^4 - 6t B_t^2 + 3t^2                            \\
+        &t^{5/2} H_5(B_t/\sqrt{t})   &&=  t^{5/2}\left[(B_t/\sqrt{t})^5 - 10(B_t/\sqrt{t})^3 + 15(B_t/\sqrt{t})\right] &=& B_t^5 - 10t B_t^3 + t^2 B_t.     \\
+\end{align}
+\normalsize

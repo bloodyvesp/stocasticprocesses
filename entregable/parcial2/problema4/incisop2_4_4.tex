@@ -1,0 +1,43 @@
+\emph{
+    Muestre que si $\pi$ y $P$ satisfacen las ecuaciones de balance detallado, entonces existe una medida de probabilidad
+    $\P$ en $E^{\Z}$ tal que (con la noción adecuada deproceso canónico $X$),
+    \begin{align}
+            \P(X_m = x_m, \dots, X_n = x_n) = \pi_{x_m} P_{x_m, x_{m+1}} \cdots P_{x_{n-1}, x_{n}}
+    \end{align}
+    para cualesquier $m,n \in \Z$ con $m \leq n$ y para cualesquiera $x_m, \dots, x_n \in E$.
+}
+
+\afterstatement\pn
+
+
+Notemos que si $\pi_{x_r} = 0$ con $m \leq r \leq n$, la probabilidad de arriba se hace $0$ gracias a la condición de
+balance detallado (podemos ir ``voletando'', las entradas de $P$ hasta que eventualmente se atravezará $\pi_{x_r}$ en el producto).\pn
+
+Entonces nos enfocaremos en $E' = \{x \in E : \pi_x > 0 \}$.\pn
+
+Para cualesquier $m \leq n \in \Z$ y $x_m, x_n \in E'$, definamos $\P$ como
+\begin{align}
+    \P(X_m = x_m, X_n = x_n)    &= \sum_{x_{m+1}, x_{m+2},\dots x_{n-1} \in E'}   \P(X_m = x_m, \dots, X_n = x_n)                        \\
+                                &= \sum_{x_{m+1}, x_{m+2},\dots x_{n-1} \in E'}   \pi_{x_m} P_{x_m, x_{m+1}} \cdots P_{x_{n-1}, x_{n}}.   \\
+\end{align}\pn
+
+Para $l \leq m \leq n \in \Z$ y $x_l, x_m, x_n \in E'$,
+\begin{align}
+    &\P(X_l = x_l, X_m = x_m, X_n = x_n) \\
+    &=  \sum_{x_{l+1}, \dots, x_{m-1} x_{m-1},\dots x_{n-1} \in E'}   \P(X_l = x_l, \dots, X_m = x_m, \dots, X_n = x_n)
+\end{align}\pn
+
+ y así sucesivamente para ${n_1} \leq {n_2} \leq \dots \leq {n_z} \in \Z$ y $x_{n_1}, x_{n_2}, \dots, x_{n_z} \in E'$. Lo que estamos haciendo
+es completar los huecos sumando sobre todos los valores posibles que dichos huecos puedan tener.\pn
+
+Es fácil verificar que esta definición extiende a la mencionada en el enunciado. Para los casos donde tomamos infinitos $(n_i)'s \in \Z$ y su complemento
+es finito, definimos a su probabilidad como $1$, menos la probabilidad de su complemento, que sí sabemos calcular.\pn
+
+Definimos una $\sigma$-álgebra para $E^\Z$ donde los conjuntos de índices en $\Z$ tienen que ser finitos, o sus 
+compelmentos tienen que ser finitos, de manera que las definiciones que hemos hecho hasta ahora, nos basten para 
+calcular a los elementos de dicha $\sigma$-álgebra y que contengan a los casos mencionados en el enunciado.
+
+Lo que hemos hecho hasta ahora no ha sido otra cosa más que forzar a $\P$ a satisfacer las hipótesis de ser medida de probabilidad.\pn
+Con la primera parte garantizamos que la probabilidad del total sea $1$ y que $\P$ se porte bien sobre uniones disjuntas, con la segunda parte que 
+los complementos se comporten bien bajo la medida de probabilidad.
+

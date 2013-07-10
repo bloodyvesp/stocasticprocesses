@@ -1,0 +1,143 @@
+\emph{
+    Explique y pruebe formalmente por qu\'e, para toda 
+    $n\geq 1$, $\partial^n M^\lambda_t/\partial \lambda^n$ es una martingala.\pn
+}
+
+\afterstatement\pn
+
+Analicemos las primeras derivadas.
+
+\begin{align}
+    \frac{d}{d\lambda}  M_t^\lambda &=  \frac{d}{d\lambda} \left( e^{\lambda B_t - \lambda^2 t/2} \right)                       \\
+                                    &=  \frac{d}{d\lambda} \left( e^{\lambda B_t} e^{- \lambda^2 t/2} \right)                   \\
+                                    &=  B_t e^{\lambda B_t} e^{- \lambda^2/2}  - \lambda t e^{\lambda B_t} e^{- \lambda^2 t/2}  \\
+                                    &=  B_t M_t^\lambda - \lambda t M_t^\lambda                                                 \\
+                                    &=  M_t^\lambda (B_t - \lambda t).                                                          \\
+\end{align}
+
+La de segundo orden
+\begin{align}
+    \frac{d^2}{d\lambda^2}  M_t^\lambda     &=  \frac{d}{d\lambda} \left( M_t^\lambda (B_t - \lambda t) \right)                     \\
+                                            &=  M_t^\lambda (B_t - \lambda t) (B_t - \lambda t) -  t M_t^\lambda                    \\ 
+                                            &=  M_t^\lambda \left[ (B_t - \lambda t)^2 -  t \right]                                 \\    
+                                            &=  t M_t^\lambda \left[ (B_t - \lambda t)^2 (t^{-1/2})^2 -  1 \right]                       
+\end{align}\pn
+
+La de tercer orden
+\begin{align}
+    &   \;\;\;\;\frac{d^3}{d\lambda^3}  M_t^\lambda                                                                                                                                                         \\
+    &=  \frac{d}{d\lambda} \left(t M_t^\lambda  \left[ (B_t - \lambda t)^2 (t^{-1/2})^2 -  1 \right] \right)                                                                                                \\ 
+    &=  t \frac{d}{d\lambda} \left( M_t^\lambda  \left[ (B_t - \lambda t)^2 (t^{-1/2})^2 -  1 \right] \right)                                                                                               \\
+    &=  t   M_t^\lambda \left[ (B_t - \lambda t)^3 (t^{-1/2})^2 -  (B_t - \lambda t) \right]    +   M_t^\lambda \frac{d}{d\lambda} \left[ (B_t - \lambda t)^2 (t^{-1/2})^2 -  1 \right]                  \\
+    &=  t   M_t^\lambda \left(\left[ (B_t - \lambda t)^3 (t^{-1/2})^2 -  (B_t - \lambda t) \right]  +  \frac{d}{d\lambda} \left[ (B_t - \lambda t)^2 (t^{-1/2})^2 -  1 \right]\right)                  \\
+    &=  t   M_t^\lambda \left(\left[ (B_t - \lambda t)^3 (t^{-1/2})^2 -  (B_t - \lambda t) \right]  +  \left[ -2t(B_t - \lambda t) (t^{-1/2})^2 \right]\right)                  \\
+    &=  t   M_t^\lambda \left(\left[ (B_t - \lambda t)^3 (t^{-1/2})^2 -  (B_t - \lambda t) \right]  +  \left[ -2(B_t - \lambda t) \right]\right)                  \\
+    &=  t   M_t^\lambda \left[ (B_t - \lambda t)^3 (t^{-1/2})^2 -  3(B_t - \lambda t) \right]                    \\
+    &=  t \, t^{1/2} t^{-1/2}  M_t^\lambda \left[ (B_t - \lambda t)^3 (t^{-1/2})^2 -  3(B_t - \lambda t) \right]                   \\
+    &=  t^{3/2}   M_t^\lambda \left[ (B_t - \lambda t)^3 (t^{-1/2})^3 -  3 (t^{-1/2})(B_t - \lambda t) \right]                    \\
+\end{align}\pn
+
+(Estamos haciendo un poquito de trampa para facilitar el inciso siguiente). Piénsese en el factor 
+que se encuentra entre corchetes como un polinomio en $(B_t - \lambda t) (t^{-1/2})$ (en la parte 
+anterior, se trata de un polinomio de grado $3$, con sólo los términos de grado $3$ y $1$, donde 
+los coeficientes son $1$ y $3$ respectivamente).\pn
+
+Para facilitar la notación, definimos $B_t^\lambda = (B_t - \lambda t) (t^{-1/2})$ y sólo hay 
+que tener presente que $\frac{d}{d\lambda} B_t^\lambda = -t^{1/2}$ y en general, que 
+$\frac{d}{d\lambda} (B_t^\lambda)^n = -t^{1/2} n (B_t^\lambda)^{n-1}$.\pn
+
+Con esta nueva notación, tenemos
+\begin{align}
+    \frac{d}{d\lambda}  M_t^\lambda     &= t^{1/2} M_t^\lambda \left[ B_t^\lambda \right]                       \\
+    \frac{d^2}{d\lambda^2}  M_t^\lambda &= t M_t^\lambda \left[ (B_t^\lambda)^2 - 1  \right]                    \\
+    \frac{d^3}{d\lambda^3}  M_t^\lambda &= t^{3/2} M_t^\lambda \left[ (B_t^\lambda)^3 - 3 B_t^\lambda  \right]  \\
+\end{align}\pn
+
+Hagamos la siguiente hipótesis de inducción. Para cierta $n \geq 1$, se tiene que 
+\begin{align}
+    \frac{d^n}{d\lambda^n} M_t^\lambda = t^{n/2} M_t^\lambda \left[ r_n (B_t^\lambda)^n + r_{n-1} (B_t^\lambda)^{n-1} + \dots + r_1 B_t^\lambda + r_0 \right]
+\end{align}
+Donde $r_0, r_1, \dots, r_n \in \R$ y $r_n \neq 0$.\pn
+
+Derivemos una vez más para ver qué ocurre con la derivada de orden $n+1$
+\tiny
+\begin{align}
+    & \;\;\;\;\;\frac{d^{n+1}}{d\lambda^{n+1}} M_t^\lambda                                                                                                                                                                                      \\
+    &= t^{n/2} \frac{d}{d \lambda} \left( M_t^\lambda \left[ r_n (B_t^\lambda)^n + \dots + r_1 B_t^\lambda + r_0 \right] \right)                                                                                                                \\
+    &= t^{n/2}  M_t^\lambda \left( t^{1/2} \left[ r_n (B_t^\lambda)^{n+1}  + \dots + r_1 (B_t^\lambda)^2 + r_0 B_t^\lambda \right] -t^{1/2} \left[ r_n n (B_t^\lambda)^{n-1} + \dots + r_1 \right]\right)                                       \\
+    &= t^{(n+1)/2}  M_t^\lambda \left( \left[ r_n (B_t^\lambda)^{n+1}  + \dots + r_1 (B_t^\lambda)^2 + r_0 B_t^\lambda \right] - \left[ r_n n (B_t^\lambda)^{n-1} + \dots + r_1 \right]\right)                                                  \\
+    &= t^{(n+1)/2}  M_t^\lambda \left( \left[ r_n (B_t^\lambda)^{n+1}  + \dots + (r_{m-2} - r_{m})(B_t^\lambda)^{m-1} + \dots + r_1 (B_t^\lambda)^2 + r_0 B_t^\lambda \right]\right) 
+\end{align}\pn
+\normalsize
+
+En resumen, tenemos la siguiente relación recursiva:
+\tiny
+\begin{align}\label{problema6_4:equivalencia_recursiva}
+    &\;\;\;\;\;\frac{d^{n+1}}{d\lambda^{n+1}} M_t^\lambda     \\
+    &= t^{(n+1)/2}  M_t^\lambda \left( \left[ r_n (B_t^\lambda)^{n+1}  + \dots + (r_{m-2} - r_{m})(B_t^\lambda)^{m-1} + \dots + r_1 (B_t^\lambda)^2 + r_0 B_t^\lambda \right]\right) 
+\end{align}\pn
+\normalsize
+
+De esta fórmula recursiva, vemos que basta que $M_t^\lambda (B_t)^m$ sea integrable (para toda $m$, es decir, cada sumando de la parte de arriba) para que 
+$\frac{d^{n}}{d\lambda^{n}} M_t^\lambda$ lo sea. Veamos que para que $M_t^\lambda (B_t)^m = e^{\lambda B_t}e^{-\lambda^2t/2} (B_t)^m$ sea integrable,
+basta que $e^{\lambda B_t} (B_t)^m$ lo sea.\pn
+
+Recordemos entonces que $B_t$ es una variable aleatoria con distribución normal de media 0 y varianza 1, entonces, tiene momentos
+de todos los ordenes y además su función generadora de momentos $\E(e^{\alpha B_t}) = e^{\frac{1}{2} \alpha^2}$ 
+(véase \href{https://en.wikipedia.org/wiki/Normal_distribution#Moment_and_cumulant_generating_functions}{Normal distribution : Moment and culminant generating functions})
+es finita para toda $\alpha$. Haciendo la elección $\alpha = \lambda + 1$ tenemos\pn
+
+\begin{align}
+        \E(e^{(\lambda + 1) B_t})   &=  \E(e^{\lambda B_t} e^{B_t}) \\
+                                    &=  \E\left(e^{\lambda B_t} \sum \frac{(B_t)^m}{m!}\right) \\
+                                    &=  \sum \E\left(e^{\lambda B_t} \frac{(B_t)^m}{m!}\right) \\
+                                    &<  \infty.
+\end{align}\pn
+
+De donde se tiene que cada sumando tiene que ser finito y por lo tanto las derivadas de todos los órdenes son integrables.\pn
+
+El mismo argumento aplica para la integrabilidad de $e^{\abs{\lambda B_t}} \abs{B_t}^m$.
+Entonces, los valores absolutos de las derivadas de cada orden están acotadas por una función integrable 
+(es decir la función $e^{\abs{\lambda B_t}} \abs{B_t}^m$).\pn
+
+Existe un resultado que nos permite intercambiar los operadores derivada y esperanza condicional si el valor absoluto de la derivada de la
+función está dominado por una función integrable. Entonces ahora podemos hacer:
+\begin{align}
+        \E\left(\frac{d^n}{d \lambda^n} M_t^\lambda \bigg| \F_{s}\right)   &=   \frac{d}{d \lambda} \E\left(\frac{d^{n-1}}{d \lambda^{n-1}} M_t^\lambda \bigg| \F_{s}\right)
+\end{align}\pn
+Donde $s<t$ y $(\F_s)_{s \geq 0}$ es la filtración generada por $\sigma(B_t : t\leq s)$.\pn
+
+Suponiendo la hipótesis de inducción
+\begin{align}
+    \E\left(\frac{d^{n-1}}{d \lambda^{n-1}} M_t^\lambda \bigg| \F_{s}\right) &= \frac{d^{n-1}}{d \lambda^{n-1}} M_s^\lambda
+\end{align}
+
+tendremos que
+\begin{align}
+    \E\left(\frac{d^n}{d \lambda^n} M_t^\lambda \bigg| \F_{s}\right)   &=    \frac{d^{n}}{d \lambda^{n}} M_s^\lambda
+\end{align}\pn
+
+Dado que las derivdas de todos los ordenes son integrables y que las derivadas de $M_t^\lambda$ son límite de funciones 
+$\F_t$-medibles (y por lo tanto $\F_t$-medibles), basta demostrar la base de inducción para concluir que se trata de una martingala.\pn
+
+La base de inducción la haremos sobre $n = 0$, entonces sean $s < t$
+\begin{align}
+        \E\left(\frac{d^0}{d \lambda^0} M_t^\lambda \bigg| \F_s \right)  &=  \E\left( M_t^\lambda \bigg| \F_s \right)                                               \\
+                                                                    &=  \E\left( e^{-\lambda^2t/2} e^{\lambda B_t} \bigg| \F_s \right)                              \\
+                                                                    &=  e^{-\lambda^2 t/2} \E\left( e^{\lambda B_t} \bigg| \F_s \right)                             \\
+                                                                    &=  e^{-\lambda^2 t/2} \E\left( e^{\lambda (B_t - B_s + B_s)} \bigg| \F_s \right)               \\
+                                                                    &=  e^{-\lambda^2 t/2} \E\left( e^{\lambda (B_t - B_s)} e^{\lambda B_s} \bigg| \F_s \right)     \\
+                                                                    &=  e^{-\lambda^2 t/2} e^{\lambda B_s} \E\left( e^{\lambda (B_t - B_s)}  \bigg| \F_s \right)    \\
+                                                                    &=  e^{-\lambda^2 t/2} e^{\lambda B_s} \E\left( e^{\lambda B_{t-s}}  \bigg| \F_s \right)        \\
+                                                                    &\comment{los incrementos son estacionarios}                                                    \\
+                                                                    &=  e^{-\lambda^2 t/2} e^{\lambda B_s)} \E\left( e^{\lambda B_{t-s}} \right)                    \\
+                                                                    &\comment{los incrementos son independientes}                                                   \\
+                                                                    &=  e^{-\lambda^2 t/2} e^{\lambda B_s} e^{\lambda^2 (t-s)/2}                                    \\
+                                                                    &\comment{de la igualdad de la función generadora de momentos}                                  \\
+                                                                    &=  e^{-\lambda^2 s/2} e^{\lambda B_s}                                                          \\
+                                                                    &=  M_s^\lambda.
+\end{align}\pn
+
+Y con esto se termina la demostración.
+ 
+

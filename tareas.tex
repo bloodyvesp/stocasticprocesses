@@ -1,16 +1,23 @@
 \RequirePackage{pgfornament,tkzexample,tikzrput}  
 
 \documentclass[a5paper,oneside]{amsart}
-\usepackage[scale={.8,.85}]{geometry}
-\usepackage{mathrsfs}
-\usepackage[utf8]{inputenc}
-\usepackage{dsfont}
-\usepackage{listings}
-\usepackage{color}\usepackage{mathtools}
+\usepackage{color}
 \definecolor{azul}{RGB}{20,40,140}
-\usepackage[colorlinks,linkcolor=azul, citecolor=azul,urlcolor=azul]{hyperref}
-\usepackage{enumitem}
+
 \usepackage{courier}
+
+\usepackage{dsfont}
+\usepackage{enumitem}
+\usepackage[scale={.8,.85}]{geometry}
+
+\usepackage[utf8]{inputenc}
+\usepackage[colorlinks,linkcolor=azul, citecolor=azul,urlcolor=azul]{hyperref}
+
+\usepackage{listings}
+
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+
 
 
 
@@ -32,6 +39,8 @@
 
 \newtheorem{teorema}{\;\;Teorema}[section]
 \newtheorem{problema}[teorema]{\;\;Problema}
+\newtheorem{ejercicio}[teorema]{\;\;Ejercicio}
+\newtheorem{proposicion}[teorema]{\;\;Proposicion}
 \newtheorem{definicion}[teorema]{\;\;Definición}
 \newtheorem*{categoria}{Categorías:}
 \newtheorem*{remark}{Remark}
@@ -87,6 +96,10 @@
     \part{Parcial 2}
         \input{parcial2/parcial2.tex}
         \pn
+        \nqed
+
+    \part{Ejercicios}
+        \input{ejercicios/ejercicios.tex}        
         \nqed
     
     \part*{Referencias}

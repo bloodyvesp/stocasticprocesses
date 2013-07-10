@@ -1,4 +1,4 @@
-\RequirePackage{pgfornament,tkzexample,tikzrput}  
+%\RequirePackage{pgfornament,tkzexample,tikzrput}  
 
 \documentclass[a5paper,oneside]{amsart}
 \usepackage[scale={.8,.85}]{geometry}
@@ -47,9 +47,7 @@
 
 
 
-
-
-\input{definiciones/ornamentos.tex}
+%\input{definiciones/ornamentos.tex}
 
 \title[Tarea de procesos estocásticos 2013-2]{
     Problemas de Procesos Estocásticos\\ 
@@ -85,12 +83,19 @@
     \part{Tarea 6}
         \input{tarea6/tarea6.tex}        
         \nqed
+
+    \part{Parcial 2}
+        \input{parcial2/parcial2.tex}
+        \pn
+        \nqed
     
     \part*{Referencias}
         \bibliography{GenBib}
         \bibliographystyle{amsalpha}
         \newpage
 
+        
+        
     \part*{Notas}\label{notas}
         \embedfile{notas.pdf}
         Se ha incluido una versión de las notas del curso como archivo adjunto en este \texttt{pdf}. No todos los lectores de \texttt{pdf} soportan 
@@ -101,7 +106,7 @@
         El motivo de adjuntar el archivo, es porque se han hecho algunas citas a dichas notas. Si las notas cambian (lo cual es probable), 
         es posible que las referencias dejen de ser correctas.\pn
         
-        Si no es posible recompilar este documento gracias a la librería para manejar archivos adjuntos, comente las lineas $50$ y $90$ del archivo 
+        Si no es posible recompilar este documento gracias a la librería para manejar archivos adjuntos, comente las lineas $20$ y $100$ del archivo 
         principal (\texttt{tareas.tex}) y vuelva a intentar.\pn
         
         Para el creador de las notas: Sería muy útil antes de cada sección mencionar en qué otra fuente se puede consultar el material de
