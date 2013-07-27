@@ -26,35 +26,35 @@
 	Tenemos que: 
 	
 	\begin{align}
-		(T>kN \Rightarrow T>(k-1)N 	&\Rightarrow (T>kN) \subset (T>(k-1)N) \\ 
-									&\Rightarrow (T>kN) \cap (T>(k-1)N) = (T>kN) \\ 
-									&\Rightarrow \mw(T>kN, T>(k-1)N) = \mw(T>kN)	
+		\left(T>kN \Rightarrow T>(k-1)N\right) 	&\Rightarrow (T>kN) \subset (T>(k-1)N)          \\ 
+                                                &\Rightarrow (T>kN) \cap (T>(k-1)N) = (T>kN)    \\ 
+                                                &\Rightarrow \mw(T>kN, T>(k-1)N) = \mw(T>kN)	
 	\end{align}\pn
 		
 	\textbf{Base de inducción.} $k=1$. Usando \eqref{problema1_2:hipotesis_del_problema}, con $n=0$ 
 	
     \begin{align}
-		\mw(T\leq 1N | \F_0) > \epsilon\Rightarrow
-		\mw(T>N| \F_0) < 1 - \epsilon
+		\mw(T\leq 1N | \F_0) > \varepsilon\Rightarrow   \\
+		\mw(T>N| \F_0) < 1 - \varepsilon
 	\end{align}\pn
     
 	Sustituyendo por la definición de probabilidad condicional tenemos:
 
     \begin{align}
-        \E(\indic_{T>N} | \F_0)	&= \mw(T>N| \F_0) 
-                                &< 1 - \epsilon
+        \E(\indic_{T>N} | \F_0)	&= \mw(T>N| \F_0) \\
+                                &< 1 - \varepsilon
     \end{align}\pn
 
 	Aplicando esperanza en ambos lados tenemos:
     
     \begin{align} 
-        \mw(T>N) 	&= 	\E(\E(\indic_{T>N} | \F_0)) 
-                    &< 	\E(1 - \epsilon) 
-                    &= 1 - \epsilon.
+        \mw(T>N) 	&= 	\E(\E(\indic_{T>N} | \F_0)) \\
+                    &< 	\E(1 - \varepsilon)         \\
+                    &= 1 - \varepsilon.
     \end{align}\pn
 	
 	\textbf{Hipótesis de induccion.} 
-    Supongamos que $\mw(T>k_0N)\leq(1 - \epsilon)^{k_0}$ para algún $k_0 \geq 1$.\pn
+    Supongamos que $\mw(T>k_0N)\leq(1 - \varepsilon)^{k_0}$ para algún $k_0 \geq 1$.\pn
 	
 	\textbf{Paso inductivo.} 
 	Utilizando \eqref{problema1_2:sugerencia_del_problema} tenemos que
@@ -66,30 +66,30 @@
 	Ahora, dado que $T>k_0N$ es un conjunto $\F_{k_0N}$-medible tenemos:
     
 	\begin{align} 
-		\E(\indic_{T>(k_0+1)N} \cdot \indic_{T>k_0N}) 	&=		\E\left(\E\left(\indic_{T>(k_0+1)N} \cdot \indic_{T>k_0N} | \F_{k_0N}\right)\right) \\ 
+		\E(\indic_{T>(k_0+1)N} \cdot \indic_{T>k_0N}) 	&=		\E\left(\E\left(\indic_{T>(k_0+1)N} \cdot \indic_{T>k_0N} | \F_{k_0N}\right)\right)                                     \\ 
 														&=		\E\left(\indic_{T>k_0N} \E\left(\indic_{T>(k_0+1)N}|\F_{k_0N}\right)\right) \label{problema1_2:resultado_preliminar}
 	\end{align}\pn
     
 	Utilizando  $n=k_0N$ en \eqref{problema1_2:hipotesis_del_problema} tenemos
     
 	\begin{align}
-		\mw\left(T>k_0N+N|\F_{k_0N}\right) = \E\left(\indic_{T>(k_0+1)N}|\F_{k_0N}\right) < 1-\epsilon
+		\mw\left(T>k_0N+N|\F_{k_0N}\right) = \E\left(\indic_{T>(k_0+1)N}|\F_{k_0N}\right) < 1-\varepsilon
 	\end{align}\pn
     
 	Sustituyendo esto último en \eqref{problema1_2:resultado_preliminar} obtenemos:
     
     \begin{align}
-             E\left(\indic_{T>k_0N} \E\left(\indic_{T>(k_0+1)N}|\F_{k_0N}\right)\right) 	&< 		E\left(\indic_{T>k_0N} (1-\epsilon)\right) \\
-                                                                                            &=	 	(1-\epsilon) E\left(\indic_{T>k_0N} \right) \\
-                                                                                            &=		(1-\epsilon) \mw(T>k_0N) \\
-                                                                                            &\leq   (1-\epsilon)(1-\epsilon)^{k_0} \\
-                                                                                            &= (1-\epsilon)^{k_0 + 1}.
+             E\left(\indic_{T>k_0N} \E\left(\indic_{T>(k_0+1)N}|\F_{k_0N}\right)\right) 	&< 		E\left(\indic_{T>k_0N} (1-\varepsilon)\right)   \\
+                                                                                            &=	 	(1-\varepsilon) E\left(\indic_{T>k_0N} \right)  \\
+                                                                                            &=		(1-\varepsilon) \mw(T>k_0N)                     \\
+                                                                                            &\leq   (1-\varepsilon)(1-\varepsilon)^{k_0}            \\
+                                                                                            &= (1-\varepsilon)^{k_0 + 1}.
     \end{align}\pn
         
 	Con lo que concluimos
     
     \begin{align}
-        \mw(T>(k_0+1)N) &\leq (1-\epsilon)^{k_0 + 1}.
+        \mw(T>(k_0+1)N) &\leq (1-\varepsilon)^{k_0 + 1}.
     \end{align}\pn
         
 	Terminando así la demostración por inducción.\pn
@@ -116,18 +116,18 @@
 	Sustituyendo nuestro penúltimo razonamiento en esta ultima fórmula tenemos:
 	
 	\begin{align}
-		\E(T) 	&= 		\sum_{n=0}^{\infty} \mw(T > n) \\
-				&= 		\sum_{k=0}^{\infty} \sum_{n = kN}^{(k+1)N -1} \mw(T > n) \\
+		\E(T) 	&= 		\sum_{n=0}^{\infty} \mw(T > n)                              \\
+				&= 		\sum_{k=0}^{\infty} \sum_{n = kN}^{(k+1)N -1} \mw(T > n)    \\
 				&\leq 	N \sum_{k=0}^{\infty} \mw(T > kN)
 	\end{align}\pn
 		
-	Sustituyendo nuetstro resultado de que $\mw(T>kN)<(1-\epsilon)^{k}$ resulta que:
+	Sustituyendo nuetstro resultado de que $\mw(T>kN)<(1-\varepsilon)^{k}$ resulta que:
     
 	\begin{align}
-		\E(T)\leq N \sum_{k=0}^{\infty} \mw(T > kN) \leq N \sum_{k=0}^{\infty} (1-\epsilon)^k.
+		\E(T)\leq N \sum_{k=0}^{\infty} \mw(T > kN) \leq N \sum_{k=0}^{\infty} (1-\varepsilon)^k.
 	\end{align}\pn
 	
-	De lado derecho de esta última desigualdad tenemos una serie geométrica. Dado que $\epsilon$ es mayor 
-	que $0$ y entonces que $1-\epsilon$ es menor que $1$, tenemos que es una serie geométrica que converge 
+	De lado derecho de esta última desigualdad tenemos una serie geométrica. Dado que $\varepsilon$ es mayor 
+	que $0$ y entonces que $1-\varepsilon$ es menor que $1$, tenemos que es una serie geométrica que converge 
 	en los reales y por lo tanto $\E(T)$ está acotada por un número real.
 \end{proof}	
