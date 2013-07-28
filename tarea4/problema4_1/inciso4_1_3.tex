@@ -10,7 +10,7 @@ Primero demostraremos la suficiencia. Para ello emplearemos el ejercicio anterio
 Sean $H_1, \dots, H_{n+1}$ variables aleatorias $\F_1, \dots, \F_{n+1}$-medibles (respectivamente) 
 y acotadas.\pn
 
-Sea $P = \{ A : A = F_1 \cap \dots \cap \F_n \cap \G \text{ donde } F_i \in \F_i \text{ y } G \in \G \}$,
+Sea $P = \{ A : A = F_1 \cap \dots \cap F_n \cap G \text{ donde } F_i \in \F_i \text{ y } G \in \G \}$,
 Es claro que $P \subset \sigma(\F_1, \dots, \F_n, \G)$. También es fácil ver que no es vacía ($\Omega$ es uno de sus elementos), 
 y que es cerrada bajo intersecciones finitas. En otras palabras $C$ es un $\pi$-sistema. Además, justo
 igual que antes, tenemos que $\sigma(P) = \sigma(\F_1, \dots, \F_n, \G)$.\pn
@@ -37,11 +37,11 @@ Sea entonces $A \in P$. Donde $A = F_1 \cap \dots \cap F_n \cap G$ con $F_i \in 
                             &=  \E\bigg(\indic_{G} \E(H_{n+1} | \G) \E\big(\indic_{F_1} \cdots \indic_{F_n} | \G\big)\bigg)                 \\
                             &\lcomment{gracias a que $\F_1, \F_2, \dots$ son}                                                               \\
                             &\rcomment{condicionalmente independientes dada $\G$}                                                           \\
-                            &=  \E\bigg(\E\big( \indic_{G} \E(H_{n+1} | \G) \indic_{F_1} \cdots \indic_{F_n} | \G\big)\bigg)                \\
+                            &=  \E\bigg(\E\bigg( \indic_{G} \E(H_{n+1} | \G) \indic_{F_1} \cdots \indic_{F_n} \bigg| \G\bigg)\bigg)         \\
                             &\lcomment{nótese que las variables que entraron son todas}                                                     \\
                             &\rcomment{$\G$-medibles}                                                                                       \\
-                            &=  \E\bigg(\E\big( \E(H_{n+1} | \G) \indic_{G} \indic_{F_1} \cdots \indic_{F_n} | \G\big)\bigg)                \\
-                            &=  \E\bigg(\E\big( \E(H_{n+1} | \G) \indic_{A} | \G\big)\bigg)                                                 \\
+                            &=  \E\bigg(\E\bigg( \E(H_{n+1} | \G) \indic_{G} \indic_{F_1} \cdots \indic_{F_n} \bigg| \G\bigg)\bigg)         \\
+                            &=  \E\bigg(\E\bigg( \E(H_{n+1} | \G) \indic_{A} \bigg| \G\bigg)\bigg)                                          \\
                             &=  \E\big( \E(H_{n+1} | \G) \indic_{A} \big).
 \end{align}\pn
 
